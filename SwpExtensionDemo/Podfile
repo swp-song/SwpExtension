@@ -1,0 +1,23 @@
+project 'SwpExtensionDemo.xcodeproj'
+
+# Uncomment the next line to define a global platform for your project
+  platform :ios, '9.0'
+
+target 'SwpExtensionDemo' do
+  # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for SwpExtensionDemo
+  # pod 'SwpExtension', :path => '../'
+  pod 'SwpExtension/SwpColorExtension', :path => '../'
+  pod 'SwpExtension/SwpBundleExtension', :path => '../'
+  pod 'SwpExtension/SwpViewFrameExtension', :path => '../'
+  pod 'SwpExtension/SwpFontExtension', :path => '../'
+  pod 'SwpExtension/SwpUserDefaultsExtension', :path => '../'
+  pod 'SwpExtension/SwpButtonExtension', :path => '../'
+  pod 'SwpExtension/SwpBase64Extension', :path => '../'
+  pod 'SwpExtension/SwpMD5Extension', :path => '../'
+  pod 'SwpExtension/SwpStringSpaceExtension', :path => '../'
+  pod 'SwpExtension/SwpNavigationBarExtension', :path => '../'
+
+end

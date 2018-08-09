@@ -1,0 +1,724 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		131221C4B3AF53CE36DF786C833C2FFB /* SwpStringSpaceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5CF7612A6B3A1737A748B1AE32D920AD /* SwpStringSpaceExtension.swift */; };
+		149E790B45E592849A30C03C379633AE /* Pods-SwpExtensionDemo-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0DD022DF189C72DB0B084AAB0FFC3D4 /* Pods-SwpExtensionDemo-dummy.m */; };
+		21445F15239F46E66455779663DDA231 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		25EF52CD42D9518AAC34C344E347208E /* UserDefaults+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10C16729E6228397776D9B1B4E36115D /* UserDefaults+Extension.swift */; };
+		33444F5573906E1DFA21CEB3A930E7F4 /* UIViewFrame+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FAD9176458FC3B85F51C8575DD2F0C /* UIViewFrame+Extension.swift */; };
+		35284B52FB155513CA30444544026492 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 144FB9132EFEB19D49C5E61BA3F09085 /* Bundle+Extension.swift */; };
+		40BCFF66EB495C6C8346329F4862125D /* SwpBase64+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C493BF774B3D58BC1D9C751AAE5D3B1A /* SwpBase64+Extension.swift */; };
+		4FB53AC6D0D95592C3AF8E1C3CCFD522 /* UINavigationBar+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40A583940DE9C5E50B353043AC2BC1A /* UINavigationBar+Extension.swift */; };
+		86418587239F1E427775C03D44D24AEE /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1C1EFEA06521E52C3571BC84B259F24 /* UIColor+Extension.swift */; };
+		8B0087E8932E50C85AA4845F2EB497EA /* SwpMD5.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37098CB73BEDB121AF17C7DC49B2FEAA /* SwpMD5.swift */; };
+		9116FB62B2BE810FB9FD41A230829E42 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 908E902E026C5C22904CF9014A5604AD /* Foundation.framework */; };
+		9927B89C4EDF3DF328E983288AE8A668 /* Pods-SwpExtensionDemo-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A54510F8BBF6EB943D98DB4276565860 /* Pods-SwpExtensionDemo-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A311FA181FBB2250D754192FA7212766 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */; };
+		B1C103C56678E5C1A34479FED5BEE5B8 /* SwpExtension-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 98457A5DEFB952D07657EB91BB5D31B2 /* SwpExtension-dummy.m */; };
+		B6169DA35DA514E078E93B90C7E04A10 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AD7B0FB2EDEB7FAADAB95DC2478A04 /* UIButton+Extension.swift */; };
+		CCA5E64ACE9F58A0546CC0C392ADA2E0 /* SwpExtension-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 266B33F2502515B4528773B0E8E57F60 /* SwpExtension-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E8D82471AB8374E1B6B4EBE59EC45FEC /* SwpMD5+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15F6111E2AC1ACD84DA9A174E004BDF /* SwpMD5+Extension.swift */; };
+		FF486D55B31A04B6E956E923946971EB /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81814A4F21A9E3D0DDAB9B0FD3128124 /* UIFont+Extension.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		053C5E7E60486BD0970E4083A01494F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 08016C5480D73861993DC3198F8A11B2;
+			remoteInfo = SwpExtension;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03B76DE3EC500CFABF2B23617CD1FDE2 /* Pods-SwpExtensionDemo-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwpExtensionDemo-frameworks.sh"; sourceTree = "<group>"; };
+		04B89FD4289F6EE23D7050C1C4738DED /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EC1E84B7C65F841F0C70D8C3353952C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10C16729E6228397776D9B1B4E36115D /* UserDefaults+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UserDefaults+Extension.swift"; path = "SwpExtension/Code/Foundation/SwpUserDefaults/UserDefaults+Extension.swift"; sourceTree = "<group>"; };
+		144FB9132EFEB19D49C5E61BA3F09085 /* Bundle+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Bundle+Extension.swift"; path = "SwpExtension/Code/Foundation/SwpBundleExtension/Bundle+Extension.swift"; sourceTree = "<group>"; };
+		17D45A50C0E6B43BC54427D81D14C722 /* SwpExtension.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwpExtension.xcconfig; sourceTree = "<group>"; };
+		1E08B1520ABF1E1CEAA150C48C6AF568 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		266B33F2502515B4528773B0E8E57F60 /* SwpExtension-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwpExtension-umbrella.h"; sourceTree = "<group>"; };
+		27847FC5CDC1738D7708FC0E3B8321DE /* SwpExtension.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwpExtension.modulemap; sourceTree = "<group>"; };
+		37098CB73BEDB121AF17C7DC49B2FEAA /* SwpMD5.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwpMD5.swift; path = SwpExtension/Code/Foundation/SwpStringExtension/MD5/SwpMD5.swift; sourceTree = "<group>"; };
+		56AD7B0FB2EDEB7FAADAB95DC2478A04 /* UIButton+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIButton+Extension.swift"; path = "SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift"; sourceTree = "<group>"; };
+		5CF7612A6B3A1737A748B1AE32D920AD /* SwpStringSpaceExtension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwpStringSpaceExtension.swift; path = SwpExtension/Code/Foundation/SwpStringExtension/StringSpace/SwpStringSpaceExtension.swift; sourceTree = "<group>"; };
+		81814A4F21A9E3D0DDAB9B0FD3128124 /* UIFont+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIFont+Extension.swift"; path = "SwpExtension/Code/UIKit/SwpFontExtension/UIFont+Extension.swift"; sourceTree = "<group>"; };
+		82A51552549C97DC6CE38C0A5744C89A /* SwpExtension-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwpExtension-prefix.pch"; sourceTree = "<group>"; };
+		8FD13D7EA7165ED925364857D3E51CFB /* Pods-SwpExtensionDemo-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-SwpExtensionDemo-acknowledgements.plist"; sourceTree = "<group>"; };
+		908E902E026C5C22904CF9014A5604AD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		92305F41F0773A19CD6DF0DB0B1AA437 /* Pods-SwpExtensionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwpExtensionDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		98457A5DEFB952D07657EB91BB5D31B2 /* SwpExtension-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwpExtension-dummy.m"; sourceTree = "<group>"; };
+		A1C1EFEA06521E52C3571BC84B259F24 /* UIColor+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIColor+Extension.swift"; path = "SwpExtension/Code/UIKit/SwpColorExtension/UIColor+Extension.swift"; sourceTree = "<group>"; };
+		A54510F8BBF6EB943D98DB4276565860 /* Pods-SwpExtensionDemo-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-SwpExtensionDemo-umbrella.h"; sourceTree = "<group>"; };
+		A97721383936E52C2C9D3100075070B9 /* Pods-SwpExtensionDemo-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-SwpExtensionDemo-resources.sh"; sourceTree = "<group>"; };
+		B7FAD9176458FC3B85F51C8575DD2F0C /* UIViewFrame+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIViewFrame+Extension.swift"; path = "SwpExtension/Code/UIKit/SwpViewExtension/UIViewFrame+Extension.swift"; sourceTree = "<group>"; };
+		BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS11.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		BD140153EB93A1326B7D06F6015E5A67 /* Pods-SwpExtensionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-SwpExtensionDemo.release.xcconfig"; sourceTree = "<group>"; };
+		C493BF774B3D58BC1D9C751AAE5D3B1A /* SwpBase64+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwpBase64+Extension.swift"; path = "SwpExtension/Code/Foundation/SwpStringExtension/Base64/SwpBase64+Extension.swift"; sourceTree = "<group>"; };
+		CE97FE5B23769477B2A1855303864EAF /* Pods-SwpExtensionDemo.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-SwpExtensionDemo.modulemap"; sourceTree = "<group>"; };
+		DC7CEC0677600D65A8A21B0FF62CC116 /* SwpExtension.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = SwpExtension.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		E0DD022DF189C72DB0B084AAB0FFC3D4 /* Pods-SwpExtensionDemo-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-SwpExtensionDemo-dummy.m"; sourceTree = "<group>"; };
+		E40A583940DE9C5E50B353043AC2BC1A /* UINavigationBar+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UINavigationBar+Extension.swift"; path = "SwpExtension/Code/UIKit/SwpNavigationBarExtension/UINavigationBar+Extension.swift"; sourceTree = "<group>"; };
+		E73D35EA6B35E9EA845B247D03964A63 /* Pods_SwpExtensionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_SwpExtensionDemo.framework; path = "Pods-SwpExtensionDemo.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E88EC267484164721AD5406B238705D4 /* SwpExtension.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwpExtension.framework; path = SwpExtension.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EBD0941D3AF753426C6B7675B94F062B /* Pods-SwpExtensionDemo-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-SwpExtensionDemo-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F15F6111E2AC1ACD84DA9A174E004BDF /* SwpMD5+Extension.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwpMD5+Extension.swift"; path = "SwpExtension/Code/Foundation/SwpStringExtension/MD5/SwpMD5+Extension.swift"; sourceTree = "<group>"; };
+		FE6992DC056EB6534F4BF3991A3311FC /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0F9915EFE5EA6AB7CE558E6F83C0D2BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9116FB62B2BE810FB9FD41A230829E42 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E50AFDD7DFC639EEE6643B89A9E9F96D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				21445F15239F46E66455779663DDA231 /* Foundation.framework in Frameworks */,
+				A311FA181FBB2250D754192FA7212766 /* UIKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0345693F651C83A752D3948CA4D30139 /* SwpUserDefaultsExtension */ = {
+			isa = PBXGroup;
+			children = (
+				10C16729E6228397776D9B1B4E36115D /* UserDefaults+Extension.swift */,
+			);
+			name = SwpUserDefaultsExtension;
+			sourceTree = "<group>";
+		};
+		10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				908E902E026C5C22904CF9014A5604AD /* Foundation.framework */,
+				BC2C02191C153C1554B35DEE8B2D09D4 /* UIKit.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		11029F9F38DB88694497A8C75CB4D6CC /* SwpStringSpaceExtension */ = {
+			isa = PBXGroup;
+			children = (
+				5CF7612A6B3A1737A748B1AE32D920AD /* SwpStringSpaceExtension.swift */,
+			);
+			name = SwpStringSpaceExtension;
+			sourceTree = "<group>";
+		};
+		2839C7DD66DCC81DCFDC76F70465AAEC /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				FE6992DC056EB6534F4BF3991A3311FC /* LICENSE */,
+				1E08B1520ABF1E1CEAA150C48C6AF568 /* README.md */,
+				DC7CEC0677600D65A8A21B0FF62CC116 /* SwpExtension.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		37D5CB4820F43E8F50D8D4F03C5C46E3 /* SwpBase64Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C493BF774B3D58BC1D9C751AAE5D3B1A /* SwpBase64+Extension.swift */,
+			);
+			name = SwpBase64Extension;
+			sourceTree = "<group>";
+		};
+		404659E2408CED8FB473014B285E8275 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B0C37BC9A7DDD72605506990DC5639F5 /* Pods-SwpExtensionDemo */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		433CD3331B6C3787F473C941B61FC68F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				10DEDCB394BAA0C7FEDEBE330207B074 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4AC52615867133BC8A87396FDE1EE81D /* SwpMD5Extension */ = {
+			isa = PBXGroup;
+			children = (
+				37098CB73BEDB121AF17C7DC49B2FEAA /* SwpMD5.swift */,
+				F15F6111E2AC1ACD84DA9A174E004BDF /* SwpMD5+Extension.swift */,
+			);
+			name = SwpMD5Extension;
+			sourceTree = "<group>";
+		};
+		52191D8ED250C39CDA577968E80B62ED /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8020C225567F3CE57D915748AE5D7279 /* SwpExtension */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		585DAE03D4E5B16963C0B3E8B36A6071 /* SwpColorExtension */ = {
+			isa = PBXGroup;
+			children = (
+				A1C1EFEA06521E52C3571BC84B259F24 /* UIColor+Extension.swift */,
+			);
+			name = SwpColorExtension;
+			sourceTree = "<group>";
+		};
+		5973A13FAE91B42B28863AE1C6EA5B5A /* SwpBundleExtension */ = {
+			isa = PBXGroup;
+			children = (
+				144FB9132EFEB19D49C5E61BA3F09085 /* Bundle+Extension.swift */,
+			);
+			name = SwpBundleExtension;
+			sourceTree = "<group>";
+		};
+		7DB346D0F39D3F0E887471402A8071AB = {
+			isa = PBXGroup;
+			children = (
+				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
+				52191D8ED250C39CDA577968E80B62ED /* Development Pods */,
+				433CD3331B6C3787F473C941B61FC68F /* Frameworks */,
+				DEABF18F3BECD037498F7EE8ACF024D0 /* Products */,
+				404659E2408CED8FB473014B285E8275 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		8020C225567F3CE57D915748AE5D7279 /* SwpExtension */ = {
+			isa = PBXGroup;
+			children = (
+				2839C7DD66DCC81DCFDC76F70465AAEC /* Pod */,
+				B0B7B5D6912B069F7F53126BE74DA041 /* Support Files */,
+				37D5CB4820F43E8F50D8D4F03C5C46E3 /* SwpBase64Extension */,
+				5973A13FAE91B42B28863AE1C6EA5B5A /* SwpBundleExtension */,
+				E1CC475FB885E358C23571F2E0C0F014 /* SwpButtonExtension */,
+				585DAE03D4E5B16963C0B3E8B36A6071 /* SwpColorExtension */,
+				E606A44C61BDAD17F0E1CA321AFC78E0 /* SwpFontExtension */,
+				4AC52615867133BC8A87396FDE1EE81D /* SwpMD5Extension */,
+				E24992C670A95F0D1FE14A82901598C4 /* SwpNavigationBarExtension */,
+				11029F9F38DB88694497A8C75CB4D6CC /* SwpStringSpaceExtension */,
+				0345693F651C83A752D3948CA4D30139 /* SwpUserDefaultsExtension */,
+				E816878F1FAA274FBA222FE554D808FD /* SwpViewFrameExtension */,
+			);
+			name = SwpExtension;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		B0B7B5D6912B069F7F53126BE74DA041 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				04B89FD4289F6EE23D7050C1C4738DED /* Info.plist */,
+				27847FC5CDC1738D7708FC0E3B8321DE /* SwpExtension.modulemap */,
+				17D45A50C0E6B43BC54427D81D14C722 /* SwpExtension.xcconfig */,
+				98457A5DEFB952D07657EB91BB5D31B2 /* SwpExtension-dummy.m */,
+				82A51552549C97DC6CE38C0A5744C89A /* SwpExtension-prefix.pch */,
+				266B33F2502515B4528773B0E8E57F60 /* SwpExtension-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "SwpExtensionDemo/Pods/Target Support Files/SwpExtension";
+			sourceTree = "<group>";
+		};
+		B0C37BC9A7DDD72605506990DC5639F5 /* Pods-SwpExtensionDemo */ = {
+			isa = PBXGroup;
+			children = (
+				0EC1E84B7C65F841F0C70D8C3353952C /* Info.plist */,
+				CE97FE5B23769477B2A1855303864EAF /* Pods-SwpExtensionDemo.modulemap */,
+				EBD0941D3AF753426C6B7675B94F062B /* Pods-SwpExtensionDemo-acknowledgements.markdown */,
+				8FD13D7EA7165ED925364857D3E51CFB /* Pods-SwpExtensionDemo-acknowledgements.plist */,
+				E0DD022DF189C72DB0B084AAB0FFC3D4 /* Pods-SwpExtensionDemo-dummy.m */,
+				03B76DE3EC500CFABF2B23617CD1FDE2 /* Pods-SwpExtensionDemo-frameworks.sh */,
+				A97721383936E52C2C9D3100075070B9 /* Pods-SwpExtensionDemo-resources.sh */,
+				A54510F8BBF6EB943D98DB4276565860 /* Pods-SwpExtensionDemo-umbrella.h */,
+				92305F41F0773A19CD6DF0DB0B1AA437 /* Pods-SwpExtensionDemo.debug.xcconfig */,
+				BD140153EB93A1326B7D06F6015E5A67 /* Pods-SwpExtensionDemo.release.xcconfig */,
+			);
+			name = "Pods-SwpExtensionDemo";
+			path = "Target Support Files/Pods-SwpExtensionDemo";
+			sourceTree = "<group>";
+		};
+		DEABF18F3BECD037498F7EE8ACF024D0 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E73D35EA6B35E9EA845B247D03964A63 /* Pods_SwpExtensionDemo.framework */,
+				E88EC267484164721AD5406B238705D4 /* SwpExtension.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E1CC475FB885E358C23571F2E0C0F014 /* SwpButtonExtension */ = {
+			isa = PBXGroup;
+			children = (
+				56AD7B0FB2EDEB7FAADAB95DC2478A04 /* UIButton+Extension.swift */,
+			);
+			name = SwpButtonExtension;
+			sourceTree = "<group>";
+		};
+		E24992C670A95F0D1FE14A82901598C4 /* SwpNavigationBarExtension */ = {
+			isa = PBXGroup;
+			children = (
+				E40A583940DE9C5E50B353043AC2BC1A /* UINavigationBar+Extension.swift */,
+			);
+			name = SwpNavigationBarExtension;
+			sourceTree = "<group>";
+		};
+		E606A44C61BDAD17F0E1CA321AFC78E0 /* SwpFontExtension */ = {
+			isa = PBXGroup;
+			children = (
+				81814A4F21A9E3D0DDAB9B0FD3128124 /* UIFont+Extension.swift */,
+			);
+			name = SwpFontExtension;
+			sourceTree = "<group>";
+		};
+		E816878F1FAA274FBA222FE554D808FD /* SwpViewFrameExtension */ = {
+			isa = PBXGroup;
+			children = (
+				B7FAD9176458FC3B85F51C8575DD2F0C /* UIViewFrame+Extension.swift */,
+			);
+			name = SwpViewFrameExtension;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		156301FFA2519F1998928DB541016858 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9927B89C4EDF3DF328E983288AE8A668 /* Pods-SwpExtensionDemo-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		988D4DE60B384B5A2BC20131D9B340C0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCA5E64ACE9F58A0546CC0C392ADA2E0 /* SwpExtension-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		08016C5480D73861993DC3198F8A11B2 /* SwpExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 66895EF1E2AACECDB8F5A1AADC56F01F /* Build configuration list for PBXNativeTarget "SwpExtension" */;
+			buildPhases = (
+				ED7D6B5AD8663FC0E13BEB27871B21C8 /* Sources */,
+				E50AFDD7DFC639EEE6643B89A9E9F96D /* Frameworks */,
+				988D4DE60B384B5A2BC20131D9B340C0 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwpExtension;
+			productName = SwpExtension;
+			productReference = E88EC267484164721AD5406B238705D4 /* SwpExtension.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		8CB26B89847865D7FF5D627C1B1E4A82 /* Pods-SwpExtensionDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F88C738D4B1CA137D2E47E6FB7F24C1A /* Build configuration list for PBXNativeTarget "Pods-SwpExtensionDemo" */;
+			buildPhases = (
+				3CCA1ABE5C82BAB01A4B5D4952B6AB95 /* Sources */,
+				0F9915EFE5EA6AB7CE558E6F83C0D2BC /* Frameworks */,
+				156301FFA2519F1998928DB541016858 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A9EAA4B1D2DB7553ECA134E108367E61 /* PBXTargetDependency */,
+			);
+			name = "Pods-SwpExtensionDemo";
+			productName = "Pods-SwpExtensionDemo";
+			productReference = E73D35EA6B35E9EA845B247D03964A63 /* Pods_SwpExtensionDemo.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
+			};
+			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
+			productRefGroup = DEABF18F3BECD037498F7EE8ACF024D0 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8CB26B89847865D7FF5D627C1B1E4A82 /* Pods-SwpExtensionDemo */,
+				08016C5480D73861993DC3198F8A11B2 /* SwpExtension */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3CCA1ABE5C82BAB01A4B5D4952B6AB95 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				149E790B45E592849A30C03C379633AE /* Pods-SwpExtensionDemo-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED7D6B5AD8663FC0E13BEB27871B21C8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				35284B52FB155513CA30444544026492 /* Bundle+Extension.swift in Sources */,
+				40BCFF66EB495C6C8346329F4862125D /* SwpBase64+Extension.swift in Sources */,
+				B1C103C56678E5C1A34479FED5BEE5B8 /* SwpExtension-dummy.m in Sources */,
+				E8D82471AB8374E1B6B4EBE59EC45FEC /* SwpMD5+Extension.swift in Sources */,
+				8B0087E8932E50C85AA4845F2EB497EA /* SwpMD5.swift in Sources */,
+				131221C4B3AF53CE36DF786C833C2FFB /* SwpStringSpaceExtension.swift in Sources */,
+				B6169DA35DA514E078E93B90C7E04A10 /* UIButton+Extension.swift in Sources */,
+				86418587239F1E427775C03D44D24AEE /* UIColor+Extension.swift in Sources */,
+				FF486D55B31A04B6E956E923946971EB /* UIFont+Extension.swift in Sources */,
+				4FB53AC6D0D95592C3AF8E1C3CCFD522 /* UINavigationBar+Extension.swift in Sources */,
+				33444F5573906E1DFA21CEB3A930E7F4 /* UIViewFrame+Extension.swift in Sources */,
+				25EF52CD42D9518AAC34C344E347208E /* UserDefaults+Extension.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A9EAA4B1D2DB7553ECA134E108367E61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwpExtension;
+			target = 08016C5480D73861993DC3198F8A11B2 /* SwpExtension */;
+			targetProxy = 053C5E7E60486BD0970E4083A01494F9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		199D972A13F2B4C56847F7A89CCA83BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		ABE4AEB61CFC5C7D5628456FA9F88A7A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17D45A50C0E6B43BC54427D81D14C722 /* SwpExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwpExtension/SwpExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwpExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwpExtension/SwpExtension.modulemap";
+				PRODUCT_MODULE_NAME = SwpExtension;
+				PRODUCT_NAME = SwpExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CCE95533B7AAF97EEF2283D331BF50BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD140153EB93A1326B7D06F6015E5A67 /* Pods-SwpExtensionDemo.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwpExtensionDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F0EA2B833612F0ADBBFDB98B8F23CC0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17D45A50C0E6B43BC54427D81D14C722 /* SwpExtension.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwpExtension/SwpExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwpExtension/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwpExtension/SwpExtension.modulemap";
+				PRODUCT_MODULE_NAME = SwpExtension;
+				PRODUCT_NAME = SwpExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		F3FD7C708ADD94DF9B3C4C5A05B5E438 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 92305F41F0773A19CD6DF0DB0B1AA437 /* Pods-SwpExtensionDemo.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-SwpExtensionDemo/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FDB2FC4A1E5891381CD9D922145497F1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGNING_REQUIRED = NO;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				199D972A13F2B4C56847F7A89CCA83BC /* Debug */,
+				FDB2FC4A1E5891381CD9D922145497F1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		66895EF1E2AACECDB8F5A1AADC56F01F /* Build configuration list for PBXNativeTarget "SwpExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABE4AEB61CFC5C7D5628456FA9F88A7A /* Debug */,
+				F0EA2B833612F0ADBBFDB98B8F23CC0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F88C738D4B1CA137D2E47E6FB7F24C1A /* Build configuration list for PBXNativeTarget "Pods-SwpExtensionDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F3FD7C708ADD94DF9B3C4C5A05B5E438 /* Debug */,
+				CCE95533B7AAF97EEF2283D331BF50BE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+}

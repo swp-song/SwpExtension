@@ -1,0 +1,6 @@
+framework module Pods_SwpExtensionDemo {
+  umbrella header "Pods-SwpExtensionDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

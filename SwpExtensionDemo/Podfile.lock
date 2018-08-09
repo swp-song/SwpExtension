@@ -1,0 +1,34 @@
+PODS:
+  - SwpExtension/SwpBase64Extension (0.1.0)
+  - SwpExtension/SwpBundleExtension (0.1.0)
+  - SwpExtension/SwpButtonExtension (0.1.0)
+  - SwpExtension/SwpColorExtension (0.1.0)
+  - SwpExtension/SwpFontExtension (0.1.0)
+  - SwpExtension/SwpMD5Extension (0.1.0)
+  - SwpExtension/SwpNavigationBarExtension (0.1.0)
+  - SwpExtension/SwpStringSpaceExtension (0.1.0)
+  - SwpExtension/SwpUserDefaultsExtension (0.1.0)
+  - SwpExtension/SwpViewFrameExtension (0.1.0)
+
+DEPENDENCIES:
+  - SwpExtension/SwpBase64Extension (from `../`)
+  - SwpExtension/SwpBundleExtension (from `../`)
+  - SwpExtension/SwpButtonExtension (from `../`)
+  - SwpExtension/SwpColorExtension (from `../`)
+  - SwpExtension/SwpFontExtension (from `../`)
+  - SwpExtension/SwpMD5Extension (from `../`)
+  - SwpExtension/SwpNavigationBarExtension (from `../`)
+  - SwpExtension/SwpStringSpaceExtension (from `../`)
+  - SwpExtension/SwpUserDefaultsExtension (from `../`)
+  - SwpExtension/SwpViewFrameExtension (from `../`)
+
+EXTERNAL SOURCES:
+  SwpExtension:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  SwpExtension: 920fd5d0df19ab7e02d66f8582e30dd6073dd6e0
+
+PODFILE CHECKSUM: 34862bd5041ca1720b7bc448ce047bbc5e3af690
+
+COCOAPODS: 1.5.3

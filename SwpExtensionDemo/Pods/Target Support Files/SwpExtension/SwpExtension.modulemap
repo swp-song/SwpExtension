@@ -1,0 +1,6 @@
+framework module SwpExtension {
+  umbrella header "SwpExtension-umbrella.h"
+
+  export *
+  module * { export * }
+}
