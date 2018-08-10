@@ -134,7 +134,7 @@ extension UINavigationBar {
     
     ///
     /// # navigationBarBackgroundColor, 设置背景颜色
-    /// - Parameter color:
+    /// - Parameter color: color
     private func navigationBarBackgroundColor(color : UIColor) -> Void {
         
         guard self.customView == nil else {
@@ -156,8 +156,6 @@ extension UINavigationBar {
         self.customView?.backgroundColor          = color
         self.subviews.first?.insertSubview(self.customView!, at: 0)
     }
-    
-    
     
     ///
     /// # findLineImageViewUnder，查询，底部 ImageView
