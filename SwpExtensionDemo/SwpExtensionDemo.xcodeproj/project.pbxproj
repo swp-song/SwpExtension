@@ -8,8 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		6052D04554BAAF43F5A86C89 /* Pods_SwpExtensionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */; };
+		F1886218211E6AA20048D71F /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1886217211E6AA20048D71F /* DemoBaseViewController.swift */; };
+		F188621E211E6BE30048D71F /* DemoLilstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188621D211E6BE30048D71F /* DemoLilstViewController.swift */; };
+		F1886220211E6CED0048D71F /* DemoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188621F211E6CED0048D71F /* DemoNavigationController.swift */; };
+		F1886222211ECAA30048D71F /* DemoLilstView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1886221211ECAA30048D71F /* DemoLilstView.swift */; };
+		F1886224211ECB010048D71F /* DemoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1886223211ECB010048D71F /* DemoCell.swift */; };
+		F1886226211ED40C0048D71F /* DemoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1886225211ED40C0048D71F /* DemoModel.swift */; };
+		F1886228211F192C0048D71F /* DemoModel.plist in Resources */ = {isa = PBXBuildFile; fileRef = F1886227211F192C0048D71F /* DemoModel.plist */; };
+		F188622E211F23330048D71F /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F188622D211F23330048D71F /* NavigationBarViewController.swift */; };
 		F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F195CEDA211C2381003D666B /* AppDelegate.swift */; };
-		F195CEDD211C2381003D666B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F195CEDC211C2381003D666B /* ViewController.swift */; };
 		F195CEE0211C2381003D666B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEDE211C2381003D666B /* Main.storyboard */; };
 		F195CEE2211C2382003D666B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE1211C2382003D666B /* Assets.xcassets */; };
 		F195CEE5211C2382003D666B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE3211C2382003D666B /* LaunchScreen.storyboard */; };
@@ -19,9 +26,16 @@
 		38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwpExtensionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B158D114262CCF894BEB251 /* Pods-SwpExtensionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		921A7A23C261D0B5B3197019 /* Pods-SwpExtensionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.release.xcconfig"; sourceTree = "<group>"; };
+		F1886217211E6AA20048D71F /* DemoBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseViewController.swift; sourceTree = "<group>"; };
+		F188621D211E6BE30048D71F /* DemoLilstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLilstViewController.swift; sourceTree = "<group>"; };
+		F188621F211E6CED0048D71F /* DemoNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoNavigationController.swift; sourceTree = "<group>"; };
+		F1886221211ECAA30048D71F /* DemoLilstView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoLilstView.swift; sourceTree = "<group>"; };
+		F1886223211ECB010048D71F /* DemoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoCell.swift; sourceTree = "<group>"; };
+		F1886225211ED40C0048D71F /* DemoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoModel.swift; sourceTree = "<group>"; };
+		F1886227211F192C0048D71F /* DemoModel.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DemoModel.plist; sourceTree = "<group>"; };
+		F188622D211F23330048D71F /* NavigationBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarViewController.swift; sourceTree = "<group>"; };
 		F195CED7211C2381003D666B /* SwpExtensionDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwpExtensionDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F195CEDA211C2381003D666B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F195CEDC211C2381003D666B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F195CEDF211C2381003D666B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F195CEE1211C2382003D666B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F195CEE4211C2382003D666B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -57,6 +71,101 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F1886214211E6A640048D71F /* Code */ = {
+			isa = PBXGroup;
+			children = (
+				F1886229211F22C20048D71F /* NavigationBar */,
+				F1886219211E6B6F0048D71F /* DemoList */,
+				F1886215211E6A640048D71F /* Main */,
+			);
+			path = Code;
+			sourceTree = "<group>";
+		};
+		F1886215211E6A640048D71F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				F1886216211E6A640048D71F /* Controller */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		F1886216211E6A640048D71F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F188621F211E6CED0048D71F /* DemoNavigationController.swift */,
+				F1886217211E6AA20048D71F /* DemoBaseViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F1886219211E6B6F0048D71F /* DemoList */ = {
+			isa = PBXGroup;
+			children = (
+				F188621A211E6B6F0048D71F /* Controller */,
+				F188621B211E6B6F0048D71F /* View */,
+				F188621C211E6B6F0048D71F /* Molde */,
+			);
+			path = DemoList;
+			sourceTree = "<group>";
+		};
+		F188621A211E6B6F0048D71F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F188621D211E6BE30048D71F /* DemoLilstViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F188621B211E6B6F0048D71F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1886221211ECAA30048D71F /* DemoLilstView.swift */,
+				F1886223211ECB010048D71F /* DemoCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F188621C211E6B6F0048D71F /* Molde */ = {
+			isa = PBXGroup;
+			children = (
+				F1886225211ED40C0048D71F /* DemoModel.swift */,
+				F1886227211F192C0048D71F /* DemoModel.plist */,
+			);
+			path = Molde;
+			sourceTree = "<group>";
+		};
+		F1886229211F22C20048D71F /* NavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				F188622A211F22C20048D71F /* Controller */,
+				F188622B211F22C20048D71F /* View */,
+				F188622C211F22C20048D71F /* Molde */,
+			);
+			path = NavigationBar;
+			sourceTree = "<group>";
+		};
+		F188622A211F22C20048D71F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F188622D211F23330048D71F /* NavigationBarViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F188622B211F22C20048D71F /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F188622C211F22C20048D71F /* Molde */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Molde;
+			sourceTree = "<group>";
+		};
 		F195CECE211C2381003D666B = {
 			isa = PBXGroup;
 			children = (
@@ -78,8 +187,8 @@
 		F195CED9211C2381003D666B /* SwpExtensionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F1886214211E6A640048D71F /* Code */,
 				F195CEDA211C2381003D666B /* AppDelegate.swift */,
-				F195CEDC211C2381003D666B /* ViewController.swift */,
 				F195CEDE211C2381003D666B /* Main.storyboard */,
 				F195CEE1211C2382003D666B /* Assets.xcassets */,
 				F195CEE3211C2382003D666B /* LaunchScreen.storyboard */,
@@ -151,6 +260,7 @@
 				F195CEE5211C2382003D666B /* LaunchScreen.storyboard in Resources */,
 				F195CEE2211C2382003D666B /* Assets.xcassets in Resources */,
 				F195CEE0211C2381003D666B /* Main.storyboard in Resources */,
+				F1886228211F192C0048D71F /* DemoModel.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -164,10 +274,12 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwpExtension/SwpExtension.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwpExtension.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,8 +312,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F195CEDD211C2381003D666B /* ViewController.swift in Sources */,
+				F188622E211F23330048D71F /* NavigationBarViewController.swift in Sources */,
+				F1886226211ED40C0048D71F /* DemoModel.swift in Sources */,
+				F188621E211E6BE30048D71F /* DemoLilstViewController.swift in Sources */,
+				F1886218211E6AA20048D71F /* DemoBaseViewController.swift in Sources */,
+				F1886222211ECAA30048D71F /* DemoLilstView.swift in Sources */,
 				F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */,
+				F1886220211E6CED0048D71F /* DemoNavigationController.swift in Sources */,
+				F1886224211ECB010048D71F /* DemoCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

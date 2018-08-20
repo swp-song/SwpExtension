@@ -129,6 +129,63 @@ extension UINavigationBar {
     }
     
     
+    @discardableResult public func swpAlpha(alpha : CGFloat = 1) -> Self {
+        
+        if #available(iOS 11, *) {
+            
+            for obj in self.subviews {
+                
+                if let contentView : AnyClass = NSClassFromString("_UINavigationBarContentView") {
+                    if obj.isKind(of: contentView) {
+                        obj.subviews.forEach { (view) in
+                            view.alpha = alpha;
+                        }
+                    }
+                }
+            }
+            
+        } else {
+            
+            
+            if let leftViews = self.value(forKey: "_leftViews") {
+                (leftViews as! Array<UIView>).forEach { (view) in
+                    view.alpha = alpha
+                }
+            }
+            
+            if let rightViews = self.value(forKey: "_rightViews") {
+                (rightViews as! Array<UIView>).forEach { (view) in
+                    view.alpha = alpha
+                }
+            }
+            
+            if let titleView : UIView = self.value(forKey: "_titleView") as? UIView {
+                titleView.alpha = alpha
+            }
+           
+            
+            self.subviews.forEach { (view) in
+                
+                let itemView : AnyClass? = NSClassFromString("UINavigationItemView")
+                if let itemView = itemView, view.isKind(of: itemView) {
+                    view.alpha = alpha
+                }
+                
+                let backIndicatorView : AnyClass? = NSClassFromString("_UINavigationBarBackIndicatorView")
+                
+                if let backIndicatorView = backIndicatorView, view.isKind(of: backIndicatorView) {
+                    view.alpha = alpha
+                }
+                
+            }
+            
+            
+            
+        }
+        return self
+    }
+    
+    
     // MARK: - Private Function
     
     
@@ -137,24 +194,28 @@ extension UINavigationBar {
     /// - Parameter color: color
     private func navigationBarBackgroundColor(color : UIColor) -> Void {
         
-        guard self.customView == nil else {
-            return
+//        guard self.customView == nil else {
+//            return
+//        }
+        
+        if self.customView == nil {
+            
+            if #available(iOS 11.0, *) {
+                
+                let height : CGFloat = UIApplication.shared.statusBarFrame.size.height
+                self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + height))
+            } else {
+                
+                self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + 20))
+            }
+            
+            self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            self.customView?.isUserInteractionEnabled = false
+            self.customView?.autoresizingMask         = .flexibleWidth
+            self.subviews.first?.insertSubview(self.customView!, at: 0)
         }
         
-        if #available(iOS 11.0, *) {
-            
-            let height : CGFloat = UIApplication.shared.statusBarFrame.size.height
-            self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + height))
-        } else {
-            
-            self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.bounds.size.height + 20))
-        }
-        
-        self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.customView?.isUserInteractionEnabled = false
-        self.customView?.autoresizingMask         = .flexibleWidth
-        self.customView?.backgroundColor          = color
-        self.subviews.first?.insertSubview(self.customView!, at: 0)
+        self.customView?.backgroundColor = color
     }
     
     ///

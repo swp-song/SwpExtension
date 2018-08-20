@@ -1,6 +1,6 @@
 {
   "name": "SwpExtension",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "summary": "Swift Extension Code",
   "description": "TODO: Swift Extension Code",
   "homepage": "https://github.com/swp-song/SwpExtension",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/swp-song/SwpExtension.git",
-    "tag": "0.1.0"
+    "tag": "0.0.1"
   },
   "platforms": {
     "ios": "9.0"
