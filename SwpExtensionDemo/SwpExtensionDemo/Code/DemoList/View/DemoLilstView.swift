@@ -11,18 +11,24 @@ import UIKit
 
 
 
-public protocol DemoLilstViewDelegate : NSObjectProtocol {
-    
-    func demoLilstView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, model : AnyObject) -> Void
+// MARK: - DemoLilstView 协议
+protocol DemoLilstViewDelegate : NSObjectProtocol {
+    func demoLilstView(_ tableView: UITableView, indexPath: IndexPath, model : AnyObject) -> Void
 }
 
-
-
+// MARK: - DemoLilstView 实现可选方法
+private extension DemoLilstViewDelegate {
+    func demoLilstView(_ tableView: UITableView, indexPath: IndexPath, model : AnyObject) { }
+}
 
 
 class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
 
     
+    /// 定义一个点击 cell 闭包数据类型
+    typealias DemoLilstViewClickCell = (_ tableView : UITableView, _ indexPath : IndexPath, _ model : AnyObject) -> Void
+    
+    /// 数据源
     public var datas : [DemoModel] {
         
         didSet {
@@ -30,9 +36,11 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
         }
     }
     
-    public var demoLilstViewDelegate : DemoLilstViewDelegate?
+    /// 代理属性
+    public var demoLilstViewDelegate  : DemoLilstViewDelegate?
     
-    
+    /// 回调闭包
+    public var demoLilstViewClickCell : DemoLilstViewClickCell?
     
     override init(frame: CGRect, style: UITableViewStyle) {
         
@@ -43,9 +51,11 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
         delegate   = self
     }
     
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -57,7 +67,13 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
 
 }
 
+// MARK: - Public Methods Extension
 extension DemoLilstView {
+    
+    public convenience init(delegate : DemoLilstViewDelegate?, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
+        self.init(frame: frame, style: style)
+        self.demoLilstViewDelegate = delegate;
+    }
     
    public func datas(datas : [DemoModel]) -> Self {
         self.datas = datas
@@ -68,9 +84,14 @@ extension DemoLilstView {
         self.demoLilstViewDelegate = delegate
         return self
     }
+    
+    public func demoLilstViewClickCell(demoLilstViewClickCell : @escaping DemoLilstViewClickCell) -> Self {
+        self.demoLilstViewClickCell = demoLilstViewClickCell
+        return self
+    }
 }
 
-
+// MARK: - UITableView Data Source Methods Extension
 extension DemoLilstView {
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -87,23 +108,14 @@ extension DemoLilstView {
     }
 }
 
-
+// MARK: - UITableView Data Source Methods Extension
 extension DemoLilstView {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        print(indexPath.row)
         
-//        let model = datas[indexPath.row]
-//        print(model.aClass ?? AnyClass.self)
-//        let aClass = model.aClass as? UIViewController.Type
-        demoLilstViewDelegate?.demoLilstView(self, didSelectRowAt: indexPath, model: datas[indexPath.row])
+        demoLilstViewClickCell?(tableView, indexPath, datas[indexPath.row])
+        
+        demoLilstViewDelegate?.demoLilstView(self, indexPath: indexPath, model: datas[indexPath.row])
     }
-}
-
-extension DemoLilstViewDelegate {
-    
-//    public func `self`() -> DemoLilstViewDelegate {
-//        <#code#>
-//    }
 }
 

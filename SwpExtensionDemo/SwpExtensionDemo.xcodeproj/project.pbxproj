@@ -20,6 +20,8 @@
 		F195CEE0211C2381003D666B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEDE211C2381003D666B /* Main.storyboard */; };
 		F195CEE2211C2382003D666B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE1211C2382003D666B /* Assets.xcassets */; };
 		F195CEE5211C2382003D666B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE3211C2382003D666B /* LaunchScreen.storyboard */; };
+		F1F7EC81212C10D80086BF59 /* NavigationBarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7EC80212C10D80086BF59 /* NavigationBarListView.swift */; };
+		F1F7EC85212C12150086BF59 /* NavigationBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F7EC84212C12150086BF59 /* NavigationBarCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		F195CEE1211C2382003D666B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F195CEE4211C2382003D666B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F195CEE6211C2382003D666B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1F7EC80212C10D80086BF59 /* NavigationBarListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarListView.swift; sourceTree = "<group>"; };
+		F1F7EC84212C12150086BF59 /* NavigationBarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,6 +159,8 @@
 		F188622B211F22C20048D71F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				F1F7EC80212C10D80086BF59 /* NavigationBarListView.swift */,
+				F1F7EC84212C12150086BF59 /* NavigationBarCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -314,12 +320,14 @@
 			files = (
 				F188622E211F23330048D71F /* NavigationBarViewController.swift in Sources */,
 				F1886226211ED40C0048D71F /* DemoModel.swift in Sources */,
+				F1F7EC81212C10D80086BF59 /* NavigationBarListView.swift in Sources */,
 				F188621E211E6BE30048D71F /* DemoLilstViewController.swift in Sources */,
 				F1886218211E6AA20048D71F /* DemoBaseViewController.swift in Sources */,
 				F1886222211ECAA30048D71F /* DemoLilstView.swift in Sources */,
 				F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */,
 				F1886220211E6CED0048D71F /* DemoNavigationController.swift in Sources */,
 				F1886224211ECB010048D71F /* DemoCell.swift in Sources */,
+				F1F7EC85212C12150086BF59 /* NavigationBarCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

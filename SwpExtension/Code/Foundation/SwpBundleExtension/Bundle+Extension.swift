@@ -12,9 +12,22 @@ extension Bundle {
     /// - 获取 App 命名空间
     /// - Returns:
     public static func SwpGetNameSpace() -> String {
-        return Bundle.main.infoDictionary?["CFBundleName"] as? String ?? ""
+        let bundleName = Bundle.SwpBundleName()
+        return bundleName.count != 0 ? bundleName + "." : bundleName
     }
     
+    
+    ///
+    /// - 获取 BundleName
+    /// - Returns:  String
+    public static func SwpBundleName() -> String {
+        
+        let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String
+        if let bundleName = bundleName {
+            return bundleName
+        }
+        return ""
+    }
     
     ///
     /// - 获取 App 版本号
@@ -44,13 +57,9 @@ extension Bundle {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
     
-    /**
-     *  @author swp_song
-     *
-     *  @brief  swpGetBundleIdentifier( 加载字体设置字体大小 )
-     *
-     *  @return String
-     */
+    ///
+    /// - 获取 App Bundle Identifier
+    /// - Returns:  String
     public static func SwpGetBundleIdentifier() -> String {
         return Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? ""
     }

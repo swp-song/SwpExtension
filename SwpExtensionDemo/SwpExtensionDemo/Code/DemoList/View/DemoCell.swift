@@ -10,8 +10,6 @@ import UIKit
 
 class DemoCell: UITableViewCell {
     
-    
-    
     public var model : DemoModel? {
         didSet {
             setDatas(model: model)
@@ -29,28 +27,36 @@ class DemoCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        selectionStyle = .none
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public static func demoCellInit(tableView : UITableView, identifier : String, indexPath : IndexPath) -> DemoCell {
-        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DemoCell
-    }
-    
-    
+}
+
+// MARK: - Set Datas Methods
+extension DemoCell {
     private func setDatas(model : DemoModel?) {
         self.textLabel?.text = model?.aTitle
     }
+}
+
+// MARK: - Public Methods Extension
+extension DemoCell {
     
+    public static func demoCellInit(tableView : UITableView, identifier : String, indexPath : IndexPath) -> DemoCell {
+        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DemoCell
+    }
     
     public func model(model : DemoModel?) -> Self {
         self.model = model
         return self
     }
-
+    
 }
+
+

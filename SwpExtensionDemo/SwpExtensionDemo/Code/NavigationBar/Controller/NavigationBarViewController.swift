@@ -21,7 +21,6 @@ class NavigationBarViewController: DemoBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -31,5 +30,5 @@ class NavigationBarViewController: DemoBaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
+    
 }

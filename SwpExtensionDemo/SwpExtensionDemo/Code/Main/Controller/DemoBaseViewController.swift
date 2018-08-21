@@ -17,6 +17,7 @@ class DemoBaseViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        view.backgroundColor = UIColor.white
     }
 
     override func didReceiveMemoryWarning() {
@@ -34,5 +35,4 @@ class DemoBaseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
