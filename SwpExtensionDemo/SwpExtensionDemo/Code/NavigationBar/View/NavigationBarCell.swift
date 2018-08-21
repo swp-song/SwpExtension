@@ -33,12 +33,10 @@ class NavigationBarCell: UITableViewCell {
     
 }
 
-
 extension NavigationBarCell {
     
     public static func navigationBarCellInit(tableView : UITableView, identifier : String, indexPath : IndexPath) -> NavigationBarCell {
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! NavigationBarCell
-    }
-    
+    }    
 }
 

@@ -8,12 +8,18 @@
 
 import UIKit
 
-class NavigationBarViewController: DemoBaseViewController {
-
+class NavigationBarViewController: DemoBaseViewController, NavigationBarListViewDelegate {
+    
+    lazy var navigationBarListView : NavigationBarListView = NavigationBarListView(delegate : self)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        setUI()
+        
+        setData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,4 +37,45 @@ class NavigationBarViewController: DemoBaseViewController {
     }
     */
     
+}
+
+
+// MARK: - Set Data Method Extension
+extension NavigationBarViewController {
+    
+    private func setData() -> Void {
+        navigationBarListView.datas = [1, 2, 3, 4, 5, 9, 10, 11];
+    }
+}
+
+
+extension NavigationBarViewController  {
+    
+    private func setUI() -> Void {
+        setNavigationBar()
+        setUpUI()
+        setUIAutoLayout()
+    }
+    
+    private func setNavigationBar() -> Void {
+        
+    }
+    
+    private func setUpUI() -> Void {
+        view.addSubview(navigationBarListView)
+    }
+    
+    private func setUIAutoLayout() -> Void {
+        navigationBarListView.snp.makeConstraints { (make) in
+            make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+        }
+    }
+    
+}
+
+extension NavigationBarViewController {
+    
+    func navigationBarListViewClickCell(_ tableView: UITableView, indexPath: IndexPath, model: AnyObject) {
+        print(model)
+    }
 }
