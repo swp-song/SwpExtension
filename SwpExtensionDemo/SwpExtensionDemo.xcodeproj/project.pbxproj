@@ -279,7 +279,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwpExtension/SwpExtension.framework",
 			);
@@ -290,7 +290,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F71CE3F9589DAF0B61131576 /* [CP] Check Pods Manifest.lock */ = {
