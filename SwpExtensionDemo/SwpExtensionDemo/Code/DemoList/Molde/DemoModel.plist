@@ -8,5 +8,11 @@
 		<key>aClass</key>
 		<string>NavigationBarViewController</string>
 	</dict>
+	<dict>
+		<key>aTitle</key>
+		<string>UIButton</string>
+		<key>aClass</key>
+		<string>UIButtonViewController</string>
+	</dict>
 </array>
 </plist>

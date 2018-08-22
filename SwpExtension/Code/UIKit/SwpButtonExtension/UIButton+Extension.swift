@@ -6,8 +6,14 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+
 extension UIButton {
     
+    
+    
+    public enum SwpButtonImageEdge : Int {
+        case imageEdgeTop = 0, imageEdgeLeft, imageEdgeBottom, imageEdgeRight
+    }
     
     ///
     /// # 快速设置值 Button 样式
@@ -53,6 +59,49 @@ extension UIButton {
         self.setTitleColor(titleColor, for: .normal)
         self.setTitleColor(titleColor, for: .highlighted)
         action != nil ? self.addTarget(target, action: action!, for: events) : ()
+    }
+    
+    
+    @discardableResult public func swpImageEdge(imageEdge edge : SwpButtonImageEdge,  offset : CGFloat = 0) -> Self {
+        return buttonImageEdge(edge: edge, offset: offset)
+    }
+
+    
+    ///
+    private func buttonImageEdge(edge : SwpButtonImageEdge,  offset : CGFloat = 0) -> Self {
+        
+        let imageWith   : CGFloat = self.currentImage?.size.width  ?? 0
+        let imageHeight : CGFloat = self.currentImage?.size.height ?? 0
+        let labelWidth  : CGFloat = self.titleLabel?.intrinsicContentSize.width  ?? 0
+        let labelHeight : CGFloat = self.titleLabel?.intrinsicContentSize.height ?? 0
+        
+        var imageEdgeInsets : UIEdgeInsets = UIEdgeInsets.zero
+        var labelEdgeInsets : UIEdgeInsets = UIEdgeInsets.zero
+        
+        switch edge {
+            
+            case .imageEdgeTop:
+                imageEdgeInsets = UIEdgeInsetsMake(-labelHeight - offset, 0, 0, -labelWidth);
+                labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith, -imageHeight - offset, 0);
+            
+            case .imageEdgeLeft:
+                imageEdgeInsets = UIEdgeInsetsMake(0, -offset, 0, offset);
+                labelEdgeInsets = UIEdgeInsetsMake(0, offset, 0, -offset);
+            
+            case .imageEdgeBottom:
+                imageEdgeInsets = UIEdgeInsetsMake(0, 0, -labelHeight - offset, -labelWidth);
+                labelEdgeInsets = UIEdgeInsetsMake(-imageHeight - offset, -imageWith, 0, 0);
+            
+            case .imageEdgeRight:
+                imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + offset, 0, -labelWidth - offset);
+                labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith - offset, 0, imageWith + offset);
+        }
+        
+        //  赋值
+        self.titleEdgeInsets = labelEdgeInsets
+        self.imageEdgeInsets = imageEdgeInsets
+        
+        return self
     }
     
 }

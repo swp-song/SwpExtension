@@ -28,7 +28,7 @@
     "SwpBundleExtension",
     "SwpViewFrameExtension",
     "SwpUserDefaultsExtension",
-    "SwpButtonExtension",
+    "SwpButtonPropertyExtension",
     "SwpBase64Extension",
     "SwpMD5Extension",
     "SwpStringSpaceExtension",
@@ -61,7 +61,11 @@
     },
     {
       "name": "SwpButtonExtension",
-      "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/*.swift"
+      "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift"
+    },
+    {
+      "name": "SwpButtonPropertyExtension",
+      "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/SwpButtonPropertyExtension.swift"
     },
     {
       "name": "SwpColorExtension",

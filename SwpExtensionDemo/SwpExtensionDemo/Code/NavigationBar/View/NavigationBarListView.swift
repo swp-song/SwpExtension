@@ -14,14 +14,18 @@ import UIKit
 protocol NavigationBarListViewDelegate : NSObjectProtocol {
 
     func navigationBarListViewClickCell(_ tableView : UITableView, indexPath : IndexPath, model : AnyObject) -> Void
+    
+    func navigationBarListViewScrollDidScroll(_ tableView : UITableView, scrollView : UIScrollView) -> Void
 }
 
 extension NavigationBarListViewDelegate {
     
-    func navigationBarListViewClickCell(_ tableView : UITableView, indexPath : IndexPath, model : AnyObject) -> Void {}
+    func navigationBarListViewClickCell(_ tableView : UITableView, indexPath : IndexPath, model : AnyObject) -> Void { }
+    func navigationBarListViewScrollDidScroll(_ tableView : UITableView, scrollView : UIScrollView) -> Void { }
 }
 
-class NavigationBarListView: UITableView, UITableViewDataSource, UITableViewDelegate {
+
+class NavigationBarListView: UITableView, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
     
     public var datas : [Any]  {
@@ -82,7 +86,13 @@ extension NavigationBarListView {
 
         navigationBarListViewDelegate?.navigationBarListViewClickCell(self, indexPath: indexPath, model: datas[indexPath.row] as AnyObject)
     }
+}
+
+extension NavigationBarListView {
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        navigationBarListViewDelegate?.navigationBarListViewScrollDidScroll(self, scrollView: scrollView)
+    }
     
 }
 

@@ -21,5 +21,7 @@ target 'SwpExtensionDemo' do
   pod 'SwpExtension/SwpMD5Extension', :path => '../'
   pod 'SwpExtension/SwpStringSpaceExtension', :path => '../'
   pod 'SwpExtension/SwpNavigationBarExtension', :path => '../'
+  pod 'SwpExtension/SwpButtonPropertyExtension', :path => '../'
+
 
 end

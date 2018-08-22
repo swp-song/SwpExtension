@@ -16,15 +16,48 @@ class NavigationBarViewController: DemoBaseViewController, NavigationBarListView
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
         setUI()
         
         setData()
+        
+
+        if #available(iOS 11.0, *) {
+            navigationBarListView.contentInsetAdjustmentBehavior = .never
+            navigationBarListView.estimatedRowHeight = 0
+            navigationBarListView.estimatedSectionFooterHeight = 0
+            navigationBarListView.estimatedSectionHeaderHeight = 0
+        }
+        
+        
+        navigationBarListView.backgroundColor = UIColor.orange
+        
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.navigationBar.swpBackgroundColor = UIColor.clear
+        navigationBarListViewScrollDidScroll(navigationBarListView, scrollView: navigationBarListView)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        //  解除循环引用
+        navigationController?.navigationBar.swpRemove()
+        
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        navigationBarListView.navigationBarListViewDelegate = nil
+    }
+    
+    deinit {
+        print(#function)
     }
     
     /*
@@ -78,4 +111,21 @@ extension NavigationBarViewController {
     func navigationBarListViewClickCell(_ tableView: UITableView, indexPath: IndexPath, model: AnyObject) {
         print(model)
     }
+    
+    func navigationBarListViewScrollDidScroll(_ tableView: UITableView, scrollView: UIScrollView) {
+        
+        let offsetY : CGFloat   = scrollView.contentOffset.y
+        let color   : UIColor   = UIColor.orange
+        let height  : CGFloat   = 150
+        let navigationBarHeight = self.navigationController?.navigationBar.swpNavigationBarHeight ?? 64
+        
+        if offsetY > height {
+            let alpha : CGFloat = min(1, 1 - ((height + navigationBarHeight - offsetY) / navigationBarHeight))
+            self.navigationController?.navigationBar.swpBackgroundColor = color.withAlphaComponent(alpha)
+        } else {
+            self.navigationController?.navigationBar.swpBackgroundColor = color.withAlphaComponent(0)
+        }
+        
+    }
+    
 }

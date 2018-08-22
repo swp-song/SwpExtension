@@ -47,7 +47,7 @@ Pod::Spec.new do |s|
                         'SwpBundleExtension',
                         'SwpViewFrameExtension',
                         'SwpUserDefaultsExtension',
-                        'SwpButtonExtension',
+                        'SwpButtonPropertyExtension',
                         'SwpBase64Extension',
                         'SwpMD5Extension',
                         'SwpStringSpaceExtension',
@@ -93,7 +93,12 @@ Pod::Spec.new do |s|
   
     # UIButton Extension
     s.subspec 'SwpButtonExtension' do |swpButtonExtension|
-      swpButtonExtension.source_files = 'SwpExtension/Code/UIKit/SwpButtonExtension/*.swift'
+      swpButtonExtension.source_files = 'SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift'
+    end
+    
+    # UIButton Property Extension
+    s.subspec 'SwpButtonPropertyExtension' do |swpButtonPropertyExtension|
+      swpButtonPropertyExtension.source_files = 'SwpExtension/Code/UIKit/SwpButtonExtension/SwpButtonPropertyExtension.swift'
     end
   
     # UIColor Extension
