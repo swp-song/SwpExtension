@@ -21,19 +21,31 @@ class UIButtonViewController: DemoBaseViewController {
 
         // Do any additional setup after loading the view.
         
+    
         view.addSubview(button)
         button.backgroundColor = UIColor.red
+        button.setImage(UIImage(named: "button_icon"), for: .normal)
+//        button.setTitle("123", for: .normal)
+//        button.setTitleColor(UIColor.black, for: .normal)
+        button.swpTitle("123", for: .normal).swpTitleColor(UIColor.black, for: .normal).swpImage(UIImage(named: "button_icon"), for: .normal).swpImageEdge(imageEdge: .top)
+
         
-        button.snp.makeConstraints { [weak self] (make) in
-            make.top.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
-            print(self?.button.snp.height as Any)
-//            make.width.equalTo(self!.button.snp.height).multipliedBy(10)
+        self.button.snp.makeConstraints { (make) in
+//            make.top.left.right.equalTo(UIEdgeInsetsMake(100, 0, 0, 0))
+            make.top.left.equalTo(UIEdgeInsetsMake(100, 30, 0, 0))
+//            make.width.equalTo(self.button.snp.height).multipliedBy(10)
+            make.width.height.equalTo(CGSize(width: 100, height: 50))
         }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    
+    deinit {
+        print(#function)
     }
     
 

@@ -12,7 +12,14 @@ extension UIButton {
     
     
     public enum SwpButtonImageEdge : Int {
-        case imageEdgeTop = 0, imageEdgeLeft, imageEdgeBottom, imageEdgeRight
+        
+        case top
+        
+        case left
+        
+        case bottom
+        
+        case right
     }
     
     ///
@@ -62,6 +69,37 @@ extension UIButton {
     }
     
     
+    // MARK: - Custom
+    
+    @discardableResult public func swpTitle(_ title : String, for state : UIControlState) -> Self {
+        self.setTitle(title, for: state)
+        return self
+    }
+    
+    @discardableResult public func swpTitleFont(font : UIFont) -> Self {
+        self.titleLabel?.font = font
+        return self
+    }
+    
+    @discardableResult public func swpTitleColor(_ color : UIColor, for state : UIControlState) -> Self {
+        self.setTitleColor(color, for: state)
+        return self
+    }
+    
+    @discardableResult public func swpImage(_ image : UIImage?, for state : UIControlState) -> Self {
+        self.setImage(image, for: state)
+        return self
+    }
+    
+    // MARK: - Custom
+    
+    
+    ///
+    /// # swpImageEdge，设置图片位置
+    /// - Parameters:
+    ///   - imageEdge:  imageEdge
+    ///   - offset:     offset
+    /// - Returns:      UIButton
     @discardableResult public func swpImageEdge(imageEdge edge : SwpButtonImageEdge,  offset : CGFloat = 0) -> Self {
         return buttonImageEdge(edge: edge, offset: offset)
     }
@@ -80,19 +118,19 @@ extension UIButton {
         
         switch edge {
             
-            case .imageEdgeTop:
+            case .top:
                 imageEdgeInsets = UIEdgeInsetsMake(-labelHeight - offset, 0, 0, -labelWidth);
                 labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith, -imageHeight - offset, 0);
             
-            case .imageEdgeLeft:
+            case .left:
                 imageEdgeInsets = UIEdgeInsetsMake(0, -offset, 0, offset);
                 labelEdgeInsets = UIEdgeInsetsMake(0, offset, 0, -offset);
             
-            case .imageEdgeBottom:
+            case .bottom:
                 imageEdgeInsets = UIEdgeInsetsMake(0, 0, -labelHeight - offset, -labelWidth);
                 labelEdgeInsets = UIEdgeInsetsMake(-imageHeight - offset, -imageWith, 0, 0);
             
-            case .imageEdgeRight:
+            case .right:
                 imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + offset, 0, -labelWidth - offset);
                 labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith - offset, 0, imageWith + offset);
         }
