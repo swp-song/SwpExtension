@@ -50,7 +50,8 @@ Pod::Spec.new do |s|
                         'SwpBase64Extension',
                         'SwpMD5Extension',
                         'SwpStringSpaceExtension',
-                        'SwpNavigationBarExtension'
+                        'SwpNavigationBarExtension',
+                        'SwpTextFieldExtension'
   
   
   
@@ -110,6 +111,11 @@ Pod::Spec.new do |s|
     # UINavigationBar Extension
     s.subspec 'SwpNavigationBarExtension' do |swpNavigationBarExtension|
       swpNavigationBarExtension.source_files = 'SwpExtension/Code/UIKit/SwpNavigationBarExtension/*.swift'
+    end
+
+    # UITextField Extension
+    s.subspec 'SwpTextFieldExtension' do |swpTextFieldExtension|
+      swpTextFieldExtension.source_files = 'SwpExtension/Code/UIKit/SwpTextFieldExtension/*.swift'
     end
   
     

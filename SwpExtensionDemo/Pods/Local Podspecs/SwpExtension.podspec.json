@@ -31,7 +31,8 @@
     "SwpBase64Extension",
     "SwpMD5Extension",
     "SwpStringSpaceExtension",
-    "SwpNavigationBarExtension"
+    "SwpNavigationBarExtension",
+    "SwpTextFieldExtension"
   ],
   "subspecs": [
     {
@@ -73,6 +74,10 @@
     {
       "name": "SwpNavigationBarExtension",
       "source_files": "SwpExtension/Code/UIKit/SwpNavigationBarExtension/*.swift"
+    },
+    {
+      "name": "SwpTextFieldExtension",
+      "source_files": "SwpExtension/Code/UIKit/SwpTextFieldExtension/*.swift"
     }
   ]
 }

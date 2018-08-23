@@ -14,5 +14,11 @@
 		<key>aClass</key>
 		<string>UIButtonViewController</string>
 	</dict>
+	<dict>
+		<key>aTitle</key>
+		<string>UITextField</string>
+		<key>aClass</key>
+		<string>UITextFieldViewController</string>
+	</dict>
 </array>
 </plist>

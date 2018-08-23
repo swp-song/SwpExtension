@@ -1,26 +1,26 @@
 //
-//  DemoBaseViewController.swift
+//  UITextFieldViewController.swift
 //  SwpExtensionDemo
 //
-//  Created by Dream on 2018/8/11.
+//  Created by swp_song on 2018/8/23.
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
 import UIKit
 
-import SnapKit
+class UITextFieldViewController: DemoBaseViewController {
 
-
-class DemoBaseViewController: UIViewController {
-
-    
-    
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {
+        
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.white
+        
+        setUI()
+        
+        setData()
+        
+        controllerClosure()
     }
     
     ///
@@ -52,7 +52,7 @@ class DemoBaseViewController: UIViewController {
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
-
+    
     
     /// # didReceiveMemoryWarning, ( 内存不足时调用 )
     override func didReceiveMemoryWarning() {
@@ -60,8 +60,7 @@ class DemoBaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+
     /*
     // MARK: - Navigation
 
@@ -71,4 +70,49 @@ class DemoBaseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+
+// MARK: - UITextFieldViewController, Set UI Methods Extension
+extension UITextFieldViewController  {
+    
+    private func setUI() -> Void {
+        setNavigationBar()
+        setUpUI()
+        setAutoLayout()
+    }
+    
+    private func setNavigationBar() -> Void {
+        
+    }
+    
+    private func setUpUI() -> Void {
+        
+    }
+    
+    private func setAutoLayout() -> Void {
+        
+    }
+    
+}
+
+// MARK: - UITextFieldViewController, Set Data Method Extension
+extension UITextFieldViewController {
+    private func setData() -> Void {
+
+    }
+}
+
+// MARK: - UITextFieldViewController, Closure ( Block ) Methods Extension
+extension UITextFieldViewController {
+    
+    private func controllerClosure() -> Void {
+        
+    }
+}
+
+// MARK: - UITextFieldViewController, Delegate Methods Extension
+extension UITextFieldViewController {
+    
 }
