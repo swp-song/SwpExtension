@@ -37,7 +37,7 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
     }
     
     /// 代理属性
-    public var demoLilstViewDelegate  : DemoLilstViewDelegate?
+    weak public var demoLilstViewDelegate  : DemoLilstViewDelegate?
     
     /// 回调闭包
     public var demoLilstViewClickCell : DemoLilstViewClickCell?

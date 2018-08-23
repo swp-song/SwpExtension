@@ -9,21 +9,15 @@
 
 extension UIButton {
     
-    
-    
     public enum SwpButtonImageEdge : Int {
-        
         case top
-        
         case left
-        
         case bottom
-        
         case right
     }
     
     ///
-    /// # 快速设置值 Button 样式
+    /// # set submit style button
     /// - Parameters:
     ///   - backgroundColor:    backgroundColor
     ///   - title:              title
@@ -35,13 +29,12 @@ extension UIButton {
     ///   - action:             action
     ///   - events:             events
     public convenience init(_ backgroundColor : UIColor = UIColor.white, title : String?, titleColor : UIColor, size : CGFloat = 15, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) {
-        
         self.init(backgroundColor, title: title, titleColor: titleColor, titleFont: UIFont.systemFont(ofSize: size), radius: radius, tag: tag, target: target, action: action, events: events)
     }
     
     
     ///
-    /// # 快速设置值 Button
+    /// # set submit style button
     /// - Parameters:
     ///   - backgroundColor:    backgroundColor
     ///   - title:              title
@@ -69,43 +62,127 @@ extension UIButton {
     }
     
     
-    // MARK: - Custom
+    // MARK: - Property
     
+    ///
+    /// # set title
+    /// - Parameters:
+    ///   - title:  title
+    ///   - state:  state
+    /// - Returns:  UIButton
     @discardableResult public func swpTitle(_ title : String, for state : UIControlState) -> Self {
         self.setTitle(title, for: state)
         return self
     }
     
+    ///
+    /// # set title font
+    /// - Parameter font: font
+    /// - Returns:  UIButton
     @discardableResult public func swpTitleFont(font : UIFont) -> Self {
         self.titleLabel?.font = font
         return self
     }
     
+    
+    ///
+    /// # set title color
+    /// - Parameters:
+    ///   - color:  color
+    ///   - state:  state
+    /// - Returns:  UIButton
     @discardableResult public func swpTitleColor(_ color : UIColor, for state : UIControlState) -> Self {
         self.setTitleColor(color, for: state)
         return self
     }
     
+    
+    ///
+    /// # set image
+    /// - Parameters:
+    ///   - image:  image
+    ///   - state:  state
+    /// - Returns:  UIButton
     @discardableResult public func swpImage(_ image : UIImage?, for state : UIControlState) -> Self {
         self.setImage(image, for: state)
         return self
     }
     
-    // MARK: - Custom
+    
+    ///
+    /// # set background image
+    /// - Parameters:
+    ///   - image:  image
+    ///   - state:  state
+    /// - Returns:  UIButton
+    @discardableResult public func swpBackgroundImage(_ image : UIImage?, for state : UIControlState) -> Self {
+        self.setBackgroundImage(image, for: state)
+        return self
+    }
     
     
     ///
-    /// # swpImageEdge，设置图片位置
+    /// # set tag
+    /// - Parameter tag: tag
+    /// - Returns: UIButton
+    @discardableResult public func swpTag(tag : Int) -> Self {
+        self.tag = tag
+        return self
+    }
+    
+    
+    ///
+    /// # set events
+    /// - Parameters:
+    ///   - target: target
+    ///   - action: action
+    ///   - events: events
+    /// - Returns:  UIButton
+    @discardableResult public func swpTargetEvent(_ target: Any?, action : Selector,  for events : UIControlEvents) -> Self {
+        self.addTarget(target, action: action, for: events)
+        return self
+    }
+    
+    
+    ///
+    /// # set title edgeInsets
+    /// - Parameter titleEdgeInsets: titleEdgeInsets
+    /// - Returns: UIButton
+    @discardableResult public func swpTitleEdgeInsets(titleEdgeInsets : UIEdgeInsets) -> Self {
+        self.titleEdgeInsets = titleEdgeInsets
+        return self
+    }
+    
+    
+    ///
+    /// # set image edgeInsets
+    /// - Parameter imageEdgeInsets:
+    /// - Returns: UIButton
+    @discardableResult public func swpImageEdgeInsets(imageEdgeInsets : UIEdgeInsets) -> Self {
+        self.imageEdgeInsets = imageEdgeInsets
+        return self
+    }
+    
+    // MARK: - Custom
+    ///
+    /// # set image location
     /// - Parameters:
     ///   - imageEdge:  imageEdge
     ///   - offset:     offset
-    /// - Returns:      UIButton
+    /// - Returns: UIButton
     @discardableResult public func swpImageEdge(imageEdge edge : SwpButtonImageEdge,  offset : CGFloat = 0) -> Self {
         return buttonImageEdge(edge: edge, offset: offset)
     }
 
     
+    // MARK: - Private
+    
     ///
+    /// # set image location
+    /// - Parameters:
+    ///   - edge:   imageEdge
+    ///   - offset: offset
+    /// - Returns: UIButton
     private func buttonImageEdge(edge : SwpButtonImageEdge,  offset : CGFloat = 0) -> Self {
         
         let imageWith   : CGFloat = self.currentImage?.size.width  ?? 0

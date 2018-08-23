@@ -8,8 +8,9 @@
 
 
 extension UIFont {
+    
     ///
-    /// # 获取字体名称
+    /// # get font names
     /// - Returns: [String]
     @discardableResult public static func SwpFontNames() -> [String] {
         return UIFont.familyNames
@@ -17,7 +18,7 @@ extension UIFont {
     
     
     ///
-    /// # 获取字体名称
+    /// # get font name list
     /// - Returns: [String : [String]]
     @discardableResult public static func SwpFontNameList() -> [String : [String]] {
         
@@ -39,7 +40,7 @@ extension UIFont {
     }
     
     ///
-    /// # 设置字体，name = nil, Returns SystemFont, size default = 15
+    /// # set the font, based on the font name
     /// - Parameters:
     ///   - fontName: fontName
     ///   - fontSize: fontSize
@@ -54,7 +55,7 @@ extension UIFont {
     
     
     ///
-    /// # AppleSDGothicNeo-Thin Font
+    /// # get AppleSDGothicNeo-Thin font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
     public static func SwpFontAppleSDGothicNeoThin(_ size : CGFloat = 15) -> UIFont {
@@ -62,7 +63,7 @@ extension UIFont {
     }
     
     ///
-    /// # Avenir Font
+    /// # get Avenir font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
     public static func SwpFontAvenir(_ size : CGFloat = 15) -> UIFont {
@@ -70,7 +71,7 @@ extension UIFont {
     }
     
     ///
-    /// # Avenir-Light Font
+    /// # get Avenir Light font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
     public static func SwpFontAvenirLight(_ size : CGFloat = 15) -> UIFont {
@@ -78,7 +79,7 @@ extension UIFont {
     }
     
     ///
-    /// # Heiti SC Font
+    /// # get Heiti SC font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
     public static func SwpFontHeitiSC(_ size : CGFloat = 15) -> UIFont {
@@ -86,7 +87,7 @@ extension UIFont {
     }
     
     ///
-    /// # HelveticaNeue Font
+    /// # get HelveticaNeue font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
     public static func SwpFontHelveticaNeue(_ size : CGFloat = 15) -> UIFont {
@@ -94,7 +95,7 @@ extension UIFont {
     }
     
     ///
-    /// # HelveticaNeue-Bold Font
+    /// # get HelveticaNeue font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
     public static func SwpFontHelveticaNeueBold(_ size : CGFloat = 15) -> UIFont {
@@ -102,7 +103,7 @@ extension UIFont {
     }
     
     ///
-    /// # GillSans-Italic Font
+    /// # get GillSans Italic font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
     public static func SwpFontGillSansItalic(_ size : CGFloat = 15) -> UIFont {

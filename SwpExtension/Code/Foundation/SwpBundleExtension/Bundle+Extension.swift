@@ -9,8 +9,8 @@
 extension Bundle {
     
     ///
-    /// - 获取 App 命名空间
-    /// - Returns:
+    /// # get name space
+    /// - Returns: String
     public static func SwpGetNameSpace() -> String {
         let bundleName = Bundle.SwpBundleName()
         return bundleName.count != 0 ? bundleName + "." : bundleName
@@ -18,8 +18,8 @@ extension Bundle {
     
     
     ///
-    /// - 获取 BundleName
-    /// - Returns:  String
+    /// # get bundle name
+    /// - Returns: String
     public static func SwpBundleName() -> String {
         
         let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String
@@ -30,8 +30,8 @@ extension Bundle {
     }
     
     ///
-    /// - 获取 App 版本号
-    /// - Returns:  String
+    /// # get app version
+    /// - Returns: String
     public static func SwpGetAppVersion() -> String {
         
         #if DEBUG
@@ -43,23 +43,23 @@ extension Bundle {
     
     
     ///
-    /// - 获取 App CFBundleVersion 版本号
-    /// - Returns:  String
+    /// # get app bundle version
+    /// - Returns: String
     public static func SwpGetBundleVersion() -> String {
         return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
     }
     
     
     ///
-    /// - 获取 App CFBundleShortVersionString 版本号
-    /// - Returns:  String
+    /// # get app bundle short version string
+    /// - Returns: String
     public static func SwpGetBundleShortVersionString() -> String  {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
     
     ///
-    /// - 获取 App Bundle Identifier
-    /// - Returns:  String
+    /// # get app bundle identifier
+    /// - Returns: String
     public static func SwpGetBundleIdentifier() -> String {
         return Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? ""
     }

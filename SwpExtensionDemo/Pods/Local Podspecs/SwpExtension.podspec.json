@@ -1,6 +1,6 @@
 {
   "name": "SwpExtension",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "summary": "Swift Extension Code",
   "description": "TODO: Swift Extension Code",
   "homepage": "https://github.com/swp-song/SwpExtension",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/swp-song/SwpExtension.git",
-    "tag": "0.0.1"
+    "tag": "0.0.2"
   },
   "platforms": {
     "ios": "9.0"
@@ -28,7 +28,6 @@
     "SwpBundleExtension",
     "SwpViewFrameExtension",
     "SwpUserDefaultsExtension",
-    "SwpButtonPropertyExtension",
     "SwpBase64Extension",
     "SwpMD5Extension",
     "SwpStringSpaceExtension",
@@ -62,10 +61,6 @@
     {
       "name": "SwpButtonExtension",
       "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift"
-    },
-    {
-      "name": "SwpButtonPropertyExtension",
-      "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/SwpButtonPropertyExtension.swift"
     },
     {
       "name": "SwpColorExtension",

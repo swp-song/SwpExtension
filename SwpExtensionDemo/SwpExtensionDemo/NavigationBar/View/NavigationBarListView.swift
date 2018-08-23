@@ -35,7 +35,7 @@ class NavigationBarListView: UITableView, UITableViewDataSource, UITableViewDele
     }
     
     
-    public var navigationBarListViewDelegate : NavigationBarListViewDelegate? = nil
+    weak public var navigationBarListViewDelegate : NavigationBarListViewDelegate? = nil
     
     
     override init(frame: CGRect, style: UITableViewStyle) {

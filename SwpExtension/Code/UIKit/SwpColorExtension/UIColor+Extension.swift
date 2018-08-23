@@ -8,55 +8,60 @@
 
 extension UIColor {
     
-    // MARK: - public
+    // MARK: - Public
     
     ///
-    /// - 十六进制颜色，Int 生成对应颜色
+    /// # hex set color
     /// - Parameters:
-    ///   - hexColor:   Int
-    ///   - alpha:      CGFloat
-    /// - Returns:      UIColor
-    public static func SwpColorHex(hexColor : Int, alpha : CGFloat = 1) -> UIColor {
-        return UIColor.ColorHex(hexColor: hexColor, alpha: alpha)
+    ///   - hex:   Int
+    ///   - alpha: alpha
+    /// - Returns: UIColor
+    public static func SwpColorHex(_ hex : Int, alpha : CGFloat = 1) -> UIColor {
+        return UIColor.ColorHex(hex, alpha: alpha)
     }
     
     
     ///
-    /// - 十六进制字符串，生成对应颜色
+    /// # hex set color
     /// - Parameters:
-    ///   - hexColor:   String
-    ///   - alpha:      CGFloat
-    /// - Returns:      UIColor
-    public static func SwpColorHex(hexColor : String, alpha : CGFloat = 1) -> UIColor {
-        return UIColor.ColorHex(hexColor: hexColor, alpha: alpha);
+    ///   - hex:   hex
+    ///   - alpha: alpha
+    /// - Returns: UIColor
+    public static func SwpColorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
+        return UIColor.ColorHex(hex, alpha: alpha);
     }
     
     
     ///
-    /// - R G B 生成颜色
+    /// # r g b set color
     /// - Parameters:
-    ///   - red:    CGFloat
-    ///   - green:  CGFloat
-    ///   - blue:   CGFloat
-    ///   - alpha:  CGFloat
+    ///   - red:    red
+    ///   - green:  green
+    ///   - blue:   blue
+    ///   - alpha:  alpha
     /// - Returns:  UIColor
     public static func SwpColorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
         return UIColor.ColorRGB(red: red, green: green, blue: blue, alpha: alpha)
     }
     
-    
-    
     ///
-    /// - 生成随机颜色
+    /// # create random colors
     /// - Returns:  UIColor
     public static func SwpColorRandom(alpha : CGFloat = 1) -> UIColor {
         return SwpColorRGB(red: CGFloat(arc4random_uniform(256)), green: CGFloat(arc4random_uniform(256)), blue: CGFloat(arc4random_uniform(256)), alpha:alpha)
     }
     
-    // MARK: - private
-    private static func ColorHex(hexColor : String, alpha : CGFloat = 1) -> UIColor {
+    // MARK: - Private
+    
+    ///
+    /// # hex set color
+    /// - Parameters:
+    ///   - hex:    hex
+    ///   - alpha:  alpha
+    /// - Returns:  UIColor
+    private static func ColorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
         
-        var aString : String = hexColor.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
+        var aString : String = hex.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         
         if aString.count < 6 {
             return UIColor.clear
@@ -73,8 +78,6 @@ extension UIColor {
         if aString.count != 6 {
             return UIColor.clear
         }
-        
-        
         
         var range : NSRange = NSRange()
         range.location      = 0
@@ -101,11 +104,25 @@ extension UIColor {
     }
     
     
-    
-    private static func ColorHex(hexColor : Int, alpha : CGFloat) -> UIColor {
-        return UIColor(red:((CGFloat)((hexColor & 0xFF0000) >> 16)) / 255.0, green:((CGFloat)((hexColor & 0xFF00) >> 8)) / 255.0, blue:((CGFloat)((hexColor & 0xFF))) / 255.0, alpha: alpha)
+    ///
+    /// # hex set color
+    /// - Parameters:
+    ///   - hex:    hex
+    ///   - alpha:  alpha
+    /// - Returns:  UIColor
+    private static func ColorHex(_ hex : Int, alpha : CGFloat) -> UIColor {
+        return UIColor(red:((CGFloat)((hex & 0xFF0000) >> 16)) / 255.0, green:((CGFloat)((hex & 0xFF00) >> 8)) / 255.0, blue:((CGFloat)((hex & 0xFF))) / 255.0, alpha: alpha)
     }
     
+    
+    ///
+    /// # r g b set color
+    /// - Parameters:
+    ///   - red:    red
+    ///   - green:  green
+    ///   - blue:   blue
+    ///   - alpha:  alpha
+    /// - Returns:  UIColor
     private static func ColorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
         return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha);
     }

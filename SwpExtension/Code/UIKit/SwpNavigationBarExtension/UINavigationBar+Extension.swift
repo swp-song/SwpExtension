@@ -1,26 +1,24 @@
 //
 //  UINavigationBar+Extension.swift
-//  SwpExtensionDemo
+//  swp_song
 //
-//  Created by Dream on 2018/8/9.
+//  Created by swp-song on 2018/8/9.
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-private struct SwpNavigationBarRunTimeKeys {
-    static let kSwpCustomViewKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "customViewKey".hashValue)!
-    static let kSwpBackgroundColorKey   : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpBackgroundColorKey".hashValue)!
-    static let kSwpHiddenBottomLineKey  : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpHiddenBottomLine".hashValue)!
-    static let kSwpTitleFontKey         : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpTitleFontKey".hashValue)!
-    static let kSwpTitleColorKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpTitleColorKey".hashValue)!
-}
-
-
 extension UINavigationBar {
     
+    private struct SwpNavigationBarRunTimeKeys {
+        static let kSwpCustomViewKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpCustomViewKey".hashValue)!
+        static let kSwpBackgroundColorKey   : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpBackgroundColorKey".hashValue)!
+        static let kSwpHiddenBottomLineKey  : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpHiddenBottomLine".hashValue)!
+        static let kSwpTitleFontKey         : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpTitleFontKey".hashValue)!
+        static let kSwpTitleColorKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpTitleColorKey".hashValue)!
+    }
     
     // MARK: - Public Property
     
-    /// # 设置背景颜色
+    /// set the navigation bar background color
     public var swpBackgroundColor : UIColor {
         set {
             objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpBackgroundColorKey, newValue, .OBJC_ASSOCIATION_COPY)
@@ -33,12 +31,12 @@ extension UINavigationBar {
         
     }
     
-    
-    /// # 隐藏底线
-    public var swpHiddenBottomLine : Bool {
+    /// hide the navigation bar bottom line
+    public var isHiddenBottomLine : Bool {
+        
         set {
             objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpHiddenBottomLineKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
-            swpHiddenBottomLine(isHidden: newValue)
+            isHiddenBottomLine(isHidden: newValue)
         }
         
         get {
@@ -47,7 +45,8 @@ extension UINavigationBar {
     }
     
     
-    /// # Title Font
+    
+    /// set the navigation bar title font
     public var swpTitleFont : UIFont {
         
         set {
@@ -60,7 +59,8 @@ extension UINavigationBar {
         }
     }
     
-    /// # Title Color
+    
+    /// set the navigation bar title color
     public var swpTitleColor : UIColor {
         set {
             objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpTitleColorKey, newValue, .OBJC_ASSOCIATION_COPY)
@@ -72,7 +72,7 @@ extension UINavigationBar {
     }
 
     
-    /// Get NavigationBar Height
+    /// get navigation bar height
     public var swpNavigationBarHeight : CGFloat {
         
         if #available(iOS 11.0, *) {
@@ -85,9 +85,9 @@ extension UINavigationBar {
     // MARK: - Public Function
     
     ///
-    /// # swpBackgroundColor, 设置背景颜色
+    /// # set the navigation bar background color
     /// - Parameter color: color
-    /// - Returns:  UINavigationBar
+    /// - Returns: UINavigationBar
     @discardableResult public func swpBackgroundColor(color : UIColor) -> Self {
         self.swpBackgroundColor = color
         return self
@@ -95,10 +95,10 @@ extension UINavigationBar {
     
     
     ///
-    /// # swpHiddenBottomLine，隐藏底部线
+    /// # hide the navigation bar bottom line
     /// - Parameter isHidden: isHidden
-    /// - Returns:  UINavigationBar
-    @discardableResult public func swpHiddenBottomLine(isHidden : Bool) -> Self {
+    /// - Returns: UINavigationBar
+    @discardableResult public func isHiddenBottomLine(isHidden : Bool) -> Self {
         
         if let imageView : UIImageView = findLineImageViewUnder(view: self) {
             imageView.isHidden = isHidden
@@ -109,7 +109,7 @@ extension UINavigationBar {
     
     
     ///
-    /// # swpTitleFont，title 字体
+    /// # set the navigation bar title font
     /// - Parameter font: font
     /// - Returns: UINavigationBar
     @discardableResult public func swpTitleFont(font : UIFont) -> Self {
@@ -120,7 +120,7 @@ extension UINavigationBar {
     
     
     ///
-    /// # swpTitleColor，Title 字体颜色
+    /// # set the navigation bar title color
     /// - Parameter color: color
     /// - Returns: UINavigationBar
     @discardableResult public func swpTitleColor(color : UIColor) -> Self {
@@ -129,11 +129,11 @@ extension UINavigationBar {
     }
     
     ///
-    /// # swpTitleStyle, 设置 Title Style
+    /// # set the navigation bar title style
     /// - Parameters:
     ///   - font:   font
     ///   - color:  color
-    /// - Returns:  UINavigationBar
+    /// - Returns: UINavigationBar
     @discardableResult public func swpTitleStyle(font : UIFont, color : UIColor) -> Self {
         self.titleTextAttributes = [NSAttributedStringKey.font : font, NSAttributedStringKey.foregroundColor : color]
         return self
@@ -152,16 +152,15 @@ extension UINavigationBar {
     }
 
     
-    // MARK: - Private Function
-    
+    // MARK: - Private
     
     ///
-    /// # navigationBarBackgroundColor, 设置背景颜色
+    /// # set the navigation bar background color
     /// - Parameter color: color
     private func navigationBarBackgroundColor(color : UIColor) -> Void {
         
         if self.customView == nil {
-    
+
             self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.swpNavigationBarHeight))
             self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
             self.customView?.isUserInteractionEnabled = false
@@ -173,7 +172,7 @@ extension UINavigationBar {
     }
     
     ///
-    /// # findLineImageViewUnder，查询，底部 ImageView
+    /// # find the bottom line
     /// - Parameter view: view
     /// - Returns: UIImageView?
     private func findLineImageViewUnder(view : UIView) -> UIImageView?  {

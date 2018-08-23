@@ -8,15 +8,15 @@
 
 extension String {
     
-    /// # string，去除首尾空格
+    /// # trim trailing spaces
     public var swpTrim : String {
         return self.trimmingCharacters(in: .whitespaces)
     }
     
     ///
-    /// # SwpTrim，string，去除首尾空格
+    /// # trim trailing spaces
     /// - Parameter string: string
-    /// - Returns:  String
+    /// - Returns: String
     public static func SwpTrim(string : String) -> String {
         return string.swpTrim
     }

@@ -11,11 +11,11 @@ extension UserDefaults {
     
     
     ///
-    /// # 存入 UserDefaults
+    /// # set user defaults
     /// - Parameters:
     ///   - value:  value
     ///   - key:    key
-    /// - Returns:  UserDefaults
+    /// - Returns: UserDefaults
     public static func SwpSetValue(_ value : Any, key : String) -> UserDefaults {
         UserDefaults.standard.setValue(value, forKey: key)
         return UserDefaults.standard
@@ -23,8 +23,8 @@ extension UserDefaults {
     
     
     ///
-    /// # UserDefaults 取出
-    /// - Parameter key:
+    /// # get user defaults
+    /// - Parameter key: key
     /// - Returns:  Any?
     public static func SwpValue(key : String) -> Any? {
         return UserDefaults.standard.value(forKey: key)
@@ -32,9 +32,9 @@ extension UserDefaults {
     
     
     ///
-    /// # 删除 UserDefaults
-    /// - Parameter key:
-    /// - Returns:  UserDefaults
+    /// # remove user defaults
+    /// - Parameter key: key
+    /// - Returns: UserDefaults
     public static func swpRemoveObject(key : String) -> UserDefaults {
         UserDefaults.standard.removeObject(forKey: key)
         return UserDefaults.standard

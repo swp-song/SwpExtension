@@ -8,33 +8,28 @@
 
 extension String {
     
-    // MARK: - Encoding 编码
     
-    /// # swpBase64Encoding, Base64 编码
+    /// # base64 encoding
     public var swpBase64Encoding : String {
         return self.base64Encoding()
     }
     
+
+    /// # base64 decoding
+    public var swpBase64Decoding : String  {
+        return self.base64Decoding()
+    }
+    
     ///
-    /// # SwpBase64Encoding, Base64 编码
+    /// # base64 encoding
     /// - Parameter string: string
     /// - Returns: String
     public static func SwpBase64Encoding(string : String) -> String {
         return string.swpBase64Encoding
     }
     
-    
-    
-    
-    // MARK: - Decoding 解码
-    
-    /// # swpBase64Decoding, Base64 解码
-    public var swpBase64Decoding : String  {
-        return self.base64Decoding()
-    }
-    
     ///
-    /// # SwpBase64Decoding, Base64 解码
+    /// # base64 decoding
     /// - Parameter string: string
     /// - Returns: String
     public static func SwpBase64Decoding(string : String) -> String {
@@ -45,9 +40,8 @@ extension String {
     
     // MARK - private
     
-    
     ///
-    /// # base64Encoding, Base64 编码
+    /// # base64 encoding
     /// - Parameter string: string
     /// - Returns: String
     private func base64Encoding() -> String {
@@ -59,9 +53,8 @@ extension String {
         return data?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0)) ?? ""
     }
     
-    
     ///
-    /// # base64Decoding, Base64 解码
+    /// # base64 decoding
     /// - Parameter string: string
     /// - Returns: String
     private func base64Decoding() -> String {

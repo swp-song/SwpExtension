@@ -18,7 +18,6 @@ class UIButtonViewController: DemoBaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
         
     
@@ -27,7 +26,7 @@ class UIButtonViewController: DemoBaseViewController {
         button.setImage(UIImage(named: "button_icon"), for: .normal)
 //        button.setTitle("123", for: .normal)
 //        button.setTitleColor(UIColor.black, for: .normal)
-        button.swpTitle("123", for: .normal).swpTitleColor(UIColor.black, for: .normal).swpImage(UIImage(named: "button_icon"), for: .normal).swpImageEdge(imageEdge: .top)
+        button.swpTitle("123", for: .normal).swpTitleColor(UIColor.black, for: .normal).swpImage(UIImage(named: "button_icon"), for: .normal).swpImageEdge(imageEdge: .top).swpTargetEvent(self, action: #selector(clickButton), for: .touchUpInside)
 
         
         self.button.snp.makeConstraints { (make) in
@@ -59,6 +58,20 @@ class UIButtonViewController: DemoBaseViewController {
     }
     */
 
+}
+
+extension UIButtonViewController {
+    
+    @objc func clickButton(button : UIButton) -> Void {
+        
+        let edges : [UIButton.SwpButtonImageEdge] = [UIButton.SwpButtonImageEdge.top, UIButton.SwpButtonImageEdge.left, UIButton.SwpButtonImageEdge.bottom, UIButton.SwpButtonImageEdge.right]
+        let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
+        button.swpImageEdge(imageEdge: edges[index])
+    }
+    
+    public func randomIntNumber(lower: Int = 0,upper: Int = Int(UInt32.max)) -> Int {
+        return lower + Int(arc4random_uniform(UInt32(upper - lower)))
+    }
 }
 
 extension UIButtonViewController {

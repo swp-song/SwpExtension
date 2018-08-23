@@ -53,7 +53,6 @@ class NavigationBarViewController: DemoBaseViewController, NavigationBarListView
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        navigationBarListView.navigationBarListViewDelegate = nil
     }
     
     deinit {

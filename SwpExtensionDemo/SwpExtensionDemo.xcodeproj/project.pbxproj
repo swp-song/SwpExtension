@@ -83,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				F1A920ED212D6B6800EDEF55 /* UIButton */,
-				F1886229211F22C20048D71F /* NavigationBar */,
 				F1886219211E6B6F0048D71F /* DemoList */,
 				F1886215211E6A640048D71F /* Main */,
 			);
@@ -198,6 +197,7 @@
 		F195CED9211C2381003D666B /* SwpExtensionDemo */ = {
 			isa = PBXGroup;
 			children = (
+				F1886229211F22C20048D71F /* NavigationBar */,
 				F1886214211E6A640048D71F /* Code */,
 				F195CEDA211C2381003D666B /* AppDelegate.swift */,
 				F195CEDE211C2381003D666B /* Main.storyboard */,

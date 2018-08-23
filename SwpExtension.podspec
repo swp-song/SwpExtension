@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwpExtension'
-    s.version          = '0.0.1'
+    s.version          = '0.0.2'
     s.summary          = ' Swift Extension Code '
   
   # This description is used to generate tags and improve search results.
@@ -47,7 +47,6 @@ Pod::Spec.new do |s|
                         'SwpBundleExtension',
                         'SwpViewFrameExtension',
                         'SwpUserDefaultsExtension',
-                        'SwpButtonPropertyExtension',
                         'SwpBase64Extension',
                         'SwpMD5Extension',
                         'SwpStringSpaceExtension',
@@ -96,10 +95,6 @@ Pod::Spec.new do |s|
       swpButtonExtension.source_files = 'SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift'
     end
     
-    # UIButton Property Extension
-    s.subspec 'SwpButtonPropertyExtension' do |swpButtonPropertyExtension|
-      swpButtonPropertyExtension.source_files = 'SwpExtension/Code/UIKit/SwpButtonExtension/SwpButtonPropertyExtension.swift'
-    end
   
     # UIColor Extension
     s.subspec 'SwpColorExtension' do |swpColorExtension|

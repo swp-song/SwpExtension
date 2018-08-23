@@ -1,23 +1,21 @@
 PODS:
   - SnapKit (4.0.0)
-  - SwpExtension/SwpBase64Extension (0.0.1)
-  - SwpExtension/SwpBundleExtension (0.0.1)
-  - SwpExtension/SwpButtonExtension (0.0.1)
-  - SwpExtension/SwpButtonPropertyExtension (0.0.1)
-  - SwpExtension/SwpColorExtension (0.0.1)
-  - SwpExtension/SwpFontExtension (0.0.1)
-  - SwpExtension/SwpMD5Extension (0.0.1)
-  - SwpExtension/SwpNavigationBarExtension (0.0.1)
-  - SwpExtension/SwpStringSpaceExtension (0.0.1)
-  - SwpExtension/SwpUserDefaultsExtension (0.0.1)
-  - SwpExtension/SwpViewFrameExtension (0.0.1)
+  - SwpExtension/SwpBase64Extension (0.0.2)
+  - SwpExtension/SwpBundleExtension (0.0.2)
+  - SwpExtension/SwpButtonExtension (0.0.2)
+  - SwpExtension/SwpColorExtension (0.0.2)
+  - SwpExtension/SwpFontExtension (0.0.2)
+  - SwpExtension/SwpMD5Extension (0.0.2)
+  - SwpExtension/SwpNavigationBarExtension (0.0.2)
+  - SwpExtension/SwpStringSpaceExtension (0.0.2)
+  - SwpExtension/SwpUserDefaultsExtension (0.0.2)
+  - SwpExtension/SwpViewFrameExtension (0.0.2)
 
 DEPENDENCIES:
   - SnapKit
   - SwpExtension/SwpBase64Extension (from `../`)
   - SwpExtension/SwpBundleExtension (from `../`)
   - SwpExtension/SwpButtonExtension (from `../`)
-  - SwpExtension/SwpButtonPropertyExtension (from `../`)
   - SwpExtension/SwpColorExtension (from `../`)
   - SwpExtension/SwpFontExtension (from `../`)
   - SwpExtension/SwpMD5Extension (from `../`)
@@ -36,8 +34,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: 87f0e0445a6e8f30e6436b24b4f8f2524ba5c003
+  SwpExtension: 69681e350f958717e7b0814aa70b757f6f254a3e
 
-PODFILE CHECKSUM: d0bc00f764759be3cdaada3f67a7057c3ab0de0d
+PODFILE CHECKSUM: fe00aba625447dbddfe1c5336a08453db5b3a70a
 
 COCOAPODS: 1.6.0.beta.1
