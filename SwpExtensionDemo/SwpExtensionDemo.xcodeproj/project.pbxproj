@@ -24,6 +24,7 @@
 		F195CEE0211C2381003D666B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEDE211C2381003D666B /* Main.storyboard */; };
 		F195CEE2211C2382003D666B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE1211C2382003D666B /* Assets.xcassets */; };
 		F195CEE5211C2382003D666B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE3211C2382003D666B /* LaunchScreen.storyboard */; };
+		F1AB9C502133AE13009BF34B /* DDD.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1AB9C4F2133AE13009BF34B /* DDD.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F195CEE1211C2382003D666B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F195CEE4211C2382003D666B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F195CEE6211C2382003D666B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1AB9C4F2133AE13009BF34B /* DDD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DDD.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +76,9 @@
 		2D36A803212EF10B00ECC5F5 /* UITextField */ = {
 			isa = PBXGroup;
 			children = (
+				F1AB9C4E2133ADF1009BF34B /* View */,
 				2D36A804212EF13500ECC5F5 /* Controller */,
 				2D36A805212EF13500ECC5F5 /* Molde */,
-				2D36A806212EF13500ECC5F5 /* View */,
 			);
 			path = UITextField;
 			sourceTree = "<group>";
@@ -94,13 +96,6 @@
 			children = (
 			);
 			path = Molde;
-			sourceTree = "<group>";
-		};
-		2D36A806212EF13500ECC5F5 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		2D36A809212EF22800ECC5F5 /* Molde */ = {
@@ -273,6 +268,14 @@
 			path = SwpExtensionDemo;
 			sourceTree = "<group>";
 		};
+		F1AB9C4E2133ADF1009BF34B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F1AB9C4F2133AE13009BF34B /* DDD.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -392,6 +395,7 @@
 				2DC5AAF6212EE6A9007AAE95 /* DemoLilstViewController.swift in Sources */,
 				2DC5AAF9212EE6A9007AAE95 /* DemoModel.swift in Sources */,
 				F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */,
+				F1AB9C502133AE13009BF34B /* DDD.swift in Sources */,
 				2DC5AAFB212EE6A9007AAE95 /* NavigationBarViewController.swift in Sources */,
 				2DC5AAF3212EE6A9007AAE95 /* DemoNavigationController.swift in Sources */,
 				2DC5AAF4212EE6A9007AAE95 /* DemoBaseViewController.swift in Sources */,

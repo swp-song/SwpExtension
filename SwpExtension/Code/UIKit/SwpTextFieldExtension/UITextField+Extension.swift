@@ -6,11 +6,88 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+
 extension UITextField {
     
+}
+
+extension SwpExtensionClass where BaseExtension : UITextField {
     
-    public convenience init(a : String) {
-        self.init()
+    @discardableResult public func text(_ text: String) -> BaseExtension {
+        self.swp.text = text
+        return self.swp
+    }
+    
+    @discardableResult public func textColor(_ textColor: UIColor?) -> BaseExtension {
+        self.swp.textColor = textColor
+        return self.swp
+    }
+    
+    @discardableResult public func placeholder(_ placeholder: String) -> BaseExtension {
+        self.swp.placeholder = placeholder
+        return self.swp
+    }
+    
+    @discardableResult public func font(_ font: UIFont?) -> BaseExtension {
+        self.swp.font = font
+        return self.swp
+    }
+    
+    @discardableResult public func keyboardType(_ keyboardType: UIKeyboardType) -> BaseExtension {
+        self.swp.keyboardType = keyboardType
+        return self.swp
+    }
+    
+    @discardableResult public func isSecureTextEntry(_ isSecureTextEntry: Bool) -> BaseExtension {
+        self.swp.isSecureTextEntry = isSecureTextEntry
+        return self.swp
+    }
+    
+    @discardableResult public func clearButtonMode(_ clearButtonMode: UITextFieldViewMode) -> BaseExtension {
+        self.swp.clearButtonMode = clearButtonMode
+        return self.swp
+    }
+    
+    @discardableResult public func leftView(_ view: UIView?, mode: UITextFieldViewMode = .never) -> BaseExtension {
+        self.swp.leftView     = view
+        self.swp.leftViewMode = mode
+        return self.swp
+    }
+    
+    @discardableResult public func rightView(_ view: UIView?, mode: UITextFieldViewMode = .never) -> BaseExtension {
+        self.swp.rightView     = view
+        self.swp.rightViewMode = mode
+        return self.swp
+    }
+    
+    @discardableResult public func leftMargin(_ margin: CGFloat = 10) -> BaseExtension {
+        self.leftView(UIView(frame: CGRect(x: 0, y: 0, width: margin, height: self.swp.frame.size.height)), mode: .always)
+        return self.swp
+    }
+
+    @discardableResult public func leftImage(_ image: UIImage?) -> BaseExtension {
+        
+        guard let image = image else {
+            return self.swp
+        }
+        
+        let imageView : UIImageView = UIImageView(image: image)
+        imageView.contentMode       = .center
+        self.leftView(imageView, mode: .always)
+        return self.swp
+    }
+    
+    
+    // MARK: - UITextField Placeholder
+    
+    @discardableResult public func placeholderStyle(_ color: UIColor?, font: UIFont? = nil) -> BaseExtension {
+        
+        guard let placeholder = self.swp.placeholder else {
+            return self.swp
+        }
+        
+        self.swp.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:[NSAttributedStringKey.foregroundColor:color as Any, NSAttributedStringKey.font : font as Any])
+        return self.swp
     }
     
 }

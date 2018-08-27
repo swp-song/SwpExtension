@@ -24,59 +24,118 @@
     "Foundation"
   ],
   "default_subspecs": [
-    "SwpColorExtension",
     "SwpBundleExtension",
-    "SwpViewFrameExtension",
-    "SwpUserDefaultsExtension",
-    "SwpBase64Extension",
     "SwpMD5Extension",
+    "SwpBase64Extension",
     "SwpStringSpaceExtension",
+    "SwpUserDefaultsExtension",
+    "SwpColorExtension",
+    "SwpViewExtension",
     "SwpNavigationBarExtension",
     "SwpTextFieldExtension"
   ],
   "subspecs": [
     {
+      "name": "SwpExtensionClass",
+      "source_files": "SwpExtension/Code/SwpExtensionClass/*.swift"
+    },
+    {
       "name": "SwpBundleExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/Foundation/SwpBundleExtension/*.swift"
     },
     {
-      "name": "SwpUserDefaultsExtension",
-      "source_files": "SwpExtension/Code/Foundation/SwpUserDefaults/*.swift"
-    },
-    {
-      "name": "SwpBase64Extension",
-      "source_files": "SwpExtension/Code/Foundation/SwpStringExtension/Base64/*.swift"
-    },
-    {
       "name": "SwpMD5Extension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/Foundation/SwpStringExtension/MD5/*.swift"
     },
     {
+      "name": "SwpBase64Extension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/Foundation/SwpStringExtension/Base64/*.swift"
+    },
+    {
       "name": "SwpStringSpaceExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/Foundation/SwpStringExtension/StringSpace/*.swift"
     },
     {
-      "name": "SwpViewFrameExtension",
+      "name": "SwpUserDefaultsExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/Foundation/SwpUserDefaults/*.swift"
+    },
+    {
+      "name": "SwpViewExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/UIKit/SwpViewExtension/*.swift"
     },
     {
       "name": "SwpButtonExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift"
     },
     {
       "name": "SwpColorExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/UIKit/SwpColorExtension/*.swift"
     },
     {
       "name": "SwpFontExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/UIKit/SwpFontExtension/*.swift"
     },
     {
       "name": "SwpNavigationBarExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/UIKit/SwpNavigationBarExtension/*.swift"
     },
     {
       "name": "SwpTextFieldExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionClass": [
+
+        ]
+      },
       "source_files": "SwpExtension/Code/UIKit/SwpTextFieldExtension/*.swift"
     }
   ]

@@ -8,21 +8,21 @@
 
 import UIKit
 
-extension UIView {
-    
+extension SwpExtensionClass where BaseExtension : UIView  {
+
     // MARK: - Property
     
     /// view -> frame -> origin -> x
     public var x : CGFloat {
         
         set(x) {
-            var frame : CGRect  = self.frame
+            var frame : CGRect  = self.swp.frame
             frame.origin.x      = x
-            self.frame          = frame
+            self.swp.frame      = frame
         }
         
         get {
-            return self.frame.origin.x
+            return self.swp.frame.origin.x
         }
     }
     
@@ -31,13 +31,13 @@ extension UIView {
         
         set(y) {
             
-            var frame : CGRect  = self.frame
+            var frame : CGRect  = self.swp.frame
             frame.origin.y      = y
-            self.frame          = frame
+            self.swp.frame      = frame
         }
         
         get {
-            return self.frame.origin.y
+            return self.swp.frame.origin.y
         }
         
     }
@@ -47,13 +47,13 @@ extension UIView {
     public var width : CGFloat {
         
         set(width) {
-            var frame : CGRect  = self.frame
+            var frame : CGRect  = self.swp.frame
             frame.size.width    = width
-            self.frame          = frame
+            self.swp.frame      = frame
         }
         
         get {
-            return self.frame.size.width
+            return self.swp.frame.size.width
         }
         
     }
@@ -61,13 +61,13 @@ extension UIView {
     /// view -> frame -> origin -> height
     public var height : CGFloat {
         set(height) {
-            var frame : CGRect  = self.frame
+            var frame : CGRect  = self.swp.frame
             frame.size.height   = height
-            self.frame          = frame
+            self.swp.frame          = frame
         }
         
         get {
-            return self.frame.size.height
+            return self.swp.frame.size.height
         }
     }
     
@@ -75,13 +75,13 @@ extension UIView {
     /// view -> center -> centerX
     public var centerX : CGFloat {
         set(centerX) {
-            var center : CGPoint = self.center
+            var center : CGPoint = self.swp.center
             center.x = centerX
-            self.center = center
+            self.swp.center = center
         }
         
         get {
-            return self.center.x;
+            return self.swp.center.x;
         }
         
     }
@@ -89,39 +89,39 @@ extension UIView {
     /// view -> center -> centerY
     public var centerY : CGFloat {
         set(centerY) {
-            var center : CGPoint = self.center
+            var center : CGPoint = self.swp.center
             center.y = centerY
-            self.center = center
+            self.swp.center = center
         }
         
         get {
-            return self.center.y
+            return self.swp.center.y
         }
     }
     
     /// view -> frame -> size
     public var size : CGSize {
         set(size) {
-            var frame : CGRect = self.frame;
+            var frame : CGRect = self.swp.frame;
             frame.size = size
-            self.frame = frame
+            self.swp.frame = frame
         }
         
         get {
-            return self.frame.size
+            return self.swp.frame.size
         }
     }
     
     /// view -> frame -> origin
     public var origin : CGPoint {
         set(origin) {
-            var frame : CGRect = self.frame
+            var frame : CGRect = self.swp.frame
             frame.origin = origin
-            self.frame = frame
+            self.swp.frame = frame
         }
         
         get {
-            return self.frame.origin
+            return self.swp.frame.origin
         }
     }
     
@@ -133,18 +133,18 @@ extension UIView {
     /// # set view -> frame -> origin -> x
     /// - Parameter x:  x
     /// - Returns: View
-    @discardableResult public func x(_ x : CGFloat) -> Self {
+    @discardableResult public func x(_ x : CGFloat) -> BaseExtension {
         self.x = x
-        return self
+        return self.swp
     }
     
     ///
     /// # set view -> frame -> origin -> y
     /// - Parameter y:  y
     /// - Returns: View
-    @discardableResult public func y(_ y : CGFloat) -> Self {
+    @discardableResult public func y(_ y : CGFloat) -> BaseExtension {
         self.y = y
-        return self
+        return self.swp
     }
     
     
@@ -152,18 +152,18 @@ extension UIView {
     /// # set view -> frame -> size -> width
     /// - Parameter width: width
     /// - Returns: View
-    @discardableResult public func width(_ width : CGFloat) -> Self {
+    @discardableResult public func width(_ width : CGFloat) -> BaseExtension {
         self.width = width
-        return self
+        return self.swp
     }
     
     ///
     /// # set view -> frame -> size -> height
     /// - Parameter height: height
     /// - Returns: View
-    @discardableResult public func height(_ height : CGFloat) -> Self {
+    @discardableResult public func height(_ height : CGFloat) -> BaseExtension {
         self.height = height
-        return self
+        return self.swp
     }
     
     
@@ -171,36 +171,36 @@ extension UIView {
     /// # set view -> center -> centerX
     /// - Parameter centerX: centerX
     /// - Returns: View
-    @discardableResult public func centerX(_ centerX : CGFloat) -> Self {
+    @discardableResult public func centerX(_ centerX : CGFloat) -> BaseExtension {
         self.centerX = centerX
-        return self
+        return self.swp
     }
     
     ///
     /// # set view -> center -> centerY
     /// - Parameter centerY: centerY
     /// - Returns: View
-    @discardableResult public func centerY(_ centerY : CGFloat) -> Self {
+    @discardableResult public func centerY(_ centerY : CGFloat) -> BaseExtension {
         self.centerY = centerY
-        return self
+        return self.swp
     }
     
     ///
     /// # set view -> frame -> size
     /// - Parameter size: size
     /// - Returns: View
-    @discardableResult public func size(_ size : CGSize) -> Self {
+    @discardableResult public func size(_ size : CGSize) -> BaseExtension {
         self.size = size
-        return self
+        return self.swp
     }
     
     ///
     /// # set view -> frame -> origin
     /// - Parameter origin: origin
     /// - Returns: View
-    @discardableResult public func origin(_ origin : CGPoint) -> Self {
+    @discardableResult public func origin(_ origin : CGPoint) -> BaseExtension {
         self.origin = origin
-        return self
+        return self.swp
     }
-    
 }
+

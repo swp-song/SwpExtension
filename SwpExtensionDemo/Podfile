@@ -11,15 +11,17 @@ target 'SwpExtensionDemo' do
 
   # Pods for SwpExtensionDemo
   # pod 'SwpExtension', :path => '../'
-  pod 'SwpExtension/SwpColorExtension', :path => '../'
   pod 'SwpExtension/SwpBundleExtension', :path => '../'
-  pod 'SwpExtension/SwpViewFrameExtension', :path => '../'
-  pod 'SwpExtension/SwpFontExtension', :path => '../'
-  pod 'SwpExtension/SwpUserDefaultsExtension', :path => '../'
-  pod 'SwpExtension/SwpButtonExtension', :path => '../'
-  pod 'SwpExtension/SwpBase64Extension', :path => '../'
   pod 'SwpExtension/SwpMD5Extension', :path => '../'
+  pod 'SwpExtension/SwpBase64Extension', :path => '../'
   pod 'SwpExtension/SwpStringSpaceExtension', :path => '../'
+  pod 'SwpExtension/SwpUserDefaultsExtension', :path => '../'
+  
+
+  pod 'SwpExtension/SwpColorExtension', :path => '../'
+  pod 'SwpExtension/SwpViewExtension', :path => '../'
+  pod 'SwpExtension/SwpFontExtension', :path => '../'
+  pod 'SwpExtension/SwpButtonExtension', :path => '../'
   pod 'SwpExtension/SwpNavigationBarExtension', :path => '../'
   pod 'SwpExtension/SwpTextFieldExtension', :path => '../'
   

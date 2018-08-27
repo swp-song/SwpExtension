@@ -43,78 +43,98 @@ Pod::Spec.new do |s|
   
     s.default_subspec = 
                         # 'SwpExtension',
-                        'SwpColorExtension',
+                        
                         'SwpBundleExtension',
-                        'SwpViewFrameExtension',
-                        'SwpUserDefaultsExtension',
-                        'SwpBase64Extension',
                         'SwpMD5Extension',
+                        'SwpBase64Extension',
                         'SwpStringSpaceExtension',
+                        'SwpUserDefaultsExtension',
+                        
+                        'SwpColorExtension',
+                        'SwpViewExtension',
                         'SwpNavigationBarExtension',
                         'SwpTextFieldExtension'
   
   
   
-    # -  Foundation
+
+    # - SwpExtension 
+    s.subspec 'SwpExtensionClass' do |swpExtensionClass|
+      swpExtensionClass.source_files = 'SwpExtension/Code/SwpExtensionClass/*.swift'
+    end
+
+    # - Foundation
   
     # Bundle Extension
     s.subspec 'SwpBundleExtension' do |swpBundleExtension|
+      swpBundleExtension.dependency 'SwpExtension/SwpExtensionClass'
       swpBundleExtension.source_files = 'SwpExtension/Code/Foundation/SwpBundleExtension/*.swift'
+      
     end
   
-    
-    # UserDefaults Extension
-    s.subspec 'SwpUserDefaultsExtension' do |swpUserDefaultsExtension|
-      swpUserDefaultsExtension.source_files = 'SwpExtension/Code/Foundation/SwpUserDefaults/*.swift'
+     # String Extension，MD5
+    s.subspec 'SwpMD5Extension' do |swpMD5Extension|
+      swpMD5Extension.dependency 'SwpExtension/SwpExtensionClass'
+      swpMD5Extension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/MD5/*.swift'
     end
-  
-  
+
     # String Extension, Base64
     s.subspec 'SwpBase64Extension' do |swpBase64Extension|
+      swpBase64Extension.dependency 'SwpExtension/SwpExtensionClass'
       swpBase64Extension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/Base64/*.swift'
     end
   
-    # String Extension，MD5
-    s.subspec 'SwpMD5Extension' do |swpMD5Extension|
-      swpMD5Extension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/MD5/*.swift'
-    end
+   
   
     # String Extension，StringSpace
     s.subspec 'SwpStringSpaceExtension' do |swpStringSpaceExtension|
+      swpStringSpaceExtension.dependency 'SwpExtension/SwpExtensionClass'
       swpStringSpaceExtension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/StringSpace/*.swift'
     end
+
+    # UserDefaults Extension
+    s.subspec 'SwpUserDefaultsExtension' do |swpUserDefaultsExtension|
+      swpUserDefaultsExtension.dependency 'SwpExtension/SwpExtensionClass'
+      swpUserDefaultsExtension.source_files = 'SwpExtension/Code/Foundation/SwpUserDefaults/*.swift'
+    end
   
-    # -  UIKit
+    # - UIKit
     
     # UIView Extension
-    s.subspec 'SwpViewFrameExtension' do |swpViewFrameExtension|
-      swpViewFrameExtension.source_files = 'SwpExtension/Code/UIKit/SwpViewExtension/*.swift'
+    s.subspec 'SwpViewExtension' do |swpViewExtension|
+      swpViewExtension.dependency 'SwpExtension/SwpExtensionClass'
+      swpViewExtension.source_files = 'SwpExtension/Code/UIKit/SwpViewExtension/*.swift'
     end
   
     # UIButton Extension
     s.subspec 'SwpButtonExtension' do |swpButtonExtension|
+      swpButtonExtension.dependency 'SwpExtension/SwpExtensionClass'
       swpButtonExtension.source_files = 'SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift'
     end
     
   
     # UIColor Extension
     s.subspec 'SwpColorExtension' do |swpColorExtension|
+      swpColorExtension.dependency 'SwpExtension/SwpExtensionClass'
       swpColorExtension.source_files = 'SwpExtension/Code/UIKit/SwpColorExtension/*.swift'
     end
   
   
     # UIFont Extension
     s.subspec 'SwpFontExtension' do |swpFontExtension|
+      swpFontExtension.dependency 'SwpExtension/SwpExtensionClass'
       swpFontExtension.source_files = 'SwpExtension/Code/UIKit/SwpFontExtension/*.swift'
     end
   
     # UINavigationBar Extension
     s.subspec 'SwpNavigationBarExtension' do |swpNavigationBarExtension|
+      swpNavigationBarExtension.dependency 'SwpExtension/SwpExtensionClass'
       swpNavigationBarExtension.source_files = 'SwpExtension/Code/UIKit/SwpNavigationBarExtension/*.swift'
     end
 
     # UITextField Extension
     s.subspec 'SwpTextFieldExtension' do |swpTextFieldExtension|
+      swpTextFieldExtension.dependency 'SwpExtension/SwpExtensionClass'
       swpTextFieldExtension.source_files = 'SwpExtension/Code/UIKit/SwpTextFieldExtension/*.swift'
     end
   

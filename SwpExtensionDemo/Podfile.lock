@@ -1,16 +1,28 @@
 PODS:
   - SnapKit (4.0.0)
-  - SwpExtension/SwpBase64Extension (0.0.2)
-  - SwpExtension/SwpBundleExtension (0.0.2)
-  - SwpExtension/SwpButtonExtension (0.0.2)
-  - SwpExtension/SwpColorExtension (0.0.2)
-  - SwpExtension/SwpFontExtension (0.0.2)
-  - SwpExtension/SwpMD5Extension (0.0.2)
-  - SwpExtension/SwpNavigationBarExtension (0.0.2)
-  - SwpExtension/SwpStringSpaceExtension (0.0.2)
-  - SwpExtension/SwpTextFieldExtension (0.0.2)
-  - SwpExtension/SwpUserDefaultsExtension (0.0.2)
-  - SwpExtension/SwpViewFrameExtension (0.0.2)
+  - SwpExtension/SwpBase64Extension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpBundleExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpButtonExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpColorExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpExtensionClass (0.0.2)
+  - SwpExtension/SwpFontExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpMD5Extension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpNavigationBarExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpStringSpaceExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpTextFieldExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpUserDefaultsExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
+  - SwpExtension/SwpViewExtension (0.0.2):
+    - SwpExtension/SwpExtensionClass
 
 DEPENDENCIES:
   - SnapKit
@@ -24,7 +36,7 @@ DEPENDENCIES:
   - SwpExtension/SwpStringSpaceExtension (from `../`)
   - SwpExtension/SwpTextFieldExtension (from `../`)
   - SwpExtension/SwpUserDefaultsExtension (from `../`)
-  - SwpExtension/SwpViewFrameExtension (from `../`)
+  - SwpExtension/SwpViewExtension (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -36,8 +48,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: 3e0ef1cd62dc4187f2a492cc8464e11bc7988244
+  SwpExtension: ea026485e3a33837e006a008eda831cf32ea580a
 
-PODFILE CHECKSUM: 658d8853c00a845ee90c78beccb00ac2651776a0
+PODFILE CHECKSUM: 98d65e7cfe7c2832064e875e843d2c5dfcc636a8
 
 COCOAPODS: 1.6.0.beta.1

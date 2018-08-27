@@ -10,6 +10,21 @@ import UIKit
 
 class UITextFieldViewController: DemoBaseViewController {
 
+    
+    private lazy var textField1 : DDD = {
+        return DDD()
+        .swp.textColor(UIColor.red)
+        .swp.text("123213")
+        .swp.font(UIFont.systemFont(ofSize: 12))
+        .swp.keyboardType(.default)
+        .swp.isSecureTextEntry(true)
+        .swp.clearButtonMode(.whileEditing)
+        .swp.leftImage(#imageLiteral(resourceName: "account"))
+        .swp.placeholder("123")
+        .swp.placeholderStyle(UIColor.orange, font: UIFont.systemFont(ofSize: 20))
+//        return DDD(textColor: UIColor.red)
+        }()
+    
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {
         
@@ -18,9 +33,11 @@ class UITextFieldViewController: DemoBaseViewController {
         
         setUI()
         
+        
         setData()
         
-        controllerClosure()
+//        self.textField1.keyboardType
+        
     }
     
     ///
@@ -89,11 +106,22 @@ extension UITextFieldViewController  {
     
     private func setUpUI() -> Void {
         
+        view.addSubview(textField1)
     }
     
     private func setAutoLayout() -> Void {
         
+        textField1.snp.makeConstraints { (make) in
+            make.top.left.right.equalTo(UIEdgeInsetsMake(100, 20, 0, 20))
+            make.width.equalTo(self.textField1.snp.height).multipliedBy(8)
+        }
+        
+        textField1.frame = CGRect(x: 0, y: 100, width: 300, height: 100)
+        textField1.swp.x(100.0)
+        textField1.backgroundColor = UIColor.SwpColorRandom()
     }
+    
+
     
 }
 
