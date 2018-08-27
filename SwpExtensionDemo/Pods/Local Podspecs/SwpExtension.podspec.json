@@ -36,13 +36,13 @@
   ],
   "subspecs": [
     {
-      "name": "SwpExtensionClass",
-      "source_files": "SwpExtension/Code/SwpExtensionClass/*.swift"
+      "name": "SwpExtensionBase",
+      "source_files": "SwpExtension/Code/SwpExtensionBase/*.swift"
     },
     {
       "name": "SwpBundleExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -51,7 +51,7 @@
     {
       "name": "SwpMD5Extension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -60,7 +60,7 @@
     {
       "name": "SwpBase64Extension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -69,7 +69,7 @@
     {
       "name": "SwpStringSpaceExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -78,7 +78,7 @@
     {
       "name": "SwpUserDefaultsExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -87,7 +87,7 @@
     {
       "name": "SwpViewExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -96,7 +96,7 @@
     {
       "name": "SwpButtonExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -105,7 +105,7 @@
     {
       "name": "SwpColorExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -114,7 +114,7 @@
     {
       "name": "SwpFontExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -123,7 +123,7 @@
     {
       "name": "SwpNavigationBarExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },
@@ -132,7 +132,7 @@
     {
       "name": "SwpTextFieldExtension",
       "dependencies": {
-        "SwpExtension/SwpExtensionClass": [
+        "SwpExtension/SwpExtensionBase": [
 
         ]
       },

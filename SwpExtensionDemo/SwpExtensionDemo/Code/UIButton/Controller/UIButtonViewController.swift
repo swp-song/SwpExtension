@@ -20,6 +20,17 @@ class UIButtonViewController: DemoBaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        
+//        print("1".base64Encoding)
+//        "1".swp.ba
+        let s : String = "123"
+        
+//        let s1 : NSString = s as NSString
+        
+//        s1.swp.bas
+        print(s.swp.base64Encoding)
+        
+    
     
         view.addSubview(button)
         button.backgroundColor = UIColor.red
@@ -67,6 +78,10 @@ extension UIButtonViewController {
         let edges : [UIButton.SwpButtonImageEdge] = [UIButton.SwpButtonImageEdge.top, UIButton.SwpButtonImageEdge.left, UIButton.SwpButtonImageEdge.bottom, UIButton.SwpButtonImageEdge.right]
         let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
         button.swpImageEdge(imageEdge: edges[index])
+        
+        let image : UIImage? = self.view.swp.screenshots;
+
+        print(image as Any)
     }
     
     public func randomIntNumber(lower: Int = 0,upper: Int = Int(UInt32.max)) -> Int {

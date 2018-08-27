@@ -1,28 +1,28 @@
 PODS:
   - SnapKit (4.0.0)
   - SwpExtension/SwpBase64Extension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpBundleExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpButtonExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpColorExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
-  - SwpExtension/SwpExtensionClass (0.0.2)
+    - SwpExtension/SwpExtensionBase
+  - SwpExtension/SwpExtensionBase (0.0.2)
   - SwpExtension/SwpFontExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpMD5Extension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpNavigationBarExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpStringSpaceExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpTextFieldExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpUserDefaultsExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpViewExtension (0.0.2):
-    - SwpExtension/SwpExtensionClass
+    - SwpExtension/SwpExtensionBase
 
 DEPENDENCIES:
   - SnapKit
@@ -48,7 +48,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: ea026485e3a33837e006a008eda831cf32ea580a
+  SwpExtension: 551e2f57e2942e0457f3706d1b46cc46908d9b89
 
 PODFILE CHECKSUM: 98d65e7cfe7c2832064e875e843d2c5dfcc636a8
 

@@ -8,7 +8,63 @@
 
 import UIKit
 
-extension SwpExtensionClass where BaseExtension : UIView  {
+
+extension SwpExtensionClass where BaseClass : UIView {
+    
+    
+    public var screenshots : UIImage? {
+        return viewScreenshots()
+    }
+    
+    private func viewScreenshots() -> UIImage? {
+        
+        UIGraphicsBeginImageContextWithOptions(self.swp.frame.size, false, 0.0)
+        self.swp.drawHierarchy(in: self.swp.bounds, afterScreenUpdates: false)
+        let image : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext();
+        return image
+    }
+    
+}
+
+
+// MARK: - View layer
+extension SwpExtensionClass where BaseClass : UIView {
+    
+    @discardableResult public func backgroundColor(_ color : UIColor) -> BaseClass {
+        self.swp.backgroundColor = color
+        return self.swp
+    }
+    
+    @discardableResult public func borderWidth(_ width : CGFloat) -> BaseClass {
+        self.swp.layer.borderWidth = width
+        return self.swp
+    }
+    
+    @discardableResult public func cornerRadius(_ radius : CGFloat) -> BaseClass {
+        self.swp.layer.cornerRadius = radius
+        return self.swp
+    }
+    
+    @discardableResult public func masksToBounds(_ masksToBounds : Bool) -> BaseClass {
+        self.swp.layer.masksToBounds = masksToBounds
+        return self.swp
+    }
+    
+    @discardableResult public func cornerRadiusMasks(_ radiusMasks : CGFloat) -> BaseClass {
+        return self.cornerRadius(radiusMasks).swp.masksToBounds(true)
+    }
+    
+    @discardableResult public func borderColo(_ color : UIColor) -> BaseClass {
+        self.swp.layer.borderColor = color.cgColor
+        return self.swp
+    }
+}
+
+
+
+// MARK: - View frame
+extension SwpExtensionClass where BaseClass : UIView  {
 
     // MARK: - Property
     
@@ -133,7 +189,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> frame -> origin -> x
     /// - Parameter x:  x
     /// - Returns: View
-    @discardableResult public func x(_ x : CGFloat) -> BaseExtension {
+    @discardableResult public func x(_ x : CGFloat) -> BaseClass {
         self.x = x
         return self.swp
     }
@@ -142,7 +198,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> frame -> origin -> y
     /// - Parameter y:  y
     /// - Returns: View
-    @discardableResult public func y(_ y : CGFloat) -> BaseExtension {
+    @discardableResult public func y(_ y : CGFloat) -> BaseClass {
         self.y = y
         return self.swp
     }
@@ -152,7 +208,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> frame -> size -> width
     /// - Parameter width: width
     /// - Returns: View
-    @discardableResult public func width(_ width : CGFloat) -> BaseExtension {
+    @discardableResult public func width(_ width : CGFloat) -> BaseClass {
         self.width = width
         return self.swp
     }
@@ -161,7 +217,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> frame -> size -> height
     /// - Parameter height: height
     /// - Returns: View
-    @discardableResult public func height(_ height : CGFloat) -> BaseExtension {
+    @discardableResult public func height(_ height : CGFloat) -> BaseClass {
         self.height = height
         return self.swp
     }
@@ -171,7 +227,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> center -> centerX
     /// - Parameter centerX: centerX
     /// - Returns: View
-    @discardableResult public func centerX(_ centerX : CGFloat) -> BaseExtension {
+    @discardableResult public func centerX(_ centerX : CGFloat) -> BaseClass {
         self.centerX = centerX
         return self.swp
     }
@@ -180,7 +236,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> center -> centerY
     /// - Parameter centerY: centerY
     /// - Returns: View
-    @discardableResult public func centerY(_ centerY : CGFloat) -> BaseExtension {
+    @discardableResult public func centerY(_ centerY : CGFloat) -> BaseClass {
         self.centerY = centerY
         return self.swp
     }
@@ -189,7 +245,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> frame -> size
     /// - Parameter size: size
     /// - Returns: View
-    @discardableResult public func size(_ size : CGSize) -> BaseExtension {
+    @discardableResult public func size(_ size : CGSize) -> BaseClass {
         self.size = size
         return self.swp
     }
@@ -198,7 +254,7 @@ extension SwpExtensionClass where BaseExtension : UIView  {
     /// # set view -> frame -> origin
     /// - Parameter origin: origin
     /// - Returns: View
-    @discardableResult public func origin(_ origin : CGPoint) -> BaseExtension {
+    @discardableResult public func origin(_ origin : CGPoint) -> BaseClass {
         self.origin = origin
         return self.swp
     }

@@ -6,34 +6,34 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-extension String {
+extension SwpExtensionStruct where BaseStruct == String {
     
     
     /// # base64 encoding
-    public var swpBase64Encoding : String {
-        return self.base64Encoding()
+    public var base64Encoding : String {
+        return self.encoding()
     }
     
 
     /// # base64 decoding
-    public var swpBase64Decoding : String  {
-        return self.base64Decoding()
+    public var base64Decoding : String {
+        return self.decoding()
     }
     
     ///
     /// # base64 encoding
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpBase64Encoding(string : String) -> String {
-        return string.swpBase64Encoding
+    public static func Base64Encoding(string : String) -> String {
+        return string.swp.base64Encoding
     }
     
     ///
     /// # base64 decoding
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpBase64Decoding(string : String) -> String {
-        return string.swpBase64Decoding
+    public static func Base64Decoding(string : String) -> String {
+        return string.swp.base64Decoding
     }
     
     
@@ -44,12 +44,12 @@ extension String {
     /// # base64 encoding
     /// - Parameter string: string
     /// - Returns: String
-    private func base64Encoding() -> String {
-        guard self.count != 0 else {
-            return self
+    private func encoding() -> String {
+        guard self.swp.count != 0 else {
+            return self.swp
         }
         
-        let data : Data? = self.data(using: String.Encoding.utf8)
+        let data : Data? = self.swp.data(using: String.Encoding.utf8)
         return data?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0)) ?? ""
     }
     
@@ -57,12 +57,13 @@ extension String {
     /// # base64 decoding
     /// - Parameter string: string
     /// - Returns: String
-    private func base64Decoding() -> String {
+    private func decoding() -> String {
         
-        guard self.count != 0 else {
-            return self
+        guard self.swp.count != 0 else {
+            return self.swp
         }
-        let data : Data  = Data(base64Encoded: self, options: Data.Base64DecodingOptions.init(rawValue: 0)) ?? Data()
+        
+        let data : Data  = Data(base64Encoded: self.swp, options: Data.Base64DecodingOptions.init(rawValue: 0)) ?? Data()
         return String(data: data, encoding: String.Encoding.utf8) ?? ""
     }
 }

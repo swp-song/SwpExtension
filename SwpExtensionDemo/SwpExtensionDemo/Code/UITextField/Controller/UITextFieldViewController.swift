@@ -13,6 +13,7 @@ class UITextFieldViewController: DemoBaseViewController {
     
     private lazy var textField1 : DDD = {
         return DDD()
+//        .swp.borderWidth(1)
         .swp.textColor(UIColor.red)
         .swp.text("123213")
         .swp.font(UIFont.systemFont(ofSize: 12))
@@ -22,6 +23,9 @@ class UITextFieldViewController: DemoBaseViewController {
         .swp.leftImage(#imageLiteral(resourceName: "account"))
         .swp.placeholder("123")
         .swp.placeholderStyle(UIColor.orange, font: UIFont.systemFont(ofSize: 20))
+        .swp.borderWidth(1)
+        .swp.cornerRadiusMasks(5)
+        .swp.borderColo(UIColor.red)
 //        return DDD(textColor: UIColor.red)
         }()
     
@@ -116,9 +120,9 @@ extension UITextFieldViewController  {
             make.width.equalTo(self.textField1.snp.height).multipliedBy(8)
         }
         
-        textField1.frame = CGRect(x: 0, y: 100, width: 300, height: 100)
-        textField1.swp.x(100.0)
-        textField1.backgroundColor = UIColor.SwpColorRandom()
+//        textField1.frame = CGRect(x: 0, y: 100, width: 300, height: 100)
+//        textField1.swp.x(100.0).swp.backgroundColor(UIColor.green)
+//        textField1.backgroundColor = UIColor.SwpColorRandom()
     }
     
 
