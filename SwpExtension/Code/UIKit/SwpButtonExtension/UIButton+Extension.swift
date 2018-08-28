@@ -9,13 +9,6 @@
 
 extension UIButton {
     
-    public enum SwpButtonImageEdge : Int {
-        case top
-        case left
-        case bottom
-        case right
-    }
-    
     ///
     /// # set submit style button
     /// - Parameters:
@@ -28,7 +21,7 @@ extension UIButton {
     ///   - target:             target
     ///   - action:             action
     ///   - events:             events
-    public convenience init(_ backgroundColor : UIColor = UIColor.white, title : String?, titleColor : UIColor, size : CGFloat = 15, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) {
+    public convenience init(_ backgroundColor : UIColor?, title : String?, titleColor : UIColor?, size : CGFloat = 15, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) {
         self.init(backgroundColor, title: title, titleColor: titleColor, titleFont: UIFont.systemFont(ofSize: size), radius: radius, tag: tag, target: target, action: action, events: events)
     }
     
@@ -45,24 +38,30 @@ extension UIButton {
     ///   - target:             target
     ///   - action:             action
     ///   - events:             events
-    public convenience init(_ backgroundColor : UIColor = UIColor.white, title : String?, titleColor : UIColor, titleFont : UIFont, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) {
+    public convenience init(_ backgroundColor : UIColor?, title : String? = nil, titleColor : UIColor?, titleFont : UIFont, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) {
         
         self.init()
         
-        self.layer.cornerRadius  = radius
-        self.layer.masksToBounds = true
-        self.tag                 = tag
-        self.backgroundColor     = backgroundColor
-        self.titleLabel?.font    = titleFont
-        self.setTitle(title, for: .normal)
-        self.setTitle(title, for: .highlighted)
-        self.setTitleColor(titleColor, for: .normal)
-        self.setTitleColor(titleColor, for: .highlighted)
-        action != nil ? self.addTarget(target, action: action!, for: events) : ()
+        self.swp.tag(tag)
+            .swp.title(title, for: .normal)
+            .swp.title(title, for: .highlighted)
+            .swp.titleFont(titleFont)
+            .swp.titleColor(titleColor, for: .normal)
+            .swp.titleColor(titleColor, for: .highlighted)
+            .swp.cornerRadiusMasks(radius)
+            .swp.backgroundColor(backgroundColor)
+        
+        guard let action = action else {
+            return
+        }
+        
+        self.swp.targetEvent(target, action: action, for: events)
     }
-    
-    
-    // MARK: - Property
+}
+
+
+// MARK: - Property
+extension SwpExtensionClass where BaseClass : UIButton {
     
     ///
     /// # set title
@@ -70,18 +69,18 @@ extension UIButton {
     ///   - title:  title
     ///   - state:  state
     /// - Returns:  UIButton
-    @discardableResult public func swpTitle(_ title : String, for state : UIControlState) -> Self {
-        self.setTitle(title, for: state)
-        return self
+    @discardableResult public func title(_ title : String?, for state : UIControlState) -> BaseClass {
+        self.swp.setTitle(title, for: state)
+        return self.swp
     }
     
     ///
     /// # set title font
     /// - Parameter font: font
     /// - Returns:  UIButton
-    @discardableResult public func swpTitleFont(font : UIFont) -> Self {
-        self.titleLabel?.font = font
-        return self
+    @discardableResult public func titleFont(_ font : UIFont) -> BaseClass {
+        self.swp.titleLabel?.font = font
+        return self.swp
     }
     
     
@@ -91,9 +90,9 @@ extension UIButton {
     ///   - color:  color
     ///   - state:  state
     /// - Returns:  UIButton
-    @discardableResult public func swpTitleColor(_ color : UIColor, for state : UIControlState) -> Self {
-        self.setTitleColor(color, for: state)
-        return self
+    @discardableResult public func titleColor(_ color : UIColor?, for state : UIControlState) -> BaseClass {
+        self.swp.setTitleColor(color, for: state)
+        return self.swp
     }
     
     
@@ -103,9 +102,9 @@ extension UIButton {
     ///   - image:  image
     ///   - state:  state
     /// - Returns:  UIButton
-    @discardableResult public func swpImage(_ image : UIImage?, for state : UIControlState) -> Self {
-        self.setImage(image, for: state)
-        return self
+    @discardableResult public func image(_ image : UIImage?, for state : UIControlState) -> BaseClass {
+        self.swp.setImage(image, for: state)
+        return self.swp
     }
     
     
@@ -115,9 +114,9 @@ extension UIButton {
     ///   - image:  image
     ///   - state:  state
     /// - Returns:  UIButton
-    @discardableResult public func swpBackgroundImage(_ image : UIImage?, for state : UIControlState) -> Self {
-        self.setBackgroundImage(image, for: state)
-        return self
+    @discardableResult public func backgroundImage(_ image : UIImage?, for state : UIControlState) -> BaseClass {
+        self.swp.setBackgroundImage(image, for: state)
+        return self.swp
     }
     
     
@@ -125,9 +124,9 @@ extension UIButton {
     /// # set tag
     /// - Parameter tag: tag
     /// - Returns: UIButton
-    @discardableResult public func swpTag(tag : Int) -> Self {
-        self.tag = tag
-        return self
+    @discardableResult public func tag(_ tag : Int) -> BaseClass {
+        self.swp.tag = tag
+        return self.swp
     }
     
     
@@ -138,9 +137,9 @@ extension UIButton {
     ///   - action: action
     ///   - events: events
     /// - Returns:  UIButton
-    @discardableResult public func swpTargetEvent(_ target: Any?, action : Selector,  for events : UIControlEvents) -> Self {
-        self.addTarget(target, action: action, for: events)
-        return self
+    @discardableResult public func targetEvent(_ target: Any?, action : Selector,  for events : UIControlEvents) -> BaseClass {
+        self.swp.addTarget(target, action: action, for: events)
+        return self.swp
     }
     
     
@@ -148,9 +147,9 @@ extension UIButton {
     /// # set title edgeInsets
     /// - Parameter titleEdgeInsets: titleEdgeInsets
     /// - Returns: UIButton
-    @discardableResult public func swpTitleEdgeInsets(titleEdgeInsets : UIEdgeInsets) -> Self {
-        self.titleEdgeInsets = titleEdgeInsets
-        return self
+    @discardableResult public func titleEdgeInsets(titleEdgeInsets : UIEdgeInsets) -> BaseClass {
+        self.swp.titleEdgeInsets = titleEdgeInsets
+        return self.swp
     }
     
     
@@ -158,9 +157,21 @@ extension UIButton {
     /// # set image edgeInsets
     /// - Parameter imageEdgeInsets:
     /// - Returns: UIButton
-    @discardableResult public func swpImageEdgeInsets(imageEdgeInsets : UIEdgeInsets) -> Self {
-        self.imageEdgeInsets = imageEdgeInsets
-        return self
+    @discardableResult public func imageEdgeInsets(imageEdgeInsets : UIEdgeInsets) -> BaseClass {
+        self.swp.imageEdgeInsets = imageEdgeInsets
+        return self.swp
+    }
+}
+
+extension SwpExtensionClass where BaseClass : UIButton {
+    
+   
+    
+    public enum ImageEdge : Int {
+        case top
+        case left
+        case bottom
+        case right
     }
     
     // MARK: - Custom
@@ -170,10 +181,10 @@ extension UIButton {
     ///   - imageEdge:  imageEdge
     ///   - offset:     offset
     /// - Returns: UIButton
-    @discardableResult public func swpImageEdge(imageEdge edge : SwpButtonImageEdge,  offset : CGFloat = 0) -> Self {
+    @discardableResult public func imageEdge(_ edge : ImageEdge,  offset : CGFloat = 0) -> BaseClass {
         return buttonImageEdge(edge: edge, offset: offset)
     }
-
+    
     
     // MARK: - Private
     
@@ -183,40 +194,40 @@ extension UIButton {
     ///   - edge:   imageEdge
     ///   - offset: offset
     /// - Returns: UIButton
-    private func buttonImageEdge(edge : SwpButtonImageEdge,  offset : CGFloat = 0) -> Self {
-        
-        let imageWith   : CGFloat = self.currentImage?.size.width  ?? 0
-        let imageHeight : CGFloat = self.currentImage?.size.height ?? 0
-        let labelWidth  : CGFloat = self.titleLabel?.intrinsicContentSize.width  ?? 0
-        let labelHeight : CGFloat = self.titleLabel?.intrinsicContentSize.height ?? 0
+    private func buttonImageEdge(edge : ImageEdge,  offset : CGFloat = 0) -> BaseClass {
+    
+        let imageWith   : CGFloat = self.swp.currentImage?.size.width  ?? 0
+        let imageHeight : CGFloat = self.swp.currentImage?.size.height ?? 0
+        let labelWidth  : CGFloat = self.swp.titleLabel?.intrinsicContentSize.width  ?? 0
+        let labelHeight : CGFloat = self.swp.titleLabel?.intrinsicContentSize.height ?? 0
         
         var imageEdgeInsets : UIEdgeInsets = UIEdgeInsets.zero
         var labelEdgeInsets : UIEdgeInsets = UIEdgeInsets.zero
         
         switch edge {
             
-            case .top:
-                imageEdgeInsets = UIEdgeInsetsMake(-labelHeight - offset, 0, 0, -labelWidth);
-                labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith, -imageHeight - offset, 0);
+        case .top:
+            imageEdgeInsets = UIEdgeInsetsMake(-labelHeight - offset, 0, 0, -labelWidth);
+            labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith, -imageHeight - offset, 0);
             
-            case .left:
-                imageEdgeInsets = UIEdgeInsetsMake(0, -offset, 0, offset);
-                labelEdgeInsets = UIEdgeInsetsMake(0, offset, 0, -offset);
+        case .left:
+            imageEdgeInsets = UIEdgeInsetsMake(0, -offset, 0, offset);
+            labelEdgeInsets = UIEdgeInsetsMake(0, offset, 0, -offset);
             
-            case .bottom:
-                imageEdgeInsets = UIEdgeInsetsMake(0, 0, -labelHeight - offset, -labelWidth);
-                labelEdgeInsets = UIEdgeInsetsMake(-imageHeight - offset, -imageWith, 0, 0);
+        case .bottom:
+            imageEdgeInsets = UIEdgeInsetsMake(0, 0, -labelHeight - offset, -labelWidth);
+            labelEdgeInsets = UIEdgeInsetsMake(-imageHeight - offset, -imageWith, 0, 0);
             
-            case .right:
-                imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + offset, 0, -labelWidth - offset);
-                labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith - offset, 0, imageWith + offset);
+        case .right:
+            imageEdgeInsets = UIEdgeInsetsMake(0, labelWidth + offset, 0, -labelWidth - offset);
+            labelEdgeInsets = UIEdgeInsetsMake(0, -imageWith - offset, 0, imageWith + offset);
         }
         
         //  赋值
-        self.titleEdgeInsets = labelEdgeInsets
-        self.imageEdgeInsets = imageEdgeInsets
+        self.swp.titleEdgeInsets = labelEdgeInsets
+        self.swp.imageEdgeInsets = imageEdgeInsets
         
-        return self
+        return self.swp
     }
     
 }

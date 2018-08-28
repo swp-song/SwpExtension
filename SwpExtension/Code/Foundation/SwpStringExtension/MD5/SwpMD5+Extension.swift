@@ -6,22 +6,22 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-extension String {
+extension SwpExtensionStruct where BaseStruct == String {
     
     /// # md5 encryption string
-    public var swpMD5Encryption : String {
+    public var md5 : String {
         return self.md5Encryption()
     }
 
     
     /// # md5 encrypted string, lowercased
-    public var swpMD5EncryptionLowercased : String {
-        return self.swpMD5Encryption.lowercased()
+    public var md5Lowercased : String {
+        return self.md5.lowercased()
     }
     
     /// # md5 encrypted string, uppercased
-    public var swpMD5EncryptionUppercased : String {
-        return self.swpMD5Encryption.uppercased()
+    public var md5Uppercased : String {
+        return self.md5.uppercased()
     }
     
     
@@ -29,42 +29,42 @@ extension String {
     /// # md5 encryption string
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpMD5Encryption(string : String) -> String {
-        return string.swpMD5Encryption
+    public static func md5(_ string : String) -> String {
+        return string.swp.md5
     }
     
     ///
     /// # md5 encrypted string, lowercased
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpMD5EncryptionLowercased(string : String) -> String {
-        return string.swpMD5EncryptionLowercased
+    public static func md5Lowercased(_ string : String) -> String {
+        return string.swp.md5Lowercased
     }
     
     ///
     /// # md5 encrypted string, uppercased
     /// - Parameter string: string
     /// - Returns:  String
-    public static func SwpMD5EncryptionUppercased(string : String) -> String {
-        return string.swpMD5EncryptionUppercased
+    public static func md5Uppercased(_ string : String) -> String {
+        return string.swp.md5Uppercased
     }
     
     
     // MARK: - MD5 32 Bit
     
     /// # md5 encrypts string, to generate a 32-bit key
-    public var swpMD5Encryption32Bit : String {
-        return self.swpMD5Encryption
+    public var md5_32Bit : String {
+        return self.md5
     }
     
     /// # md5 encrypts string, to generate a 32-bit key, lowercased
-    public var swpMD5Encryption32BitLowercase : String {
-        return self.swpMD5EncryptionLowercased
+    public var md5_32BitLowercase : String {
+        return self.md5Lowercased
     }
     
     /// # md5 encrypts string, to generate a 32-bit key, uppercased
-    public var swpMD5Encryption32BitUppercased : String {
-        return self.swpMD5EncryptionUppercased
+    public var md5_32BitUppercased : String {
+        return self.md5Uppercased
     }
     
     
@@ -72,24 +72,24 @@ extension String {
     /// # md5 encrypts string, to generate a 32-bit key
     /// - Parameter string: string
     /// - Returns:  String
-    public static func SwpMD5Encryption32Bit(string : String) -> String {
-        return string.swpMD5Encryption32Bit
+    public static func md5_32Bit(_ string : String) -> String {
+        return string.swp.md5_32Bit
     }
     
     ///
     /// # md5 encrypts string, to generate a 32-bit key, lowercased
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpMD5Encryption32BitLowercase(string : String) -> String {
-        return string.swpMD5Encryption32BitLowercase
+    public static func md5_32BitLowercase(_ string : String) -> String {
+        return string.swp.md5_32BitLowercase
     }
     
     ///
     /// # md5 encrypts string, to generate a 32-bit key, uppercased
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpMD5Encryption32BitUppercased(string : String) -> String {
-        return string.swpMD5Encryption32BitUppercased
+    public static func md5_32BitUppercased(_ string : String) -> String {
+        return string.swp.md5_32BitUppercased
     }
     
     
@@ -98,53 +98,55 @@ extension String {
     
     
     /// # md5 encrypts string, to generate a 16-bit key
-    public var swpMD5Encryption16Bit : String {
-        return (self.swpMD5Encryption32Bit as NSString).substring(with: NSMakeRange(8, 16))
+    public var md5_16Bit : String {
+        return (self.md5 as NSString).substring(with: NSMakeRange(8, 16))
     }
     
     /// # md5 encrypts string, to generate a 16-bit key, lowercased
-    public var swpMD5Encryption16BitLowercase : String {
-        return self.swpMD5Encryption16Bit.lowercased()
+    public var md5_16BitLowercase : String {
+        return self.md5_16Bit.lowercased()
     }
     
     /// # md5 encrypts string, to generate a 16-bit key, uppercased
-    public var swpMD5Encryption16BitUppercased : String {
-        return self.swpMD5Encryption16Bit.uppercased()
+    public var md5_16BitUppercased : String {
+        return self.md5_16Bit.uppercased()
     }
     
     ///
     /// # md5 encrypts string, to generate a 16-bit key
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpMD5Encryption16Bit(string : String) -> String {
-        return string.swpMD5Encryption16Bit
+    public static func md5_16Bit(_ string : String) -> String {
+        return string.swp.md5_16Bit
     }
     
     ///
     /// # md5 encrypts string, to generate a 16-bit key, lowercased
     /// - Parameter string: string
     /// - Returns:  String
-    public static func SwpMD5Encryption16BitLowercase(string : String) -> String {
-        return string.swpMD5Encryption16BitLowercase
+    public static func md5_16BitLowercase(_ string : String) -> String {
+        return string.swp.md5_16BitLowercase
     }
     
     ///
     /// # md5 encrypts string, to generate a 16-bit key, uppercased
     /// - Parameter string: string
     /// - Returns: String
-    public static func SwpMD5Encryption16BitUppercased(string : String) -> String {
-        return string.swpMD5Encryption16BitUppercased
+    public static func md5_16BitUppercased(_ string : String) -> String {
+        return string.swp.md5_16BitUppercased
     }
     
-    
-    
-    // MARK: - Private
+}
+
+// MARK: - Private
+private extension SwpExtensionStruct where BaseStruct == String {
+
     ///
     /// # md5 encrypts string
     /// - Returns: String
     private func md5Encryption() -> String {
         
-        if let data = self.data(using: .utf8, allowLossyConversion: true) {
+        if let data = self.swp.data(using: .utf8, allowLossyConversion: true) {
             
             let message = data.withUnsafeBytes { bytes -> [UInt8] in
                 return Array(UnsafeBufferPointer(start: bytes, count: data.count))
@@ -160,7 +162,6 @@ extension String {
             return MD5String
             
         }
-        return self
+        return self.swp
     }
-    
 }

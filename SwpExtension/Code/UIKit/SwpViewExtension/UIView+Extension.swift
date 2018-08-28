@@ -31,7 +31,7 @@ extension SwpExtensionClass where BaseClass : UIView {
 // MARK: - View layer
 extension SwpExtensionClass where BaseClass : UIView {
     
-    @discardableResult public func backgroundColor(_ color : UIColor) -> BaseClass {
+    @discardableResult public func backgroundColor(_ color : UIColor?) -> BaseClass {
         self.swp.backgroundColor = color
         return self.swp
     }

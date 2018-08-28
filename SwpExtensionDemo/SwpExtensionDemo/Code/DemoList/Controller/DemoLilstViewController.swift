@@ -11,7 +11,7 @@ import UIKit
 
 class DemoLilstViewController: DemoBaseViewController, DemoLilstViewDelegate {
     
-    private lazy var demoListView : DemoLilstView = DemoLilstView(delegate: self)
+    private lazy var demoListView : DemoLilstView = DemoLilstView()
     
     private lazy var datas : [DemoModel] = []
     
@@ -24,7 +24,11 @@ class DemoLilstViewController: DemoBaseViewController, DemoLilstViewDelegate {
         
         setData()
         
-        controllerBlocks(demoLilstView: demoListView)        
+        controllerBlocks(demoLilstView: demoListView)
+        
+        UserDefaults.swp.setValue("123", key: "aaa")
+    
+//        UserDefaults.swp.value(key: "")
     }
 
     override func didReceiveMemoryWarning() {
@@ -102,6 +106,7 @@ extension DemoLilstViewController {
             if let aClass = aClass {
                 self?.navigationController?.pushViewController(aClass.init(), animated: true)
             }
+            
         }
         
     }

@@ -6,38 +6,58 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-extension Bundle {
+extension SwpExtensionStruct where BaseStruct == Bundle {
+    
+    
+    /// # get app name space
+    public var nameSpace : String {
+        return self._nameSpace()
+    }
+    
+    /// # get app bundle name
+    public var bundleName : String {
+        return self._bundleName()
+    }
+    
+    /// # get app bundle version
+    public var bundleVersion : String {
+        return self._bundleVersion()
+    }
+    
+    /// # get app bundle short version string
+    public var bundleShortVersionString : String {
+        return self._bundleShortVersionString()
+    }
+    
+    /// # get app bundle identifier
+    public var bundleIdentifier : String {
+        return self._bundleIdentifier()
+    }
     
     ///
     /// # get name space
     /// - Returns: String
-    public static func SwpGetNameSpace() -> String {
-        let bundleName = Bundle.SwpBundleName()
-        return bundleName.count != 0 ? bundleName + "." : bundleName
+    @discardableResult public static func nameSpace() -> String {
+        return Bundle.main.swp.nameSpace
     }
-    
     
     ///
     /// # get bundle name
     /// - Returns: String
-    public static func SwpBundleName() -> String {
-        
-        let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String
-        if let bundleName = bundleName {
-            return bundleName
-        }
-        return ""
+    @discardableResult public static func bundleName() -> String {
+        return Bundle.main.swp.bundleName
     }
+    
     
     ///
     /// # get app version
     /// - Returns: String
-    public static func SwpGetAppVersion() -> String {
+    @discardableResult public static func appVersion() -> String {
         
         #if DEBUG
-        return Bundle.SwpGetBundleVersion()
+        return Bundle.swp.bundleVersion()
         #else
-        return Bundle.SwpGetBundleShortVersionString()
+        return Bundle.swp.bundleShortVersionString()
         #endif
     }
     
@@ -45,24 +65,73 @@ extension Bundle {
     ///
     /// # get app bundle version
     /// - Returns: String
-    public static func SwpGetBundleVersion() -> String {
-        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+    @discardableResult public static func bundleVersion() -> String {
+        return Bundle.main.swp.bundleVersion
     }
     
     
     ///
     /// # get app bundle short version string
     /// - Returns: String
-    public static func SwpGetBundleShortVersionString() -> String  {
+    @discardableResult public static func bundleShortVersionString() -> String  {
+        return Bundle.main.swp.bundleShortVersionString
+    }
+    
+    ///
+    /// # get app bundle identifier
+    /// - Returns: String
+    @discardableResult public static func bundleIdentifier() -> String {
+        return Bundle.main.swp.bundleIdentifier
+    }
+    
+}
+
+
+// MARK: - Private
+extension SwpExtensionStruct where BaseStruct == Bundle {
+    
+    ///
+    /// # get app name space
+    /// - Returns: String
+    private func _nameSpace() -> String {
+        
+        let bundleName = self._bundleName()
+        if bundleName.count == 0 {
+            return ""
+        }
+        return bundleName + "."
+    }
+
+    ///
+    /// # get app bundle name
+    /// - Returns: String
+    private func _bundleName() -> String {
+        
+        guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else {
+            return ""
+        }
+        return bundleName
+    }
+    
+    ///
+    /// # get app bundle version
+    /// - Returns: String
+    private func _bundleVersion() -> String {
+        return Bundle.main.infoDictionary?["CFBundleVersion"] as? String ?? ""
+    }
+    
+    ///
+    /// # get app bundle short version string
+    /// - Returns: String
+    private func _bundleShortVersionString() -> String  {
         return Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
     }
     
     ///
     /// # get app bundle identifier
     /// - Returns: String
-    public static func SwpGetBundleIdentifier() -> String {
+    private func _bundleIdentifier() -> String {
         return Bundle.main.infoDictionary?["CFBundleIdentifier"] as? String ?? ""
     }
-    
     
 }

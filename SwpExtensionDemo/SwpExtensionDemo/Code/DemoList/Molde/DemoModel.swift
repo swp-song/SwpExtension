@@ -21,7 +21,7 @@ class DemoModel: NSObject {
     public convenience init(dictionary : [String : Any]) {
         self.init()
         aTitle = dictionary["aTitle"] as? String ?? ""
-        aClass = NSClassFromString(Bundle.SwpGetNameSpace() + (dictionary["aClass"] as? String ?? ""))
+        aClass = NSClassFromString(Bundle.main.swp.nameSpace + (dictionary["aClass"] as? String ?? ""))
     }
     
     public static func demos(dictionarys : [[String : Any]]?) -> [DemoModel] {

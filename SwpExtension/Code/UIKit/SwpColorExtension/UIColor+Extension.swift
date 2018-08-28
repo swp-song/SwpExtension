@@ -6,7 +6,7 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-extension UIColor {
+extension SwpExtensionClass where BaseClass : UIColor {
     
     // MARK: - Public
     
@@ -16,10 +16,9 @@ extension UIColor {
     ///   - hex:   Int
     ///   - alpha: alpha
     /// - Returns: UIColor
-    public static func SwpColorHex(_ hex : Int, alpha : CGFloat = 1) -> UIColor {
-        return UIColor.ColorHex(hex, alpha: alpha)
+    public static func colorHex(_ hex : Int, alpha : CGFloat = 1) -> UIColor {
+        return UIColor.swp._colorHex(hex, alpha: alpha)
     }
-    
     
     ///
     /// # hex set color
@@ -27,8 +26,8 @@ extension UIColor {
     ///   - hex:   hex
     ///   - alpha: alpha
     /// - Returns: UIColor
-    public static func SwpColorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
-        return UIColor.ColorHex(hex, alpha: alpha);
+    public static func colorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
+        return UIColor.swp._colorHex(hex, alpha: alpha);
     }
     
     
@@ -40,18 +39,20 @@ extension UIColor {
     ///   - blue:   blue
     ///   - alpha:  alpha
     /// - Returns:  UIColor
-    public static func SwpColorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
-        return UIColor.ColorRGB(red: red, green: green, blue: blue, alpha: alpha)
+    public static func colorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
+        return UIColor.swp._colorRGB(red: red, green: green, blue: blue, alpha: alpha)
     }
     
     ///
     /// # create random colors
     /// - Returns:  UIColor
-    public static func SwpColorRandom(alpha : CGFloat = 1) -> UIColor {
-        return SwpColorRGB(red: CGFloat(arc4random_uniform(256)), green: CGFloat(arc4random_uniform(256)), blue: CGFloat(arc4random_uniform(256)), alpha:alpha)
+    public static func colorRandom(alpha : CGFloat = 1) -> UIColor {
+        return colorRGB(red: CGFloat(arc4random_uniform(256)), green: CGFloat(arc4random_uniform(256)), blue: CGFloat(arc4random_uniform(256)), alpha:alpha)
     }
-    
-    // MARK: - Private
+}
+
+// MARK: - Private
+private extension SwpExtensionClass where BaseClass : UIColor {
     
     ///
     /// # hex set color
@@ -59,7 +60,7 @@ extension UIColor {
     ///   - hex:    hex
     ///   - alpha:  alpha
     /// - Returns:  UIColor
-    private static func ColorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
+    private static func _colorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
         
         var aString : String = hex.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         
@@ -100,7 +101,7 @@ extension UIColor {
         Scanner(string: gString).scanHexInt32(&g)
         Scanner(string: bString).scanHexInt32(&b)
         
-        return UIColor.ColorRGB(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: alpha)
+        return UIColor.swp._colorRGB(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: alpha)
     }
     
     
@@ -110,10 +111,9 @@ extension UIColor {
     ///   - hex:    hex
     ///   - alpha:  alpha
     /// - Returns:  UIColor
-    private static func ColorHex(_ hex : Int, alpha : CGFloat) -> UIColor {
+    private static func _colorHex(_ hex : Int, alpha : CGFloat) -> UIColor {
         return UIColor(red:((CGFloat)((hex & 0xFF0000) >> 16)) / 255.0, green:((CGFloat)((hex & 0xFF00) >> 8)) / 255.0, blue:((CGFloat)((hex & 0xFF))) / 255.0, alpha: alpha)
     }
-    
     
     ///
     /// # r g b set color
@@ -123,8 +123,7 @@ extension UIColor {
     ///   - blue:   blue
     ///   - alpha:  alpha
     /// - Returns:  UIColor
-    private static func ColorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
+    private static func _colorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
         return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha);
     }
-    
 }

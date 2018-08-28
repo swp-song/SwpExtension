@@ -14,7 +14,7 @@ target 'SwpExtensionDemo' do
   pod 'SwpExtension/SwpBundleExtension', :path => '../'
   pod 'SwpExtension/SwpMD5Extension', :path => '../'
   pod 'SwpExtension/SwpBase64Extension', :path => '../'
-  pod 'SwpExtension/SwpStringSpaceExtension', :path => '../'
+  pod 'SwpExtension/SwpStringExtension', :path => '../'
   pod 'SwpExtension/SwpUserDefaultsExtension', :path => '../'
   
 

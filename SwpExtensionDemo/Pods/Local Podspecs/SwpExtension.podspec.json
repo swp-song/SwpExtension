@@ -27,7 +27,7 @@
     "SwpBundleExtension",
     "SwpMD5Extension",
     "SwpBase64Extension",
-    "SwpStringSpaceExtension",
+    "SwpStringExtension",
     "SwpUserDefaultsExtension",
     "SwpColorExtension",
     "SwpViewExtension",
@@ -67,13 +67,13 @@
       "source_files": "SwpExtension/Code/Foundation/SwpStringExtension/Base64/*.swift"
     },
     {
-      "name": "SwpStringSpaceExtension",
+      "name": "SwpStringExtension",
       "dependencies": {
         "SwpExtension/SwpExtensionBase": [
 
         ]
       },
-      "source_files": "SwpExtension/Code/Foundation/SwpStringExtension/StringSpace/*.swift"
+      "source_files": "SwpExtension/Code/Foundation/SwpStringExtension/String/*.swift"
     },
     {
       "name": "SwpUserDefaultsExtension",
@@ -100,7 +100,7 @@
 
         ]
       },
-      "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/UIButton+Extension.swift"
+      "source_files": "SwpExtension/Code/UIKit/SwpButtonExtension/*.swift"
     },
     {
       "name": "SwpColorExtension",

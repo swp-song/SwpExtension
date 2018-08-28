@@ -14,30 +14,26 @@ import SnapKit
 class UIButtonViewController: DemoBaseViewController {
 
     
-    lazy private var button : UIButton = UIButton()
+//    lazy private var button : UIButton = UIButton(UIColor.orange, title: "123", titleColor: UIColor.black, size: 15, radius: 0, tag: 0, target: self, action: #selector(clickButton), events: .touchUpInside)
+    
+    lazy private var button : UIButton = UIButton(UIColor.cyan, title: "222", titleColor: UIColor.blue, titleFont: UIFont.systemFont(ofSize: 12), radius: 0, tag: 0, target: self, action: #selector(clickButton), events:.touchUpInside)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        
-//        print("1".base64Encoding)
-//        "1".swp.ba
-        let s : String = "123"
-        
-//        let s1 : NSString = s as NSString
-        
-//        s1.swp.bas
-        print(s.swp.base64Encoding)
-        
     
-    
+        
         view.addSubview(button)
-        button.backgroundColor = UIColor.red
-        button.setImage(UIImage(named: "button_icon"), for: .normal)
-//        button.setTitle("123", for: .normal)
-//        button.setTitleColor(UIColor.black, for: .normal)
-        button.swpTitle("123", for: .normal).swpTitleColor(UIColor.black, for: .normal).swpImage(UIImage(named: "button_icon"), for: .normal).swpImageEdge(imageEdge: .top).swpTargetEvent(self, action: #selector(clickButton), for: .touchUpInside)
+//        button.backgroundColor = UIColor.red
+        button.swp.image(UIImage(named: "button_icon"), for: .normal)
+        
+//        button
+//            .swp.title("123", for: .normal)
+//            .swp.titleColor(UIColor.black, for: .normal)
+//            .swp.image(UIImage(named: "button_icon"), for: .normal)
+//            .swp.targetEvent(self, action: #selector(clickButton), for: .touchUpInside)
+//            .swp.imageEdge(.top)
+        
 
         
         self.button.snp.makeConstraints { (make) in
@@ -75,13 +71,14 @@ extension UIButtonViewController {
     
     @objc func clickButton(button : UIButton) -> Void {
         
-        let edges : [UIButton.SwpButtonImageEdge] = [UIButton.SwpButtonImageEdge.top, UIButton.SwpButtonImageEdge.left, UIButton.SwpButtonImageEdge.bottom, UIButton.SwpButtonImageEdge.right]
+        let edges  = [UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
         let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
-        button.swpImageEdge(imageEdge: edges[index])
+        button.swp.imageEdge(edges[index])
+//        button.swp.imageEdge(.left)
         
-        let image : UIImage? = self.view.swp.screenshots;
-
-        print(image as Any)
+//        let image : UIImage? = self.view.swp.screenshots;
+//
+//        print(image as Any)
     }
     
     public func randomIntNumber(lower: Int = 0,upper: Int = Int(UInt32.max)) -> Int {
@@ -97,8 +94,7 @@ extension UIButtonViewController {
         
         titles.forEach { [weak self] (title) in
             let button : UIButton = UIButton()
-            
-            button.backgroundColor = UIColor.SwpColorRandom()
+            button.backgroundColor = UIColor.swp.colorRandom()
             views.append(button)
             self?.view.addSubview(button)
         }

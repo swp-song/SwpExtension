@@ -14,7 +14,6 @@ extension SwpExtensionStruct where BaseStruct == String {
         return self.encoding()
     }
     
-
     /// # base64 decoding
     public var base64Decoding : String {
         return self.decoding()
@@ -24,7 +23,7 @@ extension SwpExtensionStruct where BaseStruct == String {
     /// # base64 encoding
     /// - Parameter string: string
     /// - Returns: String
-    public static func Base64Encoding(string : String) -> String {
+    @discardableResult public static func base64Encoding(_ string : String) -> String {
         return string.swp.base64Encoding
     }
     
@@ -32,13 +31,15 @@ extension SwpExtensionStruct where BaseStruct == String {
     /// # base64 decoding
     /// - Parameter string: string
     /// - Returns: String
-    public static func Base64Decoding(string : String) -> String {
+    @discardableResult public static func base64Decoding(_ string : String) -> String {
         return string.swp.base64Decoding
     }
-    
-    
-    
-    // MARK - private
+
+}
+
+
+// MARK: - Private
+extension SwpExtensionStruct where BaseStruct == String {
     
     ///
     /// # base64 encoding
@@ -67,3 +68,4 @@ extension SwpExtensionStruct where BaseStruct == String {
         return String(data: data, encoding: String.Encoding.utf8) ?? ""
     }
 }
+

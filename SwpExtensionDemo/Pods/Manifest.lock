@@ -15,7 +15,7 @@ PODS:
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpNavigationBarExtension (0.0.2):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpStringSpaceExtension (0.0.2):
+  - SwpExtension/SwpStringExtension (0.0.2):
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpTextFieldExtension (0.0.2):
     - SwpExtension/SwpExtensionBase
@@ -33,7 +33,7 @@ DEPENDENCIES:
   - SwpExtension/SwpFontExtension (from `../`)
   - SwpExtension/SwpMD5Extension (from `../`)
   - SwpExtension/SwpNavigationBarExtension (from `../`)
-  - SwpExtension/SwpStringSpaceExtension (from `../`)
+  - SwpExtension/SwpStringExtension (from `../`)
   - SwpExtension/SwpTextFieldExtension (from `../`)
   - SwpExtension/SwpUserDefaultsExtension (from `../`)
   - SwpExtension/SwpViewExtension (from `../`)
@@ -48,8 +48,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: 551e2f57e2942e0457f3706d1b46cc46908d9b89
+  SwpExtension: aaf2dce19af01523b164a4585242b59dbfc30b41
 
-PODFILE CHECKSUM: 98d65e7cfe7c2832064e875e843d2c5dfcc636a8
+PODFILE CHECKSUM: 0d69a10845b0ea2040827405e4e5c36734d57e03
 
 COCOAPODS: 1.6.0.beta.1

@@ -7,12 +7,12 @@
 //
 
 
-extension UIFont {
+extension SwpExtensionClass where BaseClass : UIFont {
     
     ///
     /// # get font names
     /// - Returns: [String]
-    @discardableResult public static func SwpFontNames() -> [String] {
+    @discardableResult public static func fontNames() -> [String] {
         return UIFont.familyNames
     }
     
@@ -20,7 +20,7 @@ extension UIFont {
     ///
     /// # get font name list
     /// - Returns: [String : [String]]
-    @discardableResult public static func SwpFontNameList() -> [String : [String]] {
+    @discardableResult public static func fontNameList() -> [String : [String]] {
         
         var dictionary : [String : [String]] = [:]
         
@@ -45,7 +45,7 @@ extension UIFont {
     ///   - fontName: fontName
     ///   - fontSize: fontSize
     /// - Returns: UIFont
-    @discardableResult public static func SwpFont(name fontName : String? = nil, size fontSize : CGFloat = 15) -> UIFont {
+    @discardableResult public static func font(name fontName : String? = nil, size fontSize : CGFloat = 15) -> UIFont {
         
         if let fontName = fontName {
             return UIFont(name: fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
@@ -58,57 +58,57 @@ extension UIFont {
     /// # get AppleSDGothicNeo-Thin font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
-    public static func SwpFontAppleSDGothicNeoThin(_ size : CGFloat = 15) -> UIFont {
-        return UIFont.SwpFont(name: "AppleSDGothicNeo-Thin", size: size)
+    public static func fontAppleSDGothicNeoThin(_ size : CGFloat = 15) -> UIFont {
+        return UIFont.swp.font(name: "AppleSDGothicNeo-Thin", size: size)
     }
     
     ///
     /// # get Avenir font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
-    public static func SwpFontAvenir(_ size : CGFloat = 15) -> UIFont {
-        return UIFont.SwpFont(name: "Avenir", size: size)
+    public static func fontAvenir(_ size : CGFloat = 15) -> UIFont {
+        return UIFont.swp.font(name: "Avenir", size: size)
     }
     
     ///
     /// # get Avenir Light font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
-    public static func SwpFontAvenirLight(_ size : CGFloat = 15) -> UIFont {
-        return UIFont.SwpFont(name: "Avenir-Light", size: size)
+    public static func fontAvenirLight(_ size : CGFloat = 15) -> UIFont {
+        return UIFont.swp.font(name: "Avenir-Light", size: size)
     }
     
     ///
     /// # get Heiti SC font and setting font size
     /// - Parameter size: size
-    /// - Returns:  UIFont
-    public static func SwpFontHeitiSC(_ size : CGFloat = 15) -> UIFont {
-        return UIFont.SwpFont(name: "Heiti SC", size: size)
+    /// - Returns: UIFont
+    public static func fontHeitiSC(_ size : CGFloat = 15) -> UIFont {
+        return UIFont.swp.font(name: "Heiti SC", size: size)
     }
     
     ///
     /// # get HelveticaNeue font and setting font size
     /// - Parameter size: size
-    /// - Returns:  UIFont
-    public static func SwpFontHelveticaNeue(_ size : CGFloat = 15) -> UIFont {
-        return UIFont.SwpFont(name: "HelveticaNeue", size: size)
+    /// - Returns: UIFont
+    public static func fontHelveticaNeue(_ size : CGFloat = 15) -> UIFont {
+        return UIFont.swp.font(name: "HelveticaNeue", size: size)
     }
     
     ///
     /// # get HelveticaNeue font and setting font size
     /// - Parameter size: size
-    /// - Returns:  UIFont
-    public static func SwpFontHelveticaNeueBold(_ size : CGFloat = 15) -> UIFont {
-        return UIFont.SwpFont(name: "HelveticaNeue-Bold", size: size)
+    /// - Returns: UIFont
+    public static func fontHelveticaNeueBold(_ size : CGFloat = 15) -> UIFont {
+        return UIFont.swp.font(name: "HelveticaNeue-Bold", size: size)
     }
     
     ///
     /// # get GillSans Italic font and setting font size
     /// - Parameter size: size
     /// - Returns:  UIFont
-    public static func SwpFontGillSansItalic(_ size : CGFloat = 15) -> UIFont {
-        return UIFont.SwpFont(name: "GillSans-Italic", size: size)
+    public static func fontGillSansItalic(_ size : CGFloat = 15) -> UIFont {
+        return UIFont.swp.font(name: "GillSans-Italic", size: size)
     }
     
 }
-//
+

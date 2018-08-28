@@ -9,8 +9,6 @@
 
 import UIKit
 
-
-
 // MARK: - DemoLilstView 协议
 protocol DemoLilstViewDelegate : NSObjectProtocol {
     func demoLilstView(_ tableView: UITableView, indexPath: IndexPath, model : AnyObject) -> Void
@@ -70,7 +68,7 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
 // MARK: - Public Methods Extension
 extension DemoLilstView {
     
-    public convenience init(delegate : DemoLilstViewDelegate?, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
+    public convenience init(_ delegate : DemoLilstViewDelegate?, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
         self.init(frame: frame, style: style)
         self.demoLilstViewDelegate = delegate;
     }
@@ -113,7 +111,7 @@ extension DemoLilstView {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        demoLilstViewClickCell?(tableView, indexPath, datas[indexPath.row])
+        demoLilstViewClickCell?(self, indexPath, datas[indexPath.row])
         
         demoLilstViewDelegate?.demoLilstView(self, indexPath: indexPath, model: datas[indexPath.row])
     }
