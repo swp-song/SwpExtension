@@ -11,23 +11,24 @@ import UIKit
 class UITextFieldViewController: DemoBaseViewController {
 
     
-    private lazy var textField1 : DDD = {
-        return DDD()
+//    private lazy var textField1 : DDD = {
+//        return DDD()
+//        .swp.textColor(UIColor.red)
+//        .swp.text("123213")
+//        .swp.font(UIFont.systemFont(ofSize: 12))
+//        .swp.keyboardType(.default)
+//        .swp.isSecureTextEntry(true)
+//        .swp.clearButtonMode(.whileEditing)
+//        .swp.leftImage(#imageLiteral(resourceName: "account"))
+//        .swp.placeholder("123")
+//        .swp.placeholderStyle(UIColor.orange, font: UIFont.systemFont(ofSize: 20))
 //        .swp.borderWidth(1)
-        .swp.textColor(UIColor.red)
-        .swp.text("123213")
-        .swp.font(UIFont.systemFont(ofSize: 12))
-        .swp.keyboardType(.default)
-        .swp.isSecureTextEntry(true)
-        .swp.clearButtonMode(.whileEditing)
-        .swp.leftImage(#imageLiteral(resourceName: "account"))
-        .swp.placeholder("123")
-        .swp.placeholderStyle(UIColor.orange, font: UIFont.systemFont(ofSize: 20))
-        .swp.borderWidth(1)
-        .swp.cornerRadiusMasks(5)
-        .swp.borderColo(UIColor.red)
-//        return DDD(textColor: UIColor.red)
-        }()
+//        .swp.cornerRadiusMasks(5)
+//        .swp.borderColo(UIColor.red)
+//        }()
+    
+    private lazy var textField1 : DDD = DDD(UIColor.orange, textColor: UIColor.red, textFont: UIFont.systemFont(ofSize: 12), placeholder: "好", pColor: UIColor.green, pFont: UIFont.systemFont(ofSize: 12), border: 1, radius: 5, keyboard: .default, isEntry: true)
+//    private lazy var textField2 : DDD = DDD(UIColor.orange)
     
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {

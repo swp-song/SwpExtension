@@ -7,8 +7,26 @@
 //
 
 
-extension UITextField {
+
+
+extension UITextField  {
     
+    public convenience init(_ backgroundColor : UIColor? = nil, textColor : UIColor? = nil,  textFont : UIFont?, placeholder : String?, pColor : UIColor?, pFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) {
+    
+        self.init()
+        
+        self.swp.leftMargin()
+            .swp.font(textFont)
+            .swp.textColor(textColor)
+            .swp.keyboardType(keyboard)
+            .swp.clearButtonMode(.always)
+            .swp.placeholder(placeholder)
+            .swp.isSecureTextEntry(isEntry)
+            .swp.placeholderStyle(pColor, font: pFont)
+            .swp.borderWidth(border)
+            .swp.cornerRadiusMasks(radius)
+            .swp.backgroundColor(backgroundColor)
+    }
 }
 
 extension SwpExtensionClass where BaseClass : UITextField {
@@ -23,7 +41,7 @@ extension SwpExtensionClass where BaseClass : UITextField {
         return self.swp
     }
     
-    @discardableResult public func placeholder(_ placeholder: String) -> BaseClass {
+    @discardableResult public func placeholder(_ placeholder: String?) -> BaseClass {
         self.swp.placeholder = placeholder
         return self.swp
     }

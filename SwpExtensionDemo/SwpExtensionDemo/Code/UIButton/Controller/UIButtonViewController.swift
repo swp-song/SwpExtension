@@ -16,7 +16,8 @@ class UIButtonViewController: DemoBaseViewController {
     
 //    lazy private var button : UIButton = UIButton(UIColor.orange, title: "123", titleColor: UIColor.black, size: 15, radius: 0, tag: 0, target: self, action: #selector(clickButton), events: .touchUpInside)
     
-    lazy private var button : UIButton = UIButton(UIColor.cyan, title: "222", titleColor: UIColor.blue, titleFont: UIFont.systemFont(ofSize: 12), radius: 0, tag: 0, target: self, action: #selector(clickButton), events:.touchUpInside)
+//    lazy private var button : UIButton = UIButton(UIColor.cyan, title: "222", titleColor: UIColor.blue, titleFont: UIFont.systemFont(ofSize: 12), radius: 0, tag: 0, target: self, action: #selector(clickButton), events:.touchUpInside)
+    lazy private var button : UIButton = UIButton()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,14 +26,15 @@ class UIButtonViewController: DemoBaseViewController {
         
         view.addSubview(button)
 //        button.backgroundColor = UIColor.red
-        button.swp.image(UIImage(named: "button_icon"), for: .normal)
+//        button.swp.image(UIImage(named: "button_icon"), for: .normal)
         
-//        button
-//            .swp.title("123", for: .normal)
-//            .swp.titleColor(UIColor.black, for: .normal)
-//            .swp.image(UIImage(named: "button_icon"), for: .normal)
-//            .swp.targetEvent(self, action: #selector(clickButton), for: .touchUpInside)
-//            .swp.imageEdge(.top)
+        button
+            .swp.title("123", for: .normal)
+            .swp.titleColor(UIColor.black, for: .normal)
+            .swp.image(#imageLiteral(resourceName: "button_icon"), for: .normal)
+            .swp.targetEvent(self, action: #selector(clickButton), for: .touchUpInside)
+            .swp.imageEdge(.top)
+            .swp.backgroundColor(UIColor.swp.colorRandom())
         
 
         

@@ -9,13 +9,33 @@
 
 extension SwpExtensionClass where BaseClass : UserDefaults {
     
-    
-    
-    public func setValue(_ value : Any, key : String) -> BaseClass {
-        UserDefaults.standard.setValue(value, forKey: key)
+    ///
+    /// # set user defaults
+    /// - Parameters:
+    ///   - value:  value
+    ///   - key:    key
+    /// - Returns: UserDefaults
+    @discardableResult public func setValue(_ value : Any, key : String) -> BaseClass {
+        self.swp.setValue(value, forKey: key)
         return self.swp
     }
     
+    ///
+    /// # get user defaults
+    /// - Parameter key: key
+    /// - Returns:  Any?
+    @discardableResult public func value(_ key : String) -> Any? {
+        return self.swp.value(forKey: key)
+    }
+    
+    ///
+    /// # remove user defaults
+    /// - Parameter key: key
+    /// - Returns: UserDefaults
+    @discardableResult public func removeObject(_ key : String) -> BaseClass {
+        self.swp.removeObject(forKey: key)
+        return self.swp
+    }
     
     ///
     /// # set user defaults
@@ -31,8 +51,8 @@ extension SwpExtensionClass where BaseClass : UserDefaults {
     /// # get user defaults
     /// - Parameter key: key
     /// - Returns:  Any?
-    @discardableResult public static func value(key : String) -> Any? {
-        return UserDefaults.standard.value(forKey: key)
+    @discardableResult public static func value(_ key : String) -> Any? {
+        return UserDefaults.standard.swp.value(key)
     }
     
     
@@ -40,9 +60,8 @@ extension SwpExtensionClass where BaseClass : UserDefaults {
     /// # remove user defaults
     /// - Parameter key: key
     /// - Returns: UserDefaults
-    @discardableResult public static func removeObject(key : String) -> UserDefaults {
-        UserDefaults.standard.removeObject(forKey: key)
-        return UserDefaults.standard
+    @discardableResult public static func removeObject(_ key : String) -> UserDefaults {
+        return UserDefaults.standard.swp.removeObject(key)
     }
     
     

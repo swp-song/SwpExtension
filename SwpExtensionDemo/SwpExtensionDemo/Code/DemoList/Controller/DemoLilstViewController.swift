@@ -25,10 +25,7 @@ class DemoLilstViewController: DemoBaseViewController, DemoLilstViewDelegate {
         setData()
         
         controllerBlocks(demoLilstView: demoListView)
-        
-        UserDefaults.swp.setValue("123", key: "aaa")
-    
-//        UserDefaults.swp.value(key: "")
+
     }
 
     override func didReceiveMemoryWarning() {
