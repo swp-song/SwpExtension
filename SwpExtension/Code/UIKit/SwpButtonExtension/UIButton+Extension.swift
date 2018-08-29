@@ -6,74 +6,90 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+// MARK: - BaseClass Convenience Function
+extension SwpExtensionClass where BaseClass : UIButton {
 
-extension UIButton {
-    
     ///
-    /// # set submit style button
+    /// # convenience init style function
     /// - Parameters:
     ///   - backgroundColor:    backgroundColor
     ///   - title:              title
-    ///   - titleColor:         titleColor
-    ///   - size:               size
-    ///   - radius:             radius
-    ///   - tag:                tag
     ///   - target:             target
     ///   - action:             action
-    ///   - events:             events
-    public convenience init(_ backgroundColor : UIColor?, title : String?, titleColor : UIColor?, size : CGFloat = 15, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) {
-        self.init(backgroundColor, title: title, titleColor: titleColor, titleFont: UIFont.systemFont(ofSize: size), radius: radius, tag: tag, target: target, action: action, events: events)
-    }
-    
-    
-    ///
-    /// # set submit style button
-    /// - Parameters:
-    ///   - backgroundColor:    backgroundColor
-    ///   - title:              title
     ///   - titleColor:         titleColor
     ///   - titleFont:          titleFont
     ///   - radius:             radius
     ///   - tag:                tag
+    ///   - events:             events
+    public convenience init(_ backgroundColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControlEvents = .touchUpInside) {
+        
+        self.init(BaseClass())
+        self.style(backgroundColor, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont, radius: radius, tag: tag, events: events)
+    }
+    
+    
+    ///
+    /// # convenience init style function
+    /// - Parameters:
+    ///   - backgroundColor:    backgroundColor
+    ///   - title:              title
     ///   - target:             target
     ///   - action:             action
+    ///   - titleColor:         titleColor
+    ///   - titleFont:          titleFont
+    ///   - radius:             radius
+    ///   - tag:                tag
     ///   - events:             events
-    public convenience init(_ backgroundColor : UIColor?, title : String? = nil, titleColor : UIColor?, titleFont : UIFont, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) {
+    @discardableResult static public func styleInit(_ backgroundColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControlEvents = .touchUpInside) -> BaseClass {
         
-        self.init()
-        
-        self.swp.tag(tag)
-            .swp.title(title, for: .normal)
-            .swp.title(title, for: .highlighted)
-            .swp.titleFont(titleFont)
-            .swp.titleColor(titleColor, for: .normal)
-            .swp.titleColor(titleColor, for: .highlighted)
-            .swp.cornerRadiusMasks(radius)
-            .swp.backgroundColor(backgroundColor)
-        
-        guard let action = action else {
-            return
-        }
-        
-        self.swp.targetEvent(target, action: action, for: events)
+        return self.init(backgroundColor, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont, radius: radius, tag: tag, events: events).swp
     }
+    
+    
+    
+    ///
+    /// # convenience init check box style function
+    /// - Parameters:
+    ///   - normalImage:    normalImage
+    ///   - selectedImage:  selectedImage
+    ///   - title:          title
+    ///   - target:         target
+    ///   - action:         action
+    ///   - titleColor:     titleColor
+    ///   - titleFont:      titleFont
+    public convenience init(_ normalImage : UIImage?, selectedImage : UIImage?,  title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15)) {
+        
+        self.init(BaseClass())
+        
+        self.styleCheckBox(normalImage, selectedImage: selectedImage, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont)
+    }
+    
+    ///
+    /// # convenience init check box style function
+    /// - Parameters:
+    ///   - normalImage:    normalImage
+    ///   - selectedImage:  selectedImage
+    ///   - title:          title
+    ///   - target:         target
+    ///   - action:         action
+    ///   - titleColor:     titleColor
+    ///   - titleFont:      titleFont
+    @discardableResult static public func styleCheckBoxInit(_ normalImage : UIImage?, selectedImage : UIImage?,  title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15)) -> BaseClass {
+        return self.init(normalImage, selectedImage: selectedImage, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont).swp
+    }
+    
 }
 
-
-// MARK: - Property
+// MARK: - Property Function
 extension SwpExtensionClass where BaseClass : UIButton {
     
-    
-    @discardableResult static public func buttonSt(backgroundColor : UIColor?, title : String? = nil, titleColor : UIColor?, titleFont : UIFont, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) -> UIButton {
-        return UIButton(backgroundColor, title: title, titleColor: titleColor, titleFont: titleFont, radius: radius, tag: tag, target: target, action: action, events: events)
-    }
     
     ///
     /// # set title
     /// - Parameters:
     ///   - title:  title
     ///   - state:  state
-    /// - Returns:  UIButton
+    /// - Returns: BaseClass
     @discardableResult public func title(_ title : String?, for state : UIControlState) -> BaseClass {
         self.swp.setTitle(title, for: state)
         return self.swp
@@ -82,7 +98,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
     ///
     /// # set title font
     /// - Parameter font: font
-    /// - Returns:  UIButton
+    /// - Returns: BaseClass
     @discardableResult public func titleFont(_ font : UIFont) -> BaseClass {
         self.swp.titleLabel?.font = font
         return self.swp
@@ -94,7 +110,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
     /// - Parameters:
     ///   - color:  color
     ///   - state:  state
-    /// - Returns:  UIButton
+    /// - Returns: BaseClass
     @discardableResult public func titleColor(_ color : UIColor?, for state : UIControlState) -> BaseClass {
         self.swp.setTitleColor(color, for: state)
         return self.swp
@@ -106,7 +122,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
     /// - Parameters:
     ///   - image:  image
     ///   - state:  state
-    /// - Returns:  UIButton
+    /// - Returns: BaseClass
     @discardableResult public func image(_ image : UIImage?, for state : UIControlState) -> BaseClass {
         self.swp.setImage(image, for: state)
         return self.swp
@@ -118,7 +134,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
     /// - Parameters:
     ///   - image:  image
     ///   - state:  state
-    /// - Returns:  UIButton
+    /// - Returns: BaseClass
     @discardableResult public func backgroundImage(_ image : UIImage?, for state : UIControlState) -> BaseClass {
         self.swp.setBackgroundImage(image, for: state)
         return self.swp
@@ -128,7 +144,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
     ///
     /// # set tag
     /// - Parameter tag: tag
-    /// - Returns: UIButton
+    /// - Returns: BaseClass
     @discardableResult public func tag(_ tag : Int) -> BaseClass {
         self.swp.tag = tag
         return self.swp
@@ -141,7 +157,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
     ///   - target: target
     ///   - action: action
     ///   - events: events
-    /// - Returns:  UIButton
+    /// - Returns: BaseClass
     @discardableResult public func targetEvent(_ target: Any?, action : Selector,  for events : UIControlEvents) -> BaseClass {
         self.swp.addTarget(target, action: action, for: events)
         return self.swp
@@ -151,7 +167,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
     ///
     /// # set title edgeInsets
     /// - Parameter titleEdgeInsets: titleEdgeInsets
-    /// - Returns: UIButton
+    /// - Returns: BaseClass
     @discardableResult public func titleEdgeInsets(titleEdgeInsets : UIEdgeInsets) -> BaseClass {
         self.swp.titleEdgeInsets = titleEdgeInsets
         return self.swp
@@ -161,15 +177,31 @@ extension SwpExtensionClass where BaseClass : UIButton {
     ///
     /// # set image edgeInsets
     /// - Parameter imageEdgeInsets:
-    /// - Returns: UIButton
+    /// - Returns: BaseClass
     @discardableResult public func imageEdgeInsets(imageEdgeInsets : UIEdgeInsets) -> BaseClass {
         self.swp.imageEdgeInsets = imageEdgeInsets
         return self.swp
     }
+    
+    
+    ///
+    /// # size to fit
+    /// - Returns: BaseClass
+    @discardableResult public func sizeToFit() -> BaseClass {
+        self.swp.sizeToFit()
+        return self.swp
+    }
 }
 
+// MARK: - Custom Function
 extension SwpExtensionClass where BaseClass : UIButton {
     
+    ///
+    /// # ImageEdge
+    /// - top:      top
+    /// - left:     left
+    /// - bottom:   bottom
+    /// - right:    right
     public enum ImageEdge : Int {
         case top
         case left
@@ -183,22 +215,25 @@ extension SwpExtensionClass where BaseClass : UIButton {
     /// - Parameters:
     ///   - imageEdge:  imageEdge
     ///   - offset:     offset
-    /// - Returns: UIButton
+    /// - Returns: BaseClass
     @discardableResult public func imageEdge(_ edge : ImageEdge,  offset : CGFloat = 0) -> BaseClass {
         return buttonImageEdge(edge: edge, offset: offset)
     }
     
+}
+
+// MARK: - Private Function
+fileprivate extension SwpExtensionClass where BaseClass : UIButton {
     
-    // MARK: - Private
     
     ///
     /// # set image location
     /// - Parameters:
     ///   - edge:   imageEdge
     ///   - offset: offset
-    /// - Returns: UIButton
-    private func buttonImageEdge(edge : ImageEdge,  offset : CGFloat = 0) -> BaseClass {
-    
+    /// - Returns: BaseClass
+    fileprivate func buttonImageEdge(edge : ImageEdge,  offset : CGFloat = 0) -> BaseClass {
+        
         let imageWith   : CGFloat = self.swp.currentImage?.size.width  ?? 0
         let imageHeight : CGFloat = self.swp.currentImage?.size.height ?? 0
         let labelWidth  : CGFloat = self.swp.titleLabel?.intrinsicContentSize.width  ?? 0
@@ -233,4 +268,73 @@ extension SwpExtensionClass where BaseClass : UIButton {
         return self.swp
     }
     
+    ///
+    /// # style
+    /// - Parameters:
+    ///   - backgroundColor:    backgroundColor
+    ///   - title:              title
+    ///   - target:             target
+    ///   - action:             action
+    ///   - titleColor:         titleColor
+    ///   - titleFont:          titleFont
+    ///   - radius:             radius
+    ///   - tag:                tag
+    ///   - events:             events
+    @discardableResult fileprivate func style(_ backgroundColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControlEvents = .touchUpInside) -> BaseClass {
+        
+        self.tag(tag)
+            .swp.title(title, for: .normal)
+            .swp.title(title, for: .highlighted)
+            .swp.titleFont(titleFont)
+            .swp.titleColor(titleColor, for: .normal)
+            .swp.titleColor(titleColor, for: .highlighted)
+        
+        self.swp.layer.cornerRadius  = radius
+        self.swp.layer.masksToBounds = true
+        
+        guard let action = action else {
+            return self.swp
+        }
+        
+        self.targetEvent(target, action: action, for: events)
+        
+        return self.swp
+    }
+    
+    
+    
+    ///
+    ///
+    /// # convenience init check box style function
+    /// - Parameters:
+    ///   - normalImage:    normalImage
+    ///   - selectedImage:  selectedImage
+    ///   - title:          title
+    ///   - target:         target
+    ///   - action:         action
+    ///   - titleColor:     titleColor
+    ///   - titleFont:      titleFont
+    /// - Returns: BaseClass
+    @discardableResult fileprivate func styleCheckBox(_ normalImage : UIImage?, selectedImage : UIImage?,  title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15)) -> BaseClass {
+        
+        self.titleFont(titleFont)
+            .swp.image(normalImage, for: .normal)
+            .swp.image(selectedImage, for: .selected)
+            .swp.title(title, for: .normal)
+            .swp.title(title, for: .selected)
+            .swp.title(title, for: .highlighted)
+            .swp.titleFont(titleFont)
+            .swp.titleColor(titleColor, for: .normal)
+            .swp.titleColor(titleColor, for: .highlighted)
+            .swp.imageEdge(.right, offset: 2)
+            .swp.sizeToFit()
+        
+        guard let action = action else {
+            return self.swp
+        }
+        
+        self.targetEvent(target, action: action, for: .touchUpInside)
+        
+        return self.swp
+    }
 }

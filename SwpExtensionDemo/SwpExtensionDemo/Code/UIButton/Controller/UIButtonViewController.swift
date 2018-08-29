@@ -14,30 +14,27 @@ import SnapKit
 class UIButtonViewController: DemoBaseViewController {
 
     
-//    lazy private var button : UIButton = UIButton(UIColor.orange, title: "123", titleColor: UIColor.black, size: 15, radius: 0, tag: 0, target: self, action: #selector(clickButton), events: .touchUpInside)
+
     
-//    lazy private var button : UIButton = UIButton(UIColor.cyan, title: "222", titleColor: UIColor.blue, titleFont: UIFont.systemFont(ofSize: 12), radius: 0, tag: 0, target: self, action: #selector(clickButton), events:.touchUpInside)
-    lazy private var button : UIButton = UIButton.swp.buttonSt(backgroundColor: nil, titleColor: nil, titleFont: UIFont.systemFont(ofSize: 12), target: nil, action: nil)
+//    private lazy var button : UIButton = UIButton.swp.init(UIColor.swp.randomColor(), title: "123", target: self, action: #selector(clickButton), titleColor: UIColor.swp.randomColor(), titleFont: UIFont.systemFont(ofSize: 15), radius: 5, tag: 0, events: .touchUpInside).swp
+    
+//    private lazy var checkBox : UIButton = UIButton.swp.init(#imageLiteral(resourceName: "check_box_no"), selectedImage: #imageLiteral(resourceName: "check_box_sel"), title: "点击", target: self, action: #selector(checkBoxEvent), titleColor: UIColor.red, titleFont: UIFont.systemFont(ofSize: 15)).swp
+    
+    private lazy var button : UIButton = UIButton.swp.styleInit(UIColor.swp.randomColor(), title: "123", target: self, action: #selector(clickButton), titleColor: UIColor.swp.randomColor(), titleFont: UIFont.systemFont(ofSize: 15), radius: 5, tag: 0, events: .touchUpInside)
+    
+    private lazy var checkBox : UIButton = UIButton.swp.styleCheckBoxInit(#imageLiteral(resourceName: "check_box_no"), selectedImage: #imageLiteral(resourceName: "check_box_sel"), title: "点击", target: self, action: #selector(checkBoxEvent), titleColor: UIColor.red, titleFont: UIFont.systemFont(ofSize: 15))
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    
-        
-        
-        view.addSubview(button)
-//        button.backgroundColor = UIColor.red
-//        button.swp.image(UIImage(named: "button_icon"), for: .normal)
-        
-        button
-            .swp.title("123", for: .normal)
-            .swp.titleColor(UIColor.black, for: .normal)
-            .swp.image(#imageLiteral(resourceName: "button_icon"), for: .normal)
-            .swp.targetEvent(self, action: #selector(clickButton), for: .touchUpInside)
-            .swp.imageEdge(.top)
-            .swp.backgroundColor(UIColor.swp.randomColor())
-        
 
+        view.addSubview(button)
+        view.addSubview(checkBox)
+        checkBox.swp.backgroundColor(UIColor.cyan)
+        
+        button.swp.image(UIImage(named: "button_icon"), for: .normal)
         
         self.button.snp.makeConstraints { (make) in
 //            make.top.left.right.equalTo(UIEdgeInsetsMake(100, 0, 0, 0))
@@ -45,6 +42,17 @@ class UIButtonViewController: DemoBaseViewController {
 //            make.width.equalTo(self.button.snp.height).multipliedBy(10)
             make.width.height.equalTo(CGSize(width: 100, height: 50))
         }
+        
+        self.checkBox.snp.makeConstraints { (make) in
+            make.top.equalTo(self.button.snp.bottom).offset(20)
+            make.right.equalToSuperview().offset(-10)
+//            make.right.equalTo(self.view).offset(20)
+            make.size.equalTo(CGSize(width: 80, height: 50))
+//            make.height.equalTo(50)
+        }
+        
+        
+//        checkBox.swp.imageEdge(.right)
     }
 
     override func didReceiveMemoryWarning() {
@@ -72,7 +80,7 @@ class UIButtonViewController: DemoBaseViewController {
 
 extension UIButtonViewController {
     
-    @objc func clickButton(button : UIButton) -> Void {
+    @objc private func clickButton(button : UIButton) -> Void {
         
         let edges  = [UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
         let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
@@ -82,6 +90,10 @@ extension UIButtonViewController {
 //        let image : UIImage? = self.view.swp.screenshots;
 //
 //        print(image as Any)
+    }
+    
+    @objc private func checkBoxEvent(button : UIButton) -> Void {
+        button.isSelected = !button.isSelected
     }
     
     public func randomIntNumber(lower: Int = 0,upper: Int = Int(UInt32.max)) -> Int {

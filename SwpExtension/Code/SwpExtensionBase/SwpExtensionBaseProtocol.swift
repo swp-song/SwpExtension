@@ -21,6 +21,7 @@ extension SwpExtensionClassProtocol {
 }
 
 extension UIView : SwpExtensionClassProtocol {}
+//extension UIButton : SwpExtensionClassProtocol {}
 extension UIColor : SwpExtensionClassProtocol {}
 extension UIFont : SwpExtensionClassProtocol {}
 extension UserDefaults : SwpExtensionClassProtocol {}
