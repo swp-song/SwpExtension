@@ -63,6 +63,11 @@ extension UIButton {
 // MARK: - Property
 extension SwpExtensionClass where BaseClass : UIButton {
     
+    
+    @discardableResult static public func buttonSt(backgroundColor : UIColor?, title : String? = nil, titleColor : UIColor?, titleFont : UIFont, radius : CGFloat = 0, tag : Int = 0, target : Any?, action : Selector?, events : UIControlEvents = .touchUpInside) -> UIButton {
+        return UIButton(backgroundColor, title: title, titleColor: titleColor, titleFont: titleFont, radius: radius, tag: tag, target: target, action: action, events: events)
+    }
+    
     ///
     /// # set title
     /// - Parameters:
@@ -164,8 +169,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
 }
 
 extension SwpExtensionClass where BaseClass : UIButton {
-    
-   
     
     public enum ImageEdge : Int {
         case top

@@ -17,12 +17,13 @@ class UIButtonViewController: DemoBaseViewController {
 //    lazy private var button : UIButton = UIButton(UIColor.orange, title: "123", titleColor: UIColor.black, size: 15, radius: 0, tag: 0, target: self, action: #selector(clickButton), events: .touchUpInside)
     
 //    lazy private var button : UIButton = UIButton(UIColor.cyan, title: "222", titleColor: UIColor.blue, titleFont: UIFont.systemFont(ofSize: 12), radius: 0, tag: 0, target: self, action: #selector(clickButton), events:.touchUpInside)
-    lazy private var button : UIButton = UIButton()
+    lazy private var button : UIButton = UIButton.swp.buttonSt(backgroundColor: nil, titleColor: nil, titleFont: UIFont.systemFont(ofSize: 12), target: nil, action: nil)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     
+        
         
         view.addSubview(button)
 //        button.backgroundColor = UIColor.red
@@ -34,7 +35,7 @@ class UIButtonViewController: DemoBaseViewController {
             .swp.image(#imageLiteral(resourceName: "button_icon"), for: .normal)
             .swp.targetEvent(self, action: #selector(clickButton), for: .touchUpInside)
             .swp.imageEdge(.top)
-            .swp.backgroundColor(UIColor.swp.colorRandom())
+            .swp.backgroundColor(UIColor.swp.randomColor())
         
 
         
@@ -96,7 +97,7 @@ extension UIButtonViewController {
         
         titles.forEach { [weak self] (title) in
             let button : UIButton = UIButton()
-            button.backgroundColor = UIColor.swp.colorRandom()
+            button.backgroundColor = UIColor.swp.randomColor()
             views.append(button)
             self?.view.addSubview(button)
         }

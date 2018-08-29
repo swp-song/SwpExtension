@@ -6,18 +6,58 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-extension SwpExtensionClass where BaseClass : UIColor {
+
+// MARK: - Public Convenience
+extension UIColor {
     
-    // MARK: - Public
+    
+    ///
+    /// # r g b set color
+    /// - Parameters:
+    ///   - hex: hex
+    ///   - alpha: alpha
+    public convenience init(aRed: CGFloat, aGreen: CGFloat, aBlue: CGFloat, alpha: CGFloat = 1) {
+        self.init(red: aRed / 255.0, green: aGreen / 255.0, blue: aBlue / 255.0, alpha: alpha)
+    }
     
     ///
     /// # hex set color
     /// - Parameters:
-    ///   - hex:   Int
+    ///   - hex: hex
+    ///   - alpha: alpha
+    public convenience init(_ hex : Int, alpha : CGFloat = 1) {
+        self.init(aRed: ((CGFloat)((hex & 0xFF0000) >> 16)), aGreen: ((CGFloat)((hex & 0xFF00) >> 8)), aBlue: ((CGFloat)((hex & 0xFF))), alpha: alpha)
+    }
+    
+    
+    ///
+    /// # hex set color
+    /// - Parameters:
+    ///   - hex: hex
+    ///   - alpha: alpha
+    public convenience init(_ hex : String, alpha : CGFloat = 1) {
+        
+        guard let colorValue = UIColor.aColorValue(hex) else {
+            self.init(aRed: 0, aGreen: 0, aBlue: 0, alpha: 0)
+            return
+        }
+        
+        self.init(aRed: colorValue.red, aGreen: colorValue.green, aBlue: colorValue.blue, alpha: alpha)
+    }
+    
+}
+
+// MARK: - Public
+extension SwpExtensionClass where BaseClass : UIColor {
+    
+    ///
+    /// # hex set color
+    /// - Parameters:
+    ///   - hex:   hex
     ///   - alpha: alpha
     /// - Returns: UIColor
-    public static func colorHex(_ hex : Int, alpha : CGFloat = 1) -> UIColor {
-        return UIColor.swp._colorHex(hex, alpha: alpha)
+    public static func hexColor(_ hex : Int, alpha : CGFloat = 1) -> UIColor {
+        return UIColor(hex, alpha: alpha)
     }
     
     ///
@@ -26,8 +66,8 @@ extension SwpExtensionClass where BaseClass : UIColor {
     ///   - hex:   hex
     ///   - alpha: alpha
     /// - Returns: UIColor
-    public static func colorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
-        return UIColor.swp._colorHex(hex, alpha: alpha);
+    public static func hexColor(_ hex : String, alpha : CGFloat = 1) -> UIColor {
+        return UIColor(hex, alpha: alpha)
     }
     
     
@@ -39,33 +79,27 @@ extension SwpExtensionClass where BaseClass : UIColor {
     ///   - blue:   blue
     ///   - alpha:  alpha
     /// - Returns:  UIColor
-    public static func colorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
-        return UIColor.swp._colorRGB(red: red, green: green, blue: blue, alpha: alpha)
+    public static func rgbColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat = 1) -> UIColor {
+        return UIColor(aRed:red, aGreen:green, aBlue:blue, alpha:alpha)
     }
     
     ///
     /// # create random colors
     /// - Returns:  UIColor
-    public static func colorRandom(alpha : CGFloat = 1) -> UIColor {
-        return colorRGB(red: CGFloat(arc4random_uniform(256)), green: CGFloat(arc4random_uniform(256)), blue: CGFloat(arc4random_uniform(256)), alpha:alpha)
+    public static func randomColor(alpha : CGFloat = 1) -> UIColor {
+        return rgbColor(red: CGFloat(arc4random_uniform(256)), green: CGFloat(arc4random_uniform(256)), blue: CGFloat(arc4random_uniform(256)), alpha:alpha)
     }
 }
 
+
 // MARK: - Private
-private extension SwpExtensionClass where BaseClass : UIColor {
-    
-    ///
-    /// # hex set color
-    /// - Parameters:
-    ///   - hex:    hex
-    ///   - alpha:  alpha
-    /// - Returns:  UIColor
-    private static func _colorHex(_ hex : String, alpha : CGFloat = 1) -> UIColor {
+private extension UIColor {
+ 
+    private static func aColorValue(_ string : String) -> (red : CGFloat, green : CGFloat, blue : CGFloat)? {
         
-        var aString : String = hex.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
-        
+        var aString : String = string.uppercased().trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if aString.count < 6 {
-            return UIColor.clear
+            return nil
         }
         
         if aString.hasPrefix("0X") {
@@ -77,7 +111,7 @@ private extension SwpExtensionClass where BaseClass : UIColor {
         }
         
         if aString.count != 6 {
-            return UIColor.clear
+            return nil
         }
         
         var range : NSRange = NSRange()
@@ -96,34 +130,13 @@ private extension SwpExtensionClass where BaseClass : UIColor {
         var b : UInt32 = 0
         var g : UInt32 = 0
         
-        
         Scanner(string: rString).scanHexInt32(&r)
         Scanner(string: gString).scanHexInt32(&g)
         Scanner(string: bString).scanHexInt32(&b)
         
-        return UIColor.swp._colorRGB(red: CGFloat(r), green: CGFloat(g), blue: CGFloat(b), alpha: alpha)
-    }
-    
-    
-    ///
-    /// # hex set color
-    /// - Parameters:
-    ///   - hex:    hex
-    ///   - alpha:  alpha
-    /// - Returns:  UIColor
-    private static func _colorHex(_ hex : Int, alpha : CGFloat) -> UIColor {
-        return UIColor(red:((CGFloat)((hex & 0xFF0000) >> 16)) / 255.0, green:((CGFloat)((hex & 0xFF00) >> 8)) / 255.0, blue:((CGFloat)((hex & 0xFF))) / 255.0, alpha: alpha)
-    }
-    
-    ///
-    /// # r g b set color
-    /// - Parameters:
-    ///   - red:    red
-    ///   - green:  green
-    ///   - blue:   blue
-    ///   - alpha:  alpha
-    /// - Returns:  UIColor
-    private static func _colorRGB(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> UIColor {
-        return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha);
+        return (red : CGFloat(r), green : CGFloat(g), blue : CGFloat(b))
     }
 }
+
+
+

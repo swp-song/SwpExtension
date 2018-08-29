@@ -88,7 +88,7 @@ extension SwpExtensionStruct where BaseStruct == Bundle {
 
 
 // MARK: - Private
-extension SwpExtensionStruct where BaseStruct == Bundle {
+private extension SwpExtensionStruct where BaseStruct == Bundle {
     
     ///
     /// # get app name space
