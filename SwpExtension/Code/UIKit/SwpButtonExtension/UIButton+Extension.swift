@@ -223,7 +223,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
 }
 
 // MARK: - Private Function
-fileprivate extension SwpExtensionClass where BaseClass : UIButton {
+private extension SwpExtensionClass where BaseClass : UIButton {
     
     
     ///
@@ -232,7 +232,7 @@ fileprivate extension SwpExtensionClass where BaseClass : UIButton {
     ///   - edge:   imageEdge
     ///   - offset: offset
     /// - Returns: BaseClass
-    fileprivate func buttonImageEdge(edge : ImageEdge,  offset : CGFloat = 0) -> BaseClass {
+    @discardableResult private func buttonImageEdge(edge : ImageEdge,  offset : CGFloat = 0) -> BaseClass {
         
         let imageWith   : CGFloat = self.swp.currentImage?.size.width  ?? 0
         let imageHeight : CGFloat = self.swp.currentImage?.size.height ?? 0
@@ -280,7 +280,7 @@ fileprivate extension SwpExtensionClass where BaseClass : UIButton {
     ///   - radius:             radius
     ///   - tag:                tag
     ///   - events:             events
-    @discardableResult fileprivate func style(_ backgroundColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControlEvents = .touchUpInside) -> BaseClass {
+    @discardableResult private func style(_ backgroundColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControlEvents = .touchUpInside) -> BaseClass {
         
         self.tag(tag)
             .swp.title(title, for: .normal)
@@ -291,6 +291,7 @@ fileprivate extension SwpExtensionClass where BaseClass : UIButton {
         
         self.swp.layer.cornerRadius  = radius
         self.swp.layer.masksToBounds = true
+        self.swp.backgroundColor     = backgroundColor
         
         guard let action = action else {
             return self.swp
@@ -315,7 +316,7 @@ fileprivate extension SwpExtensionClass where BaseClass : UIButton {
     ///   - titleColor:     titleColor
     ///   - titleFont:      titleFont
     /// - Returns: BaseClass
-    @discardableResult fileprivate func styleCheckBox(_ normalImage : UIImage?, selectedImage : UIImage?,  title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15)) -> BaseClass {
+    @discardableResult private func styleCheckBox(_ normalImage : UIImage?, selectedImage : UIImage?,  title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15)) -> BaseClass {
         
         self.titleFont(titleFont)
             .swp.image(normalImage, for: .normal)

@@ -12,10 +12,15 @@ import UIKit
 extension SwpExtensionClass where BaseClass : UIView {
     
     
+    
+    /// # view screenshots
     public var screenshots : UIImage? {
         return viewScreenshots()
     }
     
+    ///
+    /// # view screenshots
+    /// - Returns: UIImage
     private func viewScreenshots() -> UIImage? {
         
         UIGraphicsBeginImageContextWithOptions(self.swp.frame.size, false, 0.0)
@@ -31,30 +36,55 @@ extension SwpExtensionClass where BaseClass : UIView {
 // MARK: - View layer
 extension SwpExtensionClass where BaseClass : UIView {
     
+    
+    ///
+    /// # set background color
+    /// - Parameter color: color
+    /// - Returns: BaseClass
     @discardableResult public func backgroundColor(_ color : UIColor?) -> BaseClass {
         self.swp.backgroundColor = color
         return self.swp
     }
     
+    ///
+    /// # set view layer borderWidth
+    /// - Parameter width: width
+    /// - Returns: BaseClass
     @discardableResult public func borderWidth(_ width : CGFloat) -> BaseClass {
         self.swp.layer.borderWidth = width
         return self.swp
     }
     
+    ///
+    /// # set view layer cornerRadius
+    /// - Parameter radius: radius
+    /// - Returns: BaseClass
     @discardableResult public func cornerRadius(_ radius : CGFloat) -> BaseClass {
         self.swp.layer.cornerRadius = radius
         return self.swp
     }
     
+    ///
+    /// # set view layer masksToBounds
+    /// - Parameter masksToBounds: masksToBounds
+    /// - Returns: BaseClass
     @discardableResult public func masksToBounds(_ masksToBounds : Bool) -> BaseClass {
         self.swp.layer.masksToBounds = masksToBounds
         return self.swp
     }
     
+    ///
+    /// # set view layer cornerRadiusMasks
+    /// - Parameter radiusMasks: radiusMasks
+    /// - Returns: BaseClass
     @discardableResult public func cornerRadiusMasks(_ radiusMasks : CGFloat) -> BaseClass {
         return self.cornerRadius(radiusMasks).swp.masksToBounds(true)
     }
     
+    ///
+    /// # set view layer borderColo
+    /// - Parameter color: color
+    /// - Returns: BaseClass
     @discardableResult public func borderColo(_ color : UIColor) -> BaseClass {
         self.swp.layer.borderColor = color.cgColor
         return self.swp

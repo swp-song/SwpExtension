@@ -6,75 +6,164 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+extension SwpExtensionClass where BaseClass : UINavigationBar {
+    
+    /// # set the navigation bar background color
+    public var backgroundColor : UIColor {
+        set {
+            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kBackgroundColorKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            self.swp.aBackgroundColor(color: newValue)
+        }
+        
+        get {
+            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kBackgroundColorKey) as! UIColor
+        }
+    }
+    
+    
+    /// # set the navigation bar title font
+    public var titleFont : UIFont {
+        set {
+            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleFontKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            self.swp.titleTextAttributes = [NSAttributedStringKey.font : newValue]
+        }
+        
+        get {
+            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleFontKey) as! UIFont
+        }
+    }
+    
+    
+    
+    /// # set the navigation bar title color
+    public var titleColor : UIColor {
+        
+        set {
+            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleColorKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            self.swp.titleTextAttributes = [NSAttributedStringKey.foregroundColor : newValue]
+        }
+        
+        get {
+            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleColorKey) as! UIColor
+        }
+    }
+    
+    /// # hide the navigation bar bottom line
+    public var isHideBottomLine : Bool {
+        
+        set {
+            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kHideBottomLineKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aHideBottomLine(newValue)
+        }
+        
+        get {
+            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kHideBottomLineKey) as! Bool
+        }
+    }
+    
+    
+    
+    /// # get navigation bar height
+    public var height : CGFloat {
+        return self.swp.aHeight
+    }
+    
+    ///
+    /// # set the navigation bar background color
+    /// - Parameter color: color
+    /// - Returns: BaseClass
+    @discardableResult public func backgroundColor(_ color : UIColor) -> BaseClass {
+        self.backgroundColor = color
+        return self.swp
+    }
+    
+    ///
+    /// # set the navigation bar title font
+    /// - Parameter font: font
+    /// - Returns: BaseClass
+    @discardableResult public func titleFont(_ font : UIFont) -> BaseClass {
+        self.titleFont = font
+        return self.swp
+    }
+    
+    
+    ///
+    /// # set the navigation bar title color
+    /// - Parameter color: color
+    /// - Returns: BaseClass
+    @discardableResult public func titleColor(_ color : UIColor) -> BaseClass {
+        self.titleColor = color
+        return self.swp
+    }
+    
+    ///
+    /// # hide the navigation bar bottom line
+    /// - Parameter isHide: isHide
+    /// - Returns: BaseClass
+    @discardableResult public func isHideBottomLine(_ isHide : Bool) -> BaseClass {
+        self.isHideBottomLine = isHide
+        return self.swp
+    }
+    
+    
+    ///
+    /// # set the navigation bar title style
+    /// - Parameters:
+    ///   - color:  color
+    ///   - font:   font
+    /// - Returns: BaseClass
+    @discardableResult public func titleStyle(_ color : UIColor, font : UIFont) -> BaseClass {
+        self.swp.titleTextAttributes = [NSAttributedStringKey.foregroundColor : color, NSAttributedStringKey.font : font]
+        return self.swp
+    }
+    
+    
+    ///
+    /// # remove custom view
+    /// - Returns: BaseClass
+    @discardableResult public func remove() -> BaseClass {
+        self.swp.aRemove()
+        return self.swp
+    }
+    
+}
+
 extension UINavigationBar {
     
-    private struct SwpNavigationBarRunTimeKeys {
-        static let kSwpCustomViewKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpCustomViewKey".hashValue)!
-        static let kSwpBackgroundColorKey   : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpBackgroundColorKey".hashValue)!
-        static let kSwpHiddenBottomLineKey  : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpHiddenBottomLine".hashValue)!
-        static let kSwpTitleFontKey         : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpTitleFontKey".hashValue)!
-        static let kSwpTitleColorKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kSwpTitleColorKey".hashValue)!
+    fileprivate struct aKeys {
+        static let kCustomViewKey       : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kCustomViewKey".hashValue)!
+        static let kBackgroundColorKey  : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kBackgroundColorKey".hashValue)!
+        static let kHideBottomLineKey   : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kHideBottomLineKey".hashValue)!
+        static let kTitleFontKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kTitleFontKey".hashValue)!
+        static let kTitleColorKey       : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kTitleColorKey".hashValue)!
     }
     
-    // MARK: - Public Property
-    
-    /// set the navigation bar background color
-    public var swpBackgroundColor : UIColor {
-        set {
-            objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpBackgroundColorKey, newValue, .OBJC_ASSOCIATION_COPY)
-            navigationBarBackgroundColor(color: newValue)
-        }
-        
-        get {
-            return objc_getAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpBackgroundColorKey) as! UIColor
-        }
-        
-    }
-    
-    /// hide the navigation bar bottom line
-    public var isHiddenBottomLine : Bool {
-        
-        set {
-            objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpHiddenBottomLineKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
-            isHiddenBottomLine(isHidden: newValue)
-        }
-        
-        get {
-            return objc_getAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpHiddenBottomLineKey) as! Bool
+    fileprivate func aHideBottomLine(_ isHidden : Bool) -> Void {
+        if let imageView : UIImageView = aFindLineImageView(view: self) {
+            imageView.isHidden = isHidden
         }
     }
     
-    
-    
-    /// set the navigation bar title font
-    public var swpTitleFont : UIFont {
-        
-        set {
-            objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpTitleFontKey, newValue, .OBJC_ASSOCIATION_COPY)
-            swpTitleFont(font: newValue)
-        }
-        
-        get {
-            return objc_getAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpTitleFontKey) as! UIFont
-        }
-    }
-    
-    
-    /// set the navigation bar title color
-    public var swpTitleColor : UIColor {
-        set {
-            objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpTitleColorKey, newValue, .OBJC_ASSOCIATION_COPY)
-            swpTitleColor(color: newValue)
-        }
-        get {
-            return objc_getAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpTitleColorKey) as! UIColor
-        }
-    }
+    ///
+    /// # set the navigation bar background color
+    /// - Parameter color: color
+    fileprivate func aBackgroundColor(color : UIColor) -> Void {
 
-    
-    /// get navigation bar height
-    public var swpNavigationBarHeight : CGFloat {
+        if self.customView == nil {
+            self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.aHeight))
+            self.customView?.isUserInteractionEnabled = false
+            self.customView?.autoresizingMask         = .flexibleWidth
+            self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            self.subviews.first?.insertSubview(self.customView!, at: 0)
+        }
         
+        self.customView?.backgroundColor = color
+    }
+    
+    
+    
+    /// #  get navigation bar height
+    fileprivate var aHeight : CGFloat {
         if #available(iOS 11.0, *) {
             return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
         } else {
@@ -82,130 +171,43 @@ extension UINavigationBar {
         }
     }
     
-    // MARK: - Public Function
     
-    ///
-    /// # set the navigation bar background color
-    /// - Parameter color: color
-    /// - Returns: UINavigationBar
-    @discardableResult public func swpBackgroundColor(color : UIColor) -> Self {
-        self.swpBackgroundColor = color
-        return self
-    }
-    
-    
-    ///
-    /// # hide the navigation bar bottom line
-    /// - Parameter isHidden: isHidden
-    /// - Returns: UINavigationBar
-    @discardableResult public func isHiddenBottomLine(isHidden : Bool) -> Self {
-        
-        if let imageView : UIImageView = findLineImageViewUnder(view: self) {
-            imageView.isHidden = isHidden
-        }
-        
-        return self
-    }
-    
-    
-    ///
-    /// # set the navigation bar title font
-    /// - Parameter font: font
-    /// - Returns: UINavigationBar
-    @discardableResult public func swpTitleFont(font : UIFont) -> Self {
-        self.titleTextAttributes = [NSAttributedStringKey.font:font]
-        return self
-    }
-    
-    
-    
-    ///
-    /// # set the navigation bar title color
-    /// - Parameter color: color
-    /// - Returns: UINavigationBar
-    @discardableResult public func swpTitleColor(color : UIColor) -> Self {
-        self.titleTextAttributes = [NSAttributedStringKey.foregroundColor:color]
-        return self
-    }
-    
-    ///
-    /// # set the navigation bar title style
-    /// - Parameters:
-    ///   - font:   font
-    ///   - color:  color
-    /// - Returns: UINavigationBar
-    @discardableResult public func swpTitleStyle(font : UIFont, color : UIColor) -> Self {
-        self.titleTextAttributes = [NSAttributedStringKey.font : font, NSAttributedStringKey.foregroundColor : color]
-        return self
-    }
-    
-    
-    
-    ///
-    /// # swpRemove, 移除控件
-    /// - Returns: UINavigationBar
-    @discardableResult public func swpRemove() -> Self {
+    /// # remove custom view
+    fileprivate func aRemove() -> Void {
         self.setBackgroundImage(nil, for:.default)
         self.customView?.removeFromSuperview()
         self.customView = nil
-        return self
-    }
-
-    
-    // MARK: - Private
-    
-    ///
-    /// # set the navigation bar background color
-    /// - Parameter color: color
-    private func navigationBarBackgroundColor(color : UIColor) -> Void {
-        
-        if self.customView == nil {
-
-            self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.swpNavigationBarHeight))
-            self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            self.customView?.isUserInteractionEnabled = false
-            self.customView?.autoresizingMask         = .flexibleWidth
-            self.subviews.first?.insertSubview(self.customView!, at: 0)
-        }
-
-        self.customView?.backgroundColor = color
     }
     
     ///
     /// # find the bottom line
     /// - Parameter view: view
     /// - Returns: UIImageView?
-    private func findLineImageViewUnder(view : UIView) -> UIImageView?  {
-        
-        
+    private func aFindLineImageView(view : UIView) -> UIImageView?  {
         if view is UIImageView && view.bounds.size.height <= 1.0 {
-            //        if view.isKind(of: UIImageView.self) && view.bounds.size.height <= 1.0 {
+//        if view.isKind(of: UIImageView.self) && view.bounds.size.height <= 1.0 {
             return view as? UIImageView
         }
         
         for subview in view.subviews {
             
-            if let imageView : UIImageView = self.findLineImageViewUnder(view: subview) {
+            if let imageView : UIImageView = self.aFindLineImageView(view: subview) {
                 return imageView
             }
         }
         return nil
     }
     
-    
-    
     // MARK: - Private Property
-    
     private var customView : UIView? {
         set {
-            objc_setAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpCustomViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, aKeys.kCustomViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
-        
+
         get {
-            return objc_getAssociatedObject(self, SwpNavigationBarRunTimeKeys.kSwpCustomViewKey) as? UIView
+            return objc_getAssociatedObject(self, aKeys.kCustomViewKey) as? UIView
         }
     }
-    
-    
+
 }
 

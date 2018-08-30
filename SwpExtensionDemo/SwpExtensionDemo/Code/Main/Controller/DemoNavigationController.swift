@@ -18,7 +18,10 @@ class DemoNavigationController: UINavigationController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.navigationBar.swpBackgroundColor(color:UIColor.white).isHiddenBottomLine(isHidden: true)
+//        self.navigationBar.swpBackgroundColor(color:UIColor.white).isHiddenBottomLine(isHidden: true)
+        self.navigationBar
+            .swp.backgroundColor(UIColor.white)
+            .swp.isHideBottomLine(true)
     }
 
     override func didReceiveMemoryWarning() {

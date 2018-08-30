@@ -234,9 +234,9 @@ extension SwpExtensionClass where BaseClass : UITextField {
 
 
 // MARK: - Private Function
-fileprivate extension SwpExtensionClass where BaseClass : UITextField {
+private extension SwpExtensionClass where BaseClass : UITextField {
     
-    @discardableResult fileprivate func style(_ backgroundColor : UIColor?, textColor : UIColor?,  textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) -> BaseClass {
+    @discardableResult private func style(_ backgroundColor : UIColor?, textColor : UIColor?,  textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) -> BaseClass {
         self.font(textFont)
             .swp.textColor(textColor)
             .swp.keyboardType(keyboard)
@@ -248,6 +248,7 @@ fileprivate extension SwpExtensionClass where BaseClass : UITextField {
         self.swp.layer.borderWidth   = border
         self.swp.layer.cornerRadius  = radius
         self.swp.layer.masksToBounds = true
+        self.swp.backgroundColor     = backgroundColor
         
         return self.swp
     }

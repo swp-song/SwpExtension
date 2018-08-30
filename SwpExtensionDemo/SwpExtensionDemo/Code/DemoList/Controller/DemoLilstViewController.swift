@@ -25,6 +25,8 @@ class DemoLilstViewController: DemoBaseViewController, DemoLilstViewDelegate {
         setData()
         
         controllerBlocks(demoLilstView: demoListView)
+        
+        navigationController?.navigationBar.swp.backgroundColor = UIColor.white
 
     }
 

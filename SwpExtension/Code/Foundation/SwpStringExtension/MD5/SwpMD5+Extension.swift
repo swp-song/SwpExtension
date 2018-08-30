@@ -139,7 +139,7 @@ extension SwpExtensionStruct where BaseStruct == String {
 }
 
 // MARK: - Private
-private extension SwpExtensionStruct where BaseStruct == String {
+extension SwpExtensionStruct where BaseStruct == String {
 
     ///
     /// # md5 encrypts string

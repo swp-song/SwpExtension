@@ -30,6 +30,8 @@ class NavigationBarViewController: DemoBaseViewController, NavigationBarListView
         
         
         navigationBarListView.backgroundColor = UIColor.orange
+    
+
         
     }
 
@@ -40,14 +42,13 @@ class NavigationBarViewController: DemoBaseViewController, NavigationBarListView
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.navigationBar.swpBackgroundColor = UIColor.clear
+        navigationController?.navigationBar.swp.backgroundColor = UIColor.clear
         navigationBarListViewScrollDidScroll(navigationBarListView, scrollView: navigationBarListView)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        //  解除循环引用
-        navigationController?.navigationBar.swpRemove()
+        navigationController?.navigationBar.swp.remove()
         
     }
     
@@ -116,13 +117,13 @@ extension NavigationBarViewController {
         let offsetY : CGFloat   = scrollView.contentOffset.y
         let color   : UIColor   = UIColor.orange
         let height  : CGFloat   = 150
-        let navigationBarHeight = self.navigationController?.navigationBar.swpNavigationBarHeight ?? 64
-        
+        let navigationBarHeight = self.navigationController?.navigationBar.swp.height ?? 64
+
         if offsetY > height {
             let alpha : CGFloat = min(1, 1 - ((height + navigationBarHeight - offsetY) / navigationBarHeight))
-            self.navigationController?.navigationBar.swpBackgroundColor = color.withAlphaComponent(alpha)
+            self.navigationController?.navigationBar.swp.backgroundColor = color.withAlphaComponent(alpha)
         } else {
-            self.navigationController?.navigationBar.swpBackgroundColor = color.withAlphaComponent(0)
+            self.navigationController?.navigationBar.swp.backgroundColor = color.withAlphaComponent(0)
         }
         
     }

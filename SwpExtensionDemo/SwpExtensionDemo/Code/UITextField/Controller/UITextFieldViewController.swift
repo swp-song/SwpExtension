@@ -27,10 +27,10 @@ class UITextFieldViewController: DemoBaseViewController {
 //        .swp.borderColo(UIColor.red)
 //        }()
     
-//    private lazy var textField1 : DDD = DDD.swp.styleInit(UIColor(0xff00FF), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "111", aColor: UIColor.cyan, aFont: UIFont.systemFont(ofSize: 20), border: 1, radius: 5, keyboard: .default, isEntry: false)
+    private lazy var textField1 : DDD = DDD.swp.styleInit(UIColor(0xff00FF), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "111", aColor: UIColor.cyan, aFont: UIFont.systemFont(ofSize: 20), border: 1, radius: 5, keyboard: .default, isEntry: false)
 //    private lazy var textField1 : DDD = DDD.swp.styleImageInit(UIColor.lightGray, image: #imageLiteral(resourceName: "account"), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "test", aColor: UIColor.white, aFont: UIFont.systemFont(ofSize: 20), border: 0, radius: 5, keyboard: .default, isEntry: true)
     
-    private lazy var textField1 : DDD = DDD.swp.init(UIColor.lightGray, image: #imageLiteral(resourceName: "account"), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "test", aColor: UIColor.white, aFont: UIFont.systemFont(ofSize: 20), border: 0, radius: 5, keyboard: .default, isEntry: true).swp
+//    private lazy var textField1 : DDD = DDD.swp.init(UIColor.lightGray, image: #imageLiteral(resourceName: "account"), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "test", aColor: UIColor.white, aFont: UIFont.systemFont(ofSize: 20), border: 0, radius: 5, keyboard: .default, isEntry: true).swp
     
     
     
