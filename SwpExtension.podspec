@@ -53,7 +53,9 @@ Pod::Spec.new do |s|
                         'SwpColorExtension',
                         'SwpViewExtension',
                         'SwpNavigationBarExtension',
-                        'SwpTextFieldExtension'
+                        'SwpTextFieldExtension',
+                        'SwpImageExtension',
+                        'SwpImageViewExtension'
   
   
   
@@ -137,7 +139,20 @@ Pod::Spec.new do |s|
       swpTextFieldExtension.dependency 'SwpExtension/SwpExtensionBase'
       swpTextFieldExtension.source_files = 'SwpExtension/Code/UIKit/SwpTextFieldExtension/*.swift'
     end
-  
+
+    # SwpImageExtension Extension
+    s.subspec 'SwpImageExtension' do |swpImageExtension|
+      swpImageExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpImageExtension.source_files = 'SwpExtension/Code/UIKit/SwpImageExtension/*.swift'
+    end
+
+    # SwpImageExtension Extension
+    s.subspec 'SwpImageViewExtension' do |swpImageViewExtension|
+      swpImageViewExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpImageViewExtension.source_files = 'SwpExtension/Code/UIKit/SwpImageViewExtension/*.swift'
+    end
+
+
     
   end
   

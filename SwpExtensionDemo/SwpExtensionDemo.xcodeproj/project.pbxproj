@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D36A808212EF15F00ECC5F5 /* UITextFieldViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36A807212EF15F00ECC5F5 /* UITextFieldViewController.swift */; };
 		2D36A80D212EF22900ECC5F5 /* UIButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D36A80B212EF22900ECC5F5 /* UIButtonViewController.swift */; };
+		2D93F5BC21381F1A000F6130 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D93F5BB21381F1A000F6130 /* UIImageView+Extension.swift */; };
 		2DC5AAF3212EE6A9007AAE95 /* DemoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AADF212EE6A9007AAE95 /* DemoNavigationController.swift */; };
 		2DC5AAF4212EE6A9007AAE95 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AAE0212EE6A9007AAE95 /* DemoBaseViewController.swift */; };
 		2DC5AAF6212EE6A9007AAE95 /* DemoLilstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AAE5212EE6A9007AAE95 /* DemoLilstViewController.swift */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		2D36A807212EF15F00ECC5F5 /* UITextFieldViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldViewController.swift; sourceTree = "<group>"; };
 		2D36A80B212EF22900ECC5F5 /* UIButtonViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonViewController.swift; sourceTree = "<group>"; };
+		2D93F5BB21381F1A000F6130 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		2DC5AADF212EE6A9007AAE95 /* DemoNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoNavigationController.swift; sourceTree = "<group>"; };
 		2DC5AAE0212EE6A9007AAE95 /* DemoBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoBaseViewController.swift; sourceTree = "<group>"; };
 		2DC5AAE5212EE6A9007AAE95 /* DemoLilstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoLilstViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 				2DC5AADD212EE6A9007AAE95 /* Main */,
 				2DC5AAEC212EE6A9007AAE95 /* NavigationBar */,
 				2DC5AAE1212EE6A9007AAE95 /* UIButton */,
+				2D93F5BB21381F1A000F6130 /* UIImageView+Extension.swift */,
 			);
 			path = Code;
 			sourceTree = "<group>";
@@ -393,6 +396,7 @@
 			files = (
 				2DC5AAFC212EE6A9007AAE95 /* NavigationBarListView.swift in Sources */,
 				2DC5AAF6212EE6A9007AAE95 /* DemoLilstViewController.swift in Sources */,
+				2D93F5BC21381F1A000F6130 /* UIImageView+Extension.swift in Sources */,
 				2DC5AAF9212EE6A9007AAE95 /* DemoModel.swift in Sources */,
 				F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */,
 				F1AB9C502133AE13009BF34B /* DDD.swift in Sources */,

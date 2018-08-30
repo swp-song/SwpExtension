@@ -90,6 +90,12 @@ extension UIButtonViewController {
 //        let image : UIImage? = self.view.swp.screenshots;
 //
 //        print(image as Any)
+        
+        let image = UIImage.swp.screenshots(self.view)
+        print(image)
+        
+        let image1 = UIImage.swp.screenshotsFull
+        print(image1 as Any)
     }
     
     @objc private func checkBoxEvent(button : UIButton) -> Void {

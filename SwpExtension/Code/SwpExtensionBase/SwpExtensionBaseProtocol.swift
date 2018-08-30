@@ -24,9 +24,10 @@ extension SwpExtensionClassProtocol {
     
 }
 
-extension UIView : SwpExtensionClassProtocol {}
-extension UIColor : SwpExtensionClassProtocol {}
-extension UIFont : SwpExtensionClassProtocol {}
+extension UIView    : SwpExtensionClassProtocol {}
+extension UIColor   : SwpExtensionClassProtocol {}
+extension UIFont    : SwpExtensionClassProtocol {}
+extension UIImage   : SwpExtensionClassProtocol {}
 extension UserDefaults : SwpExtensionClassProtocol {}
 
 
@@ -50,6 +51,7 @@ extension SwpExtensionStructProtocol {
 
 extension String : SwpExtensionStructProtocol { }
 extension Bundle : SwpExtensionStructProtocol { }
+
 
 
 
