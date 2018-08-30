@@ -6,8 +6,12 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+
+/// SwpExtensionClassProtocol
 protocol SwpExtensionClassProtocol { }
 
+
+// MARK: - SwpExtensionClassProtocol
 extension SwpExtensionClassProtocol {
     
     public var swp : SwpExtensionClass<Self> {
@@ -25,8 +29,12 @@ extension UIColor : SwpExtensionClassProtocol {}
 extension UIFont : SwpExtensionClassProtocol {}
 extension UserDefaults : SwpExtensionClassProtocol {}
 
+
+/// SwpExtensionStructProtocol
 protocol SwpExtensionStructProtocol { }
 
+
+// MARK: - SwpExtensionStructProtocol
 extension SwpExtensionStructProtocol {
     
     

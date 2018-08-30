@@ -6,6 +6,8 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+
+/// SwpExtensionClass
 public final class SwpExtensionClass<BaseClass> {
     
     public let swp: BaseClass
@@ -16,6 +18,8 @@ public final class SwpExtensionClass<BaseClass> {
 
 }
 
+
+/// SwpExtensionStruct
 public struct SwpExtensionStruct<BaseStruct> {
     
     public let swp : BaseStruct
