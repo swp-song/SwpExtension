@@ -126,7 +126,7 @@ protocol SwpExtensionUtilsProtocol {
     /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGSize, barColor : UIColor, bgColor : UIColor) -> UIImage?
     
-    @discardableResult func aResizeImage(_ size : CGSize) -> UIImage?
+    @discardableResult static func aResizeImage(_ image : UIImage, size : CGSize) -> UIImage?
     
 }
 
@@ -393,7 +393,7 @@ extension SwpExtensionUtilsProtocol {
 extension SwpExtensionUtilsProtocol {
     
     
-    @discardableResult func aResizeImage(_ image : UIImage, size : CGSize) -> UIImage? {
+    @discardableResult static func aResizeImage(_ image : UIImage, size : CGSize) -> UIImage? {
         
         let scale : Double = (Double)(size.width) / (Double)(image.size.width)
         
@@ -404,24 +404,19 @@ extension SwpExtensionUtilsProtocol {
         let filter = CIFilter(name: "CILanczosScaleTransform")
         
         filter?.setValue(image, forKey: kCIInputImageKey)
+        
         filter?.setValue(NSNumber(value: scale), forKey: kCIInputScaleKey)
         
         filter?.setValue(1.0, forKey:kCIInputAspectRatioKey)
         
-        let outputImage = filter?.value(forKey: kCIOutputImageKey) as! CIImage
+        let outputImage     = filter?.value(forKey: kCIOutputImageKey) as? CIImage
         
         
-        guard let context = CIContext(options: [kCIContextUseSoftwareRenderer: false]) else { return nil }
+        let context         = CIContext(options: [kCIContextUseSoftwareRenderer: false])
     
+        guard let cgImage   = context.createCGImage(outputImage, from: outputImage.extent) else { return nil }
     
-        
-        guard let resizedImage = UIImage(cgImage: context.createCGImage(outputImage, from: outputImage.extent)) else { return nil }
-        
-        
-//        let resizedImage = UIImage(CGImage: context.createCGImage(outputImage, fromRect: outputImage.extent))
-        
-        return resizedImage
-//        return nil
+        return UIImage(cgImage: cgImage)
     }
 }
 
@@ -545,8 +540,9 @@ extension SwpExtensionUtilsProtocol {
         let scaleRate : CGFloat = 20.0
 //        let resized = resizeImage(image, quality: CGInterpolationQuality.None, rate: scaleRate)
         
+        let resized = aResizeImage(iImage, size: CGSize(width: iImage.size.width, height: scaleRate))
         
-        return UIImage()
+        return resized
     }
     
     
