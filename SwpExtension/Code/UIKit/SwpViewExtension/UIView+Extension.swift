@@ -6,30 +6,18 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-import UIKit
-
-
 extension SwpExtensionClass where BaseClass : UIView {
-    
-    
     
     /// # view screenshots
     public var screenshots : UIImage? {
-        return viewScreenshots()
+        return UIView.aViewScreenshotsCreateImage(self.swp)
     }
     
-    ///
-    /// # view screenshots
-    /// - Returns: UIImage
-    private func viewScreenshots() -> UIImage? {
-        
-        UIGraphicsBeginImageContextWithOptions(self.swp.frame.size, false, 0.0)
-        self.swp.drawHierarchy(in: self.swp.bounds, afterScreenUpdates: false)
-        let image : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext();
-        return image
-    }
     
+    /// # screenshots full
+    public static var screenshotsFull : UIImage? {
+        return UIView.aScreenshotsFullCreateImage()
+    }
 }
 
 
@@ -42,7 +30,7 @@ extension SwpExtensionClass where BaseClass : UIView {
     /// - Parameter color: color
     /// - Returns: BaseClass
     @discardableResult public func backgroundColor(_ color : UIColor?) -> BaseClass {
-        self.swp.backgroundColor = color
+        self.swp.aBackgroundColor(self.swp, color: color)
         return self.swp
     }
     
@@ -51,7 +39,7 @@ extension SwpExtensionClass where BaseClass : UIView {
     /// - Parameter width: width
     /// - Returns: BaseClass
     @discardableResult public func borderWidth(_ width : CGFloat) -> BaseClass {
-        self.swp.layer.borderWidth = width
+        self.swp.aBorderWidth(self.swp, width: width)
         return self.swp
     }
     
@@ -60,7 +48,7 @@ extension SwpExtensionClass where BaseClass : UIView {
     /// - Parameter radius: radius
     /// - Returns: BaseClass
     @discardableResult public func cornerRadius(_ radius : CGFloat) -> BaseClass {
-        self.swp.layer.cornerRadius = radius
+        self.swp.aCornerRadius(self.swp, radius: radius)
         return self.swp
     }
     
@@ -69,7 +57,7 @@ extension SwpExtensionClass where BaseClass : UIView {
     /// - Parameter masksToBounds: masksToBounds
     /// - Returns: BaseClass
     @discardableResult public func masksToBounds(_ masksToBounds : Bool) -> BaseClass {
-        self.swp.layer.masksToBounds = masksToBounds
+        self.swp.aMasksToBounds(self.swp, masksToBounds: masksToBounds)
         return self.swp
     }
     
@@ -78,19 +66,19 @@ extension SwpExtensionClass where BaseClass : UIView {
     /// - Parameter radiusMasks: radiusMasks
     /// - Returns: BaseClass
     @discardableResult public func cornerRadiusMasks(_ radiusMasks : CGFloat) -> BaseClass {
-        return self.cornerRadius(radiusMasks).swp.masksToBounds(true)
+        self.swp.aCornerRadiusMasks(self.swp, radiusMasks: radiusMasks)
+        return self.swp
     }
     
     ///
     /// # set view layer borderColo
     /// - Parameter color: color
     /// - Returns: BaseClass
-    @discardableResult public func borderColo(_ color : UIColor) -> BaseClass {
-        self.swp.layer.borderColor = color.cgColor
+    @discardableResult public func borderColor(_ color : UIColor) -> BaseClass {
+        self.swp.aBorderColor(self.swp, color: color)
         return self.swp
     }
 }
-
 
 
 // MARK: - View frame

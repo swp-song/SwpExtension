@@ -7,8 +7,5 @@
 //
 
 extension SwpExtensionClass where BaseClass : UIImageView {
-    
 
-    
-    
 }

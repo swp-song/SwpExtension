@@ -289,13 +289,11 @@ private extension SwpExtensionClass where BaseClass : UIButton {
             .swp.titleColor(titleColor, for: .normal)
             .swp.titleColor(titleColor, for: .highlighted)
         
-        self.swp.layer.cornerRadius  = radius
-        self.swp.layer.masksToBounds = true
-        self.swp.backgroundColor     = backgroundColor
+        self.swp
+            .aCornerRadiusMasks(self.swp, radiusMasks: radius)
+            .aBackgroundColor(self.swp, color: backgroundColor)
         
-        guard let action = action else {
-            return self.swp
-        }
+        guard let action = action else { return self.swp }
         
         self.targetEvent(target, action: action, for: events)
         
@@ -330,9 +328,7 @@ private extension SwpExtensionClass where BaseClass : UIButton {
             .swp.imageEdge(.right, offset: 2)
             .swp.sizeToFit()
         
-        guard let action = action else {
-            return self.swp
-        }
+        guard let action = action else { return self.swp }
         
         self.targetEvent(target, action: action, for: .touchUpInside)
         

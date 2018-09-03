@@ -85,6 +85,10 @@ class UITextFieldViewController: DemoBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    deinit {
+        print(#function)
+    }
+    
 
     /*
     // MARK: - Navigation

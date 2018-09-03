@@ -91,7 +91,6 @@ extension SwpExtensionClass where BaseClass : UIColor {
     }
 }
 
-
 // MARK: - Private
 private extension UIColor {
  
@@ -139,4 +138,14 @@ private extension UIColor {
 }
 
 
+extension SwpExtensionClass where BaseClass : UIColor {
 
+    public var image : UIImage? {
+        return UIImage.aColorCreateImage(self.swp)
+    }
+    
+    public func image(_ frame : CGRect) -> UIImage? {
+        return UIImage.aColorCreateImage(self.swp, frame: frame)
+    }
+
+}

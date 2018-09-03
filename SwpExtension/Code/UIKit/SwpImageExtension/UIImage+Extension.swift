@@ -6,99 +6,65 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+
+extension UIImage {
+    
+    public convenience init?(color : UIColor) {
+        
+        guard let cgImage = UIImage.aColorCreateImage(color)?.cgImage else { return nil }
+        self.init(cgImage: cgImage)
+    }
+}
+
+
+// MARK: - view screenshots create image public
 extension SwpExtensionClass where BaseClass : UIImage {
     
-
-    
-    @discardableResult public static func screenshots( _ view : UIView) -> UIImage {
-        return UIImage.swp.aScreenshots(view)
+    ///
+    /// # view screenshots create image
+    /// - Parameter view: view
+    /// - Returns: UIImage
+    @discardableResult public static func screenshots( _ view : UIView) -> UIImage? {
+        return UIImage.aViewScreenshotsCreateImage(view)
     }
     
+    
+    /// # full view screenshots create image
     public static var screenshotsFull : UIImage? {
-        guard let data = self.screenshotsFullData else { return nil }
-        return UIImage(data: data)
+        return UIImage.aScreenshotsFullCreateImage()
     }
     
+    
+    /// # view screenshots create image data
     public static var screenshotsFullData : Data? {
-        return UIImage.swp.aScreenshotsFullData()
+        return UIImage.aScreenshotsFullCreateData()
     }
-    
     
 }
 
+
+// MARK: - create qrCode
 extension SwpExtensionClass where BaseClass : UIImage {
     
-    
-    private static func aScreenshotsFullData() -> Data? {
+    public static func QRCodeImage(_ string : String, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
         
-        var imageSize : CGSize  = CGSize.zero
-        
-        let orientation : UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
-        
-        imageSize = UIInterfaceOrientationIsPortrait(orientation) ? UIScreen.main.bounds.size : CGSize(width: UIScreen.main.bounds.size.height, height: UIScreen.main.bounds.size.width)
-        
-        UIGraphicsBeginImageContextWithOptions(imageSize, true, 0);
-        
-        let context : CGContext? = UIGraphicsGetCurrentContext()
-        
-        UIApplication.shared.windows.forEach { (window) in
-            
-            context?.saveGState()
-            context?.translateBy(x: window.center.x, y: window.center.y)
-            context?.concatenate(window.transform)
-            context?.translateBy(x: -window.bounds.size.width * window.layer.anchorPoint.x, y: -window.bounds.size.height * window.layer.anchorPoint.y)
-            
-            
-            switch orientation {
-                
-            case .landscapeLeft:
-                
-                context?.rotate(by: CGFloat.pi / 2.0)
-                context?.translateBy(x: 0, y: -imageSize.width)
-                
-            case .landscapeRight:
-                context?.rotate(by: -(CGFloat.pi / 2.0))
-                context?.translateBy(x: -imageSize.height, y: 0)
-                
-            case .portraitUpsideDown:
-                context?.rotate(by: CGFloat.pi)
-                context?.translateBy(x: -imageSize.width, y: -imageSize.height)
-                
-            default: break
-                
-            }
-            
-            if window.responds(to: #selector(window.drawHierarchy(in:afterScreenUpdates:))) {
-                window.drawHierarchy(in: window.bounds, afterScreenUpdates: false)
-            } else {
-                
-                if let context = context {
-                    window.layer.render(in: context)
-                }
-                
-            }
-            
-            context?.restoreGState()
-        }
-        
-        guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
-            UIGraphicsEndImageContext();
-            return nil
-        }
-        
-        UIGraphicsEndImageContext();
-        return UIImagePNGRepresentation(image)
+        return UIImage.aCreateQrCodeImage(string, size: size, qrColor: qrColor, bgColor: bgColor)
         
     }
     
-    
-    private static func aScreenshots(_ view : UIView ) -> UIImage {
-        UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0.0);
-        view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
-        let image : UIImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
-        UIGraphicsEndImageContext();
-        return image
+    public static func QRCodeImage(_ string : String, icon : UIImage, iconSize : CGFloat = 35, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
+        
+        return UIImage.aCreateQrCodeImage(string, size: size, icon: icon, iconSize: iconSize, qrColor: qrColor, bgColor: bgColor)
+        
     }
-    
 }
+
+
+extension SwpExtensionClass where BaseClass : UIImage {
+    
+    public static func barCodeImage(_ string : String, size : CGSize = CGSize.zero) -> UIImage? {
+        return UIImage.aCreateBarCodeImage(string, size: CGSize.zero, barColor: UIColor.red, bgColor: UIColor.red)
+    }
+}
+
 
