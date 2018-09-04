@@ -122,6 +122,8 @@ protocol SwpExtensionUtilsProtocol {
     /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat) -> UIImage?
     
+    @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat, textFont : UIFont, textColor : UIColor) -> UIImage?
+    
 }
 
 // MARK: - screenshots implementation
@@ -384,8 +386,18 @@ extension SwpExtensionUtilsProtocol {
         guard let bImage = aCreateBarCodeCIImage(string) else { return nil }
         
         guard let cImage = aCreateClearImage(bImage, size: size) else { return nil }
+    
         
         return cImage
+    }
+    
+    @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat, textFont : UIFont, textColor : UIColor) -> UIImage? {
+        
+        guard let bImage = aCreateBarCodeImage(string, size: size) else { return nil }
+        
+        guard let iImage = aInsertText(bImage, text: string, textFont: textFont, textColor: textColor) else { return nil }
+        
+        return iImage
     }
 }
 
@@ -548,8 +560,48 @@ extension SwpExtensionUtilsProtocol {
         return iconImage
     }
     
+    
+    
+    @discardableResult private static func aInsertText(_ image : UIImage, text : String, textFont : UIFont, textColor : UIColor) -> UIImage? {
+        
+
+        let size = CGSize(width: image.size.width, height: image.size.height + 30)
+        
+        UIGraphicsBeginImageContextWithOptions (size, false , 0.0);
+        
+//        image.drawAtPoint(CGPointZero)
+        image.draw(at: CGPoint.zero)
+        
+        // 获得一个位图图形上下文
+        let context = UIGraphicsGetCurrentContext()
+        
+        context?.drawPath(using: .stroke)
+        
+        // 绘制文字
+        let barText : NSString  = text as NSString
+        
+        //  文字样式
+        let textStyle           = NSMutableParagraphStyle()
+        textStyle.lineBreakMode = .byWordWrapping
+        textStyle.alignment     = .center
+        
+        //  富文本样式
+        let style : [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : textFont,
+                                                     NSAttributedStringKey.foregroundColor : textColor,
+                                                     NSAttributedStringKey.paragraphStyle  : textStyle]
+        
+        barText.draw(in: CGRect(x: 0, y: image.size.height - 4, width: size.width, height: 20), withAttributes: style)
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+        return image
+    }
+    
 }
 
+extension String : SwpExtensionUtilsProtocol { }
 
 // MARK: - UIColor
 extension UIColor : SwpExtensionUtilsProtocol { }

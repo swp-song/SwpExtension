@@ -12,6 +12,7 @@ extension UIImage {
     public convenience init?(color : UIColor) {
         
         guard let cgImage = UIImage.aColorCreateImage(color)?.cgImage else { return nil }
+        
         self.init(cgImage: cgImage)
     }
 }
@@ -46,13 +47,32 @@ extension SwpExtensionClass where BaseClass : UIImage {
 // MARK: - create qrCode
 extension SwpExtensionClass where BaseClass : UIImage {
     
-    public static func QRCodeImage(_ string : String, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
+    
+    ///
+    /// # create qrCode image
+    /// - Parameters:
+    ///   - string:  string
+    ///   - size:    size
+    ///   - qrColor: qrColor
+    ///   - bgColor: bgColor
+    /// - Returns: UIImage?
+    public static func qrCodeImage(_ string : String, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
         
         return UIImage.aCreateQrCodeImage(string, size: size, qrColor: qrColor, bgColor: bgColor)
-        
     }
     
-    public static func QRCodeImage(_ string : String, icon : UIImage, iconSize : CGFloat = 35, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
+    
+    ///
+    /// # create qrCode image, inster icon
+    /// - Parameters:
+    ///   - string: string
+    ///   - icon: icon
+    ///   - iconSize: iconSize
+    ///   - size: size
+    ///   - qrColor:qrColor
+    ///   - bgColor: bgColor
+    /// - Returns: UIImage?
+    public static func qrCodeImage(_ string : String, icon : UIImage, iconSize : CGFloat = 35, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
         
         return UIImage.aCreateQrCodeImage(string, size: size, icon: icon, iconSize: iconSize, qrColor: qrColor, bgColor: bgColor)
         
@@ -60,6 +80,7 @@ extension SwpExtensionClass where BaseClass : UIImage {
 }
 
 
+// MARK: - create barCode image
 extension SwpExtensionClass where BaseClass : UIImage {
     
     public static func barCodeImage(_ string : String, size : CGFloat = 400) -> UIImage? {

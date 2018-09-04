@@ -67,11 +67,11 @@ class UIButtonViewController: DemoBaseViewController {
         self.barImageView.snp.makeConstraints { (make) in
             make.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
             make.top.equalTo(self.qrImageView.snp.bottom).offset(10)
-            make.height.equalTo(100)
+            make.height.equalTo(150)
 //            make.width.equalTo(self.barImageView.snp.height).multipliedBy(5)
         }
         
-        self.barImageView.swp.backgroundColor(UIColor.red)
+//        self.barImageView.swp.backgroundColor(UIColor.red)
         
         
 //        checkBox.swp.imageEdge(.right)
@@ -122,14 +122,20 @@ extension UIButtonViewController {
 //        let i1 = UIImage(color: UIColor.orange)
 //        let i2 = UIColor.cyan.swp.image(CGRect(x: 0, y: 0, width: 35, height: 35))
         
-        let image = UIImage.swp.QRCodeImage("12312312", size: 200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
+
+        let image1 = "12312312".swp.qrCodeImage //UIImage.swp.qrCodeImage("12312312", size: 200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
 //        let image : UIImage? = UIImage.swp.qrCodeImage("12312312", icon: i2!)
-//        print(image as Any)
-        self.qrImageView.image = image
+        let image2 = "swp-song.com".swp.qrCodeImage(200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
         
-        let barImage = UIImage.swp.barCodeImage("1111123123")
+        let image3 = "aaaxxxeeedadasd".swp.qrCodeImage(UIImage(color: UIColor.cyan)!)
+        
+//        print(image as Any)
+//        self.qrImageView.image = image3
+        
+        let barImage = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
         
         self.barImageView.image = barImage
+        self.barImageView.swp.borderWidth(1)
         
         
 //        print(self.barImageView.image)
