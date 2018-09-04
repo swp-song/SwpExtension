@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name             = 'SwpExtension'
-    s.version          = '0.0.3'
+    s.version          = '0.0.4'
     s.summary          = ' Swift Extension Code '
   
   # This description is used to generate tags and improve search results.
@@ -55,7 +55,8 @@ Pod::Spec.new do |s|
                         'SwpNavigationBarExtension',
                         'SwpTextFieldExtension',
                         'SwpImageExtension',
-                        'SwpImageViewExtension'
+                        'SwpImageViewExtension',
+                        'SwpScreenExtension'
   
   
   
@@ -152,7 +153,17 @@ Pod::Spec.new do |s|
       swpImageViewExtension.source_files = 'SwpExtension/Code/UIKit/SwpImageViewExtension/*.swift'
     end
 
+    # SwpImageExtension Extension
+    s.subspec 'SwpImageViewExtension' do |swpImageViewExtension|
+      swpImageViewExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpImageViewExtension.source_files = 'SwpExtension/Code/UIKit/SwpImageViewExtension/*.swift'
+    end
 
+    # SwpImageExtension Extension
+    s.subspec 'SwpScreenExtension' do |swpScreenExtension|
+      swpScreenExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpScreenExtension.source_files = 'SwpExtension/Code/UIKit/SwpScreenExtension/*.swift'
+    end
     
   end
   

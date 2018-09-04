@@ -19,6 +19,7 @@
 		2DC5AAFB212EE6A9007AAE95 /* NavigationBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AAEE212EE6A9007AAE95 /* NavigationBarViewController.swift */; };
 		2DC5AAFC212EE6A9007AAE95 /* NavigationBarListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AAF0212EE6A9007AAE95 /* NavigationBarListView.swift */; };
 		2DC5AAFD212EE6A9007AAE95 /* NavigationBarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC5AAF1212EE6A9007AAE95 /* NavigationBarCell.swift */; };
+		2DEF5E18213ED0F50063C838 /* UIScreen+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DEF5E17213ED0F50063C838 /* UIScreen+Extension.swift */; };
 		6052D04554BAAF43F5A86C89 /* Pods_SwpExtensionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */; };
 		F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F195CEDA211C2381003D666B /* AppDelegate.swift */; };
 		F195CEE0211C2381003D666B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEDE211C2381003D666B /* Main.storyboard */; };
@@ -40,6 +41,7 @@
 		2DC5AAEE212EE6A9007AAE95 /* NavigationBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarViewController.swift; sourceTree = "<group>"; };
 		2DC5AAF0212EE6A9007AAE95 /* NavigationBarListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarListView.swift; sourceTree = "<group>"; };
 		2DC5AAF1212EE6A9007AAE95 /* NavigationBarCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavigationBarCell.swift; sourceTree = "<group>"; };
+		2DEF5E17213ED0F50063C838 /* UIScreen+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScreen+Extension.swift"; sourceTree = "<group>"; };
 		38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwpExtensionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B158D114262CCF894BEB251 /* Pods-SwpExtensionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		921A7A23C261D0B5B3197019 /* Pods-SwpExtensionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				F195CEE1211C2382003D666B /* Assets.xcassets */,
 				F195CEE3211C2382003D666B /* LaunchScreen.storyboard */,
 				F195CEE6211C2382003D666B /* Info.plist */,
+				2DEF5E17213ED0F50063C838 /* UIScreen+Extension.swift */,
 			);
 			path = SwpExtensionDemo;
 			sourceTree = "<group>";
@@ -404,6 +407,7 @@
 				2D36A80D212EF22900ECC5F5 /* UIButtonViewController.swift in Sources */,
 				2DC5AAFD212EE6A9007AAE95 /* NavigationBarCell.swift in Sources */,
 				2D36A808212EF15F00ECC5F5 /* UITextFieldViewController.swift in Sources */,
+				2DEF5E18213ED0F50063C838 /* UIScreen+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

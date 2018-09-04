@@ -26,6 +26,8 @@ target 'SwpExtensionDemo' do
   pod 'SwpExtension/SwpTextFieldExtension', :path => '../'
   pod 'SwpExtension/SwpImageExtension', :path => '../'
   pod 'SwpExtension/SwpImageViewExtension', :path => '../'
+  pod 'SwpExtension/SwpScreenExtension', :path => '../'
+  
   
   
 end

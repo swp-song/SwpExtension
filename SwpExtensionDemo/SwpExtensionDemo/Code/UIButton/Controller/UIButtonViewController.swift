@@ -122,15 +122,15 @@ extension UIButtonViewController {
 //        let i1 = UIImage(color: UIColor.orange)
 //        let i2 = UIColor.cyan.swp.image(CGRect(x: 0, y: 0, width: 35, height: 35))
         
-
+        
         let image1 = "12312312".swp.qrCodeImage //UIImage.swp.qrCodeImage("12312312", size: 200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
 //        let image : UIImage? = UIImage.swp.qrCodeImage("12312312", icon: i2!)
         let image2 = "swp-song.com".swp.qrCodeImage(200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
         
-        let image3 = "aaaxxxeeedadasd".swp.qrCodeImage(UIImage(color: UIColor.cyan)!)
+        let image3 = "aaaxxxeeedadasd".swp.qrCodeImage
         
 //        print(image as Any)
-//        self.qrImageView.image = image3
+        self.qrImageView.image = image3
         
         let barImage = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
         

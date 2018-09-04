@@ -1,31 +1,33 @@
 PODS:
   - SnapKit (4.0.0)
-  - SwpExtension/SwpBase64Extension (0.0.3):
+  - SwpExtension/SwpBase64Extension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpBundleExtension (0.0.3):
+  - SwpExtension/SwpBundleExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpButtonExtension (0.0.3):
+  - SwpExtension/SwpButtonExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpColorExtension (0.0.3):
+  - SwpExtension/SwpColorExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpExtensionBase (0.0.3)
-  - SwpExtension/SwpFontExtension (0.0.3):
+  - SwpExtension/SwpExtensionBase (0.0.4)
+  - SwpExtension/SwpFontExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpImageExtension (0.0.3):
+  - SwpExtension/SwpImageExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpImageViewExtension (0.0.3):
+  - SwpExtension/SwpImageViewExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpMD5Extension (0.0.3):
+  - SwpExtension/SwpMD5Extension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpNavigationBarExtension (0.0.3):
+  - SwpExtension/SwpNavigationBarExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpStringExtension (0.0.3):
+  - SwpExtension/SwpScreenExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpTextFieldExtension (0.0.3):
+  - SwpExtension/SwpStringExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpUserDefaultsExtension (0.0.3):
+  - SwpExtension/SwpTextFieldExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpViewExtension (0.0.3):
+  - SwpExtension/SwpUserDefaultsExtension (0.0.4):
+    - SwpExtension/SwpExtensionBase
+  - SwpExtension/SwpViewExtension (0.0.4):
     - SwpExtension/SwpExtensionBase
 
 DEPENDENCIES:
@@ -39,6 +41,7 @@ DEPENDENCIES:
   - SwpExtension/SwpImageViewExtension (from `../`)
   - SwpExtension/SwpMD5Extension (from `../`)
   - SwpExtension/SwpNavigationBarExtension (from `../`)
+  - SwpExtension/SwpScreenExtension (from `../`)
   - SwpExtension/SwpStringExtension (from `../`)
   - SwpExtension/SwpTextFieldExtension (from `../`)
   - SwpExtension/SwpUserDefaultsExtension (from `../`)
@@ -54,8 +57,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: c60305b2d4af38c1ba9c92088d5d16c304c10aef
+  SwpExtension: ddf4c57a3434da0370ae21c821d9ce8553fb1a43
 
-PODFILE CHECKSUM: 31329aab354e6c3addded2fc354c17ab74a4fdf7
+PODFILE CHECKSUM: 9a94994e4349fc9d585bbf487da836292408a60c
 
 COCOAPODS: 1.6.0.beta.1

@@ -88,7 +88,7 @@ protocol SwpExtensionUtilsProtocol {
     @discardableResult func aCornerRadiusMasks<T>(_ view : T, radiusMasks : CGFloat) -> T
     
    
-    // MARK: - string create qrCode interface
+    // MARK: - string create code interface
     
     
     ///
@@ -122,6 +122,14 @@ protocol SwpExtensionUtilsProtocol {
     /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat) -> UIImage?
     
+    ///
+    /// # create barCode image, inster text
+    /// - Parameters:
+    ///   - string: string
+    ///   - size: size
+    ///   - textFont: textFont
+    ///   - textColor: textColor
+    /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat, textFont : UIFont, textColor : UIColor) -> UIImage?
     
 }
@@ -386,11 +394,19 @@ extension SwpExtensionUtilsProtocol {
         guard let bImage = aCreateBarCodeCIImage(string) else { return nil }
         
         guard let cImage = aCreateClearImage(bImage, size: size) else { return nil }
-    
         
         return cImage
     }
     
+    
+    ///
+    /// # create barCode image, inster text
+    /// - Parameters:
+    ///   - string: string
+    ///   - size: size
+    ///   - textFont: textFont
+    ///   - textColor: textColor
+    /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat, textFont : UIFont, textColor : UIColor) -> UIImage? {
         
         guard let bImage = aCreateBarCodeImage(string, size: size) else { return nil }
@@ -561,15 +577,19 @@ extension SwpExtensionUtilsProtocol {
     }
     
     
-    
+    ///
+    /// # image insert text
+    /// - Parameters:
+    ///   - image: image
+    ///   - text:  text
+    ///   - textFont: textFont
+    ///   - textColor: textColor
+    /// - Returns: UIImage?
     @discardableResult private static func aInsertText(_ image : UIImage, text : String, textFont : UIFont, textColor : UIColor) -> UIImage? {
         
-
         let size = CGSize(width: image.size.width, height: image.size.height + 30)
         
         UIGraphicsBeginImageContextWithOptions (size, false , 0.0);
-        
-//        image.drawAtPoint(CGPointZero)
         image.draw(at: CGPoint.zero)
         
         // 获得一个位图图形上下文

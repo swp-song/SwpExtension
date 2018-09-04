@@ -1,6 +1,6 @@
 {
   "name": "SwpExtension",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "summary": "Swift Extension Code",
   "description": "TODO: Swift Extension Code",
   "homepage": "https://github.com/swp-song/SwpExtension",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/swp-song/SwpExtension.git",
-    "tag": "0.0.3"
+    "tag": "0.0.4"
   },
   "platforms": {
     "ios": "9.0"
@@ -34,7 +34,8 @@
     "SwpNavigationBarExtension",
     "SwpTextFieldExtension",
     "SwpImageExtension",
-    "SwpImageViewExtension"
+    "SwpImageViewExtension",
+    "SwpScreenExtension"
   ],
   "subspecs": [
     {
@@ -157,6 +158,24 @@
         ]
       },
       "source_files": "SwpExtension/Code/UIKit/SwpImageViewExtension/*.swift"
+    },
+    {
+      "name": "SwpImageViewExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionBase": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/UIKit/SwpImageViewExtension/*.swift"
+    },
+    {
+      "name": "SwpScreenExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionBase": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/UIKit/SwpScreenExtension/*.swift"
     }
   ]
 }
