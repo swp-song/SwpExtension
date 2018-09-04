@@ -6,8 +6,8 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
+
 protocol SwpExtensionUtilsProtocol {
-    
     
     // MARK: - screenshots interface
     
@@ -115,18 +115,12 @@ protocol SwpExtensionUtilsProtocol {
     
     
     ///
-    /// # string create qrCode image, insert icon
+    /// # string create barCode image, insert icon
     /// - Parameters:
     ///   - string: string
     ///   - size: size
-    ///   - icon: icon
-    ///   - iconSize: iconSize
-    ///   - qrColor: qrColor
-    ///   - bgColor: bgColor
     /// - Returns: UIImage?
-    @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGSize, barColor : UIColor, bgColor : UIColor) -> UIImage?
-    
-    @discardableResult static func aResizeImage(_ image : UIImage, size : CGSize) -> UIImage?
+    @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat) -> UIImage?
     
 }
 
@@ -155,7 +149,6 @@ extension SwpExtensionUtilsProtocol {
         UIGraphicsEndImageContext();
         return image
     }
-    
     
     ///
     /// # view screenshots create image
@@ -234,7 +227,6 @@ extension SwpExtensionUtilsProtocol {
         return UIImagePNGRepresentation(image)
     }
     
-    
     ///
     /// # screenshots full create image
     /// - Returns: UIImage?
@@ -245,6 +237,7 @@ extension SwpExtensionUtilsProtocol {
         return UIImage(data: data)
         
     }
+
 }
 
 // MARK: - set view layer implementation
@@ -352,7 +345,7 @@ extension SwpExtensionUtilsProtocol {
         
         guard let qImage = aCreateQRCodeCIImage(string) else { return nil }
         
-        guard let cImage = aCreateQRCodeClearImage(qImage, size: size) else { return nil }
+        guard let cImage = aCreateClearImage(qImage, size: size) else { return nil }
         
         guard let iImage = aCreateColorImage(cImage, qrColor: qrColor, bgColor: bgColor) else { return nil }
         
@@ -379,44 +372,20 @@ extension SwpExtensionUtilsProtocol {
         return iImage
     }
     
-    @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGSize, barColor : UIColor, bgColor : UIColor) -> UIImage? {
+    
+    ///
+    /// # create barCode image
+    /// - Parameters:
+    ///   - string: string
+    ///   - size: size
+    /// - Returns: UIImage?
+    @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat) -> UIImage? {
         
         guard let bImage = aCreateBarCodeCIImage(string) else { return nil }
         
-        guard let cImage = aCreateBarCodeClearImage(bImage, size: CGSize(width: 5000, height:bImage.extent.size.height)) else { return nil }
+        guard let cImage = aCreateClearImage(bImage, size: size) else { return nil }
         
         return cImage
-    }
-}
-
-
-extension SwpExtensionUtilsProtocol {
-    
-    
-    @discardableResult static func aResizeImage(_ image : UIImage, size : CGSize) -> UIImage? {
-        
-        let scale : Double = (Double)(size.width) / (Double)(image.size.width)
-        
-        guard let image = image.cgImage else { return nil }
-        
-//        let image = UIKit.CIImage(CGImage:image.cgImage!)
-        
-        let filter = CIFilter(name: "CILanczosScaleTransform")
-        
-        filter?.setValue(image, forKey: kCIInputImageKey)
-        
-        filter?.setValue(NSNumber(value: scale), forKey: kCIInputScaleKey)
-        
-        filter?.setValue(1.0, forKey:kCIInputAspectRatioKey)
-        
-        let outputImage     = filter?.value(forKey: kCIOutputImageKey) as? CIImage
-        
-        
-        let context         = CIContext(options: [kCIContextUseSoftwareRenderer: false])
-    
-        guard let cgImage   = context.createCGImage(outputImage, from: outputImage.extent) else { return nil }
-    
-        return UIImage(cgImage: cgImage)
     }
 }
 
@@ -450,7 +419,7 @@ extension SwpExtensionUtilsProtocol {
     ///   - name: name
     ///   - block: block
     /// - Returns:Returns
-    @discardableResult private static func aCreateCodeCIImage(_ string : String, _ name : String, block: ((CIFilter?) -> Void)?) -> CIImage? {
+    @discardableResult private static func aCreateCodeCIImage(_ string : String, _ name : String, block: ((CIFilter?) -> Void)?) -> UIImage? {
         let data   : Data?      = string.data(using: .utf8)
         let filter : CIFilter?  = CIFilter(name: name)
         
@@ -458,19 +427,32 @@ extension SwpExtensionUtilsProtocol {
         
         block?(filter)
         
-        return filter?.outputImage
+        guard let outputImage = filter?.outputImage else { return nil }
+        
+        return UIImage(ciImage: outputImage)
+        
     }
     
     ///
     /// # create qrCode CIImage
     /// - Parameter string:
     /// - Returns:CIImage
-    @discardableResult private static func aCreateQRCodeCIImage(_ string : String) -> CIImage? {
+    @discardableResult private static func aCreateQRCodeCIImage(_ string : String) -> UIImage? {
         
         return aCreateCodeCIImage(string, "CIQRCodeGenerator", block: { (filter) in
             filter?.setValue("H", forKey: "inputCorrectionLevel")
         })
     }
+    
+    
+    ///
+    ///
+    /// - Parameter string:
+    /// - Returns:
+    @discardableResult private static func aCreateBarCodeCIImage(_ string : String) -> UIImage? {
+        return aCreateCodeCIImage(string, "CICode128BarcodeGenerator", block: nil)
+    }
+    
     
     ///
     /// # create qrCode clearImage
@@ -478,9 +460,13 @@ extension SwpExtensionUtilsProtocol {
     ///   - image: image
     ///   - size: size
     /// - Returns: UIImage?
-    @discardableResult private static func aCreateQRCodeClearImage(_ image : CIImage, size : CGFloat) -> UIImage? {
+    @discardableResult private static func aCreateClearImage(_ image : UIImage, size : CGFloat) -> UIImage? {
         
-        let extent : CGRect  = image.extent.integral
+        guard let ciImage = image.ciImage else { return nil }
+        
+        let extent : CGRect  = ciImage.extent.integral
+        
+        
         let scale  : CGFloat = min(size / extent.width, size / extent.height)
         
         //  计算缩放比例
@@ -495,7 +481,7 @@ extension SwpExtensionUtilsProtocol {
         let context     : CIContext  = CIContext(options: nil)
         
         //  CIImage 转为 CGImage
-        let bitmapImage : CGImage?   = context.createCGImage(image, from: extent)
+        let bitmapImage : CGImage?   = context.createCGImage(ciImage, from: extent)
         
         //  设置上下文渲染等级
         bitmapRef?.interpolationQuality = .none
@@ -510,43 +496,6 @@ extension SwpExtensionUtilsProtocol {
         return UIImage(cgImage: clearImage)
     }
     
-    
-    @discardableResult private static func aCreateBarCodeCIImage(_ string : String) -> CIImage? {
-        return aCreateCodeCIImage(string, "CICode128BarcodeGenerator", block: nil)
-    }
-    
-    @discardableResult private static func aCreateBarCodeClearImage(_ image : CIImage, size : CGSize) -> UIImage? {
-        
-        // extent 返回图片的frame
-        
-//        let scaleX : CGFloat = size.width  / image.extent.size.width;
-//        let scaleY : CGFloat = size.height / image.extent.size.height
-//        let cImage : CIImage = image.transformed(by: CGAffineTransform(scaleX: scaleX, y: scaleY))
-//        return UIImage(ciImage: cImage)
-        
-        let context = CIContext()
-//        let cgImage = context.createCGImage(image, from: image.extent)
-        guard let cgImage = context.createCGImage(image, from: image.extent) else { return nil }
-//        let cgImage = context.createCGImage(image, fromRect: image.extent)
-//        guard let iImage = UIImage(cgImage: cgImage, scale: 1.0, orientation:.up) else { return nil }
-        
-        let iImage : UIImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .up)
-//        guard let iImage = UIImage(cgImage: cgImage, scale: 1.0, orientation: .up) else { return nil }
-        
-//        let image = UIImage(cgImage: cgImage, scale: 1.0, orientation:.up)
-//        UIImage(cgImage: cgImage, scale: 1.0, orientation:.up)
-        //
-//                 Resize without interpolating
-        let scaleRate : CGFloat = 20.0
-//        let resized = resizeImage(image, quality: CGInterpolationQuality.None, rate: scaleRate)
-        
-        let resized = aResizeImage(iImage, size: CGSize(width: iImage.size.width, height: scaleRate))
-        
-        return resized
-    }
-    
-    
-    
     ///
     /// # create color image
     /// - Parameters:
@@ -557,6 +506,7 @@ extension SwpExtensionUtilsProtocol {
     @discardableResult private static func aCreateColorImage(_ image : UIImage, qrColor : UIColor, bgColor : UIColor) -> UIImage? {
         
         let ciImage = CIImage(image: image)
+        
         let filter  = CIFilter(name:"CIFalseColor")
         
         filter?.setDefaults()

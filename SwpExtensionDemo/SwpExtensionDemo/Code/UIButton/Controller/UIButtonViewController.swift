@@ -65,9 +65,10 @@ class UIButtonViewController: DemoBaseViewController {
         self.qrImageView.swp.backgroundColor(UIColor.red)
         
         self.barImageView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(UIEdgeInsetsMake(0, 20, 0, 20))
+            make.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
             make.top.equalTo(self.qrImageView.snp.bottom).offset(10)
-            make.width.equalTo(self.barImageView.snp.height).multipliedBy(6)
+            make.height.equalTo(100)
+//            make.width.equalTo(self.barImageView.snp.height).multipliedBy(5)
         }
         
         self.barImageView.swp.backgroundColor(UIColor.red)
@@ -126,9 +127,12 @@ extension UIButtonViewController {
 //        print(image as Any)
         self.qrImageView.image = image
         
-        let barImage = UIImage.swp.barCodeImage("123", size: CGSize(width: self.barImageView.swp.width, height: self.barImageView.swp.height))
+        let barImage = UIImage.swp.barCodeImage("1111123123")
         
         self.barImageView.image = barImage
+        
+        
+//        print(self.barImageView.image)
     
 //        let i = UIView.swp.screenshotsFull
 //        print(i as Any)

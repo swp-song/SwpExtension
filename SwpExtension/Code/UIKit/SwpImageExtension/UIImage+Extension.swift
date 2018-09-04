@@ -62,8 +62,8 @@ extension SwpExtensionClass where BaseClass : UIImage {
 
 extension SwpExtensionClass where BaseClass : UIImage {
     
-    public static func barCodeImage(_ string : String, size : CGSize = CGSize.zero) -> UIImage? {
-        return UIImage.aCreateBarCodeImage(string, size: CGSize.zero, barColor: UIColor.red, bgColor: UIColor.red)
+    public static func barCodeImage(_ string : String, size : CGFloat = 400) -> UIImage? {
+        return UIImage.aCreateBarCodeImage(string, size:size)
     }
 }
 
