@@ -92,3 +92,49 @@ extension SwpExtensionStruct where BaseStruct == String {
     
 }
 
+// MARK: - check the string contains emoji
+extension SwpExtensionStruct where BaseStruct == String {
+    
+    
+    /// # check the string contains emoji, contains return true.
+    public var isEmoji : Bool {
+        return self.isEmoji(self.swp)
+    }
+    
+    
+    ///
+    /// # check the string contains emoji, contains return true.
+    /// - Parameter string:
+    /// - Returns: Bool
+    public static func isEmoji(_ string : String) -> Bool {
+        return string.swp.isEmoji
+    }
+    
+    
+    ///
+    /// # check the string contains emoji, contains return true.
+    /// - Parameter string:
+    /// - Returns: Bool
+    private func isEmoji(_ string : String) -> Bool {
+        
+        var isEmoji = false
+        
+        string.unicodeScalars.forEach { (scalar) in
+            if scalar.swp.isEmoji {
+                isEmoji = true
+                return
+            }
+        }
+        
+        return isEmoji
+    }
+    
+}
+
+
+
+
+
+
+
+

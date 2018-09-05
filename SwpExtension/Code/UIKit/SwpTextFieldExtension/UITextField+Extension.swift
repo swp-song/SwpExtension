@@ -22,51 +22,10 @@ extension SwpExtensionClass where BaseClass : UITextField {
     ///   - radius:             radius
     ///   - keyboard:           keyboard
     ///   - isEntry:            isEntry
-    public convenience init(_ backgroundColor : UIColor?, textColor : UIColor?, textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) {
-        self.init(BaseClass())
-        self.leftMargin()
-            .swp.style(backgroundColor, textColor: textColor, textFont: textFont, placeholder: placeholder, aColor: aColor, aFont: aFont, border: border, radius: radius, keyboard: keyboard, isEntry: isEntry)
-    }
-    
-    ///
-    /// # convenience init style function
-    /// - Parameters:
-    ///   - backgroundColor:    backgroundColor
-    ///   - textColor:          textColor
-    ///   - textFont:           textFont
-    ///   - placeholder:        placeholder
-    ///   - aColor:             aColor
-    ///   - aFont:              aFont
-    ///   - border:             border
-    ///   - radius:             radius
-    ///   - keyboard:           keyboard
-    ///   - isEntry:            isEntry
     /// - Returns: BaseClass
-    public static func styleInit(_ backgroundColor : UIColor?, textColor : UIColor?, textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false)-> BaseClass {
+    public func style(_ backgroundColor : UIColor?, textColor : UIColor?, textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false)-> BaseClass {
         
-        return self.init(backgroundColor, textColor: textColor, textFont: textFont, placeholder: placeholder, aColor: aColor, aFont: aFont, border: border, radius: radius, keyboard: keyboard, isEntry: isEntry).swp
-    }
-    
-    
-    ///
-    /// # convenience init image style function
-    /// - Parameters:
-    ///   - backgroundColor:    backgroundColor
-    ///   - image:              image
-    ///   - textColor:          textColor
-    ///   - textFont:           textFont
-    ///   - placeholder:        placeholder
-    ///   - aColor:             aColor
-    ///   - aFont:              aFont
-    ///   - border:             border
-    ///   - radius:             radius
-    ///   - keyboard:           keyboard
-    ///   - isEntry:            isEntry
-    /// - Returns: BaseClass
-    public convenience init(_ backgroundColor : UIColor?, image : UIImage?, textColor : UIColor?, textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) {
-        self.init(BaseClass())
-        self.leftImage(image)
-            .swp.style(backgroundColor, textColor: textColor, textFont: textFont, placeholder: placeholder, aColor: aColor, aFont: aFont, border: border, radius: radius, keyboard: keyboard, isEntry: isEntry)
+        return self.leftMargin().swp.aStyle(backgroundColor, textColor: textColor, textFont: textFont, placeholder: placeholder, aColor: aColor, aFont: aFont, border: border, radius: radius, keyboard: keyboard, isEntry: isEntry)
     }
     
     ///
@@ -84,9 +43,9 @@ extension SwpExtensionClass where BaseClass : UITextField {
     ///   - keyboard:           keyboard
     ///   - isEntry:            isEntry
     /// - Returns: BaseClass
-    public static func styleImageInit(_ backgroundColor : UIColor?, image : UIImage?, textColor : UIColor?, textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) -> BaseClass {
+    public func imageStyle(_ bgColor : UIColor?, image : UIImage?, textColor : UIColor?, textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) -> BaseClass {
         
-        return self.init(backgroundColor, image: image, textColor: textColor, textFont: textFont, placeholder: placeholder, aColor: aColor, aFont: aFont, border: border, radius: radius, keyboard: keyboard, isEntry: isEntry).swp
+        return self.leftImage(image).swp.aStyle(bgColor, textColor: textColor, textFont: textFont, placeholder: placeholder, aColor: aColor, aFont: aFont, border: border, radius: radius, keyboard: keyboard, isEntry: isEntry)
     }
 }
 
@@ -236,7 +195,7 @@ extension SwpExtensionClass where BaseClass : UITextField {
 // MARK: - Private Function
 extension SwpExtensionClass where BaseClass : UITextField {
     
-    @discardableResult private func style(_ backgroundColor : UIColor?, textColor : UIColor?,  textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) -> BaseClass {
+    @discardableResult private func aStyle(_ bgColor : UIColor?, textColor : UIColor?,  textFont : UIFont?, placeholder : String?, aColor : UIColor?, aFont : UIFont?, border : CGFloat = 0, radius : CGFloat = 1, keyboard : UIKeyboardType = .default, isEntry : Bool = false) -> BaseClass {
         
         self.font(textFont)
             .swp.textColor(textColor)
@@ -248,8 +207,8 @@ extension SwpExtensionClass where BaseClass : UITextField {
         
         self.swp
             .aBorderWidth(self.swp, width: border)
+            .aBackgroundColor(self.swp, color: bgColor)
             .aCornerRadiusMasks(self.swp, radiusMasks: radius)
-            .aBackgroundColor(self.swp, color: backgroundColor)
         
         
         return self.swp

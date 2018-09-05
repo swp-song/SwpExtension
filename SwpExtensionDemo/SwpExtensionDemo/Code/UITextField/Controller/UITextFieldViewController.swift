@@ -24,18 +24,14 @@ class UITextFieldViewController: DemoBaseViewController {
 //        .swp.placeholderStyle(UIColor.orange, font: UIFont.systemFont(ofSize: 20))
 //        .swp.borderWidth(1)
 //        .swp.cornerRadiusMasks(5)
-//        .swp.borderColo(UIColor.red)
-//        }()
+//        .swp.borderColor(UIColor.red)
+//    }()
     
-    private lazy var textField1 : DDD = DDD.swp.styleInit(UIColor(0xff00FF), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "111", aColor: UIColor.cyan, aFont: UIFont.systemFont(ofSize: 20), border: 1, radius: 5, keyboard: .default, isEntry: false)
-//    private lazy var textField1 : DDD = DDD.swp.styleImageInit(UIColor.lightGray, image: #imageLiteral(resourceName: "account"), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "test", aColor: UIColor.white, aFont: UIFont.systemFont(ofSize: 20), border: 0, radius: 5, keyboard: .default, isEntry: true)
+//    private lazy var textField1 : DDD = DDD().swp.style(UIColor(0xff00FF), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "111", aColor: UIColor.cyan, aFont: UIFont.systemFont(ofSize: 20), border: 1, radius: 5, keyboard: .default, isEntry: false)
     
-//    private lazy var textField1 : DDD = DDD.swp.init(UIColor.lightGray, image: #imageLiteral(resourceName: "account"), textColor: UIColor.orange, textFont: UIFont.systemFont(ofSize: 12), placeholder: "test", aColor: UIColor.white, aFont: UIFont.systemFont(ofSize: 20), border: 0, radius: 5, keyboard: .default, isEntry: true).swp
-    
-    
-    
-    
+    private lazy var textField1 : UITextField = UITextField().swp.imageStyle(UIColor.orange, image: #imageLiteral(resourceName: "account"), textColor: UIColor.black, textFont: UIFont.systemFont(ofSize: 15), placeholder: "12312", aColor: UIColor.red, aFont: UIFont.systemFont(ofSize: 20), border: 1, radius: 5, keyboard: .default, isEntry: false)
 
+    
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {
         

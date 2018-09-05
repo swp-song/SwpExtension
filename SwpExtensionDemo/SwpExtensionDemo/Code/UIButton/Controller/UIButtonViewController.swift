@@ -18,58 +18,54 @@ class UIButtonViewController: DemoBaseViewController {
     
 //    private lazy var button : UIButton = UIButton.swp.init(UIColor.swp.randomColor(), title: "123", target: self, action: #selector(clickButton), titleColor: UIColor.swp.randomColor(), titleFont: UIFont.systemFont(ofSize: 15), radius: 5, tag: 0, events: .touchUpInside).swp
     
-//    private lazy var checkBox : UIButton = UIButton.swp.init(#imageLiteral(resourceName: "check_box_no"), selectedImage: #imageLiteral(resourceName: "check_box_sel"), title: "点击", target: self, action: #selector(checkBoxEvent), titleColor: UIColor.red, titleFont: UIFont.systemFont(ofSize: 15)).swp
-    
-    private lazy var button : UIButton = UIButton.swp.styleInit(UIColor.swp.randomColor(), title: "123", target: self, action: #selector(clickButton), titleColor: UIColor.swp.randomColor(), titleFont: UIFont.systemFont(ofSize: 15), radius: 5, tag: 0, events: .touchUpInside)
-    
-    private lazy var checkBox : UIButton = UIButton.swp.styleCheckBoxInit(#imageLiteral(resourceName: "check_box_no"), selectedImage: #imageLiteral(resourceName: "check_box_sel"), title: "点击", target: self, action: #selector(checkBoxEvent), titleColor: UIColor.red, titleFont: UIFont.systemFont(ofSize: 15))
-    
-    private lazy var qrImageView : UIImageView = UIImageView()
-    
-    private lazy var barImageView : UIImageView = UIImageView()
-    
+    private lazy var button : UIButton = UIButton().swp.style(UIColor.swp.randomColor(), title: "123", target: self, action: #selector(clickButton), titleColor: UIColor.swp.randomColor(), titleFont: UIFont.systemFont(ofSize: 15), radius: 5, tag: 0, events: .touchUpInside)
+
+    private lazy var checkBox : UIButton = UIButton().swp.checkBoxStyle(#imageLiteral(resourceName: "check_box_no"), selectedImage: #imageLiteral(resourceName: "check_box_sel"), title: "点击", target: self, action: #selector(checkBoxEvent), titleColor: UIColor.red, titleFont: UIFont.systemFont(ofSize: 15))
+
+//
+//    private lazy var qrImageView : UIImageView = UIImageView()
+//
+//    private lazy var barImageView : UIImageView = UIImageView()
+//
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+//        return
         view.addSubview(button)
         view.addSubview(checkBox)
-        view.addSubview(qrImageView)
-        view.addSubview(barImageView)
-        checkBox.swp.backgroundColor(UIColor.cyan)
+//        view.addSubview(qrImageView)
+//        view.addSubview(barImageView)
+//        checkBox.swp.backgroundColor(UIColor.cyan)
         
-        button.swp.image(UIImage(named: "button_icon"), for: .normal)
+//        button.swp.image(UIImage(named: "button_icon"), for: .normal)
+//        button.swp.timingButton()
         
         self.button.snp.makeConstraints { (make) in
-//            make.top.left.right.equalTo(UIEdgeInsetsMake(100, 0, 0, 0))
             make.top.left.equalTo(UIEdgeInsetsMake(100, 30, 0, 0))
-//            make.width.equalTo(self.button.snp.height).multipliedBy(10)
             make.width.height.equalTo(CGSize(width: 100, height: 50))
         }
-        
+
         self.checkBox.snp.makeConstraints { (make) in
             make.top.equalTo(self.button.snp.bottom).offset(20)
             make.right.equalToSuperview().offset(-10)
-//            make.right.equalTo(self.view).offset(20)
             make.size.equalTo(CGSize(width: 80, height: 50))
-//            make.height.equalTo(50)
         }
-        
-        self.qrImageView.snp.makeConstraints { (make) in
-            make.center.equalToSuperview()
-            make.size.equalTo(CGSize(width: 200, height: 200))
-        }
-        
-        self.qrImageView.swp.backgroundColor(UIColor.red)
-        
-        self.barImageView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
-            make.top.equalTo(self.qrImageView.snp.bottom).offset(10)
-            make.height.equalTo(150)
-//            make.width.equalTo(self.barImageView.snp.height).multipliedBy(5)
-        }
+//
+//        self.qrImageView.snp.makeConstraints { (make) in
+//            make.center.equalToSuperview()
+//            make.size.equalTo(CGSize(width: 200, height: 200))
+//        }
+//
+//        self.qrImageView.swp.backgroundColor(UIColor.red)
+//
+//        self.barImageView.snp.makeConstraints { (make) in
+//            make.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+//            make.top.equalTo(self.qrImageView.snp.bottom).offset(10)
+//            make.height.equalTo(150)
+//        }
         
 //        self.barImageView.swp.backgroundColor(UIColor.red)
         
@@ -104,9 +100,9 @@ extension UIButtonViewController {
     
     @objc private func clickButton(button : UIButton) -> Void {
         
-        let edges  = [UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
-        let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
-        button.swp.imageEdge(edges[index])
+//        let edges  = [UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
+//        let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
+//        button.swp.imageEdge(edges[index])
 //        button.swp.imageEdge(.left)
         
 //        let image : UIImage? = self.view.swp.screenshots;
@@ -123,25 +119,38 @@ extension UIButtonViewController {
 //        let i2 = UIColor.cyan.swp.image(CGRect(x: 0, y: 0, width: 35, height: 35))
         
         
-        let image1 = "12312312".swp.qrCodeImage //UIImage.swp.qrCodeImage("12312312", size: 200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
+//        let image1 = "12312312".swp.qrCodeImage //UIImage.swp.qrCodeImage("12312312", size: 200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
 //        let image : UIImage? = UIImage.swp.qrCodeImage("12312312", icon: i2!)
-        let image2 = "swp-song.com".swp.qrCodeImage(200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
+//        let image2 = "swp-song.com".swp.qrCodeImage(200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
         
-        let image3 = "aaaxxxeeedadasd".swp.qrCodeImage
-        
-//        print(image as Any)
-        self.qrImageView.image = image3
-        
-        let barImage = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
-        
-        self.barImageView.image = barImage
-        self.barImageView.swp.borderWidth(1)
+//        let image3 = "aaaxxxeeedadasd".swp.qrCodeImage
+//
+//        self.qrImageView.image = image3
+//
+//        let barImage = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
+//
+//        self.barImageView.image = barImage
+//        self.barImageView.swp.borderWidth(1)
+//
+//        button.swp.timingButton()
         
         
 //        print(self.barImageView.image)
     
 //        let i = UIView.swp.screenshotsFull
 //        print(i as Any)
+        
+//        print(UIScreen.main.swp.)
+//        print(UIScreen.swp.w)
+//
+//
+//        print(String.swp.isEmoji("1231231"))
+//        print(String.swp.isEmoji("😁😆😆，1231231"))
+//        print("aasdasda😀".swp.isEmoji)
+//        print("aasdasda".swp.isEmoji)
+//        print(UIScreen.swp.size)
+//        print(UIScreen.swp.width)
+//        print(UIScreen.swp.height)
     }
     
     @objc private func checkBoxEvent(button : UIButton) -> Void {
@@ -155,18 +164,18 @@ extension UIButtonViewController {
 
 extension UIButtonViewController {
     
-    func add() -> Void {
-        var views  : [UIButton] = []
-        let titles : [String]   = ["Top (上)", "Left (左)", "Bottom (下)", "Right (右)"]
-        
-        titles.forEach { [weak self] (title) in
-            let button : UIButton = UIButton()
-            button.backgroundColor = UIColor.swp.randomColor()
-            views.append(button)
-            self?.view.addSubview(button)
-        }
-        
-    }
+//    func add() -> Void {
+//        var views  : [UIButton] = []
+//        let titles : [String]   = ["Top (上)", "Left (左)", "Bottom (下)", "Right (右)"]
+//
+//        titles.forEach { [weak self] (title) in
+//            let button : UIButton = UIButton()
+//            button.backgroundColor = UIColor.swp.randomColor()
+//            views.append(button)
+//            self?.view.addSubview(button)
+//        }
+//
+//    }
     
 }
 
