@@ -190,39 +190,35 @@ extension SwpExtensionClass where BaseClass : UIButton {
 extension SwpExtensionClass where BaseClass : UIButton {
     
     
-    public func timingButton() -> Void {
+    public func timingButton(_ time : Int, appTitle : String = "", block:((  ) -> Swift.Void)? = nil) -> Void  {
         
-        var timeout = 5
+        var timeOut = time
         let title   = self.swp.titleLabel?.text
         let aTimer  = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
         
-        aTimer.schedule(wallDeadline: .now(), repeating: 1)
+        aTimer.schedule(wallDeadline: .now(), repeating: .seconds(1))
         
         aTimer.setEventHandler {
             
-            if timeout <= 0 {
-                
-                aTimer.cancel()
-                
+            guard timeOut <= 0 else  {
                 DispatchQueue.main.async {
-                    self.swp.setTitle(title, for: .normal)
-                    self.swp.isEnabled = true
-                }
-                
-            } else {
-                
-                DispatchQueue.main.async {
-                    
-                    let seconds = timeout % 60
+                    let seconds = timeOut % 60
                     self.swp.setTitle(String(format: "%.2d", seconds), for: .normal)
                     self.swp.isEnabled = false
                 }
-                timeout -= 1
+                timeOut -= 1
+                return
+            }
+            
+            aTimer.cancel()
+            DispatchQueue.main.async {
+                self.swp.setTitle(String(format: "%@%@", title ?? "", appTitle), for: .normal)
+                self.swp.isEnabled = true
             }
             
         }
         
-        aTimer.resume()
+        aTimer.resume() 
     }
     
     
