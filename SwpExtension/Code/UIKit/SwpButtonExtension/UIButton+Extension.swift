@@ -191,49 +191,54 @@ extension SwpExtensionClass where BaseClass : UIButton {
     
     
     public func timingButton() -> Void {
-//        let title = self.swp.titleLabel?.text
-//        self.swp.isEnabled = false
-//        dispatch_queue_t
-//        DispatchQueue.gete
         
-//        let button = self.swp
-        
-        var timeout : Int = 5
-        let aTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
+        var timeout = 5
+        let title   = self.swp.titleLabel?.text
+        let aTimer  = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
         
         aTimer.schedule(wallDeadline: .now(), repeating: 1)
         
         aTimer.setEventHandler {
             
-            timeout -= 1
-            
-            DispatchQueue.main.async {
-                let seconds = timeout % 60
-                self.swp.setTitle(String(format: "%.2d", seconds), for: .normal)
-                self.swp.setTitle(String(format: "%.2d", seconds), for: .normal)
-                self.swp.isEnabled = false
-            }
-            
-            
             if timeout <= 0 {
-                print("tingzhi")
+                
                 aTimer.cancel()
                 
                 DispatchQueue.main.async {
-                    print()
+                    self.swp.setTitle(title, for: .normal)
                     self.swp.isEnabled = true
                 }
+                
+            } else {
+                
+                DispatchQueue.main.async {
+                    
+                    let seconds = timeout % 60
+                    self.swp.setTitle(String(format: "%.2d", seconds), for: .normal)
+                    self.swp.isEnabled = false
+                }
+                timeout -= 1
             }
             
         }
         
         aTimer.resume()
     }
+    
+    
 }
 
 // MARK: - Private Function
 private extension SwpExtensionClass where BaseClass : UIButton {
     
+    
+    private func mainAsync(_ block: @escaping () -> Void) -> Void {
+        
+        DispatchQueue.main.async {
+            block()
+        }
+        
+    }
     
     ///
     /// # set image location

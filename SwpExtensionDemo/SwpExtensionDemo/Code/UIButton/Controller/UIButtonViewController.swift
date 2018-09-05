@@ -105,6 +105,8 @@ extension UIButtonViewController {
         self.barImageView.image = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
         self.barImageView.swp.borderWidth(1)
         
+        button.swp.timingButton()
+        
     }
     
     @objc private func checkBoxEvent(button : UIButton) -> Void {
