@@ -23,9 +23,9 @@ class UIButtonViewController: DemoBaseViewController {
     private lazy var checkBox : UIButton = UIButton().swp.checkBoxStyle(#imageLiteral(resourceName: "check_box_no"), selectedImage: #imageLiteral(resourceName: "check_box_sel"), title: "点击", target: self, action: #selector(checkBoxEvent), titleColor: UIColor.red, titleFont: UIFont.systemFont(ofSize: 15))
 
 //
-//    private lazy var qrImageView : UIImageView = UIImageView()
-//
-//    private lazy var barImageView : UIImageView = UIImageView()
+    private lazy var qrImageView : UIImageView = UIImageView()
+
+    private lazy var barImageView : UIImageView = UIImageView()
 //
     
     
@@ -36,8 +36,8 @@ class UIButtonViewController: DemoBaseViewController {
 //        return
         view.addSubview(button)
         view.addSubview(checkBox)
-//        view.addSubview(qrImageView)
-//        view.addSubview(barImageView)
+        view.addSubview(qrImageView)
+        view.addSubview(barImageView)
 //        checkBox.swp.backgroundColor(UIColor.cyan)
         
 //        button.swp.image(UIImage(named: "button_icon"), for: .normal)
@@ -54,23 +54,19 @@ class UIButtonViewController: DemoBaseViewController {
             make.size.equalTo(CGSize(width: 80, height: 50))
         }
 //
-//        self.qrImageView.snp.makeConstraints { (make) in
-//            make.center.equalToSuperview()
-//            make.size.equalTo(CGSize(width: 200, height: 200))
-//        }
-//
-//        self.qrImageView.swp.backgroundColor(UIColor.red)
-//
-//        self.barImageView.snp.makeConstraints { (make) in
-//            make.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
-//            make.top.equalTo(self.qrImageView.snp.bottom).offset(10)
-//            make.height.equalTo(150)
-//        }
+        self.qrImageView.snp.makeConstraints { (make) in
+            make.center.equalToSuperview()
+            make.size.equalTo(CGSize(width: 200, height: 200))
+        }
+
+        self.qrImageView.swp.backgroundColor(UIColor.red)
+
+        self.barImageView.snp.makeConstraints { (make) in
+            make.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.top.equalTo(self.qrImageView.snp.bottom).offset(10)
+            make.height.equalTo(150)
+        }
         
-//        self.barImageView.swp.backgroundColor(UIColor.red)
-        
-        
-//        checkBox.swp.imageEdge(.right)
     }
 
     override func didReceiveMemoryWarning() {
@@ -100,57 +96,15 @@ extension UIButtonViewController {
     
     @objc private func clickButton(button : UIButton) -> Void {
         
-//        let edges  = [UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
-//        let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
-//        button.swp.imageEdge(edges[index])
-//        button.swp.imageEdge(.left)
+        let edges  = [UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
+        let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
+        button.swp.imageEdge(edges[index])
+        button.swp.imageEdge(.left)
         
-//        let image : UIImage? = self.view.swp.screenshots;
-//
-//        print(image as Any)
+        self.qrImageView.image  = "aaaxxxeeedadasd".swp.qrCodeImage
+        self.barImageView.image = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
+        self.barImageView.swp.borderWidth(1)
         
-//        let image = UIImage.swp.screenshots(self.view)
-//        print(image)
-//
-//        let image1 = UIImage.swp.screenshotsFull
-//        print(image1 as Any)
-        
-//        let i1 = UIImage(color: UIColor.orange)
-//        let i2 = UIColor.cyan.swp.image(CGRect(x: 0, y: 0, width: 35, height: 35))
-        
-        
-//        let image1 = "12312312".swp.qrCodeImage //UIImage.swp.qrCodeImage("12312312", size: 200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
-//        let image : UIImage? = UIImage.swp.qrCodeImage("12312312", icon: i2!)
-//        let image2 = "swp-song.com".swp.qrCodeImage(200, qrColor: UIColor.orange, bgColor: UIColor.cyan)
-        
-//        let image3 = "aaaxxxeeedadasd".swp.qrCodeImage
-//
-//        self.qrImageView.image = image3
-//
-//        let barImage = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
-//
-//        self.barImageView.image = barImage
-//        self.barImageView.swp.borderWidth(1)
-//
-//        button.swp.timingButton()
-        
-        
-//        print(self.barImageView.image)
-    
-//        let i = UIView.swp.screenshotsFull
-//        print(i as Any)
-        
-//        print(UIScreen.main.swp.)
-//        print(UIScreen.swp.w)
-//
-//
-//        print(String.swp.isEmoji("1231231"))
-//        print(String.swp.isEmoji("😁😆😆，1231231"))
-//        print("aasdasda😀".swp.isEmoji)
-//        print("aasdasda".swp.isEmoji)
-//        print(UIScreen.swp.size)
-//        print(UIScreen.swp.width)
-//        print(UIScreen.swp.height)
     }
     
     @objc private func checkBoxEvent(button : UIButton) -> Void {

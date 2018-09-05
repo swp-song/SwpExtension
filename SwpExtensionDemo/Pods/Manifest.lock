@@ -1,33 +1,33 @@
 PODS:
   - SnapKit (4.0.0)
-  - SwpExtension/SwpBase64Extension (0.0.4):
+  - SwpExtension/SwpBase64Extension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpBundleExtension (0.0.4):
+  - SwpExtension/SwpBundleExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpButtonExtension (0.0.4):
+  - SwpExtension/SwpButtonExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpColorExtension (0.0.4):
+  - SwpExtension/SwpColorExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpExtensionBase (0.0.4)
-  - SwpExtension/SwpFontExtension (0.0.4):
+  - SwpExtension/SwpExtensionBase (0.0.5)
+  - SwpExtension/SwpFontExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpImageExtension (0.0.4):
+  - SwpExtension/SwpImageExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpImageViewExtension (0.0.4):
+  - SwpExtension/SwpImageViewExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpMD5Extension (0.0.4):
+  - SwpExtension/SwpMD5Extension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpNavigationBarExtension (0.0.4):
+  - SwpExtension/SwpNavigationBarExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpScreenExtension (0.0.4):
+  - SwpExtension/SwpScreenExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpStringExtension (0.0.4):
+  - SwpExtension/SwpStringExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpTextFieldExtension (0.0.4):
+  - SwpExtension/SwpTextFieldExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpUserDefaultsExtension (0.0.4):
+  - SwpExtension/SwpUserDefaultsExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpViewExtension (0.0.4):
+  - SwpExtension/SwpViewExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
 
 DEPENDENCIES:
@@ -57,7 +57,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: ddf4c57a3434da0370ae21c821d9ce8553fb1a43
+  SwpExtension: 710bead90c1848a00bfdeaab4d4e86af0cc41f65
 
 PODFILE CHECKSUM: 9a94994e4349fc9d585bbf487da836292408a60c
 

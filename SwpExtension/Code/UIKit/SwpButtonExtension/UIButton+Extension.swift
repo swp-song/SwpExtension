@@ -196,7 +196,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
 //        dispatch_queue_t
 //        DispatchQueue.gete
         
-        let button = self.swp
+//        let button = self.swp
         
         var timeout : Int = 5
         let aTimer = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
