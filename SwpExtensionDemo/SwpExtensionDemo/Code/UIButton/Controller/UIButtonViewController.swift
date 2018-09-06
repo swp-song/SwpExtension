@@ -27,7 +27,8 @@ class UIButtonViewController: DemoBaseViewController {
 
     private lazy var barImageView : UIImageView = UIImageView()
 //
-    
+
+    private var results : (timer: DispatchSourceTimer?, time: Int, isRun: Bool) = (nil, 0, false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,7 +77,12 @@ class UIButtonViewController: DemoBaseViewController {
     
     
     deinit {
+        
         print(#function)
+        
+        if self.results.isRun {
+            self.results.timer?.cancel()
+        }
     }
     
 
@@ -105,9 +111,14 @@ extension UIButtonViewController {
         self.barImageView.image = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
         self.barImageView.swp.borderWidth(1)
         
-        button.swp.timingButton(10)
-//        print(a.timer, a.time)
+        button.swp.timingButton(10) { [weak self] (results) in
+            self?.results = results
+        }
         
+        
+        let a = random(Range(0..<2))
+        print(a)
+
     }
     
     @objc private func checkBoxEvent(button : UIButton) -> Void {
@@ -117,6 +128,17 @@ extension UIButtonViewController {
     public func randomIntNumber(lower: Int = 0,upper: Int = Int(UInt32.max)) -> Int {
         return lower + Int(arc4random_uniform(UInt32(upper - lower)))
     }
+    
+    func random(_ range: Range<Int>) -> Int {
+        
+//        let count = UInt32(range.upperBound - range.lowerBound)
+        return  Int(arc4random_uniform(UInt32(range.upperBound - range.lowerBound))) + range.lowerBound
+    }
+//    
+//    func fffff<T : Element>(a : T) -> T {
+//        return 0 as! T
+//    }
+    
 }
 
 extension UIButtonViewController {

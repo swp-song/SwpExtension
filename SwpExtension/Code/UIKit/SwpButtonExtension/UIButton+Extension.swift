@@ -186,12 +186,18 @@ extension SwpExtensionClass where BaseClass : UIButton {
     
 }
 
-
+// MARK: - timing button
 extension SwpExtensionClass where BaseClass : UIButton {
     
+    ///
+    /// # set timing button
+    /// - Parameters:
+    ///   - time:       time
+    ///   - appTitle    appTitle
+    ///   - results:    results
+    /// - Returns: BaseClass
+    @discardableResult public func timingButton(_ time : Int, appTitle : String = "", results:(( (timer : DispatchSourceTimer?, time : Int, isRun : Bool) ) -> Void)? = nil) -> BaseClass {
     
-    public func timingButton(_ time : Int, appTitle : String = "", block:((  ) -> Swift.Void)? = nil) -> Void  {
-        
         var timeOut = time
         let title   = self.swp.titleLabel?.text
         let aTimer  = DispatchSource.makeTimerSource(queue: DispatchQueue.global())
@@ -207,34 +213,30 @@ extension SwpExtensionClass where BaseClass : UIButton {
                     self.swp.isEnabled = false
                 }
                 timeOut -= 1
+                
+                results?((timer: aTimer, time : timeOut, isRun : true))
                 return
             }
+            
             
             aTimer.cancel()
             DispatchQueue.main.async {
                 self.swp.setTitle(String(format: "%@%@", title ?? "", appTitle), for: .normal)
                 self.swp.isEnabled = true
+                results?((timer: aTimer, time : timeOut, isRun : false))
             }
             
         }
         
-        aTimer.resume() 
+        aTimer.resume()
+        
+        return self.swp
     }
-    
-    
+
 }
 
 // MARK: - Private Function
 private extension SwpExtensionClass where BaseClass : UIButton {
-    
-    
-    private func mainAsync(_ block: @escaping () -> Void) -> Void {
-        
-        DispatchQueue.main.async {
-            block()
-        }
-        
-    }
     
     ///
     /// # set image location

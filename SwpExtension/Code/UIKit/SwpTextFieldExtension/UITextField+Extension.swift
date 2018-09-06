@@ -55,7 +55,6 @@ extension SwpExtensionClass where BaseClass : UITextField {
 extension SwpExtensionClass where BaseClass : UITextField {
     
     
-    
     ///
     /// # set text
     /// - Parameter text: text

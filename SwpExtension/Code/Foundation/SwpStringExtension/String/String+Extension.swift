@@ -6,7 +6,6 @@
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
-
 // MARK: - string trim spaces
 extension SwpExtensionStruct where BaseStruct == String {
     

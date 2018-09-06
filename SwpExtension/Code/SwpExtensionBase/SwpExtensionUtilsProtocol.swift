@@ -25,7 +25,6 @@ protocol SwpExtensionUtilsProtocol {
     /// - Returns: UIImage?
     @discardableResult static func aViewScreenshotsCreateImage(_ view : UIView) -> UIImage?
     
-    
     ///
     /// # screenshots full create data
     /// - Returns: Data?
@@ -131,7 +130,6 @@ protocol SwpExtensionUtilsProtocol {
     ///   - textColor: textColor
     /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat, textFont : UIFont, textColor : UIColor) -> UIImage?
-    
 }
 
 // MARK: - screenshots implementation
