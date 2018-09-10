@@ -6,14 +6,22 @@ PODS:
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpButtonExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
+  - SwpExtension/SwpCGFloatExtension (0.0.5):
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpColorExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
+  - SwpExtension/SwpDoubleExtension (0.0.5):
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpExtensionBase (0.0.5)
+  - SwpExtension/SwpFloatExtension (0.0.5):
+    - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpFontExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpImageExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpImageViewExtension (0.0.5):
+    - SwpExtension/SwpExtensionBase
+  - SwpExtension/SwpIntExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpMD5Extension (0.0.5):
     - SwpExtension/SwpExtensionBase
@@ -35,10 +43,14 @@ DEPENDENCIES:
   - SwpExtension/SwpBase64Extension (from `../`)
   - SwpExtension/SwpBundleExtension (from `../`)
   - SwpExtension/SwpButtonExtension (from `../`)
+  - SwpExtension/SwpCGFloatExtension (from `../`)
   - SwpExtension/SwpColorExtension (from `../`)
+  - SwpExtension/SwpDoubleExtension (from `../`)
+  - SwpExtension/SwpFloatExtension (from `../`)
   - SwpExtension/SwpFontExtension (from `../`)
   - SwpExtension/SwpImageExtension (from `../`)
   - SwpExtension/SwpImageViewExtension (from `../`)
+  - SwpExtension/SwpIntExtension (from `../`)
   - SwpExtension/SwpMD5Extension (from `../`)
   - SwpExtension/SwpNavigationBarExtension (from `../`)
   - SwpExtension/SwpScreenExtension (from `../`)
@@ -57,8 +69,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: 710bead90c1848a00bfdeaab4d4e86af0cc41f65
+  SwpExtension: de204f045f681dd1f413dfd5862075576e8f45c2
 
-PODFILE CHECKSUM: 9a94994e4349fc9d585bbf487da836292408a60c
+PODFILE CHECKSUM: 912bc7fbc914362c8960bc0d9fd0298a92b28c2f
 
 COCOAPODS: 1.6.0.beta.1

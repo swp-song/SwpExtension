@@ -24,6 +24,10 @@
     "Foundation"
   ],
   "default_subspecs": [
+    "SwpIntExtension",
+    "SwpFloatExtension",
+    "SwpDoubleExtension",
+    "SwpCGFloatExtension",
     "SwpBundleExtension",
     "SwpMD5Extension",
     "SwpBase64Extension",
@@ -41,6 +45,51 @@
     {
       "name": "SwpExtensionBase",
       "source_files": "SwpExtension/Code/SwpExtensionBase/*.swift"
+    },
+    {
+      "name": "SwpIntExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionBase": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/Foundation/SwpIntExtension/*.swift"
+    },
+    {
+      "name": "SwpFloatExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionBase": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/Foundation/SwpFloatExtension/*.swift"
+    },
+    {
+      "name": "SwpDoubleExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionBase": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/Foundation/SwpDoubleExtension/*.swift"
+    },
+    {
+      "name": "SwpCGFloatExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionBase": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/Foundation/SwpCGFloatExtension/*.swift"
+    },
+    {
+      "name": "SwpBundleExtension",
+      "dependencies": {
+        "SwpExtension/SwpExtensionBase": [
+
+        ]
+      },
+      "source_files": "SwpExtension/Code/Foundation/SwpBundleExtension/*.swift"
     },
     {
       "name": "SwpBundleExtension",

@@ -12,6 +12,7 @@ import UIKit
 
 
 
+
 class DemoNavigationController: UINavigationController {
 
     override func viewDidLoad() {
@@ -19,9 +20,12 @@ class DemoNavigationController: UINavigationController {
 
         // Do any additional setup after loading the view.
 //        self.navigationBar.swpBackgroundColor(color:UIColor.white).isHiddenBottomLine(isHidden: true)
+//        self.navigationBar.isHidden = true
         self.navigationBar
             .swp.backgroundColor(UIColor.white)
             .swp.isHideBottomLine(true)
+//        view.addSubview(navigationBar)
+        
     }
 
     override func didReceiveMemoryWarning() {

@@ -2,7 +2,7 @@
 //  DemoBaseViewController.swift
 //  SwpExtensionDemo
 //
-//  Created by Dream on 2018/8/11.
+//  Created by Dream on 2018/9/10.
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
@@ -12,58 +12,79 @@ import SnapKit
 
 import SwpExtension
 
-
 class DemoBaseViewController: UIViewController {
 
     
+    lazy var navigationBar : UINavigationBar = UINavigationBar()
     
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
-        view.backgroundColor = UIColor.white
+        
+        
+        
+        
+//        navigationBar.barTintColor = UIColor.red
+        
+        self.setUI()
+        
+        self.setData()
+        
+        self.controllerClosure()
+        
+//        navigationBar.swp.backgroundColor = UIColor.orange
+        
+//        print(navigationBar.swp.height);
+        
+//        navigationBar.barTintColor = UIColor.red
+        
+//        navigationBar.bounds = (self.navigationController?.navigationBar.bounds)!
+        
+//          view.addSubview(navigationBar)
+//        navigationBar.frame = (self.navigationController?.navigationBar.frame)!
+//        navigationBar.barTintColor = UIColor.red
+//        navigationBar.swp.backgroundColor = UIColor.red
     }
     
     ///
-    /// # viewWillAppear, ( 将要加载出视图调用 )
+    /// # viewWillAppear ( 将要加载出视图调用 )
     /// - Parameter animated: animated
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
-    
     ///
-    /// # viewDidAppear, ( 视图显示窗口时调用 )
+    /// # viewDidAppear ( 视图显示窗口时调用 )
     /// - Parameter animated: animated
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
     }
     
-    
     ///
-    /// # viewWillDisappear, ( 视图即将消失, 被覆盖, 隐藏时调用 )
+    /// # viewWillDisappear ( 视图即将消失, 被覆盖, 隐藏时调用 )
     /// - Parameter animated: animated
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
     
+    
     ///
-    /// # viewDidDisappear, ( 视图已经消失, 被覆盖, 隐藏时调用 )
-    /// - Parameter animated: animated
+    /// # viewDidDisappear  ( 视图已经消失, 被覆盖, 隐藏时调用 )
+    /// - Parameter animated:
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
     }
-
     
-    /// # didReceiveMemoryWarning, ( 内存不足时调用 )
+    
+    /// didReceiveMemoryWarning ( 内存不足时调用 )
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    
-    
+
     /*
     // MARK: - Navigation
 
@@ -73,4 +94,50 @@ class DemoBaseViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+
+// MARK: - DemoBaseViewController, Set UI Methods Extension
+extension DemoBaseViewController {
+    
+    private func setUI() -> Void {
+        self.setNavigationBar()
+        self.setUpUI()
+        self.setAutoLayout()
+    }
+    
+    private func setNavigationBar() -> Void {
+        
+        
+    }
+    
+    private func setUpUI() -> Void {
+//        view.addSubview(navigationBar)
+    }
+    
+    private func setAutoLayout() -> Void {
+        
+    }
+}
+
+// MARK: - DemoBaseViewController, Set Data Method Extension
+extension DemoBaseViewController {
+    
+    private func setData() -> Void {
+        
+    }
+}
+
+// MARK: - DemoBaseViewController, Closure (Blocks) Methods Extension
+extension DemoBaseViewController {
+    
+    private func controllerClosure() -> Void {
+        
+    }
+}
+
+// MARK: - DemoBaseViewController, Delegate Methods Extension
+extension UITextFieldViewController {
+    
 }

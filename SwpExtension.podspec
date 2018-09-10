@@ -28,7 +28,7 @@ Pod::Spec.new do |s|
     s.source           = { :git => 'https://github.com/swp-song/SwpExtension.git', :tag => s.version.to_s }
     # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
   
-    s.ios.deployment_target = '9.0'
+    s.ios.deployment_target = '10.0'
   
     s.requires_arc          = true
   
@@ -44,6 +44,10 @@ Pod::Spec.new do |s|
     s.default_subspec = 
                         # 'SwpExtension',
                         
+                        'SwpIntExtension',
+                        'SwpFloatExtension',
+                        'SwpDoubleExtension',
+                        'SwpCGFloatExtension',
                         'SwpBundleExtension',
                         'SwpMD5Extension',
                         'SwpBase64Extension',
@@ -59,14 +63,44 @@ Pod::Spec.new do |s|
                         'SwpScreenExtension'
   
   
-  
-
     # - SwpExtensionBase 
     s.subspec 'SwpExtensionBase' do |swpExtensionBase|
       swpExtensionBase.source_files = 'SwpExtension/Code/SwpExtensionBase/*.swift'
     end
+    
 
     # - Foundation
+
+    # - Int Extension  
+    s.subspec 'SwpIntExtension' do |swpIntExtension|
+      swpIntExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpIntExtension.source_files = 'SwpExtension/Code/Foundation/SwpIntExtension/*.swift'
+    end
+
+    # - Float Extension  
+    s.subspec 'SwpFloatExtension' do |swpFloatExtension|
+      swpFloatExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpFloatExtension.source_files = 'SwpExtension/Code/Foundation/SwpFloatExtension/*.swift'
+    end
+    
+    # - Double Extension  
+    s.subspec 'SwpDoubleExtension' do |swpDoubleExtension|
+      swpDoubleExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpDoubleExtension.source_files = 'SwpExtension/Code/Foundation/SwpDoubleExtension/*.swift'
+    end
+    
+    # - CGFloat Extension  
+    s.subspec 'SwpCGFloatExtension' do |swpCGFloatExtension|
+      swpCGFloatExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpCGFloatExtension.source_files = 'SwpExtension/Code/Foundation/SwpCGFloatExtension/*.swift'
+    end
+
+    # Bundle Extension
+    s.subspec 'SwpBundleExtension' do |swpBundleExtension|
+      swpBundleExtension.dependency 'SwpExtension/SwpExtensionBase'
+      swpBundleExtension.source_files = 'SwpExtension/Code/Foundation/SwpBundleExtension/*.swift'
+      
+    end
   
     # Bundle Extension
     s.subspec 'SwpBundleExtension' do |swpBundleExtension|
@@ -86,8 +120,6 @@ Pod::Spec.new do |s|
       swpBase64Extension.dependency 'SwpExtension/SwpExtensionBase'
       swpBase64Extension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/Base64/*.swift'
     end
-  
-   
   
     # String Extension，StringSpace
     s.subspec 'SwpStringExtension' do |swpStringExtension|

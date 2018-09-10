@@ -11,6 +11,11 @@ target 'SwpExtensionDemo' do
 
   # Pods for SwpExtensionDemo
   # pod 'SwpExtension', :path => '../'
+
+  pod 'SwpExtension/SwpIntExtension', :path => '../'
+  pod 'SwpExtension/SwpFloatExtension', :path => '../'
+  pod 'SwpExtension/SwpDoubleExtension', :path => '../'
+  pod 'SwpExtension/SwpCGFloatExtension', :path => '../' 
   pod 'SwpExtension/SwpBundleExtension', :path => '../'
   pod 'SwpExtension/SwpMD5Extension', :path => '../'
   pod 'SwpExtension/SwpBase64Extension', :path => '../'

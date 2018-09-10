@@ -14,8 +14,6 @@ import SnapKit
 class UIButtonViewController: DemoBaseViewController {
 
     
-
-    
 //    private lazy var button : UIButton = UIButton.swp.init(UIColor.swp.randomColor(), title: "123", target: self, action: #selector(clickButton), titleColor: UIColor.swp.randomColor(), titleFont: UIFont.systemFont(ofSize: 15), radius: 5, tag: 0, events: .touchUpInside).swp
     
     private lazy var button : UIButton = UIButton().swp.style(UIColor.swp.randomColor(), title: "123", target: self, action: #selector(clickButton), titleColor: UIColor.swp.randomColor(), titleFont: UIFont.systemFont(ofSize: 15), radius: 5, tag: 0, events: .touchUpInside)
@@ -41,7 +39,7 @@ class UIButtonViewController: DemoBaseViewController {
         view.addSubview(barImageView)
 //        checkBox.swp.backgroundColor(UIColor.cyan)
         
-//        button.swp.image(UIImage(named: "button_icon"), for: .normal)
+        button.swp.image(UIImage(named: "button_icon"), for: .normal)
 //        button.swp.timingButton()
         
         self.button.snp.makeConstraints { (make) in
@@ -102,22 +100,36 @@ extension UIButtonViewController {
     
     @objc private func clickButton(button : UIButton) -> Void {
         
-        let edges  = [UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
-        let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
+        
+        let edges  = [UIButton.swp.ImageEdge.top, UIButton.swp.ImageEdge.left, UIButton.swp.ImageEdge.bottom, UIButton.swp.ImageEdge.right]
+//        let index : Int  = randomIntNumber(lower: 0, upper: edges.count)
+        
+        let index : Int  = Int.swp.random(0, upper: edges.count)
+        print(index)
+        print(Int.swp.random(Int.min, upper: 0))
+        print(Double.swp.random)
+        print(Float.swp.random)
+        print(Double.swp.random(0, upper: Double(Int.max)))
+        print(CGFloat.swp.random)
+        
+        print("123123哈哈哒大会决定哈就是的安静很多加上登记卡接电话安居客还是得嘉华大厦见客户即可很快就".swp.rowHeight(UIFont.systemFont(ofSize: 12), rowWidth:UIScreen.swp.width))
+        
+        print("123123哈哈哒大会决定哈就是的安静很多加上登记卡接电话安居客还是得嘉华大厦见客户即可很快就".swp.rowWidth(UIFont.systemFont(ofSize: 12), rowHeight: 20))
+        
         button.swp.imageEdge(edges[index])
-        button.swp.imageEdge(.left)
-        
-        self.qrImageView.image  = "aaaxxxeeedadasd".swp.qrCodeImage
-        self.barImageView.image = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
-        self.barImageView.swp.borderWidth(1)
-        
-        button.swp.timingButton(10) { [weak self] (results) in
-            self?.results = results
-        }
-        
-        
-        let a = random(Range(0..<2))
-        print(a)
+//        button.swp.imageEdge(.left)
+//
+//        self.qrImageView.image  = "aaaxxxeeedadasd".swp.qrCodeImage
+//        self.barImageView.image = "SN00000000002".swp.barCodeImage(textFont: UIFont.systemFont(ofSize: 20), textColor: UIColor.red)
+//        self.barImageView.swp.borderWidth(1)
+//
+//        button.swp.timingButton(10) { [weak self] (results) in
+//            self?.results = results
+//        }
+//
+//
+//        let a = random(Range(0..<2))
+//        print(a)
 
     }
     

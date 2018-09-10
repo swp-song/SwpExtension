@@ -164,7 +164,15 @@ extension UINavigationBar {
     
     /// #  get navigation bar height
     fileprivate var aHeight : CGFloat {
+        
+        
         if #available(iOS 11.0, *) {
+            
+//            if (UIApplication.shared.keyWindow?.safeAreaInsets.top)! > 0.0 {
+//                return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
+//            }
+            
+//            return self.bounds.size.height + 20
             return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
         } else {
             return self.bounds.size.height + 20

@@ -51,6 +51,10 @@ extension SwpExtensionStructProtocol {
     
 }
 
+extension Int           : SwpExtensionStructProtocol { }
+extension Double        : SwpExtensionStructProtocol { }
+extension Float         : SwpExtensionStructProtocol { }
+extension CGFloat       : SwpExtensionStructProtocol { }
 extension String        : SwpExtensionStructProtocol { }
 extension UnicodeScalar : SwpExtensionStructProtocol { }
 extension Bundle        : SwpExtensionStructProtocol { }

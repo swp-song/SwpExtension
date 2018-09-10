@@ -130,10 +130,45 @@ extension SwpExtensionStruct where BaseStruct == String {
     
 }
 
-
-
-
-
+// MARK: - get string row width & height
+extension SwpExtensionStruct where BaseStruct == String {
+    
+    ///
+    /// # string, get row height, known row width
+    /// - Parameters:
+    ///   - font: font
+    ///   - rowWidth: rowWidth
+    /// - Returns: CGFloat
+    @discardableResult public func rowHeight(_ font : UIFont, rowWidth : CGFloat) -> CGFloat {
+        return self.rowSize(font, size: CGSize(width: rowWidth, height: CGFloat(MAXFLOAT))).height
+    }
+    
+    
+    ///
+    /// # string, get row width, known row height
+    /// - Parameters:
+    ///   - font: font
+    ///   - rowHeight: rowHeight
+    /// - Returns: CGFloat
+    @discardableResult public func rowWidth(_ font : UIFont, rowHeight : CGFloat) -> CGFloat {
+        return self.rowSize(font, size: CGSize(width: CGFloat(MAXFLOAT), height: rowHeight)).width
+    }
+    
+    ///
+    /// # string, get row size
+    /// - Parameters:
+    ///   - font: font
+    ///   - size: rowWidth
+    /// - Returns: CGSize
+    @discardableResult private func rowSize(_ font : UIFont, size : CGSize) -> CGSize {
+        
+        let style : [NSAttributedStringKey : Any]? = [.font : font]
+        
+        let rect  : CGRect = (self.swp as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: style, context: nil)
+        
+        return rect.size
+    }
+}
 
 
 
