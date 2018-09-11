@@ -16,7 +16,8 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
         
         get {
-            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kBackgroundColorKey) as! UIColor
+            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kBackgroundColorKey) as? UIColor else { return UIColor.black }
+            return value
         }
     }
     
@@ -29,7 +30,8 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
         
         get {
-            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleFontKey) as! UIFont
+            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleFontKey) as? UIFont else { return UIFont.systemFont(ofSize: 15) }
+            return value
         }
     }
     
@@ -44,7 +46,9 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
         
         get {
-            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleColorKey) as! UIColor
+            
+            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleColorKey) as? UIColor  else { return UIColor.black }
+            return value
         }
     }
     
@@ -57,7 +61,9 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
         
         get {
-            return objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kHideBottomLineKey) as! Bool
+        
+            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kHideBottomLineKey) as? Bool else { return false }
+            return value
         }
     }
     
@@ -131,6 +137,7 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
 extension UINavigationBar {
     
     fileprivate struct aKeys {
+        static var customView : UIView? = UIView()
         static let kCustomViewKey       : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kCustomViewKey".hashValue)!
         static let kBackgroundColorKey  : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kBackgroundColorKey".hashValue)!
         static let kHideBottomLineKey   : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kHideBottomLineKey".hashValue)!
@@ -209,11 +216,12 @@ extension UINavigationBar {
     // MARK: - Private Property
     private var customView : UIView? {
         set {
-            objc_setAssociatedObject(self, aKeys.kCustomViewKey, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+//            let a = &aKeys.customView
+            objc_setAssociatedObject(self, &aKeys.customView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 
         get {
-            return objc_getAssociatedObject(self, aKeys.kCustomViewKey) as? UIView
+            return objc_getAssociatedObject(self, &aKeys.customView) as? UIView
         }
     }
 

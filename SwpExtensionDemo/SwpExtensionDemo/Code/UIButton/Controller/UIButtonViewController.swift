@@ -32,6 +32,7 @@ class UIButtonViewController: DemoBaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
 
+        navigationBar.backgroundColor = UIColor.orange
 //        return
         view.addSubview(button)
         view.addSubview(checkBox)

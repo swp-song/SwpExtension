@@ -15,7 +15,8 @@ import SwpExtension
 class DemoBaseViewController: UIViewController {
 
     
-    lazy var navigationBar : UINavigationBar = UINavigationBar()
+//    lazy var navigationBar : UINavigationBar = UINavigationBar()
+    lazy var navigationBar : UIView = UIView()
     
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {
@@ -34,6 +35,8 @@ class DemoBaseViewController: UIViewController {
         
         self.controllerClosure()
         
+//        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.red
+        
 //        navigationBar.swp.backgroundColor = UIColor.orange
         
 //        print(navigationBar.swp.height);
@@ -41,6 +44,12 @@ class DemoBaseViewController: UIViewController {
 //        navigationBar.barTintColor = UIColor.red
         
 //        navigationBar.bounds = (self.navigationController?.navigationBar.bounds)!
+//        navigationBar = (self.navigationController?.navigationBar)!
+//        navigationBar.isHidden = false
+        view.backgroundColor = UIColor.white
+        navigationBar.frame = CGRect(x: 0, y: 0, width: UIScreen.swp.width, height: 88)
+        navigationBar.backgroundColor = UIColor.red
+        view.addSubview(navigationBar)
         
 //          view.addSubview(navigationBar)
 //        navigationBar.frame = (self.navigationController?.navigationBar.frame)!

@@ -65,14 +65,16 @@ extension DemoLilstViewController  {
     
     private func setUpUI() -> Void {
         
-//        view.addSubview(demoListView)
+        view.addSubview(demoListView)
     }
     
     private func setUIAutoLayout() -> Void {
         
-//        demoListView.snp.makeConstraints { (make) in
+        demoListView.snp.makeConstraints { (make) in
 //            make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
-//        }
+            make.top.equalTo(self.navigationBar.snp.bottom)
+            make.left.bottom.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+        }
     }
     
 }
@@ -81,9 +83,9 @@ extension DemoLilstViewController  {
 extension DemoLilstViewController {
     
     private func setData() -> Void {
-//        let datas : [[String : Any]]? = NSArray(contentsOfFile: Bundle.main.path(forResource: "DemoModel.plist", ofType: nil) ?? "") as? [[String : Any]]
-//        self.datas = DemoModel.demos(dictionarys: datas)
-//        self.demoListView.datas = self.datas
+        let datas : [[String : Any]]? = NSArray(contentsOfFile: Bundle.main.path(forResource: "DemoModel.plist", ofType: nil) ?? "") as? [[String : Any]]
+        self.datas = DemoModel.demos(dictionarys: datas)
+        self.demoListView.datas = self.datas
     }
 }
 
