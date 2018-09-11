@@ -21,7 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         self.window?.backgroundColor = UIColor.white
         
-        self.window?.rootViewController = DemoNavigationController(rootViewController: DemoLilstViewController())
+//        self.window?.rootViewController = DemoNavigationController(rootViewController: DemoLilstViewController())
+        
+        self.window?.rootViewController = DemoTabBarController()
         
         self.window?.makeKeyAndVisible()
         

@@ -11,12 +11,12 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     /// # set the navigation bar background color
     public var backgroundColor : UIColor {
         set {
-            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kBackgroundColorKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundColor, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
             self.swp.aBackgroundColor(color: newValue)
         }
         
         get {
-            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kBackgroundColorKey) as? UIColor else { return UIColor.black }
+            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundColor) as? UIColor else { return UINavigationBar.aKeys.kBackgroundColor }
             return value
         }
     }
@@ -25,12 +25,12 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     /// # set the navigation bar title font
     public var titleFont : UIFont {
         set {
-            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleFontKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleFont, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
             self.swp.titleTextAttributes = [NSAttributedStringKey.font : newValue]
         }
         
         get {
-            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleFontKey) as? UIFont else { return UIFont.systemFont(ofSize: 15) }
+            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleFont) as? UIFont else { return UINavigationBar.aKeys.kTitleFont }
             return value
         }
     }
@@ -41,13 +41,13 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     public var titleColor : UIColor {
         
         set {
-            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleColorKey, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleColor, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
             self.swp.titleTextAttributes = [NSAttributedStringKey.foregroundColor : newValue]
         }
         
         get {
             
-            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kTitleColorKey) as? UIColor  else { return UIColor.black }
+            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleColor) as? UIColor  else { return UINavigationBar.aKeys.kTitleColor }
             return value
         }
     }
@@ -56,17 +56,16 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     public var isHideBottomLine : Bool {
         
         set {
-            objc_setAssociatedObject(self.swp, UINavigationBar.aKeys.kHideBottomLineKey, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kIsHideBottomLine, newValue, .OBJC_ASSOCIATION_ASSIGN)
             self.swp.aHideBottomLine(newValue)
         }
         
         get {
         
-            guard let value = objc_getAssociatedObject(self.swp, UINavigationBar.aKeys.kHideBottomLineKey) as? Bool else { return false }
+            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kIsHideBottomLine) as? Bool else { return UINavigationBar.aKeys.kIsHideBottomLine }
             return value
         }
     }
-    
     
     
     /// # get navigation bar height
@@ -134,15 +133,16 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     
 }
 
+
+// MARK: - private
 extension UINavigationBar {
     
     fileprivate struct aKeys {
-        static var customView : UIView? = UIView()
-        static let kCustomViewKey       : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kCustomViewKey".hashValue)!
-        static let kBackgroundColorKey  : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kBackgroundColorKey".hashValue)!
-        static let kHideBottomLineKey   : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kHideBottomLineKey".hashValue)!
-        static let kTitleFontKey        : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kTitleFontKey".hashValue)!
-        static let kTitleColorKey       : UnsafeRawPointer = UnsafeRawPointer.init(bitPattern : "kTitleColorKey".hashValue)!
+        static var kCustomView       : UIView? = UIView()
+        static var kBackgroundColor  : UIColor = UIColor.black
+        static var kIsHideBottomLine : Bool    = false
+        static var kTitleFont        : UIFont  = UIFont.systemFont(ofSize: 15)
+        static var kTitleColor       : UIColor = UIColor.black
     }
     
     fileprivate func aHideBottomLine(_ isHidden : Bool) -> Void {
@@ -216,12 +216,12 @@ extension UINavigationBar {
     // MARK: - Private Property
     private var customView : UIView? {
         set {
-//            let a = &aKeys.customView
-            objc_setAssociatedObject(self, &aKeys.customView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            
+            objc_setAssociatedObject(self, &aKeys.kCustomView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 
         get {
-            return objc_getAssociatedObject(self, &aKeys.customView) as? UIView
+            return objc_getAssociatedObject(self, &aKeys.kCustomView) as? UIView
         }
     }
 

@@ -1,31 +1,20 @@
 
 //
-//  DemoNavigationController.swift
+//  CustomListViewController.swift
 //  SwpExtensionDemo
 //
-//  Created by Dream on 2018/8/11.
+//  Created by swp_song on 2018/9/11.
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
 
 import UIKit
 
-
-
-
-
-class DemoNavigationController: UINavigationController {
+class CustomListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-//        self.navigationBar.swpBackgroundColor(color:UIColor.white).isHiddenBottomLine(isHidden: true)
-//        self.navigationBar.isHidden = true
-        self.navigationBar
-            .swp.backgroundColor(UIColor.white)
-            .swp.isHideBottomLine(true)
-//        view.addSubview(navigationBar)
-        
     }
 
     override func didReceiveMemoryWarning() {

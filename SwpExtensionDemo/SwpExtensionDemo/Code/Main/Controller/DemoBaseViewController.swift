@@ -25,9 +25,8 @@ class DemoBaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         
+        view.backgroundColor = UIColor.white
         
-        
-//        navigationBar.barTintColor = UIColor.red
         
         self.setUI()
         
@@ -46,10 +45,10 @@ class DemoBaseViewController: UIViewController {
 //        navigationBar.bounds = (self.navigationController?.navigationBar.bounds)!
 //        navigationBar = (self.navigationController?.navigationBar)!
 //        navigationBar.isHidden = false
-        view.backgroundColor = UIColor.white
-        navigationBar.frame = CGRect(x: 0, y: 0, width: UIScreen.swp.width, height: 88)
-        navigationBar.backgroundColor = UIColor.red
-        view.addSubview(navigationBar)
+//        view.backgroundColor = UIColor.white
+//        navigationBar.frame = CGRect(x: 0, y: 0, width: UIScreen.swp.width, height: 88)
+//        navigationBar.backgroundColor = UIColor.red
+//        view.addSubview(navigationBar)
         
 //          view.addSubview(navigationBar)
 //        navigationBar.frame = (self.navigationController?.navigationBar.frame)!

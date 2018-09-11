@@ -71,9 +71,9 @@ extension DemoLilstViewController  {
     private func setUIAutoLayout() -> Void {
         
         demoListView.snp.makeConstraints { (make) in
-//            make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
-            make.top.equalTo(self.navigationBar.snp.bottom)
-            make.left.bottom.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+//            make.top.equalTo(self.navigationBar.snp.bottom)
+//            make.left.bottom.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
         }
     }
     
