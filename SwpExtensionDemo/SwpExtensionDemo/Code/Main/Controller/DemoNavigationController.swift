@@ -9,10 +9,6 @@
 
 import UIKit
 
-
-
-
-
 class DemoNavigationController: UINavigationController {
 
     override func viewDidLoad() {
@@ -22,7 +18,7 @@ class DemoNavigationController: UINavigationController {
 //        self.navigationBar.swpBackgroundColor(color:UIColor.white).isHiddenBottomLine(isHidden: true)
 //        self.navigationBar.isHidden = true
         self.navigationBar
-            .swp.backgroundColor(UIColor.white)
+            .swp.backgroundColor(UIColor.cyan)
             .swp.isHideBottomLine(true)
 //        view.addSubview(navigationBar)
         
@@ -44,4 +40,16 @@ class DemoNavigationController: UINavigationController {
     }
     */
 
+}
+
+
+extension DemoNavigationController {
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        
+        if self.childViewControllers.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        super.pushViewController(viewController, animated: animated)
+    }
 }

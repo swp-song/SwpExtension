@@ -35,7 +35,7 @@
     "SwpUserDefaultsExtension",
     "SwpColorExtension",
     "SwpViewExtension",
-    "SwpNavigationBarExtension",
+    "SwpNavigationExtension",
     "SwpTextFieldExtension",
     "SwpImageExtension",
     "SwpImageViewExtension",
@@ -173,13 +173,13 @@
       "source_files": "SwpExtension/Code/UIKit/SwpFontExtension/*.swift"
     },
     {
-      "name": "SwpNavigationBarExtension",
+      "name": "SwpNavigationExtension",
       "dependencies": {
         "SwpExtension/SwpExtensionBase": [
 
         ]
       },
-      "source_files": "SwpExtension/Code/UIKit/SwpNavigationBarExtension/*.swift"
+      "source_files": "SwpExtension/Code/UIKit/SwpNavigationExtension/*.swift"
     },
     {
       "name": "SwpTextFieldExtension",

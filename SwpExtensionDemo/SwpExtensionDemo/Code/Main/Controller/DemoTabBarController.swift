@@ -23,6 +23,9 @@ class DemoTabBarController: UITabBarController {
         setData()
         
         controllerClosure()
+        
+        self.tabBar.clipsToBounds = true
+        
     }
     
     ///
@@ -92,6 +95,11 @@ extension DemoTabBarController {
         
         print(vcs)
         self.viewControllers = vcs
+        
+//        self.tabBar.setValue(true, forKey: "_hidesShadow")
+//        self
+//        [UITabBar appearance].clipsToBounds = YES;
+        
      }
     
     private func createController(_ info : [String : String]) -> UIViewController {
@@ -103,12 +111,16 @@ extension DemoTabBarController {
         
         let controller = aClass.init()
         
-        controller.title = title
     
         controller.tabBarItem.image         = UIImage(named: imageName + "_no")?.withRenderingMode(.alwaysOriginal)
         controller.tabBarItem.selectedImage = UIImage(named: imageName + "_sel")?.withRenderingMode(.alwaysOriginal)
+        controller.tabBarItem.title         = title
         
-        let navigation  = UINavigationController(rootViewController: controller)
+//        attributes.updateValue(originTitleColor, forKey: NSAttributedStringKey.foregroundColor.rawValue)
+        controller.tabBarItem.setTitleTextAttributes([.foregroundColor : UIColor.lightGray, .font : UIFont.systemFont(ofSize: 12)], for: .normal)
+        controller.tabBarItem.setTitleTextAttributes([.foregroundColor : UIColor.orange, .font : UIFont.systemFont(ofSize: 12)], for: .selected)
+        
+        let navigation  = DemoNavigationController(rootViewController: controller)
         
         return navigation
     }

@@ -68,6 +68,49 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     }
     
     
+    /// # set background alpha
+    public var backgroundAlpha : CGFloat {
+        
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundAlpha, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aBackgroundAlpha(newValue)
+        }
+        
+        get {
+            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundAlpha) as? CGFloat else { return UINavigationBar.aKeys.kBackgroundAlpha }
+            
+            return value
+        }
+    }
+    
+    
+    ///
+    /// # set items alpha
+    /// - Parameters:
+    ///   - alpha:       alpha
+    ///   - isHideItems: isHideItems
+    /// - Returns: BaseClass
+    public func backgroundItemsAlpha(_ alpha : CGFloat, isHideItems : Bool) -> BaseClass {
+        
+        self.swp.aBackgroundItemsAlpha(alpha, isHideItems: isHideItems)
+        return self.swp
+    }
+    
+    
+    
+    /// # set translationY
+    public var translationY : CGFloat  {
+
+        set {
+            self.swp.transform = CGAffineTransform(translationX: 0, y: newValue)
+        }
+        
+        get {
+            return self.swp.transform.ty
+        }
+    }
+    
+    
     /// # get navigation bar height
     public var height : CGFloat {
         return self.swp.aHeight
@@ -143,6 +186,7 @@ extension UINavigationBar {
         static var kIsHideBottomLine : Bool    = false
         static var kTitleFont        : UIFont  = UIFont.systemFont(ofSize: 15)
         static var kTitleColor       : UIColor = UIColor.black
+        static var kBackgroundAlpha  : CGFloat = 0
     }
     
     fileprivate func aHideBottomLine(_ isHidden : Bool) -> Void {
@@ -195,6 +239,50 @@ extension UINavigationBar {
     }
     
     ///
+    /// # set background alpha
+    /// - Parameter alpha: alpha
+    fileprivate func aBackgroundAlpha(_ alpha : CGFloat) -> Void {
+        
+        guard let backgroundView = self.subviews.first else { return }
+        
+        if #available(iOS 11.0, *) {
+            
+            backgroundView.subviews.forEach { (view) in
+                view.alpha = alpha
+            }
+            
+        } else {
+            backgroundView.alpha = alpha
+        }
+    }
+    
+    fileprivate func aBackgroundItemsAlpha(_ alpha : CGFloat, isHideItems : Bool) -> Void {
+        
+        for view in self.subviews {
+            
+            if isHideItems {
+                
+            } else {
+                
+                guard let _UINavigationBarBackIndicatorViewClass = NSClassFromString("_UINavigationBarBackIndicatorView") else { return }
+                
+                if !view.isKind(of: _UINavigationBarBackIndicatorViewClass) { return }
+                
+                if let _UIBarBackgroundClass = NSClassFromString("_UIBarBackground"), !view.isKind(of: _UIBarBackgroundClass) {
+                    view.alpha = alpha
+                }
+                
+                if let _UINavigationBarBackground = NSClassFromString("_UINavigationBarBackground"), !view.isKind(of: _UINavigationBarBackground) {
+                    view.alpha = alpha
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    ///
     /// # find the bottom line
     /// - Parameter view: view
     /// - Returns: UIImageView?
@@ -212,6 +300,9 @@ extension UINavigationBar {
         }
         return nil
     }
+    
+    
+    
     
     // MARK: - Private Property
     private var customView : UIView? {

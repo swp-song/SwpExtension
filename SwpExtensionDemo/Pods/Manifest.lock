@@ -11,7 +11,7 @@ PODS:
     - SwpExtension/SwpImageViewExtension (= 0.0.5)
     - SwpExtension/SwpIntExtension (= 0.0.5)
     - SwpExtension/SwpMD5Extension (= 0.0.5)
-    - SwpExtension/SwpNavigationBarExtension (= 0.0.5)
+    - SwpExtension/SwpNavigationExtension (= 0.0.5)
     - SwpExtension/SwpScreenExtension (= 0.0.5)
     - SwpExtension/SwpStringExtension (= 0.0.5)
     - SwpExtension/SwpTextFieldExtension (= 0.0.5)
@@ -42,7 +42,7 @@ PODS:
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpMD5Extension (0.0.5):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpNavigationBarExtension (0.0.5):
+  - SwpExtension/SwpNavigationExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
   - SwpExtension/SwpScreenExtension (0.0.5):
     - SwpExtension/SwpExtensionBase
@@ -70,7 +70,7 @@ DEPENDENCIES:
   - SwpExtension/SwpImageViewExtension (from `../`)
   - SwpExtension/SwpIntExtension (from `../`)
   - SwpExtension/SwpMD5Extension (from `../`)
-  - SwpExtension/SwpNavigationBarExtension (from `../`)
+  - SwpExtension/SwpNavigationExtension (from `../`)
   - SwpExtension/SwpScreenExtension (from `../`)
   - SwpExtension/SwpStringExtension (from `../`)
   - SwpExtension/SwpTextFieldExtension (from `../`)
@@ -87,8 +87,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwpExtension: f4c6abb48b612a801a581dec11235a0c5c75418d
+  SwpExtension: 698b98c3878563a2a5daeb4b85eb68847dca5bc7
 
-PODFILE CHECKSUM: 91340f3b8820b93c0777f3c52f94b8e55bacf968
+PODFILE CHECKSUM: 9946685fc947bd750eab4593531f35f811d53a8b
 
 COCOAPODS: 1.6.0.beta.1
