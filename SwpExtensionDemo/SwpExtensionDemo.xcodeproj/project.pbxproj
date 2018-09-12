@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D2CDA6D21494A1B00E1B217 /* CustomTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CDA6C21494A1B00E1B217 /* CustomTableView.swift */; };
+		2D2CDA7121494B3800E1B217 /* CustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2CDA7021494B3800E1B217 /* CustomCell.swift */; };
 		2DD1384921480B1700A976E5 /* DemoNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD1382521480B1600A976E5 /* DemoNavigationController.swift */; };
 		2DD1384A21480B1700A976E5 /* DemoTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD1382621480B1600A976E5 /* DemoTabBarController.swift */; };
 		2DD1384B21480B1700A976E5 /* DemoBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD1382721480B1600A976E5 /* DemoBaseViewController.swift */; };
@@ -30,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D2CDA6C21494A1B00E1B217 /* CustomTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTableView.swift; sourceTree = "<group>"; };
+		2D2CDA7021494B3800E1B217 /* CustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCell.swift; sourceTree = "<group>"; };
 		2DD1382521480B1600A976E5 /* DemoNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoNavigationController.swift; sourceTree = "<group>"; };
 		2DD1382621480B1600A976E5 /* DemoTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoTabBarController.swift; sourceTree = "<group>"; };
 		2DD1382721480B1600A976E5 /* DemoBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoBaseViewController.swift; sourceTree = "<group>"; };
@@ -270,6 +274,8 @@
 		2DD1384721480B1600A976E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				2D2CDA6C21494A1B00E1B217 /* CustomTableView.swift */,
+				2D2CDA7021494B3800E1B217 /* CustomCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -447,6 +453,7 @@
 			files = (
 				2DD1384C21480B1700A976E5 /* UIButtonViewController.swift in Sources */,
 				2DD1384E21480B1700A976E5 /* NavigationBarListView.swift in Sources */,
+				2D2CDA7121494B3800E1B217 /* CustomCell.swift in Sources */,
 				2DD1384A21480B1700A976E5 /* DemoTabBarController.swift in Sources */,
 				2DD1384921480B1700A976E5 /* DemoNavigationController.swift in Sources */,
 				2DD1385321480B1700A976E5 /* DemoModel.swift in Sources */,
@@ -459,6 +466,7 @@
 				F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */,
 				2DD1384F21480B1700A976E5 /* NavigationBarCell.swift in Sources */,
 				2DD1385221480B1700A976E5 /* DemoLilstView.swift in Sources */,
+				2D2CDA6D21494A1B00E1B217 /* CustomTableView.swift in Sources */,
 				2DD1385521480B1700A976E5 /* UITextFieldViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -9,11 +9,11 @@
 
 import UIKit
 
-class CustomListViewController: DemoBaseViewController {
+class CustomListViewController: DemoBaseViewController, CustomTableViewDelegate {
 
     
     
-    private lazy var tableView : UITableView = UITableView()
+    private lazy var customTableView : CustomTableView = CustomTableView()
     
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {
@@ -26,6 +26,8 @@ class CustomListViewController: DemoBaseViewController {
         self.setData()
         
         self.controllerClosure()
+        
+        customTableView.customDelegate = self
     }
     
     ///
@@ -64,6 +66,8 @@ class CustomListViewController: DemoBaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
+   
+    
 
     /*
     // MARK: - Navigation
@@ -93,10 +97,14 @@ extension CustomListViewController {
     
     private func setUpUI() -> Void {
         
+        view.addSubview(customTableView)
     }
     
     private func setAutoLayout() -> Void {
         
+        customTableView.snp.makeConstraints { (make) in
+            make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+        }
     }
 }
 
@@ -105,6 +113,13 @@ extension CustomListViewController {
     
     private func setData() -> Void {
         
+        var datas : [Any] = []
+        
+        for i in 0 ..< 25 {
+            datas.append(String(i))
+        }
+        
+        customTableView.datas = datas as [AnyObject]
     }
 }
 
@@ -117,6 +132,10 @@ extension CustomListViewController {
 }
 
 // MARK: - CustomListViewController, Delegate Methods Extension
-extension UITextFieldViewController {
+extension CustomListViewController {
+
+    func customTableViewScrollDidScroll(_ scrollView: UIScrollView) {
+        
+    }
     
 }
