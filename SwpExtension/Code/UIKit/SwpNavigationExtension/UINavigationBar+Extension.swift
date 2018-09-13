@@ -12,12 +12,27 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     public var backgroundColor : UIColor {
         set {
             objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundColor, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-            self.swp.aBackgroundColor(color: newValue)
+            self.swp.aBackgroundColor(newValue)
         }
         
         get {
             guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundColor) as? UIColor else { return UINavigationBar.aKeys.kBackgroundColor }
             return value
+        }
+    }
+    
+    
+    /// # set the navigation bar background image
+    public var backgroundImage : UIImage? {
+        
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundImage, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            self.swp.aBackgroundImage(newValue)
+        }
+        
+        get {
+
+            return objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundImage) as? UIImage
         }
     }
     
@@ -87,12 +102,12 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     ///
     /// # set items alpha
     /// - Parameters:
-    ///   - alpha:       alpha
-    ///   - isHideItems: isHideItems
+    ///   - alpha: alpha
+    ///   - isAlphaItems: isAlphaItems
     /// - Returns: BaseClass
-    public func backgroundItemsAlpha(_ alpha : CGFloat, isHideItems : Bool) -> BaseClass {
+    @discardableResult public func backgroundItemsAlpha(_ alpha : CGFloat, isAlphaItems : Bool) -> BaseClass {
         
-        self.swp.aBackgroundItemsAlpha(alpha, isHideItems: isHideItems)
+        self.swp.aBackgroundItemsAlpha(alpha, isAlphaItems: isAlphaItems)
         return self.swp
     }
     
@@ -181,12 +196,14 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
 extension UINavigationBar {
     
     fileprivate struct aKeys {
-        static var kCustomView       : UIView? = UIView()
-        static var kBackgroundColor  : UIColor = UIColor.black
-        static var kIsHideBottomLine : Bool    = false
-        static var kTitleFont        : UIFont  = UIFont.systemFont(ofSize: 15)
-        static var kTitleColor       : UIColor = UIColor.black
-        static var kBackgroundAlpha  : CGFloat = 0
+        static var kCustomView          : UIView?       = UIView()
+        static var kCustomImageView     : UIImageView   = UIImageView()
+        static var kBackgroundColor     : UIColor       = UIColor.black
+        static var kBackgroundImage     : UIImage?      = nil
+        static var kIsHideBottomLine    : Bool          = false
+        static var kTitleFont           : UIFont        = UIFont.systemFont(ofSize: 15)
+        static var kTitleColor          : UIColor       = UIColor.black
+        static var kBackgroundAlpha     : CGFloat       = 0
     }
     
     fileprivate func aHideBottomLine(_ isHidden : Bool) -> Void {
@@ -198,8 +215,13 @@ extension UINavigationBar {
     ///
     /// # set the navigation bar background color
     /// - Parameter color: color
-    fileprivate func aBackgroundColor(color : UIColor) -> Void {
+    fileprivate func aBackgroundColor(_ color : UIColor) -> Void {
 
+        if self.customImageView != nil {
+            self.customImageView?.removeFromSuperview()
+            self.customImageView = nil
+        }
+        
         if self.customView == nil {
             self.customView = UIView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.aHeight))
             self.customView?.isUserInteractionEnabled = false
@@ -209,6 +231,28 @@ extension UINavigationBar {
         }
         
         self.customView?.backgroundColor = color
+    }
+    
+    
+    ///
+    /// # set the navigation bar background image
+    /// - Parameter image: image
+    fileprivate func aBackgroundImage(_ image : UIImage?) -> Void {
+        
+        if self.customView != nil {
+            self.customView?.removeFromSuperview()
+            self.customView = nil
+        }
+        
+        if self.customImageView == nil {
+            self.customImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: self.bounds.size.width, height: self.aHeight))
+            self.customImageView?.isUserInteractionEnabled = false
+            self.customImageView?.autoresizingMask          = .flexibleWidth
+            self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+            self.subviews.first?.insertSubview(self.customImageView!, at: 0)
+        }
+        
+        self.customImageView?.image = image
     }
     
     
@@ -235,10 +279,12 @@ extension UINavigationBar {
     fileprivate func aRemove() -> Void {
         self.setBackgroundImage(nil, for:.default)
         self.customView?.removeFromSuperview()
+        self.customImageView?.removeFromSuperview()
         self.customView = nil
     }
     
     ///
+    /// # set items alpha
     /// # set background alpha
     /// - Parameter alpha: alpha
     fileprivate func aBackgroundAlpha(_ alpha : CGFloat) -> Void {
@@ -256,22 +302,41 @@ extension UINavigationBar {
         }
     }
     
-    fileprivate func aBackgroundItemsAlpha(_ alpha : CGFloat, isHideItems : Bool) -> Void {
+    
+    
+    ///
+    ///
+    /// - Parameters:
+    ///   - alpha: alpha
+    ///   - isAlphaItems: isAlphaItems
+    fileprivate func aBackgroundItemsAlpha(_ alpha : CGFloat, isAlphaItems : Bool) -> Void {
         
         for view in self.subviews {
             
-            if isHideItems {
+            if isAlphaItems {
+    
+                if let _UIBarBackgroundClass = NSClassFromString("_UIBarBackground") {
+                    if !view.isKind(of: _UIBarBackgroundClass) {
+                        view.alpha = alpha
+                    }
+                }
+                
+                if let _UINavigationBarBackground = NSClassFromString("_UINavigationBarBackground") {
+                    if !view.isKind(of: _UINavigationBarBackground) {
+                        view.alpha = alpha
+                    }
+                }
                 
             } else {
-                
+            
                 guard let _UINavigationBarBackIndicatorViewClass = NSClassFromString("_UINavigationBarBackIndicatorView") else { return }
-                
+
                 if !view.isKind(of: _UINavigationBarBackIndicatorViewClass) { return }
-                
+
                 if let _UIBarBackgroundClass = NSClassFromString("_UIBarBackground"), !view.isKind(of: _UIBarBackgroundClass) {
                     view.alpha = alpha
                 }
-                
+
                 if let _UINavigationBarBackground = NSClassFromString("_UINavigationBarBackground"), !view.isKind(of: _UINavigationBarBackground) {
                     view.alpha = alpha
                 }
@@ -301,10 +366,10 @@ extension UINavigationBar {
         return nil
     }
     
-    
-    
-    
     // MARK: - Private Property
+    
+    
+    /// customView
     private var customView : UIView? {
         set {
             
@@ -314,6 +379,19 @@ extension UINavigationBar {
         get {
             return objc_getAssociatedObject(self, &aKeys.kCustomView) as? UIView
         }
+    }
+    
+    /// customImageView
+    private var customImageView : UIImageView? {
+        
+        set {
+            objc_setAssociatedObject(self, &UINavigationBar.aKeys.kCustomImageView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+        
+        get {
+            return objc_getAssociatedObject(self, &UINavigationBar.aKeys.kCustomImageView) as? UIImageView
+        }
+        
     }
 
 }

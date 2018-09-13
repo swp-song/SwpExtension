@@ -93,6 +93,10 @@ extension CustomListViewController {
     
     private func setNavigationBar() -> Void {
         
+        self.navigationItem.leftBarButtonItem  = UIBarButtonItem(title: "<<", style: .done, target: nil, action:nil)
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "<<", style: .done, target: nil, action:nil)
+        self.navigationItem.title = "12312312"
+        
     }
     
     private func setUpUI() -> Void {
@@ -136,6 +140,41 @@ extension CustomListViewController {
 
     func customTableViewScrollDidScroll(_ scrollView: UIScrollView) {
         
+        let offsetY = scrollView.contentOffset.y
+        // 向上滑动的距离
+        let scrollUpHeight = offsetY - 0
+        // 除数表示 -> 导航栏从完全不透明到完全透明的过渡距离
+        let progress = scrollUpHeight / CGFloat(88)
+        if (offsetY > 0)
+        {
+            if (scrollUpHeight > CGFloat(88)) {
+                UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                    self?.setNavigationBarTransformProgress(progress: 1)
+                })
+//                setNavigationBarTransformProgress(progress: 1)
+            }
+//            else {
+//                setNavigationBarTransformProgress(progress: progress)
+//            }
+        }
+        else
+        {
+            UIView.animate(withDuration: 0.3, animations: { [weak self] in
+                self?.setNavigationBarTransformProgress(progress: 0)
+            })
+//            self.setNavigationBarTransformProgress(progress: 0)
+        }
+        
+    }
+    
+    
+    // private
+    func setNavigationBarTransformProgress(progress:CGFloat) {
+        navigationController?.navigationBar.swp.translationY = -CGFloat(44) * progress
+        // 没有系统返回按钮，所以 hasSystemBackIndicator = false
+        // 如果这里不设置为false，你会发现，导航栏无缘无故多出来一个返回按钮
+        navigationController?.navigationBar.swp.backgroundItemsAlpha(1 - progress, isAlphaItems: true)
+//        wr_setBarButtonItemsAlpha(alpha: 1 - progress, hasSystemBackIndicator: false)
     }
     
 }

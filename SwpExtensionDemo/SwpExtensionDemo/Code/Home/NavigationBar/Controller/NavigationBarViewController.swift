@@ -31,7 +31,6 @@ class NavigationBarViewController: DemoBaseViewController, NavigationBarListView
         
         navigationBarListView.backgroundColor = UIColor.orange
     
-
         
     }
 

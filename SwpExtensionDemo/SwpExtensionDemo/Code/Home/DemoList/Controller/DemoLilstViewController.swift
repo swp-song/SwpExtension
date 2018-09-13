@@ -28,6 +28,7 @@ class DemoLilstViewController: DemoBaseViewController, DemoLilstViewDelegate {
         
 //        navigationController?.navigationBar.swp.backgroundColor = UIColor.white
         
+        self.navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_image")
 
     }
 
