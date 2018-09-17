@@ -2,15 +2,17 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "navigation_image.jpg",
+      "filename" : "tabbar_03_sel.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tabbar_03_sel@2x.png",
       "scale" : "2x"
     },
     {
       "idiom" : "universal",
+      "filename" : "tabbar_03_sel@3x.png",
       "scale" : "3x"
     }
   ],

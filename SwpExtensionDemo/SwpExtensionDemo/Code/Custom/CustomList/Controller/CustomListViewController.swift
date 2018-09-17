@@ -21,6 +21,7 @@ class CustomListViewController: DemoBaseViewController, CustomTableViewDelegate 
         
         // Do any additional setup after loading the view.
         
+        
         self.setUI()
         
         self.setData()
@@ -145,8 +146,8 @@ extension CustomListViewController {
         let scrollUpHeight = offsetY - 0
         // 除数表示 -> 导航栏从完全不透明到完全透明的过渡距离
         let progress = scrollUpHeight / CGFloat(88)
-        if (offsetY > 0)
-        {
+        
+        if (offsetY > 0) {
             if (scrollUpHeight > CGFloat(88)) {
                 UIView.animate(withDuration: 0.3, animations: { [weak self] in
                     self?.setNavigationBarTransformProgress(progress: 1)
@@ -156,9 +157,7 @@ extension CustomListViewController {
 //            else {
 //                setNavigationBarTransformProgress(progress: progress)
 //            }
-        }
-        else
-        {
+        } else {
             UIView.animate(withDuration: 0.3, animations: { [weak self] in
                 self?.setNavigationBarTransformProgress(progress: 0)
             })
@@ -168,12 +167,20 @@ extension CustomListViewController {
     }
     
     
+    
+    
     // private
     func setNavigationBarTransformProgress(progress:CGFloat) {
         navigationController?.navigationBar.swp.translationY = -CGFloat(44) * progress
         // 没有系统返回按钮，所以 hasSystemBackIndicator = false
-        // 如果这里不设置为false，你会发现，导航栏无缘无故多出来一个返回按钮
-        navigationController?.navigationBar.swp.backgroundItemsAlpha(1 - progress, isAlphaItems: true)
+//        navigationController?.navigationBar.swp.backgroundItemsAlpha = 1 - progress
+//        navigationController?.swp.barTranslationY   =  -CGFloat(44) * progress
+//        navigationController?.swp.barItemsAlpha     = 1 - progress
+        
+        self.swp.barTranslationY  = (-CGFloat(44) * progress)
+        self.swp.barItemsAlpha    = 1 - progress
+        
+//        navigationController?.navigationBar.swp.backgroundItemsAlpha(1 - progress, isAlphaItems: true)
 //        wr_setBarButtonItemsAlpha(alpha: 1 - progress, hasSystemBackIndicator: false)
     }
     

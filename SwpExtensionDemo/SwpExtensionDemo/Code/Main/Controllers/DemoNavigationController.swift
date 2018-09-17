@@ -20,6 +20,7 @@ class DemoNavigationController: UINavigationController {
         self.navigationBar
             .swp.backgroundColor(UIColor.cyan)
             .swp.isHideBottomLine(true)
+//        self.swp.b
 //        view.addSubview(navigationBar)
         
     }

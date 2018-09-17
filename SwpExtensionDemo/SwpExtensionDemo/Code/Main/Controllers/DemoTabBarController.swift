@@ -84,7 +84,8 @@ extension DemoTabBarController {
         
         let infos : [[String : String]] = [
             ["className" : "DemoLilstViewController",  "title" : "首页", "imageName" : "tabbar_01"],
-            ["className" : "CustomListViewController", "title" : "Custom", "imageName" : "tabbar_02"],
+            ["className" : "NavigationViewController", "title" : "navigation", "imageName" : "tabbar_02"],
+            ["className" : "CustomListViewController", "title" : "Custom", "imageName" : "tabbar_03"]
         ]
         
         var vcs  : [UIViewController] = []
@@ -116,7 +117,6 @@ extension DemoTabBarController {
         controller.tabBarItem.selectedImage = UIImage(named: imageName + "_sel")?.withRenderingMode(.alwaysOriginal)
         controller.tabBarItem.title         = title
         
-//        attributes.updateValue(originTitleColor, forKey: NSAttributedStringKey.foregroundColor.rawValue)
         controller.tabBarItem.setTitleTextAttributes([.foregroundColor : UIColor.lightGray, .font : UIFont.systemFont(ofSize: 12)], for: .normal)
         controller.tabBarItem.setTitleTextAttributes([.foregroundColor : UIColor.orange, .font : UIFont.systemFont(ofSize: 12)], for: .selected)
         

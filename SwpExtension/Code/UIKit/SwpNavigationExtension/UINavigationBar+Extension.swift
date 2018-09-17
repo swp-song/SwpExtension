@@ -16,8 +16,9 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
         
         get {
-            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundColor) as? UIColor else { return UINavigationBar.aKeys.kBackgroundColor }
-            return value
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundColor) as? UIColor, dValue: UINavigationBar.aKeys.kBackgroundColor, block: { (value) -> UIColor in
+                return value
+            })
         }
     }
     
@@ -41,12 +42,14 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     public var titleFont : UIFont {
         set {
             objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleFont, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-            self.swp.titleTextAttributes = [NSAttributedStringKey.font : newValue]
+            self.swp.titleTextAttributes = self.swp.aTitleStyle(newValue, key: .font)
         }
         
         get {
-            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleFont) as? UIFont else { return UINavigationBar.aKeys.kTitleFont }
-            return value
+            
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleFont) as? UIFont, dValue: UINavigationBar.aKeys.kTitleFont, block: { (value) -> UIFont in
+                return value
+            })
         }
     }
     
@@ -57,13 +60,14 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         
         set {
             objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleColor, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-            self.swp.titleTextAttributes = [NSAttributedStringKey.foregroundColor : newValue]
+            self.swp.titleTextAttributes = self.swp.aTitleStyle(newValue, key: .foregroundColor)
         }
         
         get {
             
-            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleColor) as? UIColor  else { return UINavigationBar.aKeys.kTitleColor }
-            return value
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kTitleColor) as? UIColor, dValue: UINavigationBar.aKeys.kTitleColor, block: { (value) -> UIColor in
+                return value
+            })
         }
     }
     
@@ -76,41 +80,60 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
         
         get {
-        
-            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kIsHideBottomLine) as? Bool else { return UINavigationBar.aKeys.kIsHideBottomLine }
-            return value
+            
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kIsHideBottomLine) as? Bool, dValue: UINavigationBar.aKeys.kIsHideBottomLine, block: { (value) -> Bool in
+                return value
+            })
         }
     }
     
     
     /// # set background alpha
-    public var backgroundAlpha : CGFloat {
+    public var alpha : CGFloat {
         
         set {
-            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundAlpha, newValue, .OBJC_ASSOCIATION_ASSIGN)
-            self.swp.aBackgroundAlpha(newValue)
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kAlpha, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aAlpha(newValue)
         }
         
         get {
-            guard let value = objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kBackgroundAlpha) as? CGFloat else { return UINavigationBar.aKeys.kBackgroundAlpha }
             
-            return value
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kAlpha) as? CGFloat, dValue: UINavigationBar.aKeys.kAlpha, block: { (value) -> CGFloat in
+                return value
+            })
         }
     }
     
     
-    ///
-    /// # set items alpha
-    /// - Parameters:
-    ///   - alpha: alpha
-    ///   - isAlphaItems: isAlphaItems
-    /// - Returns: BaseClass
-    @discardableResult public func backgroundItemsAlpha(_ alpha : CGFloat, isAlphaItems : Bool) -> BaseClass {
+    /// # set background items alpha
+    public var itemsAlpha : CGFloat {
         
-        self.swp.aBackgroundItemsAlpha(alpha, isAlphaItems: isAlphaItems)
-        return self.swp
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kItemsAlpha, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aItemsAlpha(newValue, isHide: true)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kItemsAlpha) as? CGFloat, dValue: UINavigationBar.aKeys.kItemsAlpha, block: { (value) -> CGFloat in
+                return value
+            })
+        }
     }
     
+    /// set hide shadowImage
+    public var isHideShadowImage : Bool {
+        
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.kIsHideShadowImage, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.isHideShadowImage(newValue)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.kIsHideShadowImage) as? Bool, dValue: UINavigationBar.aKeys.kIsHideShadowImage, block: { (value) -> Bool in
+                return value
+            })
+        }
+    }
     
     
     /// # set translationY
@@ -125,11 +148,16 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
     }
     
-    
     /// # get navigation bar height
     public var height : CGFloat {
         return self.swp.aHeight
     }
+    
+    
+}
+
+// MARK: - Function
+extension SwpExtensionClass where BaseClass : UINavigationBar {
     
     ///
     /// # set the navigation bar background color
@@ -168,6 +196,26 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         return self.swp
     }
     
+    ///
+    /// # set items alpha
+    /// - Parameters:
+    ///   - alpha: alpha
+    ///   - isHide: isHide
+    /// - Returns: BaseClass
+    @discardableResult public func itemsAlpha(_ alpha : CGFloat, isHide : Bool) -> BaseClass {
+        self.swp.aItemsAlpha(alpha, isHide: isHide)
+        return self.swp
+    }
+
+    
+    ///
+    /// # set hide shadowImage
+    /// - Returns: BaseClass
+    @discardableResult public func isHideShadowImage(_ isHideShadowImage : Bool) -> BaseClass {
+        self.swp.shadowImage = isHideShadowImage ? UIImage() : nil
+        
+        return self.swp
+    }
     
     ///
     /// # set the navigation bar title style
@@ -176,7 +224,17 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     ///   - font:   font
     /// - Returns: BaseClass
     @discardableResult public func titleStyle(_ color : UIColor, font : UIFont) -> BaseClass {
-        self.swp.titleTextAttributes = [NSAttributedStringKey.foregroundColor : color, NSAttributedStringKey.font : font]
+        
+        guard var attributes = self.swp.titleTextAttributes else {
+            self.swp.titleTextAttributes = [.foregroundColor : color, .font : font]
+            return self.swp
+        }
+        
+        attributes.updateValue(font, forKey: .font)
+        attributes.updateValue(color, forKey: .foregroundColor)
+        
+        self.swp.titleTextAttributes = attributes
+        
         return self.swp
     }
     
@@ -191,7 +249,6 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     
 }
 
-
 // MARK: - private
 extension UINavigationBar {
     
@@ -203,7 +260,9 @@ extension UINavigationBar {
         static var kIsHideBottomLine    : Bool          = false
         static var kTitleFont           : UIFont        = UIFont.systemFont(ofSize: 15)
         static var kTitleColor          : UIColor       = UIColor.black
-        static var kBackgroundAlpha     : CGFloat       = 0
+        static var kAlpha               : CGFloat       = 1
+        static var kItemsAlpha          : CGFloat       = 1
+        static var kIsHideShadowImage   : Bool          = false
     }
     
     fileprivate func aHideBottomLine(_ isHidden : Bool) -> Void {
@@ -233,7 +292,6 @@ extension UINavigationBar {
         self.customView?.backgroundColor = color
     }
     
-    
     ///
     /// # set the navigation bar background image
     /// - Parameter image: image
@@ -255,11 +313,25 @@ extension UINavigationBar {
         self.customImageView?.image = image
     }
     
-    
+    ///
+    /// # set title style
+    /// - Parameters:
+    ///   - value: value
+    ///   - key:   key
+    /// - Returns: Array
+    fileprivate func aTitleStyle(_ value : Any?, key : NSAttributedStringKey) -> [NSAttributedStringKey : Any]? {
+        
+        guard let nValue     = value else { return self.titleTextAttributes }
+        
+        guard var attributes = self.titleTextAttributes else { return [key : nValue] }
+        
+        attributes.updateValue(nValue, forKey: key)
+        
+        return attributes
+    }
     
     /// #  get navigation bar height
     fileprivate var aHeight : CGFloat {
-        
         
         if #available(iOS 11.0, *) {
             
@@ -287,7 +359,7 @@ extension UINavigationBar {
     /// # set items alpha
     /// # set background alpha
     /// - Parameter alpha: alpha
-    fileprivate func aBackgroundAlpha(_ alpha : CGFloat) -> Void {
+    fileprivate func aAlpha(_ alpha : CGFloat) -> Void {
         
         guard let backgroundView = self.subviews.first else { return }
         
@@ -305,15 +377,15 @@ extension UINavigationBar {
     
     
     ///
-    ///
+    /// # set items alpha
     /// - Parameters:
     ///   - alpha: alpha
     ///   - isAlphaItems: isAlphaItems
-    fileprivate func aBackgroundItemsAlpha(_ alpha : CGFloat, isAlphaItems : Bool) -> Void {
+    fileprivate func aItemsAlpha(_ alpha : CGFloat, isHide : Bool) -> Void {
         
         for view in self.subviews {
             
-            if isAlphaItems {
+            if isHide {
     
                 if let _UIBarBackgroundClass = NSClassFromString("_UIBarBackground") {
                     if !view.isKind(of: _UIBarBackgroundClass) {
@@ -344,7 +416,21 @@ extension UINavigationBar {
             }
             
         }
+    }
+    
+    
+    ///
+    /// # check vlaue is empty
+    /// - Parameters:
+    ///   - value: value
+    ///   - defaultValue: defaultValue
+    ///   - block: block
+    /// - Returns: T
+    fileprivate func aCheckValue<T>(_ value : T?, dValue : T, block:( ( _ value : T ) -> T)? ) -> T {
         
+        guard let value = value else { return dValue }
+        
+        return block?(value) ?? dValue
     }
     
     ///
@@ -371,8 +457,8 @@ extension UINavigationBar {
     
     /// customView
     private var customView : UIView? {
+        
         set {
-            
             objc_setAssociatedObject(self, &aKeys.kCustomView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
 

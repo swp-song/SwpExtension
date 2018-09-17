@@ -28,7 +28,31 @@ class DemoLilstViewController: DemoBaseViewController, DemoLilstViewDelegate {
         
 //        navigationController?.navigationBar.swp.backgroundColor = UIColor.white
         
-        self.navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_image")
+//        self.navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_image")
+//        self.navigationController.swp.backgroundColor =
+        
+        
+//        navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_image")
+        
+        self.navigationController?.swp.barBackgroundImage = UIImage(named: "navigation_image")
+//        self.swp.barBackgroundColor = UIColor.orange
+        
+        self.navigationItem.title  = "123"
+        self.swp.barTitleFont  = UIFont.systemFont(ofSize: 18)
+        self.swp.barTitleColor = UIColor.cyan
+//        let  c = self.swp.barBackgroundColor
+//        print(self.swp.barBackgroundColor)
+        
+//        self.swp.barBackgroundImage = UIImage(named: "navigation_image")
+//        self.swp.barTintColor = UIColor.red
+//        self.navigationController?.navigationBar.tintColor = UIColor.red
+        
+//        navigationController?.swp.backgroundColor = UIColor.orange
+//        c = navigationController?.swp.backgroundColor
+//        navigationController?.swp.backgroundColor = UIColor.red
+        
+//        let color = navigationController!.swp.backgroundColor
+//        print(navigationController?.swp.backgroundColor as Any)
 
     }
 

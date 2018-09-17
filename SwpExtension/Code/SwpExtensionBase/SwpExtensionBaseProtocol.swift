@@ -32,6 +32,10 @@ extension UIScreen  : SwpExtensionClassProtocol {}
 
 extension UserDefaults : SwpExtensionClassProtocol {}
 
+extension UIViewController : SwpExtensionClassProtocol {}
+
+
+
 
 /// SwpExtensionStructProtocol
 protocol SwpExtensionStructProtocol { }
