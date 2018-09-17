@@ -72,7 +72,7 @@ extension NavigationListView {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return NavigationCell.cellInit(tableView, identifier: NSStringFromClass(NavigationCell.self), indexPath: indexPath).model(datas[indexPath.row]) as! NavigationCell;
+        return (NavigationCell.cellInit(tableView, identifier: NSStringFromClass(NavigationCell.self), indexPath: indexPath) as! NavigationCell).model(nil);
     }
 }
 

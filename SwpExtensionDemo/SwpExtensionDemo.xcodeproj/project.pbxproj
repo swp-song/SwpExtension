@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D2D5D15214FEC55006444D9 /* DemoBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5D14214FEC55006444D9 /* DemoBaseProtocol.swift */; };
 		6052D04554BAAF43F5A86C89 /* Pods_SwpExtensionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */; };
 		F13267FA214F915800916AED /* UIButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13267D3214F915800916AED /* UIButtonViewController.swift */; };
 		F13267FB214F915800916AED /* DemoLilstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13267D6214F915800916AED /* DemoLilstViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2D2D5D14214FEC55006444D9 /* DemoBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseProtocol.swift; sourceTree = "<group>"; };
 		38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwpExtensionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B158D114262CCF894BEB251 /* Pods-SwpExtensionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		921A7A23C261D0B5B3197019 /* Pods-SwpExtensionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -316,6 +318,7 @@
 			children = (
 				F1326819214F9FDE00916AED /* DemoBaseTableView.swift */,
 				F132681B214FAAD600916AED /* DemoBaseCell.swift */,
+				2D2D5D14214FEC55006444D9 /* DemoBaseProtocol.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 				F13267FD214F915800916AED /* DemoLilstView.swift in Sources */,
 				F13267FC214F915800916AED /* DemoCell.swift in Sources */,
 				F1326816214F9ED600916AED /* DemoNavigationController.swift in Sources */,
+				2D2D5D15214FEC55006444D9 /* DemoBaseProtocol.swift in Sources */,
 				F1326803214F915800916AED /* NavigationModel.swift in Sources */,
 				F132681A214F9FDE00916AED /* DemoBaseTableView.swift in Sources */,
 				F1326805214F915800916AED /* NavigationCell.swift in Sources */,

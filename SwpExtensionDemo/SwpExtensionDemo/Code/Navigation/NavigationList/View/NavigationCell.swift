@@ -40,18 +40,36 @@ class NavigationCell: DemoBaseCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-
-//    @objc override func setDatas(_ datas: NSObject?) -> Self {
-//
-//        super.setDatas(datas)
-//        return self
-//    }
     
+    
+    override func setUpUI() {
+        super.setUpUI()
+    }
+    
+    override func setUIAutoLayout() {
+        super.setUIAutoLayout()
+    }
+    
+    override func setDatas(_ datas: NSObject?) -> Self {
+        super.setDatas(datas)
+
+        return self
+    }
+
     
 }
 
 extension NavigationCell {
+
     
+    
+//
+//    override func setDatas(_ datas: NSObject?) -> Self {
+//    }
+//
+//    @objc override func setDatas(_ datas: NSObject?) -> Self {
+//        super.setDatas(datas)
+//    }
     
 //    @objc override func setDatas(_ datas: NSObject?) -> Self {
 //

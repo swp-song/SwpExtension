@@ -9,7 +9,8 @@
 
 import UIKit
 
-class DemoBaseCell: UITableViewCell {
+
+class DemoBaseCell: UITableViewCell, DemoBaseCellProtocol {
 
     
     var model : NSObject? {
@@ -40,41 +41,50 @@ class DemoBaseCell: UITableViewCell {
         self.configCell()
     }
     
-
-}
-
-
-extension DemoBaseCell {
     
-    @discardableResult open func setDatas(_ datas : NSObject?) -> Self {
+    func configCell() -> Void {
+
+    }
+
+    func setUpUI() -> Void {
+
+    }
+
+    
+    func setUIAutoLayout() -> Void {
+
+    }
+    
+    @discardableResult func setDatas(_ datas : NSObject?) -> Self {
         guard let _ = model else { return self }
         return self
     }
+
 }
+
+
 
 extension DemoBaseCell {
     
+//    @discardableResult open func setDatas(_ datas : NSObject?) -> Self {
+//        guard let _ = model else { return self }
+//        return self
+//    }
+    
+    
+}
+
+
+extension DemoBaseCell {
     
     public static func cellInit(_ tableView : UITableView, identifier : String, indexPath : IndexPath) -> DemoBaseCell {
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DemoBaseCell
     }
     
-    open func configCell() -> Void {
-        
-    }
-    
-    open func setUpUI() -> Void {
-    
-    }
-    
-    open func setUIAutoLayout() -> Void {
-        
-    }
-    
-    open func model(_ model : NSObject?) -> Self {
+    public func model(_ model : NSObject?) -> Self {
         self.model = model
         return self
     }
-    
 }
+
 
