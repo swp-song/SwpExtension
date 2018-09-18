@@ -181,7 +181,7 @@ extension SwpExtensionUtilsProtocol {
         
         let orientation : UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
         
-        imageSize = UIInterfaceOrientationIsPortrait(orientation) ? UIScreen.main.bounds.size : CGSize(width: UIScreen.main.bounds.size.height, height: UIScreen.main.bounds.size.width)
+        imageSize = orientation.isPortrait ? UIScreen.main.bounds.size : CGSize(width: UIScreen.main.bounds.size.height, height: UIScreen.main.bounds.size.width)
         
         UIGraphicsBeginImageContextWithOptions(imageSize, true, 0);
         
@@ -232,7 +232,7 @@ extension SwpExtensionUtilsProtocol {
         }
         
         UIGraphicsEndImageContext();
-        return UIImagePNGRepresentation(image)
+        return image.pngData()
     }
     
     ///
@@ -604,9 +604,9 @@ extension SwpExtensionUtilsProtocol {
         textStyle.alignment     = .center
         
         //  富文本样式
-        let style : [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : textFont,
-                                                     NSAttributedStringKey.foregroundColor : textColor,
-                                                     NSAttributedStringKey.paragraphStyle  : textStyle]
+        let style : [NSAttributedString.Key : Any] = [NSAttributedString.Key.font : textFont,
+                                                     NSAttributedString.Key.foregroundColor : textColor,
+                                                     NSAttributedString.Key.paragraphStyle  : textStyle]
         
         barText.draw(in: CGRect(x: 0, y: image.size.height - 4, width: size.width, height: 20), withAttributes: style)
         

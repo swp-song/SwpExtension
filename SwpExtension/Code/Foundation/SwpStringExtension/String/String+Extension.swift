@@ -162,7 +162,7 @@ extension SwpExtensionStruct where BaseStruct == String {
     /// - Returns: CGSize
     @discardableResult private func rowSize(_ font : UIFont, size : CGSize) -> CGSize {
         
-        let style : [NSAttributedStringKey : Any]? = [.font : font]
+        let style : [NSAttributedString.Key : Any]? = [.font : font]
         
         let rect  : CGRect = (self.swp as NSString).boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: style, context: nil)
         

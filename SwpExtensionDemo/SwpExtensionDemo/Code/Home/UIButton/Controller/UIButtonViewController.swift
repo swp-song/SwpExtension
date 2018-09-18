@@ -44,7 +44,7 @@ class UIButtonViewController: DemoBaseViewController {
 //        button.swp.timingButton()
         
         self.button.snp.makeConstraints { (make) in
-            make.top.left.equalTo(UIEdgeInsetsMake(100, 30, 0, 0))
+            make.top.left.equalTo(UIEdgeInsets.init(top: 100, left: 30, bottom: 0, right: 0))
             make.width.height.equalTo(CGSize(width: 100, height: 50))
         }
 
@@ -62,7 +62,7 @@ class UIButtonViewController: DemoBaseViewController {
         self.qrImageView.swp.backgroundColor(UIColor.red)
 
         self.barImageView.snp.makeConstraints { (make) in
-            make.left.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.left.right.equalTo(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
             make.top.equalTo(self.qrImageView.snp.bottom).offset(10)
             make.height.equalTo(150)
         }

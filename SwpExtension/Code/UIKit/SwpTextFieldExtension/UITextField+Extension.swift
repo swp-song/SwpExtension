@@ -113,7 +113,7 @@ extension SwpExtensionClass where BaseClass : UITextField {
     /// # set clearButtonMode
     /// - Parameter clearButtonMode: clearButtonMode
     /// - Returns: BaseClass
-    @discardableResult public func clearButtonMode(_ clearButtonMode: UITextFieldViewMode) -> BaseClass {
+    @discardableResult public func clearButtonMode(_ clearButtonMode: UITextField.ViewMode) -> BaseClass {
         self.swp.clearButtonMode = clearButtonMode
         return self.swp
     }
@@ -125,7 +125,7 @@ extension SwpExtensionClass where BaseClass : UITextField {
     ///   - view: leftView
     ///   - mode: mode
     /// - Returns: BaseClass
-    @discardableResult public func leftView(_ view: UIView?, mode: UITextFieldViewMode = .never) -> BaseClass {
+    @discardableResult public func leftView(_ view: UIView?, mode: UITextField.ViewMode = .never) -> BaseClass {
         self.swp.leftView     = view
         self.swp.leftViewMode = mode
         return self.swp
@@ -137,7 +137,7 @@ extension SwpExtensionClass where BaseClass : UITextField {
     ///   - view: rightView
     ///   - mode: mode
     /// - Returns: BaseClass
-    @discardableResult public func rightView(_ view: UIView?, mode: UITextFieldViewMode = .never) -> BaseClass {
+    @discardableResult public func rightView(_ view: UIView?, mode: UITextField.ViewMode = .never) -> BaseClass {
         self.swp.rightView     = view
         self.swp.rightViewMode = mode
         return self.swp
@@ -185,7 +185,7 @@ extension SwpExtensionClass where BaseClass : UITextField {
             return self.swp
         }
         
-        self.swp.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:[NSAttributedStringKey.foregroundColor:color as Any, NSAttributedStringKey.font : font as Any])
+        self.swp.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:[NSAttributedString.Key.foregroundColor:color as Any, NSAttributedString.Key.font : font as Any])
         return self.swp
     }
 }

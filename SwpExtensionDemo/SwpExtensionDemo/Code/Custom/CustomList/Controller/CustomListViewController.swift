@@ -108,7 +108,7 @@ extension CustomListViewController {
     private func setAutoLayout() -> Void {
         
         customTableView.snp.makeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.edges.equalTo(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
         }
     }
 }
@@ -145,7 +145,7 @@ extension CustomListViewController {
         // 向上滑动的距离
         let scrollUpHeight = offsetY - 0
         // 除数表示 -> 导航栏从完全不透明到完全透明的过渡距离
-        let progress = scrollUpHeight / CGFloat(88)
+//        let progress = scrollUpHeight / CGFloat(88)
         
         if (offsetY > 0) {
             if (scrollUpHeight > CGFloat(88)) {

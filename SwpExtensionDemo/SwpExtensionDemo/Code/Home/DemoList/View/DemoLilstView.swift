@@ -40,7 +40,7 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
     /// 回调闭包
     public var demoLilstViewClickCell : DemoLilstViewClickCell?
     
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         
         datas = []
         super.init(frame: frame, style: style)
@@ -68,7 +68,7 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
 // MARK: - Public Methods Extension
 extension DemoLilstView {
     
-    public convenience init(_ delegate : DemoLilstViewDelegate?, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
+    public convenience init(_ delegate : DemoLilstViewDelegate?, frame: CGRect = CGRect.zero, style: UITableView.Style = .plain) {
         self.init(frame: frame, style: style)
         self.demoLilstViewDelegate = delegate;
     }

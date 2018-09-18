@@ -10,7 +10,7 @@ target 'SwpExtensionDemo' do
   pod 'SnapKit'
 
   # Pods for SwpExtensionDemo
-  pod 'SwpExtension', :path => '../'
+  # pod 'SwpExtension', :path => '../'
 
   pod 'SwpExtension/SwpIntExtension', :path => '../'
   pod 'SwpExtension/SwpFloatExtension', :path => '../'

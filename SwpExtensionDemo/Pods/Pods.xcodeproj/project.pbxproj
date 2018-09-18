@@ -808,7 +808,7 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		4118472BBC9A3FF4A7ABF6D278DC3B86 /* Debug */ = {
+		3F208AF925633CA725313F26046D0FAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = CB8B1C0F2BDF708D2DEA5FDB3F226806 /* SwpExtension.xcconfig */;
 			buildSettings = {
@@ -837,13 +837,15 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
 		};
 		6914AA59A2B8D7F3D8E8F0D53ECE1DAB /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -885,6 +887,43 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
+		};
+		9A1D8028F2BE6457953E3ACF5122AB36 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CB8B1C0F2BDF708D2DEA5FDB3F226806 /* SwpExtension.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/SwpExtension/SwpExtension-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/SwpExtension/SwpExtension-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/SwpExtension/SwpExtension.modulemap";
+				PRODUCT_MODULE_NAME = SwpExtension;
+				PRODUCT_NAME = SwpExtension;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
 		};
 		C92782E717C52E3633C9A5F211E7987A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -949,45 +988,6 @@
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
-		};
-		CF1446745E97BB1B099A0755D843E970 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CB8B1C0F2BDF708D2DEA5FDB3F226806 /* SwpExtension.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SwpExtension/SwpExtension-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SwpExtension/SwpExtension-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/SwpExtension/SwpExtension.modulemap";
-				PRODUCT_MODULE_NAME = SwpExtension;
-				PRODUCT_NAME = SwpExtension;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
 		};
 		E0D17A33D6A2E0B31A9EAD07C590CE93 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -1195,8 +1195,8 @@
 		FBF73F106E7806E0D1860214012393B9 /* Build configuration list for PBXNativeTarget "SwpExtension" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				4118472BBC9A3FF4A7ABF6D278DC3B86 /* Debug */,
-				CF1446745E97BB1B099A0755D843E970 /* Release */,
+				9A1D8028F2BE6457953E3ACF5122AB36 /* Debug */,
+				3F208AF925633CA725313F26046D0FAB /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

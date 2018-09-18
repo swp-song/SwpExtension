@@ -319,7 +319,7 @@ extension UINavigationBar {
     ///   - value: value
     ///   - key:   key
     /// - Returns: Array
-    fileprivate func aTitleStyle(_ value : Any?, key : NSAttributedStringKey) -> [NSAttributedStringKey : Any]? {
+    fileprivate func aTitleStyle(_ value : Any?, key : NSAttributedString.Key) -> [NSAttributedString.Key : Any]? {
         
         guard let nValue     = value else { return self.titleTextAttributes }
         
@@ -341,6 +341,7 @@ extension UINavigationBar {
             
 //            return self.bounds.size.height + 20
             return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
+//            return 44
         } else {
             return self.bounds.size.height + 20
         }

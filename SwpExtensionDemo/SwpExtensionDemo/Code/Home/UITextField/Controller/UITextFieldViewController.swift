@@ -120,7 +120,7 @@ extension UITextFieldViewController  {
     private func setAutoLayout() -> Void {
         
         textField1.snp.makeConstraints { (make) in
-            make.top.left.right.equalTo(UIEdgeInsetsMake(100, 20, 0, 20))
+            make.top.left.right.equalTo(UIEdgeInsets.init(top: 100, left: 20, bottom: 0, right: 20))
             make.width.equalTo(self.textField1.snp.height).multipliedBy(8)
         }
         

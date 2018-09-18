@@ -8,11 +8,11 @@
 
 
 /// SwpExtensionClassProtocol
-protocol SwpExtensionClassProtocol { }
+public protocol SwpExtensionClassProtocol { }
 
 
 // MARK: - SwpExtensionClassProtocol
-extension SwpExtensionClassProtocol {
+public extension SwpExtensionClassProtocol {
     
     public var swp : SwpExtensionClass<Self> {
         return SwpExtensionClass(self)
@@ -38,11 +38,11 @@ extension UIViewController : SwpExtensionClassProtocol {}
 
 
 /// SwpExtensionStructProtocol
-protocol SwpExtensionStructProtocol { }
+public protocol SwpExtensionStructProtocol { }
 
 
 // MARK: - SwpExtensionStructProtocol
-extension SwpExtensionStructProtocol {
+public extension SwpExtensionStructProtocol {
     
     
     public var swp : SwpExtensionStruct<Self> {

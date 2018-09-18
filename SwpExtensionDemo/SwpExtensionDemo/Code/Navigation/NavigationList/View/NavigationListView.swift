@@ -38,7 +38,7 @@ class NavigationListView: UITableView, UITableViewDataSource, UITableViewDelegat
     weak public var navigationListViewDelegate : NavigationListViewDelegate? = nil
     
     
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         datas = []
         super.init(frame: frame, style: style)
         register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
@@ -102,7 +102,7 @@ extension NavigationListView {
     }
     
     
-    convenience init(delegate : NavigationListViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
+    convenience init(delegate : NavigationListViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableView.Style = .plain) {
         self.init(frame: frame, style: style)
         self.navigationListViewDelegate = delegate;
     }

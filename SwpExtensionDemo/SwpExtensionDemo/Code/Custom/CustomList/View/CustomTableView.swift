@@ -29,7 +29,7 @@ class CustomTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     weak var customDelegate : CustomTableViewDelegate? = nil
     
     
-    override init(frame: CGRect, style: UITableViewStyle) {
+    override init(frame: CGRect, style: UITableView.Style) {
         datas = []
         super.init(frame: frame, style: style)
         

@@ -17,9 +17,9 @@ class DemoNavigationController: UINavigationController {
         // Do any additional setup after loading the view.
 //        self.navigationBar.swpBackgroundColor(color:UIColor.white).isHiddenBottomLine(isHidden: true)
 //        self.navigationBar.isHidden = true
-        self.navigationBar
-            .swp.backgroundColor(UIColor.cyan)
-            .swp.isHideBottomLine(true)
+//        self.navigationBar
+//            .swp.backgroundColor(UIColor.cyan)
+//            .swp.isHideBottomLine(true)
 //        self.swp.b
 //        view.addSubview(navigationBar)
         
@@ -48,7 +48,7 @@ extension DemoNavigationController {
     
     override func pushViewController(_ viewController: UIViewController, animated: Bool) {
         
-        if self.childViewControllers.count > 0 {
+        if self.children.count > 0 {
             viewController.hidesBottomBarWhenPushed = true
         }
         super.pushViewController(viewController, animated: animated)

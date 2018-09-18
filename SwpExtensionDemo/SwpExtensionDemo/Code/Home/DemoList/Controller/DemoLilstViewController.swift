@@ -34,8 +34,9 @@ class DemoLilstViewController: DemoBaseViewController, DemoLilstViewDelegate {
         
 //        navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_image")
         
-        self.navigationController?.swp.barBackgroundImage = UIImage(named: "navigation_image")
+//        self.navigationController?.swp.barBackgroundImage = UIImage(named: "navigation_image")
 //        self.swp.barBackgroundColor = UIColor.orange
+        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.red
         
         self.navigationItem.title  = "123"
         self.swp.barTitleFont  = UIFont.systemFont(ofSize: 18)
@@ -96,7 +97,7 @@ extension DemoLilstViewController  {
     private func setUIAutoLayout() -> Void {
         
         demoListView.snp.makeConstraints { (make) in
-            make.edges.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
+            make.edges.equalTo(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
 //            make.top.equalTo(self.navigationBar.snp.bottom)
 //            make.left.bottom.right.equalTo(UIEdgeInsetsMake(0, 0, 0, 0))
         }
