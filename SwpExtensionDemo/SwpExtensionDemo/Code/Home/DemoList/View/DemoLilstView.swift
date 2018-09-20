@@ -40,6 +40,8 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
     /// 回调闭包
     public var demoLilstViewClickCell : DemoLilstViewClickCell?
     
+    #if swift(>=4.2)
+    
     override init(frame: CGRect, style: UITableView.Style) {
         
         datas = []
@@ -48,6 +50,18 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
         dataSource = self
         delegate   = self
     }
+    
+    #else
+    
+    override init(frame: CGRect, style: UITableViewStyle) {
+        datas = []
+        super.init(frame: frame, style: style)
+        self.register(DemoCell.self, forCellReuseIdentifier: NSStringFromClass(DemoCell.self))
+        dataSource = self
+        delegate   = self
+    }
+    
+    #endif
     
     
     required init?(coder aDecoder: NSCoder) {
@@ -68,10 +82,21 @@ class DemoLilstView: UITableView, UITableViewDataSource, UITableViewDelegate {
 // MARK: - Public Methods Extension
 extension DemoLilstView {
     
+    
+    #if swift(>=4.2)
     public convenience init(_ delegate : DemoLilstViewDelegate?, frame: CGRect = CGRect.zero, style: UITableView.Style = .plain) {
         self.init(frame: frame, style: style)
         self.demoLilstViewDelegate = delegate;
     }
+    
+    #else
+    
+    public convenience init(_ delegate : DemoLilstViewDelegate?, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
+        self.init(frame: frame, style: style)
+        self.demoLilstViewDelegate = delegate;
+    }
+    
+    #endif
     
    public func datas(datas : [DemoModel]) -> Self {
         self.datas = datas

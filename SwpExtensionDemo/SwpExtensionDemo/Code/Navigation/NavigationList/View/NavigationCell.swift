@@ -31,14 +31,27 @@ class NavigationCell: DemoBaseCell {
         // Configure the view for the selected state
     }
     
+    // MARK: - swift judgment
+    
+    #if swift (>=4.2)
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
+    #else
+
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+    }
+    
+    #endif
+
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
     
     
     

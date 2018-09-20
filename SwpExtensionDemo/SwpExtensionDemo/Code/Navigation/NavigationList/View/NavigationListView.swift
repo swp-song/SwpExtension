@@ -38,13 +38,27 @@ class NavigationListView: UITableView, UITableViewDataSource, UITableViewDelegat
     weak public var navigationListViewDelegate : NavigationListViewDelegate? = nil
     
     
+    #if swift(>=4.2)
+    
     override init(frame: CGRect, style: UITableView.Style) {
+        datas = []
+    super.init(frame: frame, style: style)
+    register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
+    dataSource = self
+    delegate   = self
+    }
+    
+    #else
+    
+    override init(frame: CGRect, style: UITableViewStyle) {
         datas = []
         super.init(frame: frame, style: style)
         register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
         dataSource = self
         delegate   = self
     }
+    
+    #endif
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -102,10 +116,21 @@ extension NavigationListView {
     }
     
     
+    #if swift(>=4.2)
+
     convenience init(delegate : NavigationListViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableView.Style = .plain) {
         self.init(frame: frame, style: style)
         self.navigationListViewDelegate = delegate;
     }
+    
+    #else
+    
+    convenience init(delegate : NavigationListViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
+        self.init(frame: frame, style: style)
+        self.navigationListViewDelegate = delegate;
+    }
+    
+    #endif
     
 }
 

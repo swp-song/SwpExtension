@@ -36,11 +36,20 @@ class DemoBaseCell: UITableViewCell, DemoBaseCellProtocol {
     }
     
     
+    // MARK: - swift judgment
+    #if swift (>=4.2)
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.configCell()
+    }
+    #else
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
+    #endif
+
     
     func configCell() -> Void {
 

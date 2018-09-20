@@ -232,7 +232,18 @@ extension SwpExtensionUtilsProtocol {
         }
         
         UIGraphicsEndImageContext();
+        
+        // MARK: - swift judgment
+        
+        #if swift(>=4.2)
+        
         return image.pngData()
+        
+        #else
+        
+        return UIImagePNGRepresentation(image)
+        
+        #endif
     }
     
     ///
@@ -603,10 +614,22 @@ extension SwpExtensionUtilsProtocol {
         textStyle.lineBreakMode = .byWordWrapping
         textStyle.alignment     = .center
         
+        // MARK: - swift judgment
+        
         //  富文本样式
+        #if swift(>=4.2)
+        
         let style : [NSAttributedString.Key : Any] = [NSAttributedString.Key.font : textFont,
                                                      NSAttributedString.Key.foregroundColor : textColor,
                                                      NSAttributedString.Key.paragraphStyle  : textStyle]
+        
+        #else
+        
+        let style : [NSAttributedStringKey : Any] = [NSAttributedStringKey.font : textFont,
+                                                      NSAttributedStringKey.foregroundColor : textColor,
+                                                      NSAttributedStringKey.paragraphStyle  : textStyle]
+        #endif
+        
         
         barText.draw(in: CGRect(x: 0, y: image.size.height - 4, width: size.width, height: 20), withAttributes: style)
         

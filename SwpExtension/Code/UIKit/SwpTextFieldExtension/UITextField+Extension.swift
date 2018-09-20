@@ -100,6 +100,10 @@ extension SwpExtensionClass where BaseClass : UITextField {
         return self.swp
     }
     
+    
+    
+    
+    
     ///
     /// # set isSecureTextEntry
     /// - Parameter isSecureTextEntry: isSecureTextEntry
@@ -108,6 +112,11 @@ extension SwpExtensionClass where BaseClass : UITextField {
         self.swp.isSecureTextEntry = isSecureTextEntry
         return self.swp
     }
+    
+    
+    
+    // MARK: - swift judgment
+    #if swift(>=4.2)
     
     ///
     /// # set clearButtonMode
@@ -142,6 +151,47 @@ extension SwpExtensionClass where BaseClass : UITextField {
         self.swp.rightViewMode = mode
         return self.swp
     }
+    
+    #else
+    
+    ///
+    /// # set clearButtonMode
+    /// - Parameter clearButtonMode: clearButtonMode
+    /// - Returns: BaseClass
+    @discardableResult public func clearButtonMode(_ clearButtonMode: UITextFieldViewMode) -> BaseClass {
+        self.swp.clearButtonMode = clearButtonMode
+        return self.swp
+    }
+    
+    
+    ///
+    /// # set leftView AND viewMode
+    /// - Parameters:
+    ///   - view: leftView
+    ///   - mode: mode
+    /// - Returns: BaseClass
+    @discardableResult public func leftView(_ view: UIView?, mode: UITextFieldViewMode = .never) -> BaseClass {
+        self.swp.leftView     = view
+        self.swp.leftViewMode = mode
+        return self.swp
+    }
+    
+    ///
+    /// # set rightView AND viewMode
+    /// - Parameters:
+    ///   - view: rightView
+    ///   - mode: mode
+    /// - Returns: BaseClass
+    @discardableResult public func rightView(_ view: UIView?, mode: UITextFieldViewMode = .never) -> BaseClass {
+        self.swp.rightView     = view
+        self.swp.rightViewMode = mode
+        return self.swp
+    }
+    
+    #endif
+    
+    
+    
     
     ///
     /// # set leftMargin
@@ -185,7 +235,17 @@ extension SwpExtensionClass where BaseClass : UITextField {
             return self.swp
         }
         
+        // MARK: - swift judgment
+        #if swift(>=4.2)
+        
         self.swp.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:[NSAttributedString.Key.foregroundColor:color as Any, NSAttributedString.Key.font : font as Any])
+        
+        #else
+        
+         self.swp.attributedPlaceholder = NSAttributedString(string: placeholder, attributes:[NSAttributedStringKey.foregroundColor:color as Any, NSAttributedStringKey.font : font as Any])
+        
+        #endif
+        
         return self.swp
     }
 }

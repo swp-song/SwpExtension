@@ -38,12 +38,25 @@ class DemoBaseTableView: UITableView {
     
     private var baseDelete      : DemoBaseTableViewDelegate? = nil
     
+    #if swift(>=4.2)
+    
     override init(frame: CGRect, style: UITableView.Style) {
         
         super.init(frame: frame, style: style)
     
         self.configTableView()
     }
+    
+    #else
+    
+    override init(frame: CGRect, style: UITableViewStyle) {
+        
+        super.init(frame: frame, style: style)
+        
+        self.configTableView()
+    }
+    
+    #endif
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

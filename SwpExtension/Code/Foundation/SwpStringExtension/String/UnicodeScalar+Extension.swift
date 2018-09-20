@@ -32,8 +32,8 @@ extension SwpExtensionStruct where BaseStruct == UnicodeScalar {
         //  0x1F900 ... 0x1F9FF     Supplemental Symbols and Pictographs
         //  127000 ... 127600       Various asian characters
         //  65024 ... 65039         Variation selector
-        //  9100...9300             Misc items
-        //  8400...8447             Combining Diacritical Marks for Symbols
+        //  9100 ... 9300           Misc items
+        //  8400 ... 8447           Combining Diacritical Marks for Symbols
         switch value {
             
             case 0x1F600 ... 0x1F64F,
@@ -46,8 +46,8 @@ extension SwpExtensionStruct where BaseStruct == UnicodeScalar {
                  0x1F900 ... 0x1F9FF,
                  127000 ... 127600,
                  65024 ... 65039,
-                 9100...9300,
-                 8400...8447:
+                 9100 ... 9300,
+                 8400 ... 8447:
                 
                 isEmoji =  true
             default:

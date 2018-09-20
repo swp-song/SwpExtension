@@ -313,6 +313,8 @@ extension UINavigationBar {
         self.customImageView?.image = image
     }
     
+    // MARK: - swift judgment
+    #if swift(>=4.2)
     ///
     /// # set title style
     /// - Parameters:
@@ -320,6 +322,25 @@ extension UINavigationBar {
     ///   - key:   key
     /// - Returns: Array
     fileprivate func aTitleStyle(_ value : Any?, key : NSAttributedString.Key) -> [NSAttributedString.Key : Any]? {
+    
+        guard let nValue     = value else { return self.titleTextAttributes }
+    
+        guard var attributes = self.titleTextAttributes else { return [key : nValue] }
+    
+        attributes.updateValue(nValue, forKey: key)
+    
+        return attributes
+    }
+    
+    #else
+    
+    ///
+    /// # set title style
+    /// - Parameters:
+    ///   - value: value
+    ///   - key:   key
+    /// - Returns: Array
+    fileprivate func aTitleStyle(_ value : Any?, key : NSAttributedStringKey) -> [NSAttributedStringKey : Any]? {
         
         guard let nValue     = value else { return self.titleTextAttributes }
         
@@ -329,6 +350,8 @@ extension UINavigationBar {
         
         return attributes
     }
+    
+    #endif
     
     /// #  get navigation bar height
     fileprivate var aHeight : CGFloat {
