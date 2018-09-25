@@ -1,39 +1,39 @@
 PODS:
   - SnapKit (4.0.1)
-  - SwpExtension/Base64Extension (0.0.8):
+  - SwpExtension/Base64Extension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/BundleExtension (0.0.8):
+  - SwpExtension/BundleExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/CGFloatExtension (0.0.8):
+  - SwpExtension/CGFloatExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/DoubleExtension (0.0.8):
+  - SwpExtension/DoubleExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/FloatExtension (0.0.8):
+  - SwpExtension/FloatExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/IntExtension (0.0.8):
+  - SwpExtension/IntExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/MD5Extension (0.0.8):
+  - SwpExtension/MD5Extension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/StringExtension (0.0.8):
+  - SwpExtension/StringExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpExtensionBase (0.0.8)
-  - SwpExtension/UIButtonExtension (0.0.8):
+  - SwpExtension/SwpExtensionBase (0.0.9)
+  - SwpExtension/UIButtonExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UIColorExtension (0.0.8):
+  - SwpExtension/UIColorExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UIFontExtension (0.0.8):
+  - SwpExtension/UIFontExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UIImageExtension (0.0.8):
+  - SwpExtension/UIImageExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UINavigationExtension (0.0.8):
+  - SwpExtension/UINavigationExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UIScreenExtension (0.0.8):
+  - SwpExtension/UIScreenExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UITextFieldExtension (0.0.8):
+  - SwpExtension/UITextFieldExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UIViewExtension (0.0.8):
+  - SwpExtension/UIViewExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/UserDefaultsExtension (0.0.8):
+  - SwpExtension/UserDefaultsExtension (0.0.9):
     - SwpExtension/SwpExtensionBase
 
 DEPENDENCIES:
@@ -66,7 +66,7 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwpExtension: d7588a0deb981afd4078475932e0f137d4f28fbb
+  SwpExtension: 6b1661aa801de0acbdd872871d69f1c65793acca
 
 PODFILE CHECKSUM: 7834f29ebcd2ff0a44592ea7fb4ae5fb6f5e5231
 
