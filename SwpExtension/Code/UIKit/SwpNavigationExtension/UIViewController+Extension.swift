@@ -22,7 +22,34 @@ extension SwpExtensionClass where BaseClass : UIViewController {
             return value
         }
     }
+    
+    
+    public var statusBarStyle : UIStatusBarStyle {
+        
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationController.aKey.kStatusBarStyle, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.statusBarStyle(newValue)
+        }
+        
+        get {
+            guard let value = objc_getAssociatedObject(self.swp, &UINavigationController.aKey.kStatusBarStyle) as? UIStatusBarStyle else { return UINavigationController.aKey.kStatusBarStyle }
+            return value
+        }
+    }
+    
 }
+
+
+extension SwpExtensionClass where BaseClass : UIViewController {
+    
+    @discardableResult public func statusBarStyle(_ statusBarStyle : UIStatusBarStyle) -> BaseClass {
+        self.swp.setNeedsStatusBarAppearanceUpdate()
+        return self.swp
+    }
+    
+    
+}
+
 
 // MARK: - navigation bar property
 extension SwpExtensionClass where BaseClass : UIViewController {
@@ -283,6 +310,7 @@ extension UIViewController {
         
         static var kIsPush                  : Bool      = false
         
+        static var kStatusBarStyle          : UIStatusBarStyle = .default
        
     }
     
@@ -297,5 +325,7 @@ extension UIViewController {
         guard let value = value else { return dValue }
         return block?(value) ?? dValue
     }
+    
+    
     
 }

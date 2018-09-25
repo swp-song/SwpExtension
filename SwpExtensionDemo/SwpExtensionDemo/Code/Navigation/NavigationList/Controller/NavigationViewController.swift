@@ -14,11 +14,9 @@ class NavigationViewController: DemoBaseViewController {
     
     private lazy var navigationListView : NavigationListView = NavigationListView()
     
-    
     /// # viewDidLoad, ( 视图载入完成, 调用 )
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         // Do any additional setup after loading the view.
         
@@ -110,7 +108,6 @@ extension NavigationViewController {
 extension NavigationViewController {
     
     private func setData() -> Void {
-        
         let datas = NSArray(contentsOfFile: Bundle.main.path(forResource: "NavigationModel.plist", ofType: nil) ?? "") as! [[String : Any]]
         self.navigationListView.datas = NavigationModel.datas(datas)
     }

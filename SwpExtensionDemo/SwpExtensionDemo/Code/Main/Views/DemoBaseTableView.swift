@@ -10,33 +10,20 @@
 import UIKit
 
 
-protocol DemoBaseTableViewDelegate : NSObjectProtocol {
-    
-    func tableView(_ tableView: UITableView, indexPath: IndexPath, model : AnyObject) -> Void
-    
-    func tableViewDidScroll(scrollView : UIScrollView) -> Void
-    
-}
 
-extension DemoBaseTableViewDelegate {
-    
-    func tableView(_ tableView: UITableView, indexPath: IndexPath, model : AnyObject) -> Void { }
-    
-    func scrollDidScroll(scrollView : UIScrollView) -> Void { }
-    
-}
+
 
 class DemoBaseTableView: UITableView {
     
     var datas : [NSObject] = []
     
-    typealias TableViewClickCellEvent = ( (_ tableView : UITableView, _ indexPath: IndexPath, _ model : AnyObject) -> Void )
-    typealias TableViewDidScrollEvent = ( (_ scrollView : UIScrollView) -> Void )
+//    typealias TableViewClickCellEvent = ( (_ tableView : UITableView, _ indexPath: IndexPath, _ model : AnyObject) -> Void )
+//    typealias TableViewDidScrollEvent = ( (_ scrollView : UIScrollView) -> Void )
+
+//    var tableViewClickCellEvent : TableViewClickCellEvent? = nil
+//    var tableViewDidScrollEvent : TableViewDidScrollEvent? = nil
     
-    var tableViewClickCellEvent : TableViewClickCellEvent?   = nil
-    var tableViewDidScrollEvent : TableViewDidScrollEvent?   = nil
-    
-    private var baseDelete      : DemoBaseTableViewDelegate? = nil
+    var baseDelete : DemoBaseTableViewDelegate? = nil
     
     #if swift(>=4.2)
     
@@ -76,15 +63,15 @@ class DemoBaseTableView: UITableView {
         return self
     }
     
-    open func tableViewDidScrollEvent(_ block : TableViewDidScrollEvent? ) -> Self {
-        self.tableViewDidScrollEvent = block
-        return self
-    }
-    
-    open func tableViewClickCellEvent(_ block : TableViewClickCellEvent? ) -> Self {
-        self.tableViewClickCellEvent = block
-        return self
-    }
+//    open func tableViewDidScrollEvent(_ block : TableViewDidScrollEvent? ) -> Self {
+//        self.tableViewDidScrollEvent = block
+//        return self
+//    }
+//
+//    open func tableViewClickCellEvent(_ block : TableViewClickCellEvent? ) -> Self {
+//        self.tableViewClickCellEvent = block
+//        return self
+//    }
     
     /*
     // Only override draw() if you perform custom drawing.

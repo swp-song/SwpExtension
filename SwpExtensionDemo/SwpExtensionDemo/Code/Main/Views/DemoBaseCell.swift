@@ -10,14 +10,10 @@
 import UIKit
 
 
-class DemoBaseCell: UITableViewCell, DemoBaseCellProtocol {
+class DemoBaseCell: UITableViewCell {
 
     
-    var model : NSObject? {
-        didSet {
-            self.setDatas(model)
-        }
-    }
+    var model : NSObject?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,38 +46,8 @@ class DemoBaseCell: UITableViewCell, DemoBaseCellProtocol {
     
     #endif
 
-    
-    func configCell() -> Void {
-
-    }
-
-    func setUpUI() -> Void {
-
-    }
-
-    
-    func setUIAutoLayout() -> Void {
-
-    }
-    
-    @discardableResult func setDatas(_ datas : NSObject?) -> Self {
-        guard let _ = model else { return self }
-        return self
-    }
-
 }
 
-
-
-extension DemoBaseCell {
-    
-//    @discardableResult open func setDatas(_ datas : NSObject?) -> Self {
-//        guard let _ = model else { return self }
-//        return self
-//    }
-    
-    
-}
 
 
 extension DemoBaseCell {
@@ -90,10 +56,14 @@ extension DemoBaseCell {
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DemoBaseCell
     }
     
-    public func model(_ model : NSObject?) -> Self {
-        self.model = model
-        return self
-    }
+    
+    
+//    public func model(_ model : NSObject?) -> Self {
+//        self.model = model
+//        return self
+//    }
+    
+    
 }
 
 

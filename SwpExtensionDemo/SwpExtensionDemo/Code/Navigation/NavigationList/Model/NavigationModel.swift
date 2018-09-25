@@ -36,7 +36,5 @@ class NavigationModel: NSObject {
     override init() {
         super.init()
     }
-    
-    
-    
 }
+

@@ -10,48 +10,33 @@
 import UIKit
 
 
-
-protocol NavigationListViewDelegate : NSObjectProtocol {
-
-    func navigationListViewClickCell(_ tableView : UITableView, indexPath : IndexPath, model : AnyObject) -> Void
-    
-    func navigationListViewScrollDidScroll(_ tableView : UITableView, scrollView : UIScrollView) -> Void
-}
-
-extension NavigationListViewDelegate {
-    
-    func navigationBarListViewClickCell(_ tableView : UITableView, indexPath : IndexPath, model : AnyObject) -> Void { }
-    func navigationBarListViewScrollDidScroll(_ tableView : UITableView, scrollView : UIScrollView) -> Void { }
-}
-
-
-class NavigationListView: UITableView, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
+class NavigationListView: DemoBaseTableView, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
     
-    public var datas : [NavigationModel] {
-        didSet {
-            reloadData()
-        }
-    }
+//    public var datas : [NavigationModel] {
+//        didSet {
+//            reloadData()
+//        }
+//    }
     
     
-    weak public var navigationListViewDelegate : NavigationListViewDelegate? = nil
+    weak public var navigationListViewDelegate : DemoBaseTableViewDelegate? = nil
     
     
     #if swift(>=4.2)
     
     override init(frame: CGRect, style: UITableView.Style) {
         datas = []
-    super.init(frame: frame, style: style)
-    register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
-    dataSource = self
-    delegate   = self
+        super.init(frame: frame, style: style)
+        register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
+        dataSource = self
+        delegate   = self
     }
     
     #else
     
     override init(frame: CGRect, style: UITableViewStyle) {
-        datas = []
+//        datas = []
         super.init(frame: frame, style: style)
         register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
         dataSource = self
@@ -86,7 +71,7 @@ extension NavigationListView {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return (NavigationCell.cellInit(tableView, identifier: NSStringFromClass(NavigationCell.self), indexPath: indexPath) as! NavigationCell).model(nil);
+        return (NavigationCell.cellInit(tableView, identifier: NSStringFromClass(NavigationCell.self), indexPath: indexPath) as! NavigationCell).model(datas[indexPath.row]);
     }
 }
 
@@ -94,27 +79,25 @@ extension NavigationListView {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-
-        navigationListViewDelegate?.navigationListViewClickCell(self, indexPath: indexPath, model: datas[indexPath.row] as AnyObject)
+//        navigationListViewDelegate?.navigationListViewClickCell(self, indexPath: indexPath, model: datas[indexPath.row] as AnyObject)
     }
 }
 
 extension NavigationListView {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        navigationListViewDelegate?.navigationBarListViewScrollDidScroll(self, scrollView: scrollView)
+//        navigationListViewDelegate?.navigationBarListViewScrollDidScroll(self, scrollView: scrollView)
     }
-    
 }
 
 extension NavigationListView {
     
     
-    public func navigationBarListViewDelegate(delegate : NavigationListViewDelegate? = nil) -> Self {
-        navigationListViewDelegate = delegate
-        return self
-    }
-    
+//    public func navigationBarListViewDelegate(delegate : NavigationListViewDelegate? = nil) -> Self {
+//        navigationListViewDelegate = delegate
+//        return self
+//    }
+//
     
     #if swift(>=4.2)
 
@@ -125,7 +108,7 @@ extension NavigationListView {
     
     #else
     
-    convenience init(delegate : NavigationListViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
+    convenience init(delegate : DemoBaseTableViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
         self.init(frame: frame, style: style)
         self.navigationListViewDelegate = delegate;
     }

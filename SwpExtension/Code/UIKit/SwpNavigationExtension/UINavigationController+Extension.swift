@@ -283,5 +283,12 @@ extension UINavigationController {
 }
 
 
+extension UINavigationController {
+    
+    open override var preferredStatusBarStyle: UIStatusBarStyle {
+        return self.topViewController?.swp.statusBarStyle ?? .default
+    }
+    
+}
 
 

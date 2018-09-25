@@ -9,15 +9,10 @@
 import UIKit
 
 class NavigationCell: DemoBaseCell {
-
     
-    
-//    var model : NavigationModel? {
-//        didSet {
-//            guard let value = model else { return }
-//            model(value)
-//        }
-//    }
+    override var model: NSObject? {
+        didSet { self.setDatas(model) }
+    }
     
     
     override func awakeFromNib() {
@@ -51,74 +46,19 @@ class NavigationCell: DemoBaseCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-    
-    
-    
-    override func setUpUI() {
-        super.setUpUI()
-    }
-    
-    override func setUIAutoLayout() {
-        super.setUIAutoLayout()
-    }
-    
-    override func setDatas(_ datas: NSObject?) -> Self {
-        super.setDatas(datas)
 
-        return self
-    }
-
-    
 }
 
 extension NavigationCell {
-
     
+    @discardableResult func setDatas(_ datas: NSObject?) -> Self {
+        guard let model = datas as? NavigationModel else { return self }
+        self.textLabel?.text = model.aTitle
+        return self
+    }
     
-//
-//    override func setDatas(_ datas: NSObject?) -> Self {
-//    }
-//
-//    @objc override func setDatas(_ datas: NSObject?) -> Self {
-//        super.setDatas(datas)
-//    }
-    
-//    @objc override func setDatas(_ datas: NSObject?) -> Self {
-//
-//        super.setDatas(datas)
-//
-////        let model = datas as! NavigationModel
-//
-////        self.textLabel?.text = model.aTitle
-//
-//        return self
-//    }
-    
-//    override func setDatas(_ datas: NSObject?) -> Self {
-//
-//        return self
-//    }
-    
-//    override func setUpUI() {
-//        super.setUpUI()
-//    }
-    
-    
-//    cellInit
-//    static func cellInit
-//    public static func navigationCellInit(tableView : UITableView, identifier : String, indexPath : IndexPath) -> NavigationCell {
-//        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! NavigationCell
-//    }
-//
-//
-//
-//    @discardableResult public func model(_ model : NavigationModel) -> Self {
-//
-//        self.textLabel?.text = model.aTitle
-//        return self
-//    }
-//
-    
+    @discardableResult public func model(_ model : NavigationModel) -> Self {
+        return setDatas(model)
+    }
 }
 
