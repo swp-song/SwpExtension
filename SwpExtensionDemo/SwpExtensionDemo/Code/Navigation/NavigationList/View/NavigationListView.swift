@@ -23,27 +23,14 @@ class NavigationListView: DemoBaseTableView, UITableViewDataSource, UITableViewD
     weak public var navigationListViewDelegate : DemoBaseTableViewDelegate? = nil
     
     
-    #if swift(>=4.2)
-    
     override init(frame: CGRect, style: UITableView.Style) {
+        super.init(frame: frame, style: style)
         datas = []
-        super.init(frame: frame, style: style)
         register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
         dataSource = self
         delegate   = self
     }
     
-    #else
-    
-    override init(frame: CGRect, style: UITableViewStyle) {
-//        datas = []
-        super.init(frame: frame, style: style)
-        register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
-        dataSource = self
-        delegate   = self
-    }
-    
-    #endif
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -98,22 +85,15 @@ extension NavigationListView {
 //        return self
 //    }
 //
-    
-    #if swift(>=4.2)
 
-    convenience init(delegate : NavigationListViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableView.Style = .plain) {
+    
+
+    convenience init(delegate : DemoBaseTableViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableView.Style = .plain) {
         self.init(frame: frame, style: style)
         self.navigationListViewDelegate = delegate;
     }
     
-    #else
     
-    convenience init(delegate : DemoBaseTableViewDelegate? = nil, frame: CGRect = CGRect.zero, style: UITableViewStyle = .plain) {
-        self.init(frame: frame, style: style)
-        self.navigationListViewDelegate = delegate;
-    }
-    
-    #endif
     
 }
 

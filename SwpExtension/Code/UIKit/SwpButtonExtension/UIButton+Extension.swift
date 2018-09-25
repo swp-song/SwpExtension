@@ -10,10 +10,6 @@
 extension SwpExtensionClass where BaseClass : UIButton {
 
     
-    // MARK: - swift judgment
-    
-    #if swift(>=4.2)
-    
     ///
     /// # convenience init style function
     /// - Parameters:
@@ -46,43 +42,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
         return self.aCheckBoxStyle(normalImage, selectedImage: selectedImage, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont)
     }
     
-    #else
-    
-    
-    ///
-    /// # convenience init style function
-    /// - Parameters:
-    ///   - backgroundColor:    backgroundColor
-    ///   - title:              title
-    ///   - target:             target
-    ///   - action:             action
-    ///   - titleColor:         titleColor
-    ///   - titleFont:          titleFont
-    ///   - radius:             radius
-    ///   - tag:                tag
-    ///   - events:             events
-    @discardableResult public func style(_ bgColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControlEvents = .touchUpInside) -> BaseClass {
-        
-        return self.aStyle(bgColor, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont, radius: radius, tag: tag, events: events)
-    }
-    
-    ///
-    /// # convenience init check box style function
-    /// - Parameters:
-    ///   - normalImage:    normalImage
-    ///   - selectedImage:  selectedImage
-    ///   - title:          title
-    ///   - target:         target
-    ///   - action:         action
-    ///   - titleColor:     titleColor
-    ///   - titleFont:      titleFont
-    @discardableResult public func checkBoxStyle(_ normalImage : UIImage?, selectedImage : UIImage?,  title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15)) -> BaseClass {
-        
-        return self.aCheckBoxStyle(normalImage, selectedImage: selectedImage, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont)
-    }
-    
-    
-    #endif
+   
     
     
 }
@@ -100,10 +60,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         return self.swp
     }
     
-    // MARK: - swift judgment
-    
-    
-    #if swift(>=4.2)
     
     ///
     /// # set title
@@ -162,68 +118,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         self.swp.addTarget(target, action: action, for: events)
         return self.swp
     }
-    
-    #else
-    
-    ///
-    /// # set title
-    /// - Parameters:
-    ///   - title:  title
-    ///   - state:  state
-    /// - Returns: BaseClass
-    @discardableResult public func title(_ title : String?, for state : UIControlState) -> BaseClass {
-        self.swp.setTitle(title, for: state)
-        return self.swp
-    }
-    
-    ///
-    /// # set title color
-    /// - Parameters:
-    ///   - color:  color
-    ///   - state:  state
-    /// - Returns: BaseClass
-    @discardableResult public func titleColor(_ color : UIColor?, for state : UIControlState) -> BaseClass {
-        self.swp.setTitleColor(color, for: state)
-        return self.swp
-    }
-    
-    
-    ///
-    /// # set image
-    /// - Parameters:
-    ///   - image:  image
-    ///   - state:  state
-    /// - Returns: BaseClass
-    @discardableResult public func image(_ image : UIImage?, for state : UIControlState) -> BaseClass {
-        self.swp.setImage(image, for: state)
-        return self.swp
-    }
-    
-    
-    ///
-    /// # set background image
-    /// - Parameters:
-    ///   - image:  image
-    ///   - state:  state
-    /// - Returns: BaseClass
-    @discardableResult public func backgroundImage(_ image : UIImage?, for state : UIControlState) -> BaseClass {
-        self.swp.setBackgroundImage(image, for: state)
-        return self.swp
-    }
-    
-    ///
-    /// # set events
-    /// - Parameters:
-    ///   - target: target
-    ///   - action: action
-    ///   - events: events
-    /// - Returns: BaseClass
-    @discardableResult public func targetEvent(_ target: Any?, action : Selector,  for events : UIControlEvents) -> BaseClass {
-        self.swp.addTarget(target, action: action, for: events)
-        return self.swp
-    }
-    
-    #endif
     
     ///
     /// # set tag
@@ -388,10 +282,6 @@ private extension SwpExtensionClass where BaseClass : UIButton {
     }
     
     
-    // MARK: - swift judgment
-    
-    #if swift(>=4.2)
-    
     ///
     /// # style
     /// - Parameters:
@@ -423,45 +313,6 @@ private extension SwpExtensionClass where BaseClass : UIButton {
         
         return self.swp
     }
-    
-    #else
-    
-    ///
-    /// # style
-    /// - Parameters:
-    ///   - backgroundColor:    backgroundColor
-    ///   - title:              title
-    ///   - target:             target
-    ///   - action:             action
-    ///   - titleColor:         titleColor
-    ///   - titleFont:          titleFont
-    ///   - radius:             radius
-    ///   - tag:                tag
-    ///   - events:             events
-    @discardableResult private func aStyle(_ bgColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControlEvents = .touchUpInside) -> BaseClass {
-        
-        self.tag(tag)
-            .swp.title(title, for: .normal)
-            .swp.title(title, for: .highlighted)
-            .swp.titleFont(titleFont)
-            .swp.titleColor(titleColor, for: .normal)
-            .swp.titleColor(titleColor, for: .highlighted)
-        
-        self.swp
-            .aBackgroundColor(self.swp, color: bgColor)
-            .aCornerRadiusMasks(self.swp, radiusMasks: radius)
-        
-        guard let action = action else { return self.swp }
-        
-        self.targetEvent(target, action: action, for: events)
-        
-        return self.swp
-    }
-    
-    
-    #endif
-    
-    
     
     ///
     ///

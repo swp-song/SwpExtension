@@ -30,8 +30,6 @@ class CustomTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
     
     
     
-    #if swift(>=4.2)
-    
     override init(frame: CGRect, style: UITableView.Style) {
         datas = []
         super.init(frame: frame, style: style)
@@ -41,18 +39,7 @@ class CustomTableView: UITableView, UITableViewDataSource, UITableViewDelegate {
         register(CustomCell.self, forCellReuseIdentifier: NSStringFromClass(CustomCell.self))
     }
     
-    #else
-    
-    override init(frame: CGRect, style: UITableViewStyle) {
-        datas = []
-        super.init(frame: frame, style: style)
-        
-        dataSource  = self
-        delegate    = self
-        register(CustomCell.self, forCellReuseIdentifier: NSStringFromClass(CustomCell.self))
-    }
-    
-    #endif
+   
     
     
     

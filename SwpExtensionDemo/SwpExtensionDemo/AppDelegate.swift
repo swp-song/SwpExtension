@@ -13,7 +13,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     
-    #if swift(>=4.2)
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -29,25 +28,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
     
-    #else
-    
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey : Any]? = nil) -> Bool {
-        
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
-        self.window?.backgroundColor = UIColor.white
-        
-        self.window?.rootViewController = DemoTabBarController()
-        
-        self.window?.makeKeyAndVisible()
-        
-        return true
-        
-    }
-   
-    
-    #endif
+
 
     
     func applicationWillResignActive(_ application: UIApplication) {
