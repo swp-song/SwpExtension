@@ -2,10 +2,9 @@
 //  SwpExtensionUtilsProtocol.swift
 //  swp_song
 //
-//  Created by swp-song on 2018/9/3.
+//  Created by swp-song on 2018/9/25.
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
-
 
 protocol SwpExtensionUtilsProtocol {
     
@@ -53,7 +52,7 @@ protocol SwpExtensionUtilsProtocol {
     ///   - width: width
     /// - Returns: T
     @discardableResult func aBorderWidth<T>(_ view : T, width : CGFloat) -> T
-
+    
     ///
     /// # set view cornerRadius
     /// - Parameters:
@@ -86,7 +85,7 @@ protocol SwpExtensionUtilsProtocol {
     /// - Returns: T
     @discardableResult func aCornerRadiusMasks<T>(_ view : T, radiusMasks : CGFloat) -> T
     
-   
+    
     // MARK: - string create code interface
     
     
@@ -233,7 +232,7 @@ extension SwpExtensionUtilsProtocol {
         
         UIGraphicsEndImageContext();
         
-        return UIImagePNGRepresentation(image)
+        return image.pngData()
     }
     
     ///
@@ -246,7 +245,7 @@ extension SwpExtensionUtilsProtocol {
         return UIImage(data: data)
         
     }
-
+    
 }
 
 // MARK: - set view layer implementation
@@ -336,7 +335,7 @@ extension SwpExtensionUtilsProtocol {
         })
     }
     
-
+    
 }
 
 // MARK: - string create qrCode implementation
@@ -437,7 +436,7 @@ extension SwpExtensionUtilsProtocol {
 
 // MARK: - string create qrCode and barCode private
 extension SwpExtensionUtilsProtocol {
-
+    
     
     ///
     /// # create code CIImage
@@ -606,8 +605,8 @@ extension SwpExtensionUtilsProtocol {
         
         //  富文本样式
         let style : [NSAttributedString.Key : Any] = [NSAttributedString.Key.font : textFont,
-                                                     NSAttributedString.Key.foregroundColor : textColor,
-                                                     NSAttributedString.Key.paragraphStyle  : textStyle]
+                                                      NSAttributedString.Key.foregroundColor : textColor,
+                                                      NSAttributedString.Key.paragraphStyle  : textStyle]
         
         
         barText.draw(in: CGRect(x: 0, y: image.size.height - 4, width: size.width, height: 20), withAttributes: style)
@@ -631,3 +630,5 @@ extension UIView  : SwpExtensionUtilsProtocol { }
 
 // MARK: - UIImage
 extension UIImage : SwpExtensionUtilsProtocol { }
+
+

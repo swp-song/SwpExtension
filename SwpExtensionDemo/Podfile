@@ -1,38 +1,34 @@
 project 'SwpExtensionDemo.xcodeproj'
-
 # Uncomment the next line to define a global platform for your project
-  platform :ios, '10.0'
+
+
+platform :ios, '10.0'
 
 target 'SwpExtensionDemo' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
+  # Pods for SwpExtensionDemo
+
   pod 'SnapKit'
 
-  # Pods for SwpExtensionDemo
-  # pod 'SwpExtension', :path => '../'
+  pod 'SwpExtension/IntExtension', :path => '../'
+  pod 'SwpExtension/FloatExtension', :path => '../'
+  pod 'SwpExtension/DoubleExtension', :path => '../'
+  pod 'SwpExtension/CGFloatExtension', :path => '../'
+  pod 'SwpExtension/BundleExtension', :path => '../'
+  pod 'SwpExtension/MD5Extension', :path => '../'
+  pod 'SwpExtension/Base64Extension', :path => '../'
+  pod 'SwpExtension/StringExtension', :path => '../'
+  pod 'SwpExtension/UserDefaultsExtension', :path => '../'
 
-  pod 'SwpExtension/SwpIntExtension', :path => '../'
-  pod 'SwpExtension/SwpFloatExtension', :path => '../'
-  pod 'SwpExtension/SwpDoubleExtension', :path => '../'
-  pod 'SwpExtension/SwpCGFloatExtension', :path => '../' 
-  pod 'SwpExtension/SwpBundleExtension', :path => '../'
-  pod 'SwpExtension/SwpMD5Extension', :path => '../'
-  pod 'SwpExtension/SwpBase64Extension', :path => '../'
-  pod 'SwpExtension/SwpStringExtension', :path => '../'
-  pod 'SwpExtension/SwpUserDefaultsExtension', :path => '../'
-  
-
-  pod 'SwpExtension/SwpColorExtension', :path => '../'
-  pod 'SwpExtension/SwpViewExtension', :path => '../'
-  pod 'SwpExtension/SwpFontExtension', :path => '../'
-  pod 'SwpExtension/SwpButtonExtension', :path => '../'
-  pod 'SwpExtension/SwpNavigationExtension', :path => '../'
-  pod 'SwpExtension/SwpTextFieldExtension', :path => '../'
-  pod 'SwpExtension/SwpImageExtension', :path => '../'
-  pod 'SwpExtension/SwpImageViewExtension', :path => '../'
-  pod 'SwpExtension/SwpScreenExtension', :path => '../'
-  
-  
+  pod 'SwpExtension/UIViewExtension', :path => '../'
+  pod 'SwpExtension/UIFontExtension', :path => '../'
+  pod 'SwpExtension/UIColorExtension', :path => '../'
+  pod 'SwpExtension/UIImageExtension', :path => '../'
+  pod 'SwpExtension/UIScreenExtension', :path => '../'
+  pod 'SwpExtension/UIButtonExtension', :path => '../'
+  pod 'SwpExtension/UITextFieldExtension', :path => '../'
+  pod 'SwpExtension/UINavigationExtension', :path => '../'
   
 end

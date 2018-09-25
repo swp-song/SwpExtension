@@ -2,10 +2,9 @@
 //  SwpExtensionBase.swift
 //  swp_song
 //
-//  Created by swp-song on 2018/8/24.
+//  Created by swp-song on 2018/9/25.
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
-
 
 /// SwpExtensionClass
 public final class SwpExtensionClass<BaseClass> {
@@ -15,7 +14,7 @@ public final class SwpExtensionClass<BaseClass> {
     public init(_ swp: BaseClass) {
         self.swp = swp
     }
-
+    
 }
 
 
@@ -29,5 +28,4 @@ public struct SwpExtensionStruct<BaseStruct> {
     }
     
 }
-
 

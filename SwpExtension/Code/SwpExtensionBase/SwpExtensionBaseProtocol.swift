@@ -2,10 +2,9 @@
 //  SwpExtensionBaseProtocol.swift
 //  swp_song
 //
-//  Created by swp-song on 2018/8/24.
+//  Created by swp-song on 2018/9/25.
 //  Copyright © 2018年 swp-song. All rights reserved.
 //
-
 
 /// SwpExtensionClassProtocol
 public protocol SwpExtensionClassProtocol { }
@@ -62,17 +61,6 @@ extension CGFloat       : SwpExtensionStructProtocol { }
 extension String        : SwpExtensionStructProtocol { }
 extension UnicodeScalar : SwpExtensionStructProtocol { }
 extension Bundle        : SwpExtensionStructProtocol { }
-
-
-
-
-
-
-
-
-
-
-
 
 
 

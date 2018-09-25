@@ -1,63 +1,60 @@
 PODS:
   - SnapKit (4.0.1)
-  - SwpExtension/SwpBase64Extension (0.0.7):
+  - SwpExtension/Base64Extension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpBundleExtension (0.0.7):
+  - SwpExtension/BundleExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpButtonExtension (0.0.7):
+  - SwpExtension/CGFloatExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpCGFloatExtension (0.0.7):
+  - SwpExtension/DoubleExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpColorExtension (0.0.7):
+  - SwpExtension/FloatExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpDoubleExtension (0.0.7):
+  - SwpExtension/IntExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpExtensionBase (0.0.7)
-  - SwpExtension/SwpFloatExtension (0.0.7):
+  - SwpExtension/MD5Extension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpFontExtension (0.0.7):
+  - SwpExtension/StringExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpImageExtension (0.0.7):
+  - SwpExtension/SwpExtensionBase (0.0.8)
+  - SwpExtension/UIButtonExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpImageViewExtension (0.0.7):
+  - SwpExtension/UIColorExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpIntExtension (0.0.7):
+  - SwpExtension/UIFontExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpMD5Extension (0.0.7):
+  - SwpExtension/UIImageExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpNavigationExtension (0.0.7):
+  - SwpExtension/UINavigationExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpScreenExtension (0.0.7):
+  - SwpExtension/UIScreenExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpStringExtension (0.0.7):
+  - SwpExtension/UITextFieldExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpTextFieldExtension (0.0.7):
+  - SwpExtension/UIViewExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpUserDefaultsExtension (0.0.7):
-    - SwpExtension/SwpExtensionBase
-  - SwpExtension/SwpViewExtension (0.0.7):
+  - SwpExtension/UserDefaultsExtension (0.0.8):
     - SwpExtension/SwpExtensionBase
 
 DEPENDENCIES:
   - SnapKit
-  - SwpExtension/SwpBase64Extension (from `../`)
-  - SwpExtension/SwpBundleExtension (from `../`)
-  - SwpExtension/SwpButtonExtension (from `../`)
-  - SwpExtension/SwpCGFloatExtension (from `../`)
-  - SwpExtension/SwpColorExtension (from `../`)
-  - SwpExtension/SwpDoubleExtension (from `../`)
-  - SwpExtension/SwpFloatExtension (from `../`)
-  - SwpExtension/SwpFontExtension (from `../`)
-  - SwpExtension/SwpImageExtension (from `../`)
-  - SwpExtension/SwpImageViewExtension (from `../`)
-  - SwpExtension/SwpIntExtension (from `../`)
-  - SwpExtension/SwpMD5Extension (from `../`)
-  - SwpExtension/SwpNavigationExtension (from `../`)
-  - SwpExtension/SwpScreenExtension (from `../`)
-  - SwpExtension/SwpStringExtension (from `../`)
-  - SwpExtension/SwpTextFieldExtension (from `../`)
-  - SwpExtension/SwpUserDefaultsExtension (from `../`)
-  - SwpExtension/SwpViewExtension (from `../`)
+  - SwpExtension/Base64Extension (from `../`)
+  - SwpExtension/BundleExtension (from `../`)
+  - SwpExtension/CGFloatExtension (from `../`)
+  - SwpExtension/DoubleExtension (from `../`)
+  - SwpExtension/FloatExtension (from `../`)
+  - SwpExtension/IntExtension (from `../`)
+  - SwpExtension/MD5Extension (from `../`)
+  - SwpExtension/StringExtension (from `../`)
+  - SwpExtension/UIButtonExtension (from `../`)
+  - SwpExtension/UIColorExtension (from `../`)
+  - SwpExtension/UIFontExtension (from `../`)
+  - SwpExtension/UIImageExtension (from `../`)
+  - SwpExtension/UINavigationExtension (from `../`)
+  - SwpExtension/UIScreenExtension (from `../`)
+  - SwpExtension/UITextFieldExtension (from `../`)
+  - SwpExtension/UIViewExtension (from `../`)
+  - SwpExtension/UserDefaultsExtension (from `../`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -69,8 +66,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwpExtension: e5c6033fa64407d09966fe1c75463ff82b1e47dd
+  SwpExtension: d7588a0deb981afd4078475932e0f137d4f28fbb
 
-PODFILE CHECKSUM: c41536477df7caccfd4402ee7cf6a34ace63a13a
+PODFILE CHECKSUM: 7834f29ebcd2ff0a44592ea7fb4ae5fb6f5e5231
 
 COCOAPODS: 1.6.0.beta.1

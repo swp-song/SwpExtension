@@ -7,195 +7,180 @@
 #
 
 Pod::Spec.new do |s|
-    s.name             = 'SwpExtension'
-    s.version          = '0.0.7'
-    s.summary          = ' Swift Extension Code '
+  s.name             = 'SwpExtension'
+  s.version          = '0.0.8'
+  s.summary          = ' Swift Extension Code '
+
+# This description is used to generate tags and improve search results.
+#   * Think: What does it do? Why did you write it? What is the focus?
+#   * Try to keep it short, snappy and to the point.
+#   * Write the description between the DESC delimiters below.
+#   * Finally, don't worry about the indent, CocoaPods strips it!
+
+  s.description      = <<-DESC
+TODO: Add long description of the pod here.
+                       DESC
+
+  s.homepage         = 'https://github.com/swp-song/SwpExtension'
+  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
+  s.license          = { :type => 'MIT', :file => 'LICENSE' }
+  s.author           = { 'swp-song' => '396587868@qq.com' }
+  s.source           = { :git => 'https://github.com/swp-song/SwpExtension.git', :tag => s.version.to_s }
+  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
+
+  s.ios.deployment_target = '10.0'
   
-  # This description is used to generate tags and improve search results.
-  #   * Think: What does it do? Why did you write it? What is the focus?
-  #   * Try to keep it short, snappy and to the point.
-  #   * Write the description between the DESC delimiters below.
-  #   * Finally, don't worry about the indent, CocoaPods strips it!
+  s.requires_arc          = true
+
+  # s.source_files = 'SwpExtension/Code/**/*.swift'
   
-    s.description      = <<-DESC
-  TODO: Swift Extension Code
-                         DESC
-  
-    s.homepage         = 'https://github.com/swp-song/SwpExtension'
-    # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
-    s.license          = { :type => 'MIT', :file => 'LICENSE' }
-    s.author           = { 'swp-song' => '396587868@qq.com' }
-    s.source           = { :git => 'https://github.com/swp-song/SwpExtension.git', :tag => s.version.to_s }
-    # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  
-    s.ios.deployment_target = '10.0'
-  
-    s.requires_arc          = true
-  
-    # s.source_files          = 'SwpExtension/Code/**/*.swift'
-    
-    # s.resource_bundles = {
-    #   'SwpExtension' => ['SwpExtension/Assets/*.png']
-    # }
-  
-    # s.public_header_files = 'Pod/Classes/**/*.h'
-    s.frameworks = 'UIKit', 'Foundation'
-  
-    s.default_subspec = 
+  # s.resource_bundles = {
+  #   'SwpExtension' => ['SwpExtension/Assets/*.png']
+  # }
+
+  # s.public_header_files = 'Pod/Classes/**/*.h'
+  # s.frameworks = 'UIKit', 'MapKit'
+  # s.dependency 'AFNetworking', '~> 2.3'
+
+  s.frameworks = 'UIKit', 'Foundation'
+
+
+  s.default_subspec = 
                         # 'SwpExtension',
                         
-                        'SwpIntExtension',
-                        'SwpFloatExtension',
-                        'SwpDoubleExtension',
-                        'SwpCGFloatExtension',
-                        'SwpBundleExtension',
-                        'SwpMD5Extension',
-                        'SwpBase64Extension',
-                        'SwpStringExtension',
-                        'SwpUserDefaultsExtension',
+                        'IntExtension',
+                        'FloatExtension',
+                        'DoubleExtension',
+                        'CGFloatExtension',
+                        'BundleExtension',
+                        'MD5Extension',
+                        'Base64Extension',
+                        'StringExtension',
+                        'UserDefaultsExtension',
                         
-                        'SwpColorExtension',
-                        'SwpViewExtension',
-                        'SwpNavigationExtension',
-                        'SwpTextFieldExtension',
-                        'SwpImageExtension',
-                        'SwpImageViewExtension',
-                        'SwpScreenExtension'
-  
-  
-    # - SwpExtensionBase 
-    s.subspec 'SwpExtensionBase' do |swpExtensionBase|
-      swpExtensionBase.source_files = 'SwpExtension/Code/SwpExtensionBase/*.swift'
-    end
-    
+                        'UIViewExtension',
+                        'UIFontExtension',
+                        'UIColorExtension',
+                        'UIImageExtension',
+                        'UIScreenExtension',
+                        'UIButtonExtension',
+                        'UITextFieldExtension',
+                        'UINavigationExtension'
 
-    # - Foundation
 
-    # - Int Extension  
-    s.subspec 'SwpIntExtension' do |swpIntExtension|
-      swpIntExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpIntExtension.source_files = 'SwpExtension/Code/Foundation/SwpIntExtension/*.swift'
-    end
+  # - SwpExtensionBase 
+  s.subspec 'SwpExtensionBase' do |swpExtensionBase|
+    swpExtensionBase.source_files = 'SwpExtension/Code/SwpExtensionBase/*.swift'
+  end
 
-    # - Float Extension  
-    s.subspec 'SwpFloatExtension' do |swpFloatExtension|
-      swpFloatExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpFloatExtension.source_files = 'SwpExtension/Code/Foundation/SwpFloatExtension/*.swift'
-    end
-    
-    # - Double Extension  
-    s.subspec 'SwpDoubleExtension' do |swpDoubleExtension|
-      swpDoubleExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpDoubleExtension.source_files = 'SwpExtension/Code/Foundation/SwpDoubleExtension/*.swift'
-    end
-    
-    # - CGFloat Extension  
-    s.subspec 'SwpCGFloatExtension' do |swpCGFloatExtension|
-      swpCGFloatExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpCGFloatExtension.source_files = 'SwpExtension/Code/Foundation/SwpCGFloatExtension/*.swift'
-    end
+  # - Foundation
 
-    # Bundle Extension
-    s.subspec 'SwpBundleExtension' do |swpBundleExtension|
-      swpBundleExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpBundleExtension.source_files = 'SwpExtension/Code/Foundation/SwpBundleExtension/*.swift'
-      
-    end
-  
-    # Bundle Extension
-    s.subspec 'SwpBundleExtension' do |swpBundleExtension|
-      swpBundleExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpBundleExtension.source_files = 'SwpExtension/Code/Foundation/SwpBundleExtension/*.swift'
-      
-    end
-  
-     # String Extension，MD5
-    s.subspec 'SwpMD5Extension' do |swpMD5Extension|
-      swpMD5Extension.dependency 'SwpExtension/SwpExtensionBase'
-      swpMD5Extension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/MD5/*.swift'
-    end
+  # - Int Extension  
+  s.subspec 'IntExtension' do |intExtension|
+    intExtension.dependency 'SwpExtension/SwpExtensionBase'
+    intExtension.source_files = 'SwpExtension/Code/Foundation/IntExtension/*.swift'
+  end
 
-    # String Extension, Base64
-    s.subspec 'SwpBase64Extension' do |swpBase64Extension|
-      swpBase64Extension.dependency 'SwpExtension/SwpExtensionBase'
-      swpBase64Extension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/Base64/*.swift'
-    end
-  
-    # String Extension，StringSpace
-    s.subspec 'SwpStringExtension' do |swpStringExtension|
-      swpStringExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpStringExtension.source_files = 'SwpExtension/Code/Foundation/SwpStringExtension/String/*.swift'
-    end
+  # - Float Extension  
+  s.subspec 'FloatExtension' do |floatExtension|
+    floatExtension.dependency 'SwpExtension/SwpExtensionBase'
+    floatExtension.source_files = 'SwpExtension/Code/Foundation/FloatExtension/*.swift'
+  end
 
-    # UserDefaults Extension
-    s.subspec 'SwpUserDefaultsExtension' do |swpUserDefaultsExtension|
-      swpUserDefaultsExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpUserDefaultsExtension.source_files = 'SwpExtension/Code/Foundation/SwpUserDefaults/*.swift'
-    end
-  
-    # - UIKit
-    
-    # UIView Extension
-    s.subspec 'SwpViewExtension' do |swpViewExtension|
-      swpViewExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpViewExtension.source_files = 'SwpExtension/Code/UIKit/SwpViewExtension/*.swift'
-    end
-  
-    # UIButton Extension
-    s.subspec 'SwpButtonExtension' do |swpButtonExtension|
-      swpButtonExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpButtonExtension.source_files = 'SwpExtension/Code/UIKit/SwpButtonExtension/*.swift'
-    end
-    
-  
-    # UIColor Extension
-    s.subspec 'SwpColorExtension' do |swpColorExtension|
-      swpColorExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpColorExtension.source_files = 'SwpExtension/Code/UIKit/SwpColorExtension/*.swift'
-    end
-  
-  
-    # UIFont Extension
-    s.subspec 'SwpFontExtension' do |swpFontExtension|
-      swpFontExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpFontExtension.source_files = 'SwpExtension/Code/UIKit/SwpFontExtension/*.swift'
-    end
-  
-    # UINavigationBar Extension
-    s.subspec 'SwpNavigationExtension' do |swpNavigationExtension|
-      swpNavigationExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpNavigationExtension.source_files = 'SwpExtension/Code/UIKit/SwpNavigationExtension/*.swift'
-    end
+  # - Double Extension  
+  s.subspec 'DoubleExtension' do |doubleExtension|
+    doubleExtension.dependency 'SwpExtension/SwpExtensionBase'
+    doubleExtension.source_files = 'SwpExtension/Code/Foundation/DoubleExtension/*.swift'
+  end
 
-    # UITextField Extension
-    s.subspec 'SwpTextFieldExtension' do |swpTextFieldExtension|
-      swpTextFieldExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpTextFieldExtension.source_files = 'SwpExtension/Code/UIKit/SwpTextFieldExtension/*.swift'
-    end
+  # - CGFloat Extension  
+  s.subspec 'CGFloatExtension' do |cgFloatExtension|
+    cgFloatExtension.dependency 'SwpExtension/SwpExtensionBase'
+    cgFloatExtension.source_files = 'SwpExtension/Code/Foundation/CGFloatExtension/*.swift'
+  end
 
-    # SwpImageExtension Extension
-    s.subspec 'SwpImageExtension' do |swpImageExtension|
-      swpImageExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpImageExtension.source_files = 'SwpExtension/Code/UIKit/SwpImageExtension/*.swift'
-    end
+  # Bundle Extension
+  s.subspec 'BundleExtension' do |bundleExtension|
+    bundleExtension.dependency 'SwpExtension/SwpExtensionBase'
+    bundleExtension.source_files = 'SwpExtension/Code/Foundation/BundleExtension/*.swift'
+  end
 
-    # SwpImageExtension Extension
-    s.subspec 'SwpImageViewExtension' do |swpImageViewExtension|
-      swpImageViewExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpImageViewExtension.source_files = 'SwpExtension/Code/UIKit/SwpImageViewExtension/*.swift'
-    end
+  # String Extension，MD5
+  s.subspec 'MD5Extension' do |md5Extension|
+    md5Extension.dependency 'SwpExtension/SwpExtensionBase'
+    md5Extension.source_files = 'SwpExtension/Code/Foundation/StringExtension/MD5/*.swift'
+  end
 
-    # SwpImageExtension Extension
-    s.subspec 'SwpImageViewExtension' do |swpImageViewExtension|
-      swpImageViewExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpImageViewExtension.source_files = 'SwpExtension/Code/UIKit/SwpImageViewExtension/*.swift'
-    end
+  # String Extension, Base64
+  s.subspec 'Base64Extension' do |base64Extension|
+    base64Extension.dependency 'SwpExtension/SwpExtensionBase'
+    base64Extension.source_files = 'SwpExtension/Code/Foundation/StringExtension/Base64/*.swift'
+  end
 
-    # SwpImageExtension Extension
-    s.subspec 'SwpScreenExtension' do |swpScreenExtension|
-      swpScreenExtension.dependency 'SwpExtension/SwpExtensionBase'
-      swpScreenExtension.source_files = 'SwpExtension/Code/UIKit/SwpScreenExtension/*.swift'
-    end
-    
+  # String Extension，StringSpace
+  s.subspec 'StringExtension' do |stringExtension|
+    stringExtension.dependency 'SwpExtension/SwpExtensionBase'
+    stringExtension.source_files = 'SwpExtension/Code/Foundation/StringExtension/String/*.swift'
+  end
+
+   # UserDefaults Extension
+  s.subspec 'UserDefaultsExtension' do |userDefaultsExtension|
+    userDefaultsExtension.dependency 'SwpExtension/SwpExtensionBase'
+    userDefaultsExtension.source_files = 'SwpExtension/Code/Foundation/UserDefaultsExtension/*.swift'
+  end
+
+
+  # - UIKit
+
+  # UIView Extension
+  s.subspec 'UIViewExtension' do |viewExtension|
+    viewExtension.dependency 'SwpExtension/SwpExtensionBase'
+    viewExtension.source_files = 'SwpExtension/Code/UIKit/UIViewExtension/*.swift'
   end
   
+  
+   # UIFont Extension
+  s.subspec 'UIFontExtension' do |fontExtension|
+    fontExtension.dependency 'SwpExtension/SwpExtensionBase'
+    fontExtension.source_files = 'SwpExtension/Code/UIKit/UIFontExtension/*.swift'
+  end
+
+  # UIColor Extension
+  s.subspec 'UIColorExtension' do |colorExtension|
+    colorExtension.dependency 'SwpExtension/SwpExtensionBase'
+    colorExtension.source_files = 'SwpExtension/Code/UIKit/UIColorExtension/*.swift'
+  end
+
+   # UIImage Extension
+  s.subspec 'UIImageExtension' do |imageExtension|
+    imageExtension.dependency 'SwpExtension/SwpExtensionBase'
+    imageExtension.source_files = 'SwpExtension/Code/UIKit/UIImageExtension/*.swift'
+  end
+
+   # UIScreen Extension 
+  s.subspec 'UIScreenExtension' do |screenExtension|
+    screenExtension.dependency 'SwpExtension/SwpExtensionBase'
+    screenExtension.source_files = 'SwpExtension/Code/UIKit/UIScreenExtension/*.swift'
+  end
+
+  # UIButton Extension
+  s.subspec 'UIButtonExtension' do |buttonExtension|
+    buttonExtension.dependency 'SwpExtension/SwpExtensionBase'
+    buttonExtension.source_files = 'SwpExtension/Code/UIKit/UIButtonExtension/*.swift'
+  end
+  
+  # UITextField Extension
+  s.subspec 'UITextFieldExtension' do |textFieldExtension|
+    textFieldExtension.dependency 'SwpExtension/SwpExtensionBase'
+    textFieldExtension.source_files = 'SwpExtension/Code/UIKit/UITextFieldExtension/*.swift'
+  end
+
+  
+  # UINavigationBar Extension
+  s.subspec 'UINavigationExtension' do |navigationExtension|
+    navigationExtension.dependency 'SwpExtension/SwpExtensionBase'
+    navigationExtension.source_files = 'SwpExtension/Code/UIKit/UINavigationExtension/*.swift'
+  end
+
+
+end
