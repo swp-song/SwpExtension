@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2D2D5D15214FEC55006444D9 /* DemoBaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5D14214FEC55006444D9 /* DemoBaseProtocol.swift */; };
+		2D2D5D15214FEC55006444D9 /* DemoBaseViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2D5D14214FEC55006444D9 /* DemoBaseViewProtocol.swift */; };
 		6052D04554BAAF43F5A86C89 /* Pods_SwpExtensionDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */; };
 		F13267FA214F915800916AED /* UIButtonViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13267D3214F915800916AED /* UIButtonViewController.swift */; };
 		F13267FB214F915800916AED /* DemoLilstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13267D6214F915800916AED /* DemoLilstViewController.swift */; };
@@ -35,10 +35,12 @@
 		F195CEE0211C2381003D666B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEDE211C2381003D666B /* Main.storyboard */; };
 		F195CEE2211C2382003D666B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE1211C2382003D666B /* Assets.xcassets */; };
 		F195CEE5211C2382003D666B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F195CEE3211C2382003D666B /* LaunchScreen.storyboard */; };
+		F1D8EEC52159F98D00CA9D19 /* DemoBaseCellProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D8EEC42159F98D00CA9D19 /* DemoBaseCellProtocol.swift */; };
+		F1D8EEC72159FAB700CA9D19 /* DemoBaseTableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D8EEC62159FAB700CA9D19 /* DemoBaseTableViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		2D2D5D14214FEC55006444D9 /* DemoBaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseProtocol.swift; sourceTree = "<group>"; };
+		2D2D5D14214FEC55006444D9 /* DemoBaseViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseViewProtocol.swift; sourceTree = "<group>"; };
 		38FCFEA0465A30F802080CAD /* Pods_SwpExtensionDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwpExtensionDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		6B158D114262CCF894BEB251 /* Pods-SwpExtensionDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		921A7A23C261D0B5B3197019 /* Pods-SwpExtensionDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwpExtensionDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwpExtensionDemo/Pods-SwpExtensionDemo.release.xcconfig"; sourceTree = "<group>"; };
@@ -70,6 +72,8 @@
 		F195CEE1211C2382003D666B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F195CEE4211C2382003D666B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F195CEE6211C2382003D666B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F1D8EEC42159F98D00CA9D19 /* DemoBaseCellProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseCellProtocol.swift; sourceTree = "<group>"; };
+		F1D8EEC62159FAB700CA9D19 /* DemoBaseTableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoBaseTableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -318,7 +322,9 @@
 			children = (
 				F1326819214F9FDE00916AED /* DemoBaseTableView.swift */,
 				F132681B214FAAD600916AED /* DemoBaseCell.swift */,
-				2D2D5D14214FEC55006444D9 /* DemoBaseProtocol.swift */,
+				2D2D5D14214FEC55006444D9 /* DemoBaseViewProtocol.swift */,
+				F1D8EEC42159F98D00CA9D19 /* DemoBaseCellProtocol.swift */,
+				F1D8EEC62159FAB700CA9D19 /* DemoBaseTableViewProtocol.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -484,11 +490,13 @@
 				F13267FD214F915800916AED /* DemoLilstView.swift in Sources */,
 				F13267FC214F915800916AED /* DemoCell.swift in Sources */,
 				F1326816214F9ED600916AED /* DemoNavigationController.swift in Sources */,
-				2D2D5D15214FEC55006444D9 /* DemoBaseProtocol.swift in Sources */,
+				2D2D5D15214FEC55006444D9 /* DemoBaseViewProtocol.swift in Sources */,
 				F1326803214F915800916AED /* NavigationModel.swift in Sources */,
+				F1D8EEC72159FAB700CA9D19 /* DemoBaseTableViewProtocol.swift in Sources */,
 				F132681A214F9FDE00916AED /* DemoBaseTableView.swift in Sources */,
 				F1326805214F915800916AED /* NavigationCell.swift in Sources */,
 				F13267FE214F915800916AED /* DemoModel.swift in Sources */,
+				F1D8EEC52159F98D00CA9D19 /* DemoBaseCellProtocol.swift in Sources */,
 				F132680C214F915800916AED /* CustomTableView.swift in Sources */,
 				F1326806214F915800916AED /* NavigationListView.swift in Sources */,
 				F195CEDB211C2381003D666B /* AppDelegate.swift in Sources */,

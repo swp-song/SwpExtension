@@ -13,11 +13,6 @@ import UIKit
 class NavigationListView: DemoBaseTableView, UITableViewDataSource, UITableViewDelegate, UIScrollViewDelegate {
 
     
-//    public var datas : [NavigationModel] {
-//        didSet {
-//            reloadData()
-//        }
-//    }
     
     
     weak public var navigationListViewDelegate : DemoBaseTableViewDelegate? = nil
@@ -25,7 +20,7 @@ class NavigationListView: DemoBaseTableView, UITableViewDataSource, UITableViewD
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
-        datas = []
+        
         register(NavigationCell.self, forCellReuseIdentifier: NSStringFromClass(NavigationCell.self))
         dataSource = self
         delegate   = self
@@ -35,6 +30,8 @@ class NavigationListView: DemoBaseTableView, UITableViewDataSource, UITableViewD
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    
+
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -54,11 +51,12 @@ extension NavigationListView {
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return datas.count
+        return datas.datas.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return (NavigationCell.cellInit(tableView, identifier: NSStringFromClass(NavigationCell.self), indexPath: indexPath) as! NavigationCell).model(datas[indexPath.row]);
+        return (NavigationCell.cellInit(tableView, identifier: NSStringFromClass(NavigationCell.self), indexPath: indexPath) as! NavigationCell).model(datas.datas[indexPath.row]);
+        
     }
 }
 
@@ -66,7 +64,7 @@ extension NavigationListView {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//        navigationListViewDelegate?.navigationListViewClickCell(self, indexPath: indexPath, model: datas[indexPath.row] as AnyObject)
+//        (self.datas.delegate as? DemoBaseTableViewDelegate)?.tableView(tableView, indexPath: indexPath, model: datas.datas[indexPath.row])
     }
 }
 
@@ -75,6 +73,11 @@ extension NavigationListView {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
 //        navigationListViewDelegate?.navigationBarListViewScrollDidScroll(self, scrollView: scrollView)
     }
+    
+//    func aDelegate(_ aDelegate : DemoBaseTableViewDelegate) -> Self {
+//        self.datas.delegate = aDelegate as!
+//        return self
+//    }
 }
 
 extension NavigationListView {
@@ -85,6 +88,15 @@ extension NavigationListView {
 //        return self
 //    }
 //
+    
+   
+//    func aDelegate(_ aDelegate: DemoBaseTableViewDelegate ) -> Self {
+//        self.datas.delegate = aDelegate
+//        return self
+//    }
+    
+    
+   
 
     
 
@@ -92,8 +104,6 @@ extension NavigationListView {
         self.init(frame: frame, style: style)
         self.navigationListViewDelegate = delegate;
     }
-    
-    
     
 }
 

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NavigationViewController: DemoBaseViewController {
+class NavigationViewController: DemoBaseViewController, DemoBaseTableViewDelegate {
 
     
     
@@ -19,6 +19,8 @@ class NavigationViewController: DemoBaseViewController {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        
+        navigationListView.aDelegate(self)
         
         self.setUI()
         
@@ -109,7 +111,7 @@ extension NavigationViewController {
     
     private func setData() -> Void {
         let datas = NSArray(contentsOfFile: Bundle.main.path(forResource: "NavigationModel.plist", ofType: nil) ?? "") as! [[String : Any]]
-        self.navigationListView.datas = NavigationModel.datas(datas)
+        self.navigationListView.datas.datas = NavigationModel.datas(datas)
     }
 }
 
@@ -124,4 +126,6 @@ extension NavigationViewController {
 // MARK: - NavigationViewController, Delegate Methods Extension
 extension UITextFieldViewController {
     
+//    tableViewDidScroll
 }
+

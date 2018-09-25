@@ -30,40 +30,29 @@ class DemoBaseCell: UITableViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+   
     
-    
-    // MARK: - swift judgment
-    #if swift (>=4.2)
+
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-    }
-    #else
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        configCell()
     }
     
-    #endif
-
+    
+    func configCell() {
+        
+        setUpUI()
+        
+        setUIAutoLayout()
+        
+    }
+    
+    func setUpUI() -> Void { }
+    
+    func setUIAutoLayout() -> Void { }
+    
 }
 
-
-
-extension DemoBaseCell {
-    
-    public static func cellInit(_ tableView : UITableView, identifier : String, indexPath : IndexPath) -> DemoBaseCell {
-        return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! DemoBaseCell
-    }
-    
-    
-    
-//    public func model(_ model : NSObject?) -> Self {
-//        self.model = model
-//        return self
-//    }
-    
-    
-}
 
 
