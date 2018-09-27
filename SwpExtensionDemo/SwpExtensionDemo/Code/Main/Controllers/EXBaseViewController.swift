@@ -8,7 +8,7 @@
 
 import UIKit
 
-import SpriteKit
+import SnapKit
 import SwpExtension
 
 class EXBaseViewController: UIViewController {
@@ -18,7 +18,6 @@ class EXBaseViewController: UIViewController {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         
         self.config()
     }
@@ -87,6 +86,10 @@ class EXBaseViewController: UIViewController {
 
         self.configUIAutoLayout()
         
+        self.configDatas()
+        
+        self.configClosure()
+        
     }
 }
 
@@ -118,7 +121,7 @@ class EXBaseViewController: UIViewController {
 // MARK: - EXBaseViewController, Delegate Methods Extension
 @objc extension EXBaseViewController {
     
-    func controllerClosure() -> Void {
+    func  configClosure() -> Void {
         
     }
 }

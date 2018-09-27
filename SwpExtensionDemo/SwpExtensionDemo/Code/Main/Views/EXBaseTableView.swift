@@ -10,7 +10,12 @@ import UIKit
 
 class EXBaseTableView: UITableView {
     
+    var datas : [NSObject] {
+        didSet { reloadData()}
+    }
+    
     override init(frame: CGRect, style: UITableView.Style) {
+        self.datas = []
         super.init(frame: frame, style: style)
         self.configTableView()
     }
@@ -35,5 +40,11 @@ class EXBaseTableView: UITableView {
     func configTableView() -> Void {
         
     }
+    
+    func datas(_ datas : [NSObject]) -> Self {
+        self.datas = datas
+        return self
+    }
+    
 }
 

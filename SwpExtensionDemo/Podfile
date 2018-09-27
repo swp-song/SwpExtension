@@ -10,6 +10,7 @@ target 'SwpExtensionDemo' do
 
   # Pods for SwpExtensionDemo
 
+  inhibit_all_warnings!
   pod 'SnapKit'
 
   pod 'SwpExtension/IntExtension', :path => '../'

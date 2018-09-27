@@ -1,22 +1,20 @@
-
 //
-//  DemoListViewController.swift
+//  UIButtonViewController.swift
 //  SwpExtensionDemo
 //
-//  Created by swp_song on 2018/9/26.
-//  Copyright © 2018年 swp-song. All rights reserved.
+//  Created by swp_song on 2018/9/27.
+//  Copyright © 2018 swp-song. All rights reserved.
 //
 
 import UIKit
 
-class DemoListViewController: EXBaseViewController {
+class UIButtonViewController: EXBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
-
     
 
     /*
@@ -29,17 +27,4 @@ class DemoListViewController: EXBaseViewController {
     }
     */
 
-}
-
-extension DemoListViewController {
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func configUI() {
-//        super.configUI()
-        print("123")
-    }
-    
 }

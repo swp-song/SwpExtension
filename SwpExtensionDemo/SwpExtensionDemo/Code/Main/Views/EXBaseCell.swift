@@ -71,7 +71,8 @@ class EXBaseCell: UITableViewCell {
     }
     
     @discardableResult func model(_ data : NSObject?) -> Self {
-        return self.configDatas(model)
+        self.model = data
+        return self
     }
     
 }
