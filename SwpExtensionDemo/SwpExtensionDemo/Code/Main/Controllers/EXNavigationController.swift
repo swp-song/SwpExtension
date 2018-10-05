@@ -68,8 +68,6 @@ class EXNavigationController: UINavigationController {
 
 }
 
-extension EXNavigationController  {
-    
-   
+extension EXNavigationController {
     
 }

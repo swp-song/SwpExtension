@@ -19,13 +19,8 @@ class DemoListViewController: EXBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-//        let demo = DemoListModel()
-    
     }
-
     
-
     /*
     // MARK: - Navigation
 
@@ -41,16 +36,13 @@ class DemoListViewController: EXBaseViewController {
 extension DemoListViewController {
 
     override func configUI() {
-    
         self.view.addSubview(self.demoList)
     }
     
     override func configUIAutoLayout() {
-        
         self.demoList.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
-        
     }
     
 }
@@ -58,10 +50,17 @@ extension DemoListViewController {
 extension DemoListViewController {
     
     override func configDatas() {
-        
         let datas : [[String : Any]]? = NSArray(contentsOfFile: Bundle.main.path(forResource: "DemoModel.plist", ofType: nil) ?? "") as? [[String : Any]]
         self.datas = DemoListModel.demos(datas)
-        self.demoList.datas = self.datas
+        self.demoList.datas(self.datas).test(self)
+    
     }
     
+}
+
+extension DemoListViewController : EXTableViewProtocol {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, model: NSObject) {
+        
+    }
+
 }

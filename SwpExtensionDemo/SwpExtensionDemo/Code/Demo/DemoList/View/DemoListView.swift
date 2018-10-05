@@ -34,7 +34,14 @@ extension DemoListView {
         super.configTableView()
         self.register(DemoListCell.self, forCellReuseIdentifier: NSStringFromClass(DemoListCell.self))
         self.dataSource = self
+        self.delegate   = self
     }
+    
+    override func test(_ a: EXTableViewProtocol) -> Self {
+        super.test(a)
+        return self
+    }
+    
 }
 
 extension DemoListView : UITableViewDataSource {
@@ -43,7 +50,6 @@ extension DemoListView : UITableViewDataSource {
         return 1
     }
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
          return self.datas.count
     }
@@ -51,5 +57,15 @@ extension DemoListView : UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
          return DemoListCell.initCell(tableView, identifier: NSStringFromClass(DemoListCell.self), indexPath: indexPath).model(self.datas[indexPath.row])
     }
+    
 }
+
+extension DemoListView : UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.exDelegate?.tableView(self, didSelectRowAt: indexPath, model: self.datas[indexPath.row])
+    }
+    
+}
+
 

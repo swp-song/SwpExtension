@@ -59,8 +59,6 @@ class EXBaseViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-
     /*
     // MARK: - Navigation
 
@@ -124,4 +122,5 @@ class EXBaseViewController: UIViewController {
     func  configClosure() -> Void {
         
     }
+    
 }

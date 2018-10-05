@@ -58,14 +58,11 @@ extension EXTabBarController {
         else { return UIViewController() }
         
         let controller = aClass.init()
-        
         controller.tabBarItem.image         = UIImage(named: imageName + "_no")?.withRenderingMode(.alwaysOriginal)
         controller.tabBarItem.selectedImage = UIImage(named: imageName + "_sel")?.withRenderingMode(.alwaysOriginal)
         controller.tabBarItem.title         = title
-        
         controller.tabBarItem.setTitleTextAttributes([.foregroundColor : UIColor.lightGray, .font : UIFont.systemFont(ofSize: 12)], for: .normal)
         controller.tabBarItem.setTitleTextAttributes([.foregroundColor : UIColor.orange, .font : UIFont.systemFont(ofSize: 12)], for: .selected)
-        
         return EXNavigationController(rootViewController: controller)
     }
     

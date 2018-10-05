@@ -10,14 +10,18 @@ import UIKit
 
 class EXBaseTableView: UITableView {
     
+    
     var datas : [NSObject] {
-        didSet { reloadData()}
+        didSet { reloadData() }
     }
+    
+    weak var exDelegate : EXTableViewProtocol? = nil;
     
     override init(frame: CGRect, style: UITableView.Style) {
         self.datas = []
         super.init(frame: frame, style: style)
         self.configTableView()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,6 +38,15 @@ class EXBaseTableView: UITableView {
 
 }
 
+extension EXBaseTableView {
+    
+    
+    
+    @discardableResult func datas(_ datas : [NSObject]) -> Self {
+        self.datas = datas
+        return self
+    }
+}
 
 @objc extension EXBaseTableView {
     
@@ -41,8 +54,13 @@ class EXBaseTableView: UITableView {
         
     }
     
-    func datas(_ datas : [NSObject]) -> Self {
-        self.datas = datas
+//    @discardableResult func exDelegate(_ deleage : EXTableViewProtocol?) -> Self {
+//        self.exDelegate = deleage;
+//        return self;
+//    }
+    
+    func test(_ a : EXTableViewProtocol) -> Self {
+        self.exDelegate = a
         return self
     }
     
