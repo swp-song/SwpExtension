@@ -9,7 +9,6 @@
 /// SwpExtensionClassProtocol
 public protocol SwpExtensionClassProtocol { }
 
-
 // MARK: - SwpExtensionClassProtocol
 public extension SwpExtensionClassProtocol {
     
@@ -20,7 +19,7 @@ public extension SwpExtensionClassProtocol {
     public static var swp : SwpExtensionClass<Self>.Type {
         return SwpExtensionClass.self
     }
-    
+
 }
 
 extension UIView    : SwpExtensionClassProtocol {}
@@ -28,21 +27,14 @@ extension UIColor   : SwpExtensionClassProtocol {}
 extension UIFont    : SwpExtensionClassProtocol {}
 extension UIImage   : SwpExtensionClassProtocol {}
 extension UIScreen  : SwpExtensionClassProtocol {}
-
 extension UserDefaults : SwpExtensionClassProtocol {}
-
 extension UIViewController : SwpExtensionClassProtocol {}
-
-
-
 
 /// SwpExtensionStructProtocol
 public protocol SwpExtensionStructProtocol { }
 
-
 // MARK: - SwpExtensionStructProtocol
 public extension SwpExtensionStructProtocol {
-    
     
     public var swp : SwpExtensionStruct<Self> {
         return SwpExtensionStruct(self)

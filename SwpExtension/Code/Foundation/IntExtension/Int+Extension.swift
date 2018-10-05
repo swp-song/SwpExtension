@@ -8,7 +8,6 @@
 
 extension SwpExtensionStruct where BaseStruct == Int {
     
-    
     /// # create int type random number
     public static var random : Int {
         return Int.swp.random()

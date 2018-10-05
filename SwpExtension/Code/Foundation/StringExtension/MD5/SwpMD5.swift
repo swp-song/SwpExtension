@@ -28,8 +28,6 @@ fileprivate class SwpMD5Utils: NSObject {
         return result
     }
     
-    
-    
     /** array of bytes, little-endian representation */
     fileprivate static func SwpMD5UtilsArrayOfBytes<T>(_ value: T, length: Int? = nil) -> [UInt8] {
         let totalBytes = length ?? (MemoryLayout<T>.size * 8)
@@ -44,18 +42,10 @@ fileprivate class SwpMD5Utils: NSObject {
             }
             return bytes
         }
-        
-        #if swift(>=4.1)
         valuePointer.deinitialize(count: 1)
         valuePointer.deallocate()
-        #else
-        valuePointer.deinitialize()
-        valuePointer.deallocate(capacity: 1)
-        #endif
-        
         return bytes
     }
-    
     
 }
 
@@ -126,8 +116,6 @@ fileprivate extension Int {
     }
     
 }
-
-
 
 class MD5: SwpMD5Protocol {
     

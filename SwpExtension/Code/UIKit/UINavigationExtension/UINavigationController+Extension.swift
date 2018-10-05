@@ -10,7 +10,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     
     /// # set navigation bar background color
     public var barBackgroundColor : UIColor {
-        
         set {
             self.swp.navigationBar.swp.backgroundColor = newValue
         }
@@ -22,7 +21,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     
     /// # set navigation bar background image
     public var barBackgroundImage : UIImage? {
-        
         set {
             self.swp.navigationBar.swp.backgroundImage = newValue
         }
@@ -34,7 +32,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     
     /// # set navigation bar tint color
     public var barTintColor : UIColor {
-        
         set {
             self.swp.navigationBar.tintColor = newValue
         }
@@ -47,7 +44,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     
     /// # set navigation bar hide shadowImage
     public var isHideBarShadowImage : Bool {
-        
         set {
             self.swp.navigationBar.swp.isHideShadowImage = newValue
         }
@@ -57,7 +53,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
             return self.swp.navigationBar.swp.isHideShadowImage
         }
     }
-    
     
     /// # set the navigation bar title font
     public var barTitleFont : UIFont {
@@ -70,11 +65,8 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
         }
     }
     
-    
-    
     /// # set the navigation bar title color
     public var barTitleColor : UIColor {
-        
         set {
             self.swp.navigationBar.swp.titleColor = newValue
         }
@@ -86,7 +78,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     
     /// # hide the navigation bar bottom line
     public var isHideBarBottomLine : Bool {
-        
         set {
             self.swp.navigationBar.swp.isHideBottomLine = newValue
         }
@@ -96,10 +87,8 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
         }
     }
     
-    
     /// # set navigation bar alpha
     public var barAlpha : CGFloat {
-        
         set {
             self.swp.navigationBar.swp.alpha = newValue
         }
@@ -111,7 +100,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     
     /// # set navigation bar items alpha
     public var barItemsAlpha : CGFloat {
-        
         set {
             self.swp.navigationBar.swp.itemsAlpha = newValue
         }
@@ -123,7 +111,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     
     /// # set translationY
     public var barTranslationY : CGFloat  {
-        
         set {
             self.swp.navigationBar.swp.translationY = newValue
         }
@@ -137,8 +124,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     public var barHeight : CGFloat {
         return self.swp.navigationBar.swp.height
     }
-    
-    
     
 }
 
@@ -162,7 +147,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
         return self.swp
     }
     
-    
     ///
     /// # set the navigation bar title color
     /// - Parameter color: color
@@ -180,8 +164,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
         self.isHideBarBottomLine = isHide
         return self.swp
     }
-    
-    
     
     ///
     /// # set navigation bar alpha
@@ -203,7 +185,6 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
         return self.swp
     }
     
-    
     ///
     /// # set the navigation bar title style
     /// - Parameters:
@@ -222,11 +203,10 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
         self.swp.navigationBar.swp.remove()
         return self.swp
     }
+    
 }
 
 extension UINavigationController {
-    
-    
     
     fileprivate func updateNavigationBar(_ from : UIViewController?, to : UIViewController?, progress : CGFloat) -> Void {
         
@@ -262,10 +242,8 @@ extension UINavigationController {
         let blue    = fBlue  + (tBlue   - fBlue)  * percent
         let alpha   = fAlpha + (tAlpha  - fAlpha) * percent
         
-        
         return UIColor(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
     
     ///
     ///
@@ -280,9 +258,8 @@ extension UINavigationController {
     
 }
 
-
 extension UINavigationController {
-    
+
     open override var preferredStatusBarStyle: UIStatusBarStyle {
         return self.topViewController?.swp.statusBarStyle ?? .default
     }

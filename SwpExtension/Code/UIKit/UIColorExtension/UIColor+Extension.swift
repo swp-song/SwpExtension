@@ -12,8 +12,8 @@ extension UIColor {
     ///
     /// # r g b set color
     /// - Parameters:
-    ///   - hex: hex
-    ///   - alpha: alpha
+    ///   - hex:    hex
+    ///   - alpha:  alpha
     public convenience init(aRed: CGFloat, aGreen: CGFloat, aBlue: CGFloat, alpha: CGFloat = 1) {
         self.init(red: aRed / 255.0, green: aGreen / 255.0, blue: aBlue / 255.0, alpha: alpha)
     }
@@ -21,8 +21,8 @@ extension UIColor {
     ///
     /// # hex set color
     /// - Parameters:
-    ///   - hex: hex
-    ///   - alpha: alpha
+    ///   - hex:    hex
+    ///   - alpha:  alpha
     public convenience init(_ hex : Int, alpha : CGFloat = 1) {
         self.init(aRed: ((CGFloat)((hex & 0xFF0000) >> 16)), aGreen: ((CGFloat)((hex & 0xFF00) >> 8)), aBlue: ((CGFloat)((hex & 0xFF))), alpha: alpha)
     }
@@ -31,15 +31,13 @@ extension UIColor {
     ///
     /// # hex set color
     /// - Parameters:
-    ///   - hex: hex
-    ///   - alpha: alpha
+    ///   - hex:    hex
+    ///   - alpha:  alpha
     public convenience init(_ hex : String, alpha : CGFloat = 1) {
-        
         guard let colorValue = UIColor.aColorValue(hex) else {
             self.init(aRed: 0, aGreen: 0, aBlue: 0, alpha: 0)
             return
         }
-        
         self.init(aRed: colorValue.red, aGreen: colorValue.green, aBlue: colorValue.blue, alpha: alpha)
     }
     
@@ -67,7 +65,6 @@ extension SwpExtensionClass where BaseClass : UIColor {
     public static func hexColor(_ hex : String, alpha : CGFloat = 1) -> UIColor {
         return UIColor(hex, alpha: alpha)
     }
-    
     
     ///
     /// # r g b set color
@@ -112,15 +109,12 @@ private extension UIColor {
         }
         
         var range : NSRange = NSRange()
-        range.location      = 0
-        range.length        = 2;
-        
+        range.location       = 0
+        range.length         = 2;
         let rString : String = (aString as NSString).substring(with: range)
-        
-        range.location      = 2
+        range.location       = 2
         let gString : String = (aString as NSString).substring(with: range)
-        
-        range.location      = 4
+        range.location       = 4
         let bString : String = (aString as NSString).substring(with: range)
         
         var r : UInt32 = 0
@@ -130,9 +124,9 @@ private extension UIColor {
         Scanner(string: rString).scanHexInt32(&r)
         Scanner(string: gString).scanHexInt32(&g)
         Scanner(string: bString).scanHexInt32(&b)
-        
         return (red : CGFloat(r), green : CGFloat(g), blue : CGFloat(b))
     }
+    
 }
 
 

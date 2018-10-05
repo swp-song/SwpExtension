@@ -8,24 +8,17 @@
 
 /// SwpExtensionClass
 public final class SwpExtensionClass<BaseClass> {
-    
     public let swp: BaseClass
-    
     public init(_ swp: BaseClass) {
         self.swp = swp
     }
-    
 }
-
 
 /// SwpExtensionStruct
 public struct SwpExtensionStruct<BaseStruct> {
-    
     public let swp : BaseStruct
-    
     public init(_ swp : BaseStruct) {
         self.swp = swp
     }
-    
 }
 

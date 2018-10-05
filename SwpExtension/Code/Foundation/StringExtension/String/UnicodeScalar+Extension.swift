@@ -36,25 +36,23 @@ extension SwpExtensionStruct where BaseStruct == UnicodeScalar {
         //  8400 ... 8447           Combining Diacritical Marks for Symbols
         switch value {
             
-        case 0x1F600 ... 0x1F64F,
-             0x1F300 ... 0x1F5FF,
-             0x1F680 ... 0x1F6FF,
-             0x1F1E6 ... 0x1F1FF,
-             0x2600 ... 0x26FF,
-             0x2700 ... 0x27BF,
-             0xFE00 ... 0xFE0F,
-             0x1F900 ... 0x1F9FF,
-             127000 ... 127600,
-             65024 ... 65039,
-             9100 ... 9300,
-             8400 ... 8447:
-            
-            isEmoji =  true
-        default:
-            isEmoji = false
-            
+            case 0x1F600 ... 0x1F64F,
+                 0x1F300 ... 0x1F5FF,
+                 0x1F680 ... 0x1F6FF,
+                 0x1F1E6 ... 0x1F1FF,
+                 0x2600 ... 0x26FF,
+                 0x2700 ... 0x27BF,
+                 0xFE00 ... 0xFE0F,
+                 0x1F900 ... 0x1F9FF,
+                 127000 ... 127600,
+                 65024 ... 65039,
+                 9100 ... 9300,
+                 8400 ... 8447:
+                
+                isEmoji =  true
+            default:
+                isEmoji = false
         }
-        
         return isEmoji
     }
     

@@ -15,7 +15,6 @@ extension SwpExtensionClass where BaseClass : UIViewController {
         }
         
         get {
-            
             guard let value = objc_getAssociatedObject(self.swp, &UIViewController.aKey.kIsPush) as? Bool else { return UIViewController.aKey.kIsPush }
             return value
         }
@@ -37,31 +36,25 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
 }
 
-
 extension SwpExtensionClass where BaseClass : UIViewController {
     
     @discardableResult public func statusBarStyle(_ statusBarStyle : UIStatusBarStyle) -> BaseClass {
         self.swp.setNeedsStatusBarAppearanceUpdate()
         return self.swp
     }
-    
-    
-}
 
+}
 
 // MARK: - navigation bar property
 extension SwpExtensionClass where BaseClass : UIViewController {
     
-    
     /// # set navigation bar background color
     public var barBackgroundColor : UIColor {
-        
         set {
             self.swp.navigationController?.swp.barBackgroundColor = newValue
         }
         
         get {
-            
             return self.swp.checkValue(self.swp.navigationController?.swp.barBackgroundColor, dValue: UIViewController.aKey.kBarBackgroundColor, block: { (value) -> UIColor in
                 return value
             })
@@ -71,26 +64,22 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # set background image
     public var barBackgroundImage : UIImage? {
-        
         set {
             self.swp.navigationController?.swp.barBackgroundImage = newValue
         }
         
         get {
-            
             return self.swp.navigationController?.swp.barBackgroundImage
         }
     }
     
     /// # set navigation bar tint color
     public var barTintColor : UIColor {
-        
         set {
             self.swp.navigationController?.swp.barTintColor = newValue
         }
         
         get {
-            
             return self.swp.checkValue(self.swp.navigationController?.swp.barTintColor, dValue: UIViewController.aKey.kBarTintColor, block: { (value) -> UIColor in
                 return value
             })
@@ -99,7 +88,6 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # set navigation bar hide shadowImage
     public var isHideBarShadowImage : Bool {
-        
         set {
             self.swp.navigationController?.swp.isHideBarShadowImage = newValue
         }
@@ -127,7 +115,6 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # set the navigation bar title color
     public var barTitleColor : UIColor {
-        
         set {
             self.swp.navigationController?.swp.barTitleColor = newValue
         }
@@ -141,7 +128,6 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # hide the navigation bar bottom line
     public var isHideBarBottomLine : Bool {
-        
         set {
             self.swp.navigationController?.swp.isHideBarBottomLine = newValue
         }
@@ -155,13 +141,11 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # set navigation bar alpha
     public var barAlpha : CGFloat {
-        
         set {
             self.swp.navigationController?.swp.barAlpha = newValue
         }
         
         get {
-            
             return self.swp.checkValue(self.swp.navigationController?.swp.barAlpha, dValue:UIViewController.aKey.kBarAlpha , block: { (value) -> CGFloat in
                 return value
             })
@@ -170,13 +154,11 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # set navigation bar items alpha
     public var barItemsAlpha : CGFloat {
-        
         set {
             self.swp.navigationController?.swp.barItemsAlpha = newValue
         }
         
         get {
-            
             return self.swp.checkValue(self.swp.navigationController?.swp.barItemsAlpha, dValue:UIViewController.aKey.kItemsAlpha, block: { (value) -> CGFloat in
                 return value
             })
@@ -185,13 +167,11 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # set translationY
     public var barTranslationY : CGFloat  {
-        
         set {
             self.swp.navigationController?.swp.barTranslationY = newValue
         }
         
         get {
-            
             return self.swp.checkValue(self.swp.navigationController?.swp.barTranslationY, dValue:UIViewController.aKey.kBarTranslationY, block: { (value) -> CGFloat in
                 return value
             })
@@ -201,7 +181,6 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     
     /// # get navigation bar height
     public var barHeight : CGFloat {
-        
         return self.swp.checkValue(self.swp.navigationController?.swp.barHeight, dValue: UIViewController.aKey.kBarHeight, block: { (value) -> CGFloat in
             return value
         })
@@ -248,8 +227,6 @@ extension SwpExtensionClass where BaseClass : UIViewController {
         return self.swp
     }
     
-    
-    
     ///
     /// # set navigation bar alpha
     /// - Parameter alpha:
@@ -258,7 +235,6 @@ extension SwpExtensionClass where BaseClass : UIViewController {
         self.barAlpha = alpha
         return self.swp
     }
-    
     
     ///
     /// # set navigation bar items alpha
@@ -305,11 +281,8 @@ extension UIViewController {
         static var kItemsAlpha              : CGFloat   = 1
         static var kBarTranslationY         : CGFloat   = 0
         static var kBarHeight               : CGFloat   = 44
-        
         static var kIsPush                  : Bool      = false
-        
         static var kStatusBarStyle          : UIStatusBarStyle = .default
-        
     }
     
     ///
@@ -318,7 +291,7 @@ extension UIViewController {
     ///   - value:  value
     ///   - dValue: dValue
     ///   - block:  block
-    /// - Returns:  T
+    /// - Returns: T
     fileprivate func checkValue<T>(_ value : T?, dValue : T, block:( (_ value : T) -> T)? ) -> T {
         guard let value = value else { return dValue }
         return block?(value) ?? dValue

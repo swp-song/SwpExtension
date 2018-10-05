@@ -72,13 +72,11 @@ extension SwpExtensionClass where BaseClass : UIImage {
     /// - Returns:   UIImage?
     public static func qrCodeImage(_ string : String, icon : UIImage, iconSize : CGFloat = 35, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
         return UIImage.aCreateQrCodeImage(string, size: size, icon: icon, iconSize: iconSize, qrColor: qrColor, bgColor: bgColor)
-        
     }
 }
 
 // MARK: - create barCode image
 extension SwpExtensionClass where BaseClass : UIImage {
-    
     
     ///
     /// # create barCode image
@@ -89,7 +87,6 @@ extension SwpExtensionClass where BaseClass : UIImage {
     public static func barCodeImage(_ string : String, size : CGFloat = 400) -> UIImage? {
         return UIImage.aCreateBarCodeImage(string, size:size)
     }
-    
     
     ///
     /// # create barCode image
@@ -102,4 +99,5 @@ extension SwpExtensionClass where BaseClass : UIImage {
     public static func barCodeImage(_ string : String, size : CGFloat = 400, textFont : UIFont, textColor : UIColor) -> UIImage? {
         return UIImage.aCreateBarCodeImage(string, size: size, textFont: textFont, textColor: textColor)
     }
+    
 }

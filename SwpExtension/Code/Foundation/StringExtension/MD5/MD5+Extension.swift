@@ -13,7 +13,6 @@ extension SwpExtensionStruct where BaseStruct == String {
         return self.md5Encryption()
     }
     
-    
     /// # md5 encrypted string, lowercased
     public var md5Lowercased : String {
         return self.md5.lowercased()
@@ -23,7 +22,6 @@ extension SwpExtensionStruct where BaseStruct == String {
     public var md5Uppercased : String {
         return self.md5.uppercased()
     }
-    
     
     ///
     /// # md5 encryption string
@@ -49,7 +47,6 @@ extension SwpExtensionStruct where BaseStruct == String {
         return string.swp.md5Uppercased
     }
     
-    
     // MARK: - MD5 32 Bit
     
     /// # md5 encrypts string, to generate a 32-bit key
@@ -66,7 +63,6 @@ extension SwpExtensionStruct where BaseStruct == String {
     public var md5_32BitUppercased : String {
         return self.md5Uppercased
     }
-    
     
     ///
     /// # md5 encrypts string, to generate a 32-bit key
@@ -92,10 +88,7 @@ extension SwpExtensionStruct where BaseStruct == String {
         return string.swp.md5_32BitUppercased
     }
     
-    
-    
     // MARK: - MD5 16 Bit
-    
     
     /// # md5 encrypts string, to generate a 16-bit key
     public var md5_16Bit : String {
@@ -145,22 +138,17 @@ extension SwpExtensionStruct where BaseStruct == String {
     /// # md5 encrypts string
     /// - Returns: String
     private func md5Encryption() -> String {
-        
         if let data = self.swp.data(using: .utf8, allowLossyConversion: true) {
-            
             let message = data.withUnsafeBytes { bytes -> [UInt8] in
                 return Array(UnsafeBufferPointer(start: bytes, count: data.count))
             }
-            
             let MD5Calculator = MD5(message)
-            let MD5Data = MD5Calculator.calculate()
-            
-            var MD5String = String()
+            let MD5Data     = MD5Calculator.calculate()
+            var MD5String   = String()
             for char in MD5Data {
                 MD5String += String(format: "%02x", char)
             }
             return MD5String
-            
         }
         return self.swp
     }

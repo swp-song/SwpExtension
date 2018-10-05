@@ -8,7 +8,6 @@
 
 extension SwpExtensionStruct where BaseStruct == CGFloat {
     
-    
     /// # create CGFloat type random number
     public static var random : CGFloat {
         return CGFloat.swp.random()

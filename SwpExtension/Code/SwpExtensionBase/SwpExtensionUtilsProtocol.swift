@@ -34,7 +34,6 @@ protocol SwpExtensionUtilsProtocol {
     /// - Returns: UIImage?
     @discardableResult static func aScreenshotsFullCreateImage() -> UIImage?
     
-    
     // MARK: - set view layer interface
     
     ///
@@ -85,9 +84,7 @@ protocol SwpExtensionUtilsProtocol {
     /// - Returns: T
     @discardableResult func aCornerRadiusMasks<T>(_ view : T, radiusMasks : CGFloat) -> T
     
-    
     // MARK: - string create code interface
-    
     
     ///
     /// # string create qrCode image
@@ -110,7 +107,6 @@ protocol SwpExtensionUtilsProtocol {
     ///   - bgColor: bgColor
     /// - Returns: UIImage?
     @discardableResult static func aCreateQrCodeImage(_ string : String, size : CGFloat, icon : UIImage, iconSize : CGFloat, qrColor : UIColor, bgColor : UIColor) -> UIImage?
-    
     
     ///
     /// # string create barCode image, insert icon
@@ -141,18 +137,15 @@ extension SwpExtensionUtilsProtocol {
     ///   - frame: frame
     /// - Returns: UIImage?
     @discardableResult static func aColorCreateImage(_ color : UIColor, frame : CGRect = CGRect.zero) -> UIImage? {
-        
         let aFrame = frame == CGRect.zero ? CGRect(x: 0, y: 0, width: 1, height: 1) : frame
         UIGraphicsBeginImageContext(aFrame.size)
         let context = UIGraphicsGetCurrentContext()
         context?.setFillColor(color.cgColor)
         context?.fill(aFrame)
-        
         guard let image = UIGraphicsGetImageFromCurrentImageContext() else {
             UIGraphicsEndImageContext();
             return nil
         }
-        
         UIGraphicsEndImageContext();
         return image
     }
@@ -162,13 +155,11 @@ extension SwpExtensionUtilsProtocol {
     /// - Parameter view: view
     /// - Returns: UIImage?
     @discardableResult static func aViewScreenshotsCreateImage(_ view : UIView) -> UIImage? {
-        
         UIGraphicsBeginImageContextWithOptions(view.frame.size, false, 0.0)
         view.drawHierarchy(in: view.bounds, afterScreenUpdates: false)
         let image : UIImage? = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext();
         return image
-        
     }
     
     ///
@@ -177,13 +168,9 @@ extension SwpExtensionUtilsProtocol {
     @discardableResult static func aScreenshotsFullCreateData() -> Data? {
         
         var imageSize : CGSize  = CGSize.zero
-        
         let orientation : UIInterfaceOrientation = UIApplication.shared.statusBarOrientation
-        
         imageSize = orientation.isPortrait ? UIScreen.main.bounds.size : CGSize(width: UIScreen.main.bounds.size.height, height: UIScreen.main.bounds.size.width)
-        
         UIGraphicsBeginImageContextWithOptions(imageSize, true, 0);
-        
         let context : CGContext? = UIGraphicsGetCurrentContext()
         
         UIApplication.shared.windows.forEach { (window) in
@@ -194,32 +181,26 @@ extension SwpExtensionUtilsProtocol {
             context?.translateBy(x: -window.bounds.size.width * window.layer.anchorPoint.x, y: -window.bounds.size.height * window.layer.anchorPoint.y)
             
             switch orientation {
+                case .landscapeLeft:
+                    context?.rotate(by: CGFloat.pi / 2.0)
+                    context?.translateBy(x: 0, y: -imageSize.width)
                 
-            case .landscapeLeft:
+                case .landscapeRight:
+                    context?.rotate(by: -(CGFloat.pi / 2.0))
+                    context?.translateBy(x: -imageSize.height, y: 0)
                 
-                context?.rotate(by: CGFloat.pi / 2.0)
-                context?.translateBy(x: 0, y: -imageSize.width)
-                
-            case .landscapeRight:
-                context?.rotate(by: -(CGFloat.pi / 2.0))
-                context?.translateBy(x: -imageSize.height, y: 0)
-                
-            case .portraitUpsideDown:
-                context?.rotate(by: CGFloat.pi)
-                context?.translateBy(x: -imageSize.width, y: -imageSize.height)
-                
-            default: break
-                
+                case .portraitUpsideDown:
+                    context?.rotate(by: CGFloat.pi)
+                    context?.translateBy(x: -imageSize.width, y: -imageSize.height)
+                default: break
             }
             
             if window.responds(to: #selector(window.drawHierarchy(in:afterScreenUpdates:))) {
                 window.drawHierarchy(in: window.bounds, afterScreenUpdates: false)
             } else {
-                
                 if let context = context {
                     window.layer.render(in: context)
                 }
-                
             }
             
             context?.restoreGState()
@@ -229,9 +210,7 @@ extension SwpExtensionUtilsProtocol {
             UIGraphicsEndImageContext();
             return nil
         }
-        
         UIGraphicsEndImageContext();
-        
         return image.pngData()
     }
     
@@ -239,11 +218,8 @@ extension SwpExtensionUtilsProtocol {
     /// # screenshots full create image
     /// - Returns: UIImage?
     @discardableResult static func aScreenshotsFullCreateImage() -> UIImage? {
-        
         guard let data = self.aScreenshotsFullCreateData() else { return nil }
-        
         return UIImage(data: data)
-        
     }
     
 }
@@ -254,37 +230,32 @@ extension SwpExtensionUtilsProtocol {
     ///
     /// # set view backgroundColor
     /// - Parameters:
-    ///   - view: view
-    ///   - color: color
+    ///   - view:   view
+    ///   - color:  color
     /// - Returns: T
     @discardableResult func aBackgroundColor<T>(_ view : T, color : UIColor?) -> T {
-        
         return aCheckView(view, block: { (aView) in
             aView.backgroundColor = color
         })
-        
     }
     
     ///
     /// # set view borderWidth
     /// - Parameters:
-    ///   - view: view
-    ///   - width: width
+    ///   - view:   view
+    ///   - width:  width
     /// - Returns: T
     @discardableResult func aBorderWidth<T>(_ view : T, width : CGFloat) -> T  {
-        
         return aCheckView(view, block: { (aView) in
             aView.layer.borderWidth = width
         })
-        
     }
-    
     
     ///
     /// # set view cornerRadius
     /// - Parameters:
-    ///   - view: view
-    ///   - width: width
+    ///   - view:   view
+    ///   - width:  width
     /// - Returns: T
     @discardableResult func aCornerRadius<T>(_ view : T, radius : CGFloat) -> T {
         
@@ -293,15 +264,13 @@ extension SwpExtensionUtilsProtocol {
         })
     }
     
-    
     ///
     /// # set view masksToBounds
     /// - Parameters:
-    ///   - view: view
-    ///   - masksToBounds: masksToBounds
+    ///   - view:           view
+    ///   - masksToBounds:  masksToBounds
     /// - Returns: T
     @discardableResult func aMasksToBounds<T>(_ view : T, masksToBounds : Bool) -> T {
-        
         return aCheckView(view, block: { (aView) in
             aView.layer.masksToBounds = masksToBounds
         })
@@ -310,31 +279,27 @@ extension SwpExtensionUtilsProtocol {
     ///
     /// # set view borderColor
     /// - Parameters:
-    ///   - view: view
-    ///   - color: color
+    ///   - view:   view
+    ///   - color:  color
     /// - Returns: T
     @discardableResult func aCornerRadiusMasks<T>(_ view : T, radiusMasks : CGFloat) -> T {
-        
         return aCheckView(view, block: { (aView) in
             aView.layer.cornerRadius = radiusMasks
             aView.layer.masksToBounds = true
         })
-        
     }
     
     ///
     /// # set view cornerRadius and masksToBounds
     /// - Parameters:
-    ///   - view: view
-    ///   - color: color
+    ///   - view:    view
+    ///   - color:  color
     /// - Returns: T
     @discardableResult func aBorderColor<T>(_ view : T, color : UIColor) -> T {
-        
         return aCheckView(view, block: { (aView) in
             aView.layer.borderColor = color.cgColor
         })
     }
-    
     
 }
 
@@ -344,73 +309,57 @@ extension SwpExtensionUtilsProtocol {
     ///
     /// # string create qrCode image
     /// - Parameters:
-    ///   - string: string
-    ///   - size: size
-    ///   - qrColor: qrColor
-    ///   - bgColor: bgColor
+    ///   - string:     string
+    ///   - size:       size
+    ///   - qrColor:    qrColor
+    ///   - bgColor:    bgColor
     /// - Returns: UIImage
     @discardableResult static func aCreateQrCodeImage(_ string : String, size : CGFloat, qrColor : UIColor, bgColor : UIColor) -> UIImage? {
-        
         guard let qImage = aCreateQRCodeCIImage(string) else { return nil }
-        
         guard let cImage = aCreateClearImage(qImage, size: size) else { return nil }
-        
         guard let iImage = aCreateColorImage(cImage, qrColor: qrColor, bgColor: bgColor) else { return nil }
-        
         return iImage
     }
-    
     
     ///
     /// # string create qrCode image, insert icon
     /// - Parameters:
-    ///   - string: string
-    ///   - size: size
-    ///   - icon: icon
-    ///   - iconSize: iconSize
-    ///   - qrColor: qrColor
-    ///   - bgColor: bgColor
+    ///   - string:     string
+    ///   - size:       size
+    ///   - icon:       icon
+    ///   - iconSize:   iconSize
+    ///   - qrColor:    qrColor
+    ///   - bgColor:    bgColor
     /// - Returns: UIImage?
     @discardableResult static func aCreateQrCodeImage(_ string : String, size : CGFloat, icon : UIImage, iconSize : CGFloat, qrColor : UIColor, bgColor : UIColor) -> UIImage? {
-        
         guard let qImage = aCreateQrCodeImage(string, size: size, qrColor: qrColor, bgColor: bgColor) else { return nil }
-        
         guard let iImage = aInsertIcon(qImage, icon: icon, size: iconSize) else { return nil }
-        
         return iImage
     }
-    
     
     ///
     /// # create barCode image
     /// - Parameters:
     ///   - string: string
-    ///   - size: size
+    ///   - size:   size
     /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat) -> UIImage? {
-        
         guard let bImage = aCreateBarCodeCIImage(string) else { return nil }
-        
         guard let cImage = aCreateClearImage(bImage, size: size) else { return nil }
-        
         return cImage
     }
-    
     
     ///
     /// # create barCode image, inster text
     /// - Parameters:
-    ///   - string: string
-    ///   - size: size
-    ///   - textFont: textFont
-    ///   - textColor: textColor
+    ///   - string:     string
+    ///   - size:       size
+    ///   - textFont:   textFont
+    ///   - textColor:  textColor
     /// - Returns: UIImage?
     @discardableResult static func aCreateBarCodeImage(_ string : String, size : CGFloat, textFont : UIFont, textColor : UIColor) -> UIImage? {
-        
         guard let bImage = aCreateBarCodeImage(string, size: size) else { return nil }
-        
         guard let iImage = aInsertText(bImage, text: string, textFont: textFont, textColor: textColor) else { return nil }
-        
         return iImage
     }
 }
@@ -421,15 +370,12 @@ extension SwpExtensionUtilsProtocol {
     ///
     /// # check view
     /// - Parameters:
-    ///   - view: view
-    ///   - block: block
+    ///   - view:   view
+    ///   - block:  block
     /// - Returns: T
     @discardableResult private func aCheckView<T>(_ view : T, block : (_ aView : UIView) -> Void) -> T {
-        
         guard view is UIView else { return view }
-        
         block(view as! UIView)
-        
         return view
     }
 }
@@ -437,26 +383,20 @@ extension SwpExtensionUtilsProtocol {
 // MARK: - string create qrCode and barCode private
 extension SwpExtensionUtilsProtocol {
     
-    
     ///
     /// # create code CIImage
     /// - Parameters:
     ///   - string: string
-    ///   - name: name
-    ///   - block: block
-    /// - Returns:Returns
+    ///   - name:   name
+    ///   - block:  block
+    /// - Returns:  Returns
     @discardableResult private static func aCreateCodeCIImage(_ string : String, _ name : String, block: ((CIFilter?) -> Void)?) -> UIImage? {
         let data   : Data?      = string.data(using: .utf8)
         let filter : CIFilter?  = CIFilter(name: name)
-        
         filter?.setValue(data, forKey: "inputMessage")
-        
         block?(filter)
-        
         guard let outputImage = filter?.outputImage else { return nil }
-        
         return UIImage(ciImage: outputImage)
-        
     }
     
     ///
@@ -464,12 +404,10 @@ extension SwpExtensionUtilsProtocol {
     /// - Parameter string:
     /// - Returns:CIImage
     @discardableResult private static func aCreateQRCodeCIImage(_ string : String) -> UIImage? {
-        
         return aCreateCodeCIImage(string, "CIQRCodeGenerator", block: { (filter) in
             filter?.setValue("H", forKey: "inputCorrectionLevel")
         })
     }
-    
     
     ///
     ///
@@ -479,20 +417,15 @@ extension SwpExtensionUtilsProtocol {
         return aCreateCodeCIImage(string, "CICode128BarcodeGenerator", block: nil)
     }
     
-    
     ///
     /// # create qrCode clearImage
     /// - Parameters:
-    ///   - image: image
-    ///   - size: size
+    ///   - image:  image
+    ///   - size:   size
     /// - Returns: UIImage?
     @discardableResult private static func aCreateClearImage(_ image : UIImage, size : CGFloat) -> UIImage? {
-        
         guard let ciImage = image.ciImage else { return nil }
-        
         let extent : CGRect  = ciImage.extent.integral
-        
-        
         let scale  : CGFloat = min(size / extent.width, size / extent.height)
         
         //  计算缩放比例
@@ -518,34 +451,27 @@ extension SwpExtensionUtilsProtocol {
         
         //  从位图上下文中取出图片(CGImage)
         guard let clearImage = bitmapRef?.makeImage() else { return nil }
-        
         return UIImage(cgImage: clearImage)
     }
     
     ///
     /// # create color image
     /// - Parameters:
-    ///   - image:   image
-    ///   - qrColor: qrColor
-    ///   - bgColor: bgColor
+    ///   - image:      image
+    ///   - qrColor:    qrColor
+    ///   - bgColor:    bgColor
     /// - Returns: UIImage
     @discardableResult private static func aCreateColorImage(_ image : UIImage, qrColor : UIColor, bgColor : UIColor) -> UIImage? {
-        
         let ciImage = CIImage(image: image)
-        
         let filter  = CIFilter(name:"CIFalseColor")
-        
         filter?.setDefaults()
-        
         //  设置图片
         filter?.setValue(ciImage, forKeyPath: kCIInputImageKey)
         //  设置二维码颜色
         filter?.setValue(CIColor.init(color: qrColor), forKeyPath: "inputColor0")
         //  设置背景颜色
         filter?.setValue(CIColor.init(color: bgColor), forKeyPath: "inputColor1")
-        
         guard let colorImage = filter?.outputImage else { return nil }
-        
         return UIImage(ciImage: colorImage)
     }
     
@@ -557,36 +483,30 @@ extension SwpExtensionUtilsProtocol {
     ///   - size:   size
     /// - Returns: UIImage?
     @discardableResult private static func aInsertIcon(_ image : UIImage, icon : UIImage ,size : CGFloat) -> UIImage? {
-        
         UIGraphicsBeginImageContext(image.size)
         image.draw(in: CGRect(x: 0, y: 0, width: image.size.width, height: image.size.height))
         let x : CGFloat = (image.size.width  - size) * 0.5;
         let y : CGFloat = (image.size.height - size) * 0.5;
         icon.draw(in: CGRect(x: x, y: y, width: size, height: size))
-        
         guard let iconImage = UIGraphicsGetImageFromCurrentImageContext() else {
             UIGraphicsEndImageContext()
             return nil
         }
-        
         UIGraphicsEndImageContext()
-        
         return iconImage
     }
-    
     
     ///
     /// # image insert text
     /// - Parameters:
-    ///   - image: image
-    ///   - text:  text
-    ///   - textFont: textFont
-    ///   - textColor: textColor
+    ///   - image:      image
+    ///   - text:       text
+    ///   - textFont:   textFont
+    ///   - textColor:  textColor
     /// - Returns: UIImage?
     @discardableResult private static func aInsertText(_ image : UIImage, text : String, textFont : UIFont, textColor : UIColor) -> UIImage? {
         
         let size = CGSize(width: image.size.width, height: image.size.height + 30)
-        
         UIGraphicsBeginImageContextWithOptions (size, false , 0.0);
         image.draw(at: CGPoint.zero)
         
@@ -608,13 +528,9 @@ extension SwpExtensionUtilsProtocol {
                                                       NSAttributedString.Key.foregroundColor : textColor,
                                                       NSAttributedString.Key.paragraphStyle  : textStyle]
         
-        
         barText.draw(in: CGRect(x: 0, y: image.size.height - 4, width: size.width, height: 20), withAttributes: style)
-        
         let image = UIGraphicsGetImageFromCurrentImageContext()
-        
         UIGraphicsEndImageContext()
-        
         return image
     }
     

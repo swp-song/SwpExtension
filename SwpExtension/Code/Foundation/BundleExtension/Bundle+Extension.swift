@@ -8,7 +8,6 @@
 
 extension SwpExtensionStruct where BaseStruct == Bundle {
     
-    
     /// # get app name space
     public var nameSpace : String {
         return self.aNameSpace()
@@ -61,14 +60,12 @@ extension SwpExtensionStruct where BaseStruct == Bundle {
         #endif
     }
     
-    
     ///
     /// # get app bundle version
     /// - Returns: String
     @discardableResult public static func bundleVersion() -> String {
         return Bundle.main.swp.bundleVersion
     }
-    
     
     ///
     /// # get app bundle short version string
@@ -94,7 +91,6 @@ private extension SwpExtensionStruct where BaseStruct == Bundle {
     /// # get app name space
     /// - Returns: String
     private func aNameSpace() -> String {
-        
         let bundleName = self.aBundleName()
         if bundleName.count == 0 {
             return ""
@@ -106,7 +102,6 @@ private extension SwpExtensionStruct where BaseStruct == Bundle {
     /// # get app bundle name
     /// - Returns: String
     private func aBundleName() -> String {
-        
         guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else {
             return ""
         }

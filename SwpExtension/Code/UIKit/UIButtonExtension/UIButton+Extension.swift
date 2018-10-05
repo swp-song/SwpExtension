@@ -12,17 +12,16 @@ extension SwpExtensionClass where BaseClass : UIButton {
     ///
     /// # convenience init style function
     /// - Parameters:
-    ///   - backgroundColor:    backgroundColor
-    ///   - title:              title
-    ///   - target:             target
-    ///   - action:             action
-    ///   - titleColor:         titleColor
-    ///   - titleFont:          titleFont
-    ///   - radius:             radius
-    ///   - tag:                tag
-    ///   - events:             events
+    ///   - bgColor:    bgColor
+    ///   - title:      title
+    ///   - target:     target
+    ///   - action:     action
+    ///   - titleColor: titleColor
+    ///   - titleFont:  titleFont
+    ///   - radius:     radius
+    ///   - tag:        tag
+    ///   - events:     events
     @discardableResult public func style(_ bgColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControl.Event = .touchUpInside) -> BaseClass {
-        
         return self.aStyle(bgColor, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont, radius: radius, tag: tag, events: events)
     }
     
@@ -37,18 +36,13 @@ extension SwpExtensionClass where BaseClass : UIButton {
     ///   - titleColor:     titleColor
     ///   - titleFont:      titleFont
     @discardableResult public func checkBoxStyle(_ normalImage : UIImage?, selectedImage : UIImage?,  title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15)) -> BaseClass {
-        
         return self.aCheckBoxStyle(normalImage, selectedImage: selectedImage, title: title, target: target, action: action, titleColor: titleColor, titleFont: titleFont)
     }
-    
-    
-    
     
 }
 
 // MARK: - Property Function
 extension SwpExtensionClass where BaseClass : UIButton {
-    
     
     ///
     /// # set title font
@@ -58,7 +52,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         self.swp.titleLabel?.font = font
         return self.swp
     }
-    
     
     ///
     /// # set title
@@ -82,7 +75,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         return self.swp
     }
     
-    
     ///
     /// # set image
     /// - Parameters:
@@ -93,7 +85,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         self.swp.setImage(image, for: state)
         return self.swp
     }
-    
     
     ///
     /// # set background image
@@ -127,7 +118,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         return self.swp
     }
     
-    
     ///
     /// # set title edgeInsets
     /// - Parameter titleEdgeInsets: titleEdgeInsets
@@ -136,7 +126,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         self.swp.titleEdgeInsets = titleEdgeInsets
         return self.swp
     }
-    
     
     ///
     /// # set image edgeInsets
@@ -147,7 +136,6 @@ extension SwpExtensionClass where BaseClass : UIButton {
         return self.swp
     }
     
-    
     ///
     /// # size to fit
     /// - Returns: BaseClass
@@ -155,6 +143,7 @@ extension SwpExtensionClass where BaseClass : UIButton {
         self.swp.sizeToFit()
         return self.swp
     }
+    
 }
 
 // MARK: - Custom Function
@@ -213,23 +202,17 @@ extension SwpExtensionClass where BaseClass : UIButton {
                     self.swp.isEnabled = false
                 }
                 timeOut -= 1
-                
                 results?((timer: aTimer, time : timeOut, isRun : true))
                 return
             }
-            
-            
             aTimer.cancel()
             DispatchQueue.main.async {
                 self.swp.setTitle(String(format: "%@%@", title ?? "", appTitle), for: .normal)
                 self.swp.isEnabled = true
                 results?((timer: aTimer, time : timeOut, isRun : false))
             }
-            
         }
-        
         aTimer.resume()
-        
         return self.swp
     }
     
@@ -256,21 +239,21 @@ private extension SwpExtensionClass where BaseClass : UIButton {
         
         switch edge {
             
-        case .top:
-            imageEdgeInsets = UIEdgeInsets.init(top: -labelHeight - offset, left: 0, bottom: 0, right: -labelWidth);
-            labelEdgeInsets = UIEdgeInsets.init(top: 0, left: -imageWith, bottom: -imageHeight - offset, right: 0);
+            case .top:
+                imageEdgeInsets = UIEdgeInsets.init(top: -labelHeight - offset, left: 0, bottom: 0, right: -labelWidth);
+                labelEdgeInsets = UIEdgeInsets.init(top: 0, left: -imageWith, bottom: -imageHeight - offset, right: 0);
             
-        case .left:
-            imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -offset, bottom: 0, right: offset);
-            labelEdgeInsets = UIEdgeInsets.init(top: 0, left: offset, bottom: 0, right: -offset);
+            case .left:
+                imageEdgeInsets = UIEdgeInsets.init(top: 0, left: -offset, bottom: 0, right: offset);
+                labelEdgeInsets = UIEdgeInsets.init(top: 0, left: offset, bottom: 0, right: -offset);
             
-        case .bottom:
-            imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: -labelHeight - offset, right: -labelWidth);
-            labelEdgeInsets = UIEdgeInsets.init(top: -imageHeight - offset, left: -imageWith, bottom: 0, right: 0);
+            case .bottom:
+                imageEdgeInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: -labelHeight - offset, right: -labelWidth);
+                labelEdgeInsets = UIEdgeInsets.init(top: -imageHeight - offset, left: -imageWith, bottom: 0, right: 0);
             
-        case .right:
-            imageEdgeInsets = UIEdgeInsets.init(top: 0, left: labelWidth + offset, bottom: 0, right: -labelWidth - offset);
-            labelEdgeInsets = UIEdgeInsets.init(top: 0, left: -imageWith - offset, bottom: 0, right: imageWith + offset);
+            case .right:
+                imageEdgeInsets = UIEdgeInsets.init(top: 0, left: labelWidth + offset, bottom: 0, right: -labelWidth - offset);
+                labelEdgeInsets = UIEdgeInsets.init(top: 0, left: -imageWith - offset, bottom: 0, right: imageWith + offset);
         }
         
         //  赋值
@@ -284,15 +267,15 @@ private extension SwpExtensionClass where BaseClass : UIButton {
     ///
     /// # style
     /// - Parameters:
-    ///   - backgroundColor:    backgroundColor
-    ///   - title:              title
-    ///   - target:             target
-    ///   - action:             action
-    ///   - titleColor:         titleColor
-    ///   - titleFont:          titleFont
-    ///   - radius:             radius
-    ///   - tag:                tag
-    ///   - events:             events
+    ///   - bgColor:    bgColor
+    ///   - title:      title
+    ///   - target:     target
+    ///   - action:     action
+    ///   - titleColor: titleColor
+    ///   - titleFont:  titleFont
+    ///   - radius:     radius
+    ///   - tag:        tag
+    ///   - events:     events
     @discardableResult private func aStyle(_ bgColor : UIColor?, title : String?, target : Any?, action : Selector?, titleColor : UIColor? = UIColor.black, titleFont : UIFont = UIFont.systemFont(ofSize: 15), radius : CGFloat = 0, tag : Int = 0, events : UIControl.Event = .touchUpInside) -> BaseClass {
         
         self.tag(tag)
@@ -301,15 +284,11 @@ private extension SwpExtensionClass where BaseClass : UIButton {
             .swp.titleFont(titleFont)
             .swp.titleColor(titleColor, for: .normal)
             .swp.titleColor(titleColor, for: .highlighted)
-        
         self.swp
             .aBackgroundColor(self.swp, color: bgColor)
             .aCornerRadiusMasks(self.swp, radiusMasks: radius)
-        
         guard let action = action else { return self.swp }
-        
         self.targetEvent(target, action: action, for: events)
-        
         return self.swp
     }
     
@@ -338,11 +317,9 @@ private extension SwpExtensionClass where BaseClass : UIButton {
             .swp.titleColor(titleColor, for: .highlighted)
             .swp.imageEdge(.right, offset: 2)
             .swp.sizeToFit()
-        
         guard let action = action else { return self.swp }
-        
         self.targetEvent(target, action: action, for: .touchUpInside)
-        
         return self.swp
     }
+    
 }

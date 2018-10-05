@@ -13,17 +13,16 @@ extension SwpExtensionClass where BaseClass : UIView {
         return UIView.aViewScreenshotsCreateImage(self.swp)
     }
     
-    
     /// # screenshots full
     public static var screenshotsFull : UIImage? {
         return UIView.aScreenshotsFullCreateImage()
     }
+    
 }
 
 
 // MARK: - View layer
 extension SwpExtensionClass where BaseClass : UIView {
-    
     
     ///
     /// # set background color
@@ -78,6 +77,7 @@ extension SwpExtensionClass where BaseClass : UIView {
         self.swp.aBorderColor(self.swp, color: color)
         return self.swp
     }
+    
 }
 
 
@@ -88,7 +88,6 @@ extension SwpExtensionClass where BaseClass : UIView  {
     
     /// view -> frame -> origin -> x
     public var x : CGFloat {
-        
         set(x) {
             var frame : CGRect  = self.swp.frame
             frame.origin.x      = x
@@ -102,7 +101,6 @@ extension SwpExtensionClass where BaseClass : UIView  {
     
     /// view -> frame -> origin -> y
     public var y : CGFloat {
-        
         set(y) {
             
             var frame : CGRect  = self.swp.frame
@@ -113,13 +111,11 @@ extension SwpExtensionClass where BaseClass : UIView  {
         get {
             return self.swp.frame.origin.y
         }
-        
     }
     
     
     /// view -> frame -> origin -> width
     public var width : CGFloat {
-        
         set(width) {
             var frame : CGRect  = self.swp.frame
             frame.size.width    = width
@@ -129,7 +125,6 @@ extension SwpExtensionClass where BaseClass : UIView  {
         get {
             return self.swp.frame.size.width
         }
-        
     }
     
     /// view -> frame -> origin -> height
@@ -157,7 +152,6 @@ extension SwpExtensionClass where BaseClass : UIView  {
         get {
             return self.swp.center.x;
         }
-        
     }
     
     /// view -> center -> centerY
@@ -199,9 +193,7 @@ extension SwpExtensionClass where BaseClass : UIView  {
         }
     }
     
-    
     // MARK: - Function
-    
     
     ///
     /// # set view -> frame -> origin -> x
@@ -221,7 +213,6 @@ extension SwpExtensionClass where BaseClass : UIView  {
         return self.swp
     }
     
-    
     ///
     /// # set view -> frame -> size -> width
     /// - Parameter width: width
@@ -239,7 +230,6 @@ extension SwpExtensionClass where BaseClass : UIView  {
         self.height = height
         return self.swp
     }
-    
     
     ///
     /// # set view -> center -> centerX
@@ -276,4 +266,5 @@ extension SwpExtensionClass where BaseClass : UIView  {
         self.origin = origin
         return self.swp
     }
+    
 }

@@ -15,23 +15,17 @@ extension SwpExtensionClass where BaseClass : UIFont {
         return UIFont.familyNames
     }
     
-    
     ///
     /// # get font name list
     /// - Returns: [String : [String]]
     @discardableResult public static func fontNameList() -> [String : [String]] {
-        
         var dictionary : [String : [String]] = [:]
-        
         for familyName in UIFont.familyNames {
-            
             let fontNames : [String] = UIFont.fontNames(forFamilyName: familyName)
-            
             if (fontNames.count != 0) {
                 dictionary[familyName] = fontNames
                 continue
             }
-            
             let temp : [String] = [familyName]
             dictionary[familyName] = temp
         }
@@ -45,13 +39,11 @@ extension SwpExtensionClass where BaseClass : UIFont {
     ///   - fontSize: fontSize
     /// - Returns: UIFont
     @discardableResult public static func font(name fontName : String? = nil, size fontSize : CGFloat = 15) -> UIFont {
-        
         if let fontName = fontName {
             return UIFont(name: fontName, size: fontSize) ?? UIFont.systemFont(ofSize: fontSize)
         }
         return UIFont.systemFont(ofSize: fontSize)
     }
-    
     
     ///
     /// # get AppleSDGothicNeo-Thin font and setting font size
