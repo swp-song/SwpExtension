@@ -10,6 +10,9 @@ import UIKit
 
 class DemoListView: EXBaseTableView {
     
+    
+    var tts : String = ""
+    
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .plain)
     }
@@ -17,6 +20,7 @@ class DemoListView: EXBaseTableView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+
     
     /*
     // Only override draw() if you perform custom drawing.
@@ -37,11 +41,6 @@ extension DemoListView {
         self.delegate   = self
     }
     
-    override func test(_ a: EXTableViewProtocol) -> Self {
-        super.test(a)
-        return self
-    }
-    
 }
 
 extension DemoListView : UITableViewDataSource {
@@ -55,7 +54,7 @@ extension DemoListView : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         return DemoListCell.initCell(tableView, identifier: NSStringFromClass(DemoListCell.self), indexPath: indexPath).model(self.datas[indexPath.row])
+        return DemoListCell.initCell(tableView, identifier: NSStringFromClass(DemoListCell.self), indexPath: indexPath).model(self.datas[indexPath.row])
     }
     
 }
@@ -63,6 +62,7 @@ extension DemoListView : UITableViewDataSource {
 extension DemoListView : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.clickCellEvent?(self, indexPath, self.datas[indexPath.row])
         self.exDelegate?.tableView(self, didSelectRowAt: indexPath, model: self.datas[indexPath.row])
     }
     

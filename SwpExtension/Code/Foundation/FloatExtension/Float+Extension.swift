@@ -22,5 +22,6 @@ extension SwpExtensionStruct where BaseStruct == Float {
     public static func random(_ lower : Float = 0, upper: Float = 1) -> Float {
         return Float(Float.aRandomDouble(Double(lower), upper: Double(upper)))
     }
+    
 }
 

@@ -22,4 +22,5 @@ extension SwpExtensionStruct where BaseStruct == Int {
     public static func random(_ lower : Int = 0, upper: Int = Int(Int32.max)) -> Int {
         return Int.aRandomInt(lower, upper: upper)
     }
+    
 }

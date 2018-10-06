@@ -11,17 +11,20 @@ import UIKit
 class EXBaseTableView: UITableView {
     
     
+    typealias EXTableViewCallBlock = (_ tableView : EXBaseTableView, _ indexPath : IndexPath, _ model : NSObject) -> Void
+    
     var datas : [NSObject] {
         didSet { reloadData() }
     }
     
-    weak var exDelegate : EXTableViewProtocol? = nil;
+    var clickCellEvent : EXTableViewCallBlock?
+    
+    weak open var exDelegate : EXTableViewProtocol?
     
     override init(frame: CGRect, style: UITableView.Style) {
         self.datas = []
         super.init(frame: frame, style: style)
         self.configTableView()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -40,28 +43,27 @@ class EXBaseTableView: UITableView {
 
 extension EXBaseTableView {
     
-    
-    
     @discardableResult func datas(_ datas : [NSObject]) -> Self {
         self.datas = datas
         return self
     }
+    
+    @discardableResult func exDelegate(_ delegate : EXTableViewProtocol) -> Self {
+        self.exDelegate = delegate
+        return self
+    }
+    
+    @discardableResult func clickCellEvent( _ block : EXTableViewCallBlock? ) -> Self {
+        self.clickCellEvent = block;
+        return self
+    }
+    
 }
 
 @objc extension EXBaseTableView {
     
     func configTableView() -> Void {
         
-    }
-    
-//    @discardableResult func exDelegate(_ deleage : EXTableViewProtocol?) -> Self {
-//        self.exDelegate = deleage;
-//        return self;
-//    }
-    
-    func test(_ a : EXTableViewProtocol) -> Self {
-        self.exDelegate = a
-        return self
     }
     
 }

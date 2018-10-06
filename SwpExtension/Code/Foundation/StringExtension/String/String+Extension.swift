@@ -21,6 +21,7 @@ extension SwpExtensionStruct where BaseStruct == String {
     public static func trim(_ string : String) -> String {
         return string.swp.trim
     }
+    
 }
 
 // MARK: - create qrCode
@@ -54,6 +55,7 @@ extension SwpExtensionStruct where BaseStruct == String {
     public func qrCodeImage(_ icon : UIImage, iconSize : CGFloat = 35, size : CGFloat = 200, qrColor : UIColor = UIColor.black, bgColor : UIColor = UIColor.white) -> UIImage? {
         return String.aCreateQrCodeImage(self.swp, size: size, icon: icon, iconSize: iconSize, qrColor: qrColor, bgColor: bgColor)
     }
+    
 }
 
 // MARK: - create barCode image

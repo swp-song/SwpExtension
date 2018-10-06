@@ -1,4 +1,3 @@
-
 //
 //  DemoListModel.swift
 //  SwpExtensionDemo
@@ -17,7 +16,7 @@ class DemoListModel: NSObject {
     convenience init(_ dictionary : [String : Any]) {
         self.init()
         self.aTitle = dictionary["aTitle"] as? String ?? ""
-        self.aClass = NSClassFromString(dictionary["aClass"] as? String ?? "")
+        self.aClass = NSClassFromString(Bundle.main.swp.nameSpace + (dictionary["aClass"] as? String ?? ""))
     }
 
     static func demos(_ datas : [[String : Any]]?) -> [DemoListModel] {

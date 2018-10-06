@@ -22,5 +22,6 @@ extension SwpExtensionStruct where BaseStruct == Double {
     public static func random(_ lower : Double = 0, upper: Double = 1) -> Double {
         return Double.aRandomDouble(lower, upper: upper)
     }
+    
 }
 

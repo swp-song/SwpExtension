@@ -68,6 +68,13 @@ class EXNavigationController: UINavigationController {
 
 }
 
-extension EXNavigationController {
+extension EXNavigationController  {
+    
+    override func pushViewController(_ viewController: UIViewController, animated: Bool) {
+        if self.children.count > 0 {
+            viewController.hidesBottomBarWhenPushed = true
+        }
+        super.pushViewController(viewController, animated: true)
+    }
     
 }

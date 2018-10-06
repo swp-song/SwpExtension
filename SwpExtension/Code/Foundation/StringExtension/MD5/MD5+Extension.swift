@@ -152,5 +152,6 @@ extension SwpExtensionStruct where BaseStruct == String {
         }
         return self.swp
     }
+    
 }
 

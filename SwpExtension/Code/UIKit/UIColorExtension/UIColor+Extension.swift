@@ -139,4 +139,5 @@ extension SwpExtensionClass where BaseClass : UIColor {
     public func image(_ frame : CGRect) -> UIImage? {
         return UIImage.aColorCreateImage(self.swp, frame: frame)
     }
+    
 }

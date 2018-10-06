@@ -78,10 +78,10 @@ extension SwpMD5Protocol {
         tmpMessage += Array<UInt8>(repeating: 0, count: counter)
         return tmpMessage
     }
+    
 }
 
 fileprivate struct BytesIterator: IteratorProtocol {
-    
     let chunkSize : Int
     let data : [UInt8]
     
@@ -89,9 +89,7 @@ fileprivate struct BytesIterator: IteratorProtocol {
         self.chunkSize = chunkSize
         self.data = data
     }
-    
     var offset = 0
-    
     mutating func next() -> ArraySlice<UInt8>? {
         let end = min(chunkSize, data.count - offset)
         let result = data[offset..<offset + end]
@@ -114,13 +112,12 @@ fileprivate extension Int {
     func bytes(_ totalBytes: Int = MemoryLayout<Int>.size) -> [UInt8] {
         return SwpMD5Utils.SwpMD5UtilsArrayOfBytes(self, length: totalBytes)
     }
-    
 }
 
 class MD5: SwpMD5Protocol {
     
-    
-    static let size = 16 // 128 / 8
+    // 128 / 8
+    static let size = 16
     let message : [UInt8]
     
     init (_ message: [UInt8]) {
@@ -225,11 +222,12 @@ class MD5: SwpMD5Protocol {
         hh.forEach {
             let itemLE = $0.littleEndian
             let r1 = UInt8(itemLE & 0xff)
-            let r2 = UInt8((itemLE >> 8) & 0xff)
+            let r2 = UInt8((itemLE >> 8)  & 0xff)
             let r3 = UInt8((itemLE >> 16) & 0xff)
             let r4 = UInt8((itemLE >> 24) & 0xff)
             result += [r1, r2, r3, r4]
         }
         return result
     }
+    
 }

@@ -99,12 +99,13 @@ class EXBaseViewController: UIViewController {
     }
     
     func configUI() -> Void {
-        
+        self.view.backgroundColor = UIColor.white
     }
     
     func configUIAutoLayout() -> Void {
         
     }
+    
 }
 
 // MARK: - EXBaseViewController, Closure ( Block ) Methods Extension

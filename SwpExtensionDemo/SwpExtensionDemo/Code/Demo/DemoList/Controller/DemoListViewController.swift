@@ -47,20 +47,30 @@ extension DemoListViewController {
     
 }
 
+extension DemoListViewController : EXTableViewProtocol {
+    
+    func tableView(_ tableView: EXBaseTableView, didSelectRowAt indexPath: IndexPath, model: NSObject) {
+        print(#function)
+    }
+    
+}
+
 extension DemoListViewController {
     
     override func configDatas() {
         let datas : [[String : Any]]? = NSArray(contentsOfFile: Bundle.main.path(forResource: "DemoModel.plist", ofType: nil) ?? "") as? [[String : Any]]
         self.datas = DemoListModel.demos(datas)
-        self.demoList.datas(self.datas).test(self)
+        self.demoList.datas(self.datas).exDelegate(self)
+    }
     
+    override func configClosure() {
+        self.demoList.clickCellEvent { [weak self] (tableView , indexPath, model) in
+            print(#function)
+            guard let aClaas = ((model as? DemoListModel)?.aClass) as? EXBaseViewController.Type else { return }
+            self?.navigationController?.pushViewController(aClaas.init(), animated: true);
+        }
     }
     
 }
 
-extension DemoListViewController : EXTableViewProtocol {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, model: NSObject) {
-        
-    }
 
-}

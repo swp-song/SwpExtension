@@ -41,9 +41,7 @@ class EXBaseCell: UITableViewCell {
 @objc extension EXBaseCell {
     
     func configCell() -> Void {
-        
         self.configUI()
-        
         self.configUIAutoLayout()
     }
     
@@ -59,11 +57,9 @@ class EXBaseCell: UITableViewCell {
 
 @objc extension EXBaseCell {
     
-    
     static func initCell(_ tableView : UITableView, identifier: String, indexPath : IndexPath) -> EXBaseCell {
         return tableView.dequeueReusableCell(withIdentifier: identifier, for: indexPath) as! EXBaseCell
     }
-    
     
     @discardableResult func configDatas(_ data : NSObject?) -> Self {
         guard let _ = data else { return self }

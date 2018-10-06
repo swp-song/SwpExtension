@@ -8,7 +8,6 @@
 
 extension SwpExtensionStruct where BaseStruct == String {
     
-    
     /// # base64 encoding
     public var base64Encoding : String {
         return self.encoding()
@@ -49,7 +48,6 @@ extension SwpExtensionStruct where BaseStruct == String {
         guard self.swp.count != 0 else {
             return self.swp
         }
-        
         let data : Data? = self.swp.data(using: String.Encoding.utf8)
         return data?.base64EncodedString(options: NSData.Base64EncodingOptions.init(rawValue: 0)) ?? ""
     }
@@ -59,12 +57,11 @@ extension SwpExtensionStruct where BaseStruct == String {
     /// - Parameter string: string
     /// - Returns: String
     private func decoding() -> String {
-        
         guard self.swp.count != 0 else {
             return self.swp
         }
-        
         let data : Data  = Data(base64Encoded: self.swp, options: Data.Base64DecodingOptions.init(rawValue: 0)) ?? Data()
         return String(data: data, encoding: String.Encoding.utf8) ?? ""
     }
+    
 }

@@ -47,7 +47,6 @@ extension SwpExtensionStruct where BaseStruct == Bundle {
         return Bundle.main.swp.bundleName
     }
     
-    
     ///
     /// # get app version
     /// - Returns: String

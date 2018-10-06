@@ -9,17 +9,15 @@
 import UIKit
 import Foundation
 
-@objc protocol EXTableViewProtocol : NSObjectProtocol {
+protocol EXTableViewProtocol : NSObjectProtocol {
     
-    typealias EXTableViewCallBack<T, M> = (_ tableView : T, _ indexPath : IndexPath, _ model : M) -> Void
-    
-    @objc func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath, model : NSObject) -> Void
+    func tableView(_ tableView: EXBaseTableView, didSelectRowAt indexPath: IndexPath, model : NSObject) -> Void
     
 }
 
-//extension EXTableViewProtocol {
-//
-//    func tableView<T, M>(_ tableView: T, didSelectRowAt indexPath: IndexPath, model : M) -> Void { }
-//
-//}
+extension EXTableViewProtocol {
+    
+    func tableView(_ tableView: EXBaseTableView, didSelectRowAt indexPath: IndexPath, model : NSObject) -> Void {}
+    
+}
 
