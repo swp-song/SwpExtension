@@ -12,14 +12,15 @@ import UIKit
 class DemoListViewController: EXBaseViewController {
 
     
-    let demoList = DemoListView()
+    private(set) lazy var demoList = DemoListView()
     
-    var datas : [DemoListModel] = []
+    private var datas : [DemoListModel] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
     
     /*
     // MARK: - Navigation
@@ -58,19 +59,21 @@ extension DemoListViewController : EXTableViewProtocol {
 extension DemoListViewController {
     
     override func configDatas() {
-        let datas : [[String : Any]]? = NSArray(contentsOfFile: Bundle.main.path(forResource: "DemoModel.plist", ofType: nil) ?? "") as? [[String : Any]]
-        self.datas = DemoListModel.demos(datas)
-        self.demoList.datas(self.datas).exDelegate(self)
+        self.demoList.exDelegate(self)
     }
     
     override func configClosure() {
-        self.demoList.clickCellEvent { [weak self] (tableView , indexPath, model) in
-            print(#function)
-            guard let aClaas = ((model as? DemoListModel)?.aClass) as? EXBaseViewController.Type else { return }
-            self?.navigationController?.pushViewController(aClaas.init(), animated: true);
-        }
+        
     }
+}
+
+
+extension DemoListViewController {
     
+    @discardableResult func readDatas(_ path : String) -> [DemoListModel] {
+        let datas : [[String : Any]]? = NSArray(contentsOfFile: Bundle.main.path(forResource: path, ofType: nil) ?? "") as? [[String : Any]]
+        return DemoListModel.models(datas)
+    }
 }
 
 

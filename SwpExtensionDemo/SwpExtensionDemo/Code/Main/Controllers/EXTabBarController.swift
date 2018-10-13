@@ -36,7 +36,8 @@ extension EXTabBarController {
     private func setUpChildControllers() -> Void {
         
         let infos : [[String : String]] = [
-            ["className" : "DemoListViewController",  "title" : "首页", "imageName" : "tabbar_01"],
+            ["className" : "UIDemoListViewController",  "title" : "Demo", "imageName" : "tabbar_01"],
+            ["className" : "NavigationDemoListViewController",  "title" : "Navigation", "imageName" : "tabbar_02"],
         ]
         
         var controllers : [UIViewController] = []

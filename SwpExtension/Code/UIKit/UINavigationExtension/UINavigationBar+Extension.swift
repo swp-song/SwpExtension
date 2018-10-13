@@ -260,8 +260,19 @@ extension UINavigationBar {
             self.customView?.isUserInteractionEnabled = false
             self.customView?.autoresizingMask         = .flexibleWidth
             self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-            self.subviews.first?.insertSubview(self.customView!, at: 0)
+            self.subviews.forEach { (view) in
+                print(view)
+                if let _UINavigationBarContentView = NSClassFromString("_UINavigationBarContentView")  {
+                    print(_UINavigationBarContentView)
+                }
+            }
+            
+//            self.subviews.first?.insertSubview(self.customView!, at: 0)
+            
+
         }
+        
+
         
         self.customView?.backgroundColor = color
     }
@@ -304,16 +315,23 @@ extension UINavigationBar {
     fileprivate var aHeight : CGFloat {
         
         if #available(iOS 11.0, *) {
+//            guard let window = UIApplication.shared.delegate?.window else {
+//                return self.bounds.size.height + 20
+//            }
+//
+//            guard let bottom = window?.safeAreaInsets.bottom else {
+//                return self.bounds.size.height + 20
+//            }
+//
+//            if bottom > 0 {
+//                return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
+//            }
             
-            //            if (UIApplication.shared.keyWindow?.safeAreaInsets.top)! > 0.0 {
-            //                return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
-            //            }
-            
-            //            return self.bounds.size.height + 20
-            return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
-            //            return 44
+//            return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
+            return 88
         } else {
-            return self.bounds.size.height + 20
+//            return self.bounds.size.height + 40
+            return 88
         }
     }
     
@@ -397,7 +415,7 @@ extension UINavigationBar {
     /// - Returns: UIImageView?
     private func aFindLineImageView(view : UIView) -> UIImageView?  {
         if view is UIImageView && view.bounds.size.height <= 1.0 {
-            //        if view.isKind(of: UIImageView.self) && view.bounds.size.height <= 1.0 {
+//        if view.isKind(of: UIImageView.self) && view.bounds.size.height <= 1.0 {
             return view as? UIImageView
         }
         

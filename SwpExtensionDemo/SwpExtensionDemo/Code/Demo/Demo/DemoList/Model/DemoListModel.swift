@@ -19,7 +19,7 @@ class DemoListModel: NSObject {
         self.aClass = NSClassFromString(Bundle.main.swp.nameSpace + (dictionary["aClass"] as? String ?? ""))
     }
 
-    static func demos(_ datas : [[String : Any]]?) -> [DemoListModel] {
+    static func models(_ datas : [[String : Any]]?) -> [DemoListModel] {
         var models : [DemoListModel] = []
         datas?.forEach { (data) in
             models.append(DemoListModel(data))

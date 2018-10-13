@@ -19,7 +19,7 @@ class EXBaseTableView: UITableView {
     
     var clickCellEvent : EXTableViewCallBlock?
     
-    weak open var exDelegate : EXTableViewProtocol?
+    weak var exDelegate : EXTableViewProtocol?
     
     override init(frame: CGRect, style: UITableView.Style) {
         self.datas = []

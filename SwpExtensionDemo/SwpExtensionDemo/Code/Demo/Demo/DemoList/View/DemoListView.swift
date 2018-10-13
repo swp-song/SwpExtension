@@ -40,7 +40,6 @@ extension DemoListView {
         self.dataSource = self
         self.delegate   = self
     }
-    
 }
 
 extension DemoListView : UITableViewDataSource {
