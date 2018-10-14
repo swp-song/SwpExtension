@@ -1,5 +1,5 @@
 //
-//  DemoListView.swift
+//  DemoTableView.swift
 //  SwpExtensionDemo
 //
 //  Created by swp_song on 2018/9/27.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class DemoListView: EXBaseTableView {
+class DemoTableView: EXBaseTableView {
     
     
     var tts : String = ""
@@ -32,17 +32,17 @@ class DemoListView: EXBaseTableView {
 
 }
 
-extension DemoListView {
+extension DemoTableView {
     
     override func configTableView() {
         super.configTableView()
-        self.register(DemoListCell.self, forCellReuseIdentifier: NSStringFromClass(DemoListCell.self))
+        self.register(DemoCell.self, forCellReuseIdentifier: NSStringFromClass(DemoCell.self))
         self.dataSource = self
         self.delegate   = self
     }
 }
 
-extension DemoListView : UITableViewDataSource {
+extension DemoTableView : UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -53,18 +53,26 @@ extension DemoListView : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return DemoListCell.initCell(tableView, identifier: NSStringFromClass(DemoListCell.self), indexPath: indexPath).model(self.datas[indexPath.row])
+        return DemoCell.initCell(tableView, identifier: NSStringFromClass(DemoCell.self), indexPath: indexPath).model(self.datas[indexPath.row])
     }
     
 }
 
-extension DemoListView : UITableViewDelegate {
+extension DemoTableView : UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.clickCellEvent?(self, indexPath, self.datas[indexPath.row])
+        self.exTableViewClickCellEvent?(self, indexPath, self.datas[indexPath.row])
         self.exDelegate?.tableView(self, didSelectRowAt: indexPath, model: self.datas[indexPath.row])
     }
     
+}
+
+extension DemoTableView : UIScrollViewDelegate {
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        self.exTableViewllDidScroll?(self)
+        self.exDelegate?.scrollViewDidScroll(self)
+    }
 }
 
 

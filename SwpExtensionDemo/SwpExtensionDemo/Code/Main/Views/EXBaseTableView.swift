@@ -11,13 +11,15 @@ import UIKit
 class EXBaseTableView: UITableView {
     
     
-    typealias EXTableViewCallBlock = (_ tableView : EXBaseTableView, _ indexPath : IndexPath, _ model : NSObject) -> Void
+    typealias EXTableViewClickCallEvent     = (_ tableView : EXBaseTableView, _ indexPath : IndexPath, _ model : NSObject) -> Void
+    typealias EXTableViewScrollChangeEvent  = (_ tableView : EXBaseTableView) -> Void
     
     var datas : [NSObject] {
         didSet { reloadData() }
     }
     
-    var clickCellEvent : EXTableViewCallBlock?
+    var exTableViewClickCellEvent   : EXTableViewClickCallEvent?
+    var exTableViewllDidScroll      : EXTableViewScrollChangeEvent?
     
     weak var exDelegate : EXTableViewProtocol?
     
@@ -53,8 +55,13 @@ extension EXBaseTableView {
         return self
     }
     
-    @discardableResult func clickCellEvent( _ block : EXTableViewCallBlock? ) -> Self {
-        self.clickCellEvent = block;
+    @discardableResult func exTableViewClickCellEvent( _ block : EXTableViewClickCallEvent? ) -> Self {
+        self.exTableViewClickCellEvent = block
+        return self
+    }
+    
+    @discardableResult func exTableViewllDidScroll(_ block : EXTableViewScrollChangeEvent?) -> Self {
+        self.exTableViewllDidScroll = block
         return self
     }
     

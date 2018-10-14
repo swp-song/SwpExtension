@@ -88,7 +88,7 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     }
     
     /// # set navigation bar alpha
-    public var barAlpha : CGFloat {
+    public var barBackgroundAlpha : CGFloat {
         set {
             self.swp.navigationBar.swp.alpha = newValue
         }
@@ -169,8 +169,8 @@ extension SwpExtensionClass where BaseClass : UINavigationController {
     /// # set navigation bar alpha
     /// - Parameter alpha:
     /// - Returns:
-    @discardableResult public func barAlpha(_ alpha : CGFloat) -> BaseClass {
-        self.barAlpha = alpha
+    @discardableResult public func barBackgroundAlpha(_ alpha : CGFloat) -> BaseClass {
+        self.barBackgroundAlpha = alpha
         return self.swp
     }
     

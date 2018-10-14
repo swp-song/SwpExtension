@@ -140,13 +140,13 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     }
     
     /// # set navigation bar alpha
-    public var barAlpha : CGFloat {
+    public var barBackgroundAlpha : CGFloat {
         set {
-            self.swp.navigationController?.swp.barAlpha = newValue
+            self.swp.navigationController?.swp.barBackgroundAlpha = newValue
         }
         
         get {
-            return self.swp.checkValue(self.swp.navigationController?.swp.barAlpha, dValue:UIViewController.aKey.kBarAlpha , block: { (value) -> CGFloat in
+            return self.swp.checkValue(self.swp.navigationController?.swp.barBackgroundAlpha, dValue:UIViewController.aKey.kBarBackgroundAlpha , block: { (value) -> CGFloat in
                 return value
             })
         }
@@ -231,8 +231,8 @@ extension SwpExtensionClass where BaseClass : UIViewController {
     /// # set navigation bar alpha
     /// - Parameter alpha:
     /// - Returns:
-    @discardableResult public func barAlpha(_ alpha : CGFloat) -> BaseClass {
-        self.barAlpha = alpha
+    @discardableResult public func barBackgroundAlpha(_ alpha : CGFloat) -> BaseClass {
+        self.barBackgroundAlpha = alpha
         return self.swp
     }
     
@@ -277,7 +277,7 @@ extension UIViewController {
         static var kBarTitleFont            : UIFont    = UIFont.systemFont(ofSize: 18)
         static var kBarTitleColor           : UIColor   = UIColor.black
         static var kIsHideBarBottomLine     : Bool      = false
-        static var kBarAlpha                : CGFloat   = 1
+        static var kBarBackgroundAlpha      : CGFloat   = 1
         static var kItemsAlpha              : CGFloat   = 1
         static var kBarTranslationY         : CGFloat   = 0
         static var kBarHeight               : CGFloat   = 44

@@ -6,13 +6,13 @@
 		<key>aTitle</key>
 		<string>Navigation1</string>
 		<key>aClass</key>
-		<string></string>
+		<string>UINavigation1ViewController</string>
 	</dict>
 	<dict>
 		<key>aTitle</key>
-		<string>Navigation1</string>
+		<string>Navigation2</string>
 		<key>aClass</key>
-		<string></string>
+		<string>UINavigation2ViewController</string>
 	</dict>
 </array>
 </plist>

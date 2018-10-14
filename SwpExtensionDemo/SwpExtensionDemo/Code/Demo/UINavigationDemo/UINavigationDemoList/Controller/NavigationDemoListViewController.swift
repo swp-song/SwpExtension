@@ -1,6 +1,5 @@
-
 //
-//  UIDemoListViewController.swift
+//  NavigationDemoListViewController.swift
 //  SwpExtensionDemo
 //
 //  Created by Dream on 2018/10/12.
@@ -9,17 +8,12 @@
 
 import UIKit
 
-//import SwpExtension
-
-class UIDemoListViewController: DemoViewController {
+class NavigationDemoListViewController: DemoViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-    
-//        self.swp.barBackgroundColor = UIColor.orange
-        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.red
     }
     
 
@@ -35,26 +29,17 @@ class UIDemoListViewController: DemoViewController {
 
 }
 
-extension UIDemoListViewController {
-    
-    override func config() {
-        super.config()
-    }
+extension NavigationDemoListViewController {
     
     override func configDatas() {
-        super.configDatas()
-        self.demoTableView.datas(readDatas("UIDemoModel.plist"))
+        self.demoTableView.datas(readDatas("NavigationDemoListModel.plist"))
     }
     
     override func configClosure() {
-        
         self.demoTableView.exTableViewClickCellEvent { [weak self] (tableView, indexPath, model) in
-            print(#function)
             guard let aClaas = ((model as? DemoListModel)?.aClass) as? EXBaseViewController.Type else { return }
             self?.navigationController?.pushViewController(aClaas.init(), animated: true);
         }
     }
     
 }
-
-

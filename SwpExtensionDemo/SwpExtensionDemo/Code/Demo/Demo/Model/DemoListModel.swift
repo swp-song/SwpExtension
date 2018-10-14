@@ -27,4 +27,19 @@ class DemoListModel: NSObject {
         return models
     }
     
+    
+    private convenience init(_ aTitle : String, aClass : AnyClass?) {
+        self.init()
+        self.aTitle = aTitle
+        self.aClass = aClass
+    }
+    
+    static func defaultModels(_ number : Int) -> [DemoListModel] {
+        var models : [DemoListModel] = []
+        for i in 0 ..< number {
+            models.append(DemoListModel("title\(i)", aClass: nil))
+        }
+        return models;
+    }
+    
 }

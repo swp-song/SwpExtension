@@ -13,11 +13,14 @@ protocol EXTableViewProtocol : NSObjectProtocol {
     
     func tableView(_ tableView: EXBaseTableView, didSelectRowAt indexPath: IndexPath, model : NSObject) -> Void
     
+    func scrollViewDidScroll(_ tableView : EXBaseTableView) -> Void
+    
 }
 
 extension EXTableViewProtocol {
     
     func tableView(_ tableView: EXBaseTableView, didSelectRowAt indexPath: IndexPath, model : NSObject) -> Void {}
+    func scrollViewDidScroll(_ tableView : EXBaseTableView) -> Void { }
     
 }
 

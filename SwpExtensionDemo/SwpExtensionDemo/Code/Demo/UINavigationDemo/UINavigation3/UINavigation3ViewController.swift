@@ -1,14 +1,14 @@
 //
-//  NavigationDemoListViewController.swift
+//  UINavigation3ViewController.swift
 //  SwpExtensionDemo
 //
-//  Created by Dream on 2018/10/12.
-//  Copyright © 2018年 swp-song. All rights reserved.
+//  Created by swp_song on 2018/10/14.
+//  Copyright © 2018 swp-song. All rights reserved.
 //
 
 import UIKit
 
-class NavigationDemoListViewController: DemoListViewController {
+class UINavigation3ViewController: EXBaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,16 +27,4 @@ class NavigationDemoListViewController: DemoListViewController {
     }
     */
 
-}
-
-extension NavigationDemoListViewController {
-    
-    override func configDatas() {
-        demoList.datas(readDatas("NavigationDemoListModel.plist"))
-    }
-    
-    override func configClosure() {
-        
-    }
-    
 }

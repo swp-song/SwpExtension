@@ -1,6 +1,5 @@
-
 //
-//  DemoListViewController.swift
+//  DemoViewController.swift
 //  SwpExtensionDemo
 //
 //  Created by swp_song on 2018/9/26.
@@ -9,10 +8,10 @@
 
 import UIKit
 
-class DemoListViewController: EXBaseViewController {
+class DemoViewController: EXBaseViewController {
 
     
-    private(set) lazy var demoList = DemoListView()
+    private(set) lazy var demoTableView = DemoTableView()
     
     private var datas : [DemoListModel] = []
     
@@ -34,32 +33,35 @@ class DemoListViewController: EXBaseViewController {
 
 }
 
-extension DemoListViewController {
+extension DemoViewController {
 
     override func configUI() {
-        self.view.addSubview(self.demoList)
+        self.view.addSubview(self.demoTableView)
     }
     
     override func configUIAutoLayout() {
-        self.demoList.snp.makeConstraints { (make) in
+        self.demoTableView.snp.makeConstraints { (make) in
             make.edges.equalTo(self.view)
         }
     }
     
 }
 
-extension DemoListViewController : EXTableViewProtocol {
+extension DemoViewController : EXTableViewProtocol {
     
     func tableView(_ tableView: EXBaseTableView, didSelectRowAt indexPath: IndexPath, model: NSObject) {
         print(#function)
     }
     
+    func scrollViewDidScroll(_ tableView: EXBaseTableView) {
+//        print(#function)
+    }
 }
 
-extension DemoListViewController {
+extension DemoViewController {
     
     override func configDatas() {
-        self.demoList.exDelegate(self)
+        self.demoTableView.exDelegate(self)
     }
     
     override func configClosure() {
@@ -67,13 +69,10 @@ extension DemoListViewController {
     }
 }
 
-
-extension DemoListViewController {
+extension DemoViewController {
     
     @discardableResult func readDatas(_ path : String) -> [DemoListModel] {
         let datas : [[String : Any]]? = NSArray(contentsOfFile: Bundle.main.path(forResource: path, ofType: nil) ?? "") as? [[String : Any]]
         return DemoListModel.models(datas)
     }
 }
-
-

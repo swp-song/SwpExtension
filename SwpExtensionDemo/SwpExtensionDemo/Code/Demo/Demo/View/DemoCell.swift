@@ -1,6 +1,6 @@
 
 //
-//  DemoListCell.swift
+//  DemoCell.swift
 //  SwpExtensionDemo
 //
 //  Created by swp_song on 2018/9/27.
@@ -9,7 +9,7 @@
 
 import UIKit
 
-class DemoListCell: EXBaseCell {
+class DemoCell : EXBaseCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -23,7 +23,7 @@ class DemoListCell: EXBaseCell {
 
 }
 
-extension DemoListCell {
+extension DemoCell {
     
     override func configDatas(_ data: NSObject?) -> Self {
         guard let model = data as? DemoListModel else { return self }

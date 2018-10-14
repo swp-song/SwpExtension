@@ -68,10 +68,10 @@ extension EXTabBarController {
     }
     
     private func nameSpace() -> String {
-        
         guard let bundleName = Bundle.main.infoDictionary?["CFBundleName"] as? String else {
             return ""
         }
         return bundleName.count > 0 ? bundleName + "." : ""
     }
+    
 }
