@@ -19,7 +19,7 @@ class UIDemoListViewController: DemoViewController {
         // Do any additional setup after loading the view.
     
 //        self.swp.barBackgroundColor = UIColor.orange
-        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.red
+//        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.red
     }
     
 

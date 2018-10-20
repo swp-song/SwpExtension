@@ -14,7 +14,15 @@ class UINavigation1ViewController: DemoViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.swp.barBackgroundColor = UIColor.orange;
+//        self.swp.barBackgroundColor = UIColor.orange;
+//        self.swp.
+        
+//         navBarTintColor = UI
+//        self.swp.barBackgroundColor = UIColor.orange;
+//        self.navBarBarTintColor = UIColor.orange
+//        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.red
+        self.navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_01") ?? UIImage()
+//        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.orange
     }
     
 
@@ -42,16 +50,13 @@ extension UINavigation1ViewController {
         self.demoTableView.exTableViewllDidScroll { [weak self] (_ tableView) in
             
             let offsetY = tableView.contentOffset.y
-            if offsetY > self?.swp.barHeight ?? 44 {
-//                self?.changeNavigationBarBackgroundAlpha(false)
-//                self?.swp.barBackgroundAlpha = 0
-                self?.navigationController?.navigationBar.swp.alpha = 0
-                print(123)
+            
+//            guard let barHeight = self?.swp.barHeight else { return }
+            if offsetY > 64 {
+//                self?.changeNavBarAnimateWithIsClear(true)
             } else {
-//                self?.changeNavigationBarBackgroundAlpha(true)
-//                self?.swp.barBackgroundAlpha = 1
-                self?.navigationController?.navigationBar.swp.alpha = 1
-                print(456)
+                
+//                self?.changeNavBarAnimateWithIsClear(false)
             }
             
         }
@@ -59,8 +64,17 @@ extension UINavigation1ViewController {
     
     private func changeNavigationBarBackgroundAlpha(_ isAlpha : Bool) {
         UIView.animate(withDuration: 0.8, animations: { [weak self] in
-            self?.navigationController?.navigationBar.swp.alpha = isAlpha ? 1 : 0
+//            self?.navigationController?.navigationBar.swp.alpha = isAlpha ? 1 : 0
+//            self?.swp.barBackgroundAlpha = isAlpha ? 1 : 0
         })
     }
     
+    
+    // private
+    private func changeNavBarAnimateWithIsClear(_ isClear:Bool) {
+        UIView.animate(withDuration: 0.5, animations: { [weak self] in
+            self?.navBarBackgroundAlpha = isClear ? 0 : 1
+        })
+    }
 }
+
