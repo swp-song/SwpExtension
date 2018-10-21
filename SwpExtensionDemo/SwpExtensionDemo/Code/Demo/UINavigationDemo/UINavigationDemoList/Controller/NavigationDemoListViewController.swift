@@ -14,9 +14,6 @@ class NavigationDemoListViewController: DemoViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        
-//        self.swp.barBackgroundColor = UIColor.red
-//        self.swp.barBackgroundImage = UIImage(named: "")
     }
     
 

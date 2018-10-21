@@ -7,12 +7,93 @@
 //
 //
 
-extension SwpExtensionClass where BaseClass : UINavigationBar {
+extension UINavigationBar:WRAwakeProtocol
+{
+    
+    fileprivate struct AssociatedKeys {
+        static var backgroundView: UIView = UIView()
+        static var backgroundImageView: UIImageView = UIImageView()
+    }
+    
+    fileprivate var backgroundView:UIView? {
+        get {
+            guard let bgView = objc_getAssociatedObject(self, &AssociatedKeys.backgroundView) as? UIView else {
+                return nil
+            }
+            return bgView
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.backgroundView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    fileprivate var backgroundImageView:UIImageView? {
+        get {
+            guard let bgImageView = objc_getAssociatedObject(self, &AssociatedKeys.backgroundImageView) as? UIImageView else {
+                return nil
+            }
+            return bgImageView
+        }
+        set {
+            objc_setAssociatedObject(self, &AssociatedKeys.backgroundImageView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    // set navigationBar backgroundImage
+    fileprivate func wr_setBackgroundImage(image:UIImage)
+    {
+        backgroundView?.removeFromSuperview()
+        backgroundView = nil
+        if (backgroundImageView == nil)
+        {
+            // add a image(nil color) to _UIBarBackground make it clear
+            setBackgroundImage(UIImage(), for: .default)
+            backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: Int(bounds.width), height: WRNavigationBar.navBarBottom()))
+            backgroundImageView?.autoresizingMask = .flexibleWidth
+            // _UIBarBackground is first subView for navigationBar
+            subviews.first?.insertSubview(backgroundImageView ?? UIImageView(), at: 0)
+        }
+        backgroundImageView?.image = image
+    }
+    
+    // set navigationBar barTintColor
+    fileprivate func wr_setBackgroundColor(color:UIColor)
+    {
+        backgroundImageView?.removeFromSuperview()
+        backgroundImageView = nil
+        if (backgroundView == nil)
+        {
+            // add a image(nil color) to _UIBarBackground make it clear
+            setBackgroundImage(UIImage(), for: .default)
+            backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: Int(bounds.width), height: WRNavigationBar.navBarBottom()))
+            backgroundView?.autoresizingMask = .flexibleWidth
+            // _UIBarBackground is first subView for navigationBar
+            subviews.first?.insertSubview(backgroundView ?? UIView(), at: 0)
+        }
+        backgroundView?.backgroundColor = color
+    }
+    
+    // set _UIBarBackground alpha (_UIBarBackground subviews alpha <= _UIBarBackground alpha)
+    fileprivate func wr_setBackgroundAlpha(alpha:CGFloat)
+    {
+        if let barBackgroundView = subviews.first
+        {
+            if #available(iOS 11.0, *)
+            {   // sometimes we can't change _UIBarBackground alpha
+                for view in barBackgroundView.subviews {
+                    view.alpha = alpha
+                }
+            } else {
+                barBackgroundView.alpha = alpha
+            }
+        }
+    }
     
     // 设置导航栏所有BarButtonItem的透明度
-    public func wr_setBarButtonItemsAlpha(alpha:CGFloat, hasSystemBackIndicator:Bool)
+    func wr_setBarButtonItemsAlpha(alpha:CGFloat, hasSystemBackIndicator:Bool)
     {
-        for view in self.swp.subviews {
+        for view in subviews
+        {
             if (hasSystemBackIndicator == true)
             {
                 // _UIBarBackground/_UINavigationBarBackground对应的view是系统导航栏，不需要改变其透明度
@@ -29,7 +110,9 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
                         view.alpha = alpha
                     }
                 }
-            } else {
+            }
+            else
+            {
                 // 这里如果不做判断的话，会显示 backIndicatorImage(系统返回按钮)
                 if let _UINavigationBarBackIndicatorViewClass = NSClassFromString("_UINavigationBarBackIndicatorView"), view.isKind(of: _UINavigationBarBackIndicatorViewClass) == false {
                     if let _UIBarBackgroundClass = NSClassFromString("_UIBarBackground") {
@@ -45,118 +128,23 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
                     }
                     
                 }
+                
+                
             }
         }
     }
     
     /// 设置导航栏在垂直方向上平移多少距离
-    public func wr_setTranslationY(translationY:CGFloat)
+    func wr_setTranslationY(translationY:CGFloat)
     {
-        swp.transform = CGAffineTransform.init(translationX: 0, y: translationY)
+        transform = CGAffineTransform.init(translationX: 0, y: translationY)
     }
     
-    public func wr_getTranslationY() -> CGFloat {
-        return swp.transform.ty
+    func wr_getTranslationY() -> CGFloat
+    {
+        return transform.ty
     }
     
-    //    /// # set the navigation bar background color
-//    public var backgroundColor : UIColor {
-//        set {
-//            objc_setAssociatedObject(self.swp, &UINavigationUtils.aDefaultsKey.kBarBackgroundColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-//            self.swp.wr_setBackgroundColor(color: newValue)
-//        }
-//
-//        get {
-//            return objc_getAssociatedObject(self.swp, &UINavigationUtils.aDefaultsKey.kBarBackgroundColor) as! UIColor
-//        }
-//    }
-}
-
-
-
-extension UINavigationBar : WRAwakeProtocol {
-
-    fileprivate struct AssociatedKeys {
-        static var backgroundView: UIView = UIView()
-        static var backgroundImageView: UIImageView = UIImageView()
-    }
-
-//    fileprivate var backgroundView : UIView? {
-//        get {
-//            guard let bgView = objc_getAssociatedObject(self, &UINavigationUtils.aDefaultsKey.kCustomView) as? UIView else {
-//                return nil
-//            }
-//            return bgView
-//        }
-//        set {
-//            objc_setAssociatedObject(self, &UINavigationUtils.aDefaultsKey.kCustomView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-//        }
-//    }
-
-    fileprivate var backgroundImageView:UIImageView? {
-        get {
-            guard let bgImageView = objc_getAssociatedObject(self, &AssociatedKeys.backgroundImageView) as? UIImageView else {
-                return nil
-            }
-            return bgImageView
-        }
-        set {
-            objc_setAssociatedObject(self, &AssociatedKeys.backgroundImageView, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        }
-    }
-
-//    // set navigationBar backgroundImage
-//    fileprivate func wr_setBackgroundImage(image:UIImage)
-//    {
-//        backgroundView?.removeFromSuperview()
-//        backgroundView = nil
-//        if (backgroundImageView == nil)
-//        {
-//            // add a image(nil color) to _UIBarBackground make it clear
-//            setBackgroundImage(UIImage(), for: .default)
-//            backgroundImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: Int(bounds.width), height: WRNavigationBar.navBarBottom()))
-//            backgroundImageView?.autoresizingMask = .flexibleWidth
-//            // _UIBarBackground is first subView for navigationBar
-//            subviews.first?.insertSubview(backgroundImageView ?? UIImageView(), at: 0)
-//        }
-//        backgroundImageView?.image = image
-//    }
-//
-//    // set navigationBar barTintColor
-//    fileprivate func wr_setBackgroundColor(color:UIColor)
-//    {
-//        backgroundImageView?.removeFromSuperview()
-//        backgroundImageView = nil
-//        if (backgroundView == nil)
-//        {
-//            // add a image(nil color) to _UIBarBackground make it clear
-//            setBackgroundImage(UIImage(), for: .default)
-//            backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: Int(bounds.width), height: WRNavigationBar.navBarBottom()))
-//            backgroundView?.autoresizingMask = .flexibleWidth
-////             _UIBarBackground is first subView for navigationBar
-//            subviews.first?.insertSubview(backgroundView ?? UIView(), at: 0)
-//        }
-//        backgroundView?.backgroundColor = color
-//    }
-
-    // set _UIBarBackground alpha (_UIBarBackground subviews alpha <= _UIBarBackground alpha)
-    public func wr_setBackgroundAlpha(alpha:CGFloat)
-    {
-        if let barBackgroundView = subviews.first
-        {
-            if #available(iOS 11.0, *)
-            {   // sometimes we can't change _UIBarBackground alpha
-                for view in barBackgroundView.subviews {
-                    view.alpha = alpha
-                }
-            } else {
-                barBackgroundView.alpha = alpha
-            }
-        }
-    }
-
-   
-
     // call swizzling methods active 主动调用交换方法
     private static let onceToken = UUID().uuidString
     public static func wrAwake()
@@ -166,7 +154,7 @@ extension UINavigationBar : WRAwakeProtocol {
             let needSwizzleSelectorArr = [
                 #selector(setter: titleTextAttributes)
             ]
-
+            
             for selector in needSwizzleSelectorArr {
                 let str = ("wr_" + selector.description)
                 if let originalMethod = class_getInstanceMethod(self, selector),
@@ -176,7 +164,7 @@ extension UINavigationBar : WRAwakeProtocol {
             }
         }
     }
-
+    
     //==========================================================================
     // MARK: swizzling pop
     //==========================================================================
@@ -185,12 +173,12 @@ extension UINavigationBar : WRAwakeProtocol {
         guard var attributes = newTitleTextAttributes else {
             return
         }
-
+        
         guard let originTitleTextAttributes = titleTextAttributes else {
             wr_setTitleTextAttributes(attributes)
             return
         }
-
+        
         var titleColor:UIColor?
         for attribute in originTitleTextAttributes {
             if attribute.key == NSAttributedString.Key.foregroundColor {
@@ -198,12 +186,12 @@ extension UINavigationBar : WRAwakeProtocol {
                 break
             }
         }
-
+        
         guard let originTitleColor = titleColor else {
             wr_setTitleTextAttributes(attributes)
             return
         }
-
+        
         if attributes[NSAttributedString.Key.foregroundColor.rawValue] == nil {
             attributes.updateValue(originTitleColor, forKey: NSAttributedString.Key.foregroundColor.rawValue)
         }
@@ -214,28 +202,28 @@ extension UINavigationBar : WRAwakeProtocol {
 //==========================================================================
 // MARK: - UINavigationController
 //==========================================================================
-extension UINavigationController : WRFatherAwakeProtocol {
-    
-    
+extension UINavigationController: WRFatherAwakeProtocol
+{
     override open var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.statusBarStyle ?? WRNavigationBar.defaultStatusBarStyle
     }
     
-    fileprivate func setNeedsNavigationBarUpdate(backgroundImage : UIImage) {
+    fileprivate func setNeedsNavigationBarUpdate(backgroundImage: UIImage)
+    {
 //        navigationBar.wr_setBackgroundImage(image: backgroundImage)
-//        self.navigationBar.swp.barBackgroundImage = backgroundImage
-//        self.navigationBar.swp.barBackgroundImage = backgroundImage
+        self.navigationBar.swp.backgroundImage = backgroundImage
     }
     
-    fileprivate func setNeedsNavigationBarUpdate(barTintColor: UIColor) {
-        self.navigationBar.swp.backgroundColor = barTintColor
+    fileprivate func setNeedsNavigationBarUpdate(barTintColor: UIColor)
+    {
 //        navigationBar.wr_setBackgroundColor(color: barTintColor)
-//        self.navigationBar.swp.backgroundColor = barTintColor;
+        self.navigationBar.swp.backgroundColor = barTintColor;
     }
     
-    fileprivate func setNeedsNavigationBarUpdate(barBackgroundAlpha: CGFloat) {
-        navigationBar.wr_setBackgroundAlpha(alpha: barBackgroundAlpha)
-//        self.navigationBar.swp.alpha = barBackgroundAlpha
+    fileprivate func setNeedsNavigationBarUpdate(barBackgroundAlpha: CGFloat)
+    {
+//        navigationBar.wr_setBackgroundAlpha(alpha: barBackgroundAlpha)
+        self.navigationBar.swp.alpha = barBackgroundAlpha
     }
     
     fileprivate func setNeedsNavigationBarUpdate(tintColor: UIColor) {
@@ -427,9 +415,8 @@ extension UINavigationController : WRFatherAwakeProtocol {
 //==========================================================================
 // MARK: - deal the gesture of return
 //==========================================================================
-extension UINavigationController: UINavigationBarDelegate {
-    
-    
+extension UINavigationController: UINavigationBarDelegate
+{
     public func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool
     {
         
@@ -557,31 +544,33 @@ extension UIViewController: WRAwakeProtocol
             }
             return bgImage
         }
-        //        set {
-        //            if customNavBar.isKind(of: UINavigationBar.self) {
-        //                let navBar = customNavBar as! UINavigationBar
-        //                navBar.wr_setBackgroundImage(image: newValue!)
-        //            }
-        //            else {
-        //                objc_setAssociatedObject(self, &AssociatedKeys.navBarBackgroundImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
-        //            }
-        //        }
+        set {
+//            if customNavBar.isKind(of: UINavigationBar.self) {
+//                let navBar = customNavBar as! UINavigationBar
+//                navBar.wr_setBackgroundImage(image: newValue!)
+//            }
+//            else {
+//                objc_setAssociatedObject(self, &AssociatedKeys.navBarBackgroundImage, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+//            }
+        }
     }
     
     // navigationBar barTintColor
     public var navBarBarTintColor: UIColor {
         get {
-            guard let barTintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarBarTintColor) as? UIColor else {
-                return WRNavigationBar.defaultNavBarBarTintColor
-            }
-            return barTintColor
+//            guard let barTintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarBarTintColor) as? UIColor else {
+//                return WRNavigationBar.defaultNavBarBarTintColor
+//            }
+//            return barTintColor
+            return self.navigationController?.navigationBar.swp.backgroundColor ?? WRNavigationBar.defaultNavBarBarTintColor
         }
         set {
-            objc_setAssociatedObject(self, &AssociatedKeys.navBarBarTintColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+//            objc_setAssociatedObject(self, &AssociatedKeys.navBarBarTintColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+                self.navigationController?.navigationBar.swp.backgroundColor = newValue
             
             if customNavBar.isKind(of: UINavigationBar.self) {
-                //                let navBar = customNavBar as! UINavigationBar
-                //                navBar.wr_setBackgroundColor(color: newValue)
+    //                let navBar = customNavBar as! UINavigationBar
+    //                navBar.wr_setBackgroundColor(color: newValue)
             }
             else {
                 if canUpdateNavBarBarTintColorOrBackgroundAlpha == true {
@@ -765,7 +754,12 @@ extension UIViewController: WRAwakeProtocol
             if let navBarBgImage = navBarBackgroundImage {
                 navigationController?.setNeedsNavigationBarUpdate(backgroundImage: navBarBgImage)
             } else {
-                navigationController?.setNeedsNavigationBarUpdate(barTintColor: navBarBarTintColor)
+                
+                print(self.navBarTintColor);
+                self.navigationController?.navigationBar.swp.backgroundColor = navBarTintColor
+//                navigationController?.setNeedsNavigationBarUpdate(barTintColor: self.navBarBarTintColor)
+//                navBarTintColor = navBarTintColor
+//                navBarTitleColor = navBarBarTintColor
             }
             navigationController?.setNeedsNavigationBarUpdate(barBackgroundAlpha: navBarBackgroundAlpha)
             navigationController?.setNeedsNavigationBarUpdate(tintColor: navBarTintColor)
@@ -782,9 +776,8 @@ extension UIViewController: WRAwakeProtocol
         let middleFrame = CGRect(x: 0, y: WRNavigationBar.navBarBottom(), width: WRNavigationBar.screenWidth(), height: WRNavigationBar.screenHeight()-WRNavigationBar.navBarBottom())
         let minFrame = CGRect(x: 0, y: WRNavigationBar.navBarBottom(), width: WRNavigationBar.screenWidth(), height: WRNavigationBar.screenHeight()-WRNavigationBar.navBarBottom()-WRNavigationBar.tabBarHeight())
         // 蝙蝠🦇
-//        let isBat = viewFrame.equalTo(maxFrame) || viewFrame.equalTo(middleFrame) || viewFrame.equalTo(minFrame)
-//        if self.navigationController != nil && isBat == true {
-        if self.navigationController != nil {
+        let isBat = viewFrame.equalTo(maxFrame) || viewFrame.equalTo(middleFrame) || viewFrame.equalTo(minFrame)
+        if self.navigationController != nil && isBat == true {
             return true
         } else {
             return false
@@ -964,6 +957,15 @@ extension WRNavigationBar
 }
 
 
+
+
+
+
+
+
+
+
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // 1. 定义 WRAwakeProtocol 协议
 public protocol WRAwakeProtocol: class {
@@ -974,8 +976,8 @@ public protocol WRFatherAwakeProtocol: class
     static func fatherAwake()
 }
 
-class NothingToSeeHere {
-    
+class NothingToSeeHere
+{
     static func harmlessFunction(){
         //        let typeCount = Int(objc_getClassList(nil, 0))
         //        let  types = UnsafeMutablePointer<AnyClass?>.allocate(capacity: typeCount)
@@ -986,7 +988,7 @@ class NothingToSeeHere {
         //            (types[index] as? WRFatherAwakeProtocol.Type)?.fatherAwake()
         //        }
         //        types.deallocate(capacity: typeCount)
-//        UINavigationBar.wrAwake()
+        UINavigationBar.wrAwake()
         UIViewController.wrAwake()
         UINavigationController.fatherAwake()
     }
@@ -999,7 +1001,7 @@ extension UIApplication
         NothingToSeeHere.harmlessFunction()
     }()
     
-    open override var next: UIResponder? { //重写next属性
+    open override var next: UIResponder?{ //重写next属性
         UIApplication.runOnce
         return super.next
     }
@@ -1007,5 +1009,4 @@ extension UIApplication
 
 // 3. 自定义类实现 WRAwakeProtocol 协议，重写 wrAwake 方法
 //    自定义类实现 WRFatherAwakeProtocol 协议，重写 fatherAwake 方法
-
 

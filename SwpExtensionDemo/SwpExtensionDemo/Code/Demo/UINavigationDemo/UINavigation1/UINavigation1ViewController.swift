@@ -19,10 +19,9 @@ class UINavigation1ViewController: DemoViewController {
         
 //         navBarTintColor = UI
 //        self.swp.barBackgroundColor = UIColor.orange;
-//        self.navBarBarTintColor = UIColor.orange
-//        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.red
-        self.navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_01") ?? UIImage()
-//        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.orange
+        self.navBarBarTintColor = UIColor.orange
+//        self.navBarBarTintColor
+
     }
     
 
@@ -53,10 +52,10 @@ extension UINavigation1ViewController {
             
 //            guard let barHeight = self?.swp.barHeight else { return }
             if offsetY > 64 {
-//                self?.changeNavBarAnimateWithIsClear(true)
+                self?.changeNavBarAnimateWithIsClear(true)
             } else {
                 
-//                self?.changeNavBarAnimateWithIsClear(false)
+                self?.changeNavBarAnimateWithIsClear(false)
             }
             
         }
