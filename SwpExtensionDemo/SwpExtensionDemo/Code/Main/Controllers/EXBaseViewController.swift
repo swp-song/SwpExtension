@@ -21,7 +21,6 @@ class EXBaseViewController: UIViewController {
         
         self.config()
         
-//        self.navBarBarTintColor = .white;
     }
     
     ///

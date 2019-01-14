@@ -1,5 +1,5 @@
 PODS:
-  - SnapKit (4.0.1)
+  - SnapKit (4.2.0)
   - SwpExtension/Base64Extension (0.1.0):
     - SwpExtension/SwpExtensionBase
   - SwpExtension/BundleExtension (0.1.0):
@@ -65,9 +65,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
-  SwpExtension: 2b58cd2a4c6215bf99c452fc2d5419edb10a9ce1
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwpExtension: 8ed5b4ae34b9523f1bfccf367e0bf76d0ba0155b
 
 PODFILE CHECKSUM: 0c1da82564f034955c28cfe7411a5bf04b281ea9
 
-COCOAPODS: 1.6.0.beta.1
+COCOAPODS: 1.6.0.beta.2

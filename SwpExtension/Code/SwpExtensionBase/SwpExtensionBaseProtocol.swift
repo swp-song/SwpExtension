@@ -28,7 +28,6 @@ extension UIFont    : SwpExtensionClassProtocol {}
 extension UIImage   : SwpExtensionClassProtocol {}
 extension UIScreen  : SwpExtensionClassProtocol {}
 extension UserDefaults : SwpExtensionClassProtocol {}
-extension UIViewController : SwpExtensionClassProtocol {}
 
 /// SwpExtensionStructProtocol
 public protocol SwpExtensionStructProtocol { }
