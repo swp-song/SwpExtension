@@ -38,8 +38,6 @@ extension UINavigationBar {
         return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
     }
     
-    
-    
     ///
     /// # check vlaue is empty
     /// - Parameters:
@@ -70,6 +68,14 @@ extension UINavigationBar {
             self.subviews.first?.insertSubview(self.customView!, at: 0)
         }
         self.customView?.backgroundColor = color
+    }
+    
+    /// # remove custom view
+    fileprivate func aRemove() -> Void {
+        self.setBackgroundImage(nil, for:.default)
+        self.customView?.removeFromSuperview()
+        self.customView = nil
+//        self.customImageView?.removeFromSuperview()
     }
     
     private var customView : UIView? {
