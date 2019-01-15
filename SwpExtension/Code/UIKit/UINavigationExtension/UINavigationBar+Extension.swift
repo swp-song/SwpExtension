@@ -75,6 +75,8 @@ extension UINavigationBar {
         self.setBackgroundImage(nil, for:.default)
         self.customView?.removeFromSuperview()
         self.customView = nil
+        self.customView = nil
+        self.customView = nil
 //        self.customImageView?.removeFromSuperview()
     }
     
