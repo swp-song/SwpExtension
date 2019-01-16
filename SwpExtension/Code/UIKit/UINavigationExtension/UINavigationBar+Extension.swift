@@ -36,13 +36,57 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         
     }
     
+    public var isCleanBackground : Bool {
+        set {
+            objc_setAssociatedObject(self, &UINavigationBar.aKeys.aCleanBackground, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aClean(newValue)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self, &UINavigationBar.aKeys.aCleanBackground) as? Bool, dValue: UINavigationBar.aKeys.aCleanBackground, block: { (value) -> Bool in
+                return value
+            })
+        }
+    }
+    
+    public var isCleanBackgroundColor : Bool {
+        set {
+            objc_setAssociatedObject(self, &UINavigationBar.aKeys.aCleanBackgroundColor, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aCleanCustomView(newValue)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self, &UINavigationBar.aKeys.aCleanBackgroundColor) as? Bool, dValue: UINavigationBar.aKeys.aCleanBackgroundColor, block: { (value) -> Bool in
+                return value
+            })
+        }
+    }
+    
+    public var isCleanBackgroundImage : Bool {
+        set {
+            objc_setAssociatedObject(self, &UINavigationBar.aKeys.aCleanBackgroundImage, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aCleanImageView(newValue)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self, &UINavigationBar.aKeys.aCleanBackgroundImage) as? Bool, dValue: UINavigationBar.aKeys.aCleanBackgroundImage, block: { (value) -> Bool in
+                return value
+            })
+        }
+    }
+    
+    
+    
 }
 
 extension UINavigationBar {
     
     fileprivate struct aKeys {
-        static var aBackgroundColor : UIColor  = .white
-        static var aBackgroundImage : UIImage? = nil
+        static var aBackgroundColor      : UIColor  = .white
+        static var aBackgroundImage      : UIImage? = nil
+        static var aCleanBackground      : Bool     = false
+        static var aCleanBackgroundColor : Bool     = false
+        static var aCleanBackgroundImage : Bool     = false
     }
     
     ///
@@ -88,14 +132,35 @@ extension UINavigationBar {
         self.imageView?.image = image;
     }
     
+    fileprivate func aCleanCustomView(_ isClean : Bool) -> Void {
+        if (!isClean || self.customView == nil) { return }
+        self.setBackgroundImage(nil, for:.default)
+        self.customView?.removeFromSuperview()
+        self.customView = nil
+    }
+    
+    fileprivate func aCleanImageView(_ isClean : Bool) -> Void {
+        if (!isClean || self.imageView == nil) { return }
+        self.setBackgroundImage(nil, for:.default)
+        self.imageView?.removeFromSuperview()
+        self.imageView = nil
+    }
     
     
     /// # remove custom view
-    fileprivate func aRemove() -> Void {
+    fileprivate func aClean(_ isClean : Bool) -> Void {
+        
+        if (!isClean) { return }
         self.setBackgroundImage(nil, for:.default)
-        self.customView?.removeFromSuperview()
-//        self.customImageView?.removeFromSuperview()
-        self.customView = nil
+        if (self.customView != nil) {
+            self.customView?.removeFromSuperview()
+            self.customView = nil
+        }
+        
+        if (self.imageView != nil) {
+            self.imageView?.removeFromSuperview()
+            self.imageView = nil
+        }
     }
 }
 
