@@ -20,6 +20,10 @@ class EXBaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.config()
+        
+        self.navigationController?.navigationBar.swp.backgroundImage = UIImage(named: "navigation_01")
+//        self.navigationController?.navigationBar.swp.backgroundColor = UIColor.orange
+//        self.navigationController?.navigationBar.swp.backgroundImage = nil
     }
     
     ///
