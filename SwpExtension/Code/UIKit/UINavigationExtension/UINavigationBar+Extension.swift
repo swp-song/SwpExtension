@@ -33,7 +33,6 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         get {
             return objc_getAssociatedObject(self, &UINavigationBar.aKeys.aBackgroundImage) as? UIImage
         }
-        
     }
     
     public var isCleanBackground : Bool {
@@ -90,6 +89,34 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
     }
     
+    /// # set the navigation bar title font
+    public var titleFont : UIFont {
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.aTitleFont, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            self.swp.titleTextAttributes = self.swp.aTitleStyle(newValue, key: .font)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.aTitleFont) as? UIFont, dValue: UINavigationBar.aKeys.aTitleFont, block: { (value) -> UIFont in
+                return value
+            })
+        }
+    }
+    
+    /// # set the navigation bar title color
+    public var titleColor : UIColor {
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.aTitleColor, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
+            self.swp.titleTextAttributes = self.swp.aTitleStyle(newValue, key: .foregroundColor)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.aTitleColor) as? UIColor, dValue: UINavigationBar.aKeys.aTitleColor, block: { (value) -> UIColor in
+                return value
+            })
+        }
+    }
+    
 }
 
 extension UINavigationBar {
@@ -101,6 +128,8 @@ extension UINavigationBar {
         static var aCleanBackgroundColor : Bool     = false
         static var aCleanBackgroundImage : Bool     = false
         static var aHideBottomLine       : Bool     = false
+        static var aTitleFont            : UIFont   = UIFont.systemFont(ofSize: 18)
+        static var aTitleColor           : UIColor  = UIColor.black
     }
     
     

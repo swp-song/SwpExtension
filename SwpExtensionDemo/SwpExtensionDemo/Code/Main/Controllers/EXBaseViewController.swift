@@ -20,8 +20,6 @@ class EXBaseViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         self.config()
-        
-        self.navigationController?.navigationBar.swp.isHideBottomLine = true
     }
     
     ///
