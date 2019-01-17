@@ -27,7 +27,7 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
     public var backgroundImage : UIImage? {
         set {
             objc_setAssociatedObject(self, &UINavigationBar.aKeys.aBackgroundImage, newValue, .OBJC_ASSOCIATION_COPY_NONATOMIC)
-            self.swp.aImageViewBackgroundColor(newValue)
+            self.swp.aImageViewBackgroundImage(newValue)
         }
         
         get {
@@ -69,13 +69,26 @@ extension SwpExtensionClass where BaseClass : UINavigationBar {
         }
         
         get {
+            
             return self.swp.aCheckValue(objc_getAssociatedObject(self, &UINavigationBar.aKeys.aCleanBackgroundImage) as? Bool, dValue: UINavigationBar.aKeys.aCleanBackgroundImage, block: { (value) -> Bool in
                 return value
             })
         }
     }
     
-    
+    /// # hide the navigation bar bottom line
+    public var isHideBottomLine : Bool {
+        set {
+            objc_setAssociatedObject(self.swp, &UINavigationBar.aKeys.aHideBottomLine, newValue, .OBJC_ASSOCIATION_ASSIGN)
+            self.swp.aHideBottomLine(newValue)
+        }
+        
+        get {
+            return self.swp.aCheckValue(objc_getAssociatedObject(self.swp, &UINavigationBar.aKeys.aHideBottomLine) as? Bool, dValue: UINavigationBar.aKeys.aHideBottomLine, block: { (value) -> Bool in
+                return value
+            })
+        }
+    }
     
 }
 
@@ -87,23 +100,37 @@ extension UINavigationBar {
         static var aCleanBackground      : Bool     = false
         static var aCleanBackgroundColor : Bool     = false
         static var aCleanBackgroundImage : Bool     = false
+        static var aHideBottomLine       : Bool     = false
     }
     
+    
     ///
-    /// # check vlaue is empty
+    /// # check data type
     /// - Parameters:
-    ///   - value: value
-    ///   - defaultValue: defaultValue
-    ///   - block: block
+    ///   - value:  value
+    ///   - dValue: dValue
+    ///   - block:  block
     /// - Returns: T
     fileprivate func aCheckValue<T>(_ value : T?, dValue : T, block:( ( _ value : T ) -> T)? ) -> T {
         guard let value = value else { return dValue }
         return block?(value) ?? dValue
     }
     
+    ///
+    /// # set title style
+    /// - Parameters:
+    ///   - value: value
+    ///   - key:   key
+    /// - Returns: Array
+    fileprivate func aTitleStyle(_ value : Any?, key : NSAttributedString.Key) -> [NSAttributedString.Key : Any]? {
+        guard let nValue     = value else { return self.titleTextAttributes }
+        guard var attributes = self.titleTextAttributes else { return [key : nValue] }
+        attributes.updateValue(nValue, forKey: key)
+        return attributes
+    }
+    
     /// #  get navigation bar height
     fileprivate var aHeight : CGFloat {
-        
         if #available(iOS 11.0, *) {
             return UIApplication.shared.statusBarFrame.size.height + self.bounds.size.height
         } else {
@@ -112,6 +139,9 @@ extension UINavigationBar {
     }
     
     
+    ///
+    /// # set custom background color
+    /// - Parameter color: color
     fileprivate func aCustomViewBackgroundColor(_ color : UIColor) -> Void {
         
         if (self.imageView != nil) {
@@ -122,7 +152,11 @@ extension UINavigationBar {
         self.customView?.backgroundColor = color;
     }
     
-    fileprivate func aImageViewBackgroundColor(_ image : UIImage?) -> Void {
+    
+    ///
+    /// # set image view background image
+    /// - Parameter image: image
+    fileprivate func aImageViewBackgroundImage(_ image : UIImage?) -> Void {
         
         if (self.customView != nil) {
             self.customView?.removeFromSuperview()
@@ -132,6 +166,10 @@ extension UINavigationBar {
         self.imageView?.image = image;
     }
     
+    
+    ///
+    /// # clane custom view background color
+    /// - Parameter isClean: isClean
     fileprivate func aCleanCustomView(_ isClean : Bool) -> Void {
         if (!isClean || self.customView == nil) { return }
         self.setBackgroundImage(nil, for:.default)
@@ -139,6 +177,10 @@ extension UINavigationBar {
         self.customView = nil
     }
     
+    
+    ///
+    /// # clane image view background image
+    /// - Parameter isClean: isClean
     fileprivate func aCleanImageView(_ isClean : Bool) -> Void {
         if (!isClean || self.imageView == nil) { return }
         self.setBackgroundImage(nil, for:.default)
@@ -148,6 +190,10 @@ extension UINavigationBar {
     
     
     /// # remove custom view
+    
+    ///
+    /// # clane custom view & image view
+    /// - Parameter isClean: isClean
     fileprivate func aClean(_ isClean : Bool) -> Void {
         
         if (!isClean) { return }
@@ -162,6 +208,15 @@ extension UINavigationBar {
             self.imageView = nil
         }
     }
+    
+    ///
+    /// # set hide bottom line
+    /// - Parameter isHidden: isHidden
+    fileprivate func aHideBottomLine(_ isHidden : Bool) -> Void {
+        if let imageView : UIImageView = aFindLineImageView(view: self) {
+            imageView.isHidden = isHidden
+        }
+    }
 }
 
 extension UINavigationBar {
@@ -171,30 +226,55 @@ extension UINavigationBar {
         static var aImageView  : UIImageView? = nil
     }
     
+    ///
+    /// # set find line image view
+    /// - Parameter view:
+    /// - Returns: view
+    private func aFindLineImageView(view : UIView) -> UIImageView?  {
+        if view is UIImageView && view.bounds.size.height <= 1.0 {
+//        if view.isKind(of: UIImageView.self) && view.bounds.size.height <= 1.0 {
+            return view as? UIImageView
+        }
+        for subview in view.subviews {
+            if let imageView : UIImageView = self.aFindLineImageView(view: subview) {
+                return imageView
+            }
+        }
+        return nil
+    }
+    
+    ///
+    /// # create custom view
+    /// - Parameters:
+    ///   - customView: customView
+    ///   - width:  width
+    ///   - height: height
+    /// - Returns: UIView?
     private func aCreateView(_ customView : UIView?, width : CGFloat, height : CGFloat) -> UIView? {
         
         if (customView != nil) { return customView }
-        
         self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        let view : UIView? = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
+        let view : UIView?             = UIView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         view?.isUserInteractionEnabled = false
-        view?.autoresizingMask = .flexibleWidth
-        
+        view?.autoresizingMask         = .flexibleWidth
         if #available(iOS 11.0, *) {
             self.subviews.first?.insertSubview(view!, at: 0)
         } else {
             self.insertSubview(view!, at: 0)
         }
-        
         return view
     }
     
+    ///
+    /// # create image view
+    /// - Parameters:
+    ///   - imageView: imageView
+    ///   - width:  width
+    ///   - height: height
+    /// - Returns: UIImageView?
     private func aCreateImageView(_ imageView : UIImageView?, width : CGFloat, height : CGFloat) -> UIImageView? {
-        
         if (imageView != nil) { return imageView }
-        
         self.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        
         let view : UIImageView? = UIImageView(frame: CGRect(x: 0, y: 0, width: width, height: height))
         view?.isUserInteractionEnabled = false
         view?.autoresizingMask = .flexibleWidth
@@ -203,10 +283,8 @@ extension UINavigationBar {
         } else {
             self.insertSubview(view!, at: 0)
         }
-        
         return view
     }
-    
     
     private var customView : UIView? {
         
